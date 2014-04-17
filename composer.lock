@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e2d81a05044e423e27be92ae671c29b3",
+    "hash": "3ff7c66db488e768ed936266df300ded",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -53,6 +53,63 @@
             "time": "2014-03-12 00:05:31"
         },
         {
+            "name": "components/backbone",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/backbone.git",
+                "reference": "f415ff7f0b30bec12392c771ce9223edf780fbcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/backbone/zipball/f415ff7f0b30bec12392c771ce9223edf780fbcb",
+                "reference": "f415ff7f0b30bec12392c771ce9223edf780fbcb",
+                "shasum": ""
+            },
+            "require": {
+                "components/underscore": ">=1.4.3"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "backbone.js"
+                    ],
+                    "files": [
+                        "backbone-min.js"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "underscore"
+                        ],
+                        "exports": "Backbone"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Ashkenas",
+                    "email": "jeremy@documentcloud.org"
+                }
+            ],
+            "description": "Give your JS App some Backbone with Models, Views, Collections, and Events.",
+            "homepage": "http://backbonejs.org",
+            "keywords": [
+                "browser",
+                "client",
+                "controller",
+                "model",
+                "router",
+                "server",
+                "view"
+            ],
+            "time": "2014-01-22 16:22:21"
+        },
+        {
             "name": "components/jquery",
             "version": "2.1.0",
             "source": {
@@ -97,6 +154,58 @@
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
             "time": "2014-01-24 19:52:32"
+        },
+        {
+            "name": "components/underscore",
+            "version": "1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/underscore.git",
+                "reference": "38a139ff4aee2c57413aa4611137563474c45ac7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/underscore/zipball/38a139ff4aee2c57413aa4611137563474c45ac7",
+                "reference": "38a139ff4aee2c57413aa4611137563474c45ac7",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "underscore.js"
+                    ],
+                    "files": [
+                        "underscore-min.js"
+                    ],
+                    "shim": {
+                        "exports": "_"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Ashkenas",
+                    "email": "jeremy@documentcloud.org"
+                }
+            ],
+            "description": "JavaScript's functional programming helper library.",
+            "homepage": "http://underscorejs.org",
+            "keywords": [
+                "browser",
+                "client",
+                "functional",
+                "server",
+                "util"
+            ],
+            "time": "2013-10-24 06:09:45"
         },
         {
             "name": "d11wtq/boris",
@@ -1806,6 +1915,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "components/backbone": 20,
         "madewithlove/laravel-oauth2": 20
     },
     "platform": [

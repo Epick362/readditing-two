@@ -20,7 +20,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Readditing</a>
+					<a class="navbar-brand" href="{{ URL::to('') }}">Readditing</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -40,6 +40,8 @@
 		</div>
 
 		<script src="{{ URL::asset('packages/jquery/jquery.min.js') }}"></script>
+		<script src="{{ URL::asset('packages/underscore/underscore-min.js') }}"></script>
+		<script src="{{ URL::asset('packages/backbone/backbone-min.js') }}"></script>
 		<script src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js') }}"></script>
 		<script src="{{ URL::asset('js/main.js') }}"></script>
 	</body>
