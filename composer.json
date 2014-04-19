@@ -8,7 +8,7 @@
 		"components/jquery": "2.*",
 		"components/backbone": "dev-master",
 		"twitter/bootstrap": "3.1.*",
-		"madewithlove/laravel-oauth2": "dev-master"
+		"league/oauth2-client": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
@@ -18,7 +18,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+        "psr-0": {
+            "League\\OAuth2\\Client": "vendor/leauge/oauth2-client/src"
+        }
 	},
 	"scripts": {
 		"post-install-cmd": [

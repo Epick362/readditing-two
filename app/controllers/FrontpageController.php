@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class FrontpageController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -15,9 +15,12 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function subreddit($subreddit = 'home')
 	{
-		return View::make('hello');
+		return View::make('frontpage')->with('subreddit', $subreddit);
 	}
 
+	public function auth() {
+		return View::make('frontpage')->with('subreddit', 'Logged In');
+	}
 }

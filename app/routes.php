@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
+Route::get('/', function() {
 	return View::make('frontpage');
 });
+
+Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
+
+Route::get('/auth/login', array('before' => 'oauth', 'uses' => 'FrontpageController@auth'));
