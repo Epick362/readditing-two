@@ -49,9 +49,10 @@
 			@yield('content')
 		</div>
 
+		<script>
+			TOKEN = {{ $token or '' }};
+		</script>
 		<script src="{{ URL::asset('packages/jquery/jquery.min.js') }}"></script>
-		<script src="{{ URL::asset('packages/underscore/underscore-min.js') }}"></script>
-		<script src="{{ URL::asset('packages/backbone/backbone-min.js') }}"></script>
 		<script src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js') }}"></script>
 		<script src="{{ URL::asset('js/main.js') }}"></script>
 	</body>

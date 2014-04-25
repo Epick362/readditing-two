@@ -5,8 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"components/jquery": "2.*",
-		"components/backbone": "dev-master",
+		"components/jquery": "1.9.*",
 		"twitter/bootstrap": "3.1.*",
 		"league/oauth2-client": "dev-master"
 	},

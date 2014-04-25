@@ -403,8 +403,9 @@
 	</div>
 	<div class="panel-footer">
 		Submitted 4 hours ago by <a href="#">User</a> in <a href="#">nosleep</a>
-		<a href="#" class="btn btn-default btn-xs pull-right">0 comments</a>
+		<a class="btn btn-default btn-xs btn-showcomments pull-right">0 comments</a>
 	</div>
+	<?= View::make('partials.modal'); ?>
 </div>
 <div class="panel panel-default">
 	<div class="panel-heading">

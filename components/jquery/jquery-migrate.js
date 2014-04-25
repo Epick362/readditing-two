@@ -1,11 +1,10 @@
 /*!
- * jQuery Migrate - v1.2.1 - 2013-05-08
+ * jQuery Migrate - v1.1.0 - 2013-01-31
  * https://github.com/jquery/jquery-migrate
  * Copyright 2005, 2013 jQuery Foundation, Inc. and other contributors; Licensed MIT
  */
 (function( jQuery, window, undefined ) {
-// See http://bugs.jquery.com/ticket/13335
-// "use strict";
+"use strict";
 
 
 var warnedAbout = {};
@@ -17,8 +16,8 @@ jQuery.migrateWarnings = [];
 // jQuery.migrateMute = false;
 
 // Show a message on the console so devs know we're active
-if ( !jQuery.migrateMute && window.console && window.console.log ) {
-	window.console.log("JQMIGRATE: Logging is active");
+if ( !jQuery.migrateMute && window.console && console.log ) {
+	console.log("JQMIGRATE: Logging is active");
 }
 
 // Set to false to disable traces that appear with warnings
@@ -33,11 +32,10 @@ jQuery.migrateReset = function() {
 };
 
 function migrateWarn( msg) {
-	var console = window.console;
 	if ( !warnedAbout[ msg ] ) {
 		warnedAbout[ msg ] = true;
 		jQuery.migrateWarnings.push( msg );
-		if ( console && console.warn && !jQuery.migrateMute ) {
+		if ( window.console && console.warn && !jQuery.migrateMute ) {
 			console.warn( "JQMIGRATE: " + msg );
 			if ( jQuery.migrateTrace && console.trace ) {
 				console.trace();
@@ -80,7 +78,7 @@ if ( document.compatMode === "BackCompat" ) {
 }
 
 
-var attrFn = jQuery( "<input/>", { size: 1 } ).attr("size") && jQuery.attrFn,
+var attrFn = {},
 	oldAttr = jQuery.attr,
 	valueAttrGet = jQuery.attrHooks.value && jQuery.attrHooks.value.get ||
 		function() { return null; },
@@ -92,20 +90,17 @@ var attrFn = jQuery( "<input/>", { size: 1 } ).attr("size") && jQuery.attrFn,
 	ruseDefault = /^(?:checked|selected)$/i;
 
 // jQuery.attrFn
-migrateWarnProp( jQuery, "attrFn", attrFn || {}, "jQuery.attrFn is deprecated" );
+migrateWarnProp( jQuery, "attrFn", attrFn, "jQuery.attrFn is deprecated" );
 
 jQuery.attr = function( elem, name, value, pass ) {
 	var lowerName = name.toLowerCase(),
 		nType = elem && elem.nodeType;
 
-	if ( pass ) {
-		// Since pass is used internally, we only warn for new jQuery
-		// versions where there isn't a pass arg in the formal params
-		if ( oldAttr.length < 4 ) {
-			migrateWarn("jQuery.fn.attr( props, pass ) is deprecated");
-		}
-		if ( elem && !rnoAttrNodeType.test( nType ) &&
-			(attrFn ? name in attrFn : jQuery.isFunction(jQuery.fn[name])) ) {
+	// Since pass is used internally, we only warn and shim for new jQuery
+	// versions where there isn't a pass arg in the formal params
+	if ( pass && oldAttr.length < 4 ) {
+		migrateWarn("jQuery.fn.attr( props, pass ) is deprecated");
+		if ( elem && !rnoAttrNodeType.test( nType ) && jQuery.isFunction( jQuery.fn[ name ] ) ) {
 			return jQuery( elem )[ name ]( value );
 		}
 	}
@@ -190,27 +185,18 @@ jQuery.attrHooks.value = {
 var matched, browser,
 	oldInit = jQuery.fn.init,
 	oldParseJSON = jQuery.parseJSON,
-	// Note: XSS check is done below after string is trimmed
-	rquickExpr = /^([^<]*)(<[\w\W]+>)([^>]*)$/;
+	// Note this does NOT include the #9521 XSS fix from 1.7!
+	rquickExpr = /^(?:[^<]*(<[\w\W]+>)[^>]*|#([\w\-]*))$/;
 
 // $(html) "looks like html" rule change
 jQuery.fn.init = function( selector, context, rootjQuery ) {
 	var match;
 
 	if ( selector && typeof selector === "string" && !jQuery.isPlainObject( context ) &&
-			(match = rquickExpr.exec( jQuery.trim( selector ) )) && match[ 0 ] ) {
+			(match = rquickExpr.exec( selector )) && match[1] ) {
 		// This is an HTML string according to the "old" rules; is it still?
 		if ( selector.charAt( 0 ) !== "<" ) {
 			migrateWarn("$(html) HTML strings must start with '<' character");
-		}
-		if ( match[ 3 ] ) {
-			migrateWarn("$(html) HTML text after last tag is ignored");
-		}
-		// Consistently reject any HTML-like string starting with a hash (#9521)
-		// Note that this may break jQuery 1.6.x code that otherwise would work.
-		if ( match[ 0 ].charAt( 0 ) === "#" ) {
-			migrateWarn("HTML string cannot start with a '#' character");
-			jQuery.error("JQMIGRATE: Invalid selector string (XSS)");
 		}
 		// Now process using loose rules; let pre-1.8 play too
 		if ( context && context.context ) {
@@ -218,7 +204,7 @@ jQuery.fn.init = function( selector, context, rootjQuery ) {
 			context = context.context;
 		}
 		if ( jQuery.parseHTML ) {
-			return oldInit.call( this, jQuery.parseHTML( match[ 2 ], context, true ),
+			return oldInit.call( this, jQuery.parseHTML( jQuery.trim(selector), context, true ),
 					context, rootjQuery );
 		}
 	}
@@ -251,28 +237,25 @@ jQuery.uaMatch = function( ua ) {
 	};
 };
 
-// Don't clobber any existing jQuery.browser in case it's different
-if ( !jQuery.browser ) {
-	matched = jQuery.uaMatch( navigator.userAgent );
-	browser = {};
+matched = jQuery.uaMatch( navigator.userAgent );
+browser = {};
 
-	if ( matched.browser ) {
-		browser[ matched.browser ] = true;
-		browser.version = matched.version;
-	}
-
-	// Chrome is Webkit, but Webkit is also Safari.
-	if ( browser.chrome ) {
-		browser.webkit = true;
-	} else if ( browser.webkit ) {
-		browser.safari = true;
-	}
-
-	jQuery.browser = browser;
+if ( matched.browser ) {
+	browser[ matched.browser ] = true;
+	browser.version = matched.version;
 }
 
+// Chrome is Webkit, but Webkit is also Safari.
+if ( browser.chrome ) {
+	browser.webkit = true;
+} else if ( browser.webkit ) {
+	browser.safari = true;
+}
+
+jQuery.browser = browser;
+
 // Warn if the code tries to get jQuery.browser
-migrateWarnProp( jQuery, "browser", jQuery.browser, "jQuery.browser is deprecated" );
+migrateWarnProp( jQuery, "browser", browser, "jQuery.browser is deprecated" );
 
 jQuery.sub = function() {
 	function jQuerySub( selector, context ) {
@@ -295,14 +278,6 @@ jQuery.sub = function() {
 	migrateWarn( "jQuery.sub() is deprecated" );
 	return jQuerySub;
 };
-
-
-// Ensure that $.ajax gets the new parseJSON defined in core.js
-jQuery.ajaxSetup({
-	converters: {
-		"text json": jQuery.parseJSON
-	}
-});
 
 
 var oldFnData = jQuery.fn.data;
@@ -392,7 +367,7 @@ var eventAdd = jQuery.event.add,
 	rajaxEvent = new RegExp( "\\b(?:" + ajaxEvents + ")\\b" ),
 	rhoverHack = /(?:^|\s)hover(\.\S+|)\b/,
 	hoverHack = function( events ) {
-		if ( typeof( events ) !== "string" || jQuery.event.special.hover ) {
+		if ( typeof( events ) != "string" || jQuery.event.special.hover ) {
 			return events;
 		}
 		if ( rhoverHack.test( events ) ) {
@@ -487,7 +462,7 @@ jQuery.fn.die = function( types, fn ) {
 
 // Turn global events into document-triggered events
 jQuery.event.trigger = function( event, data, elem, onlyHandlers  ){
-	if ( !elem && !rajaxEvent.test( event ) ) {
+	if ( !elem & !rajaxEvent.test( event ) ) {
 		migrateWarn( "Global events are undocumented and deprecated" );
 	}
 	return eventTrigger.call( this,  event, data, elem || document, onlyHandlers  );

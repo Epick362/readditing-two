@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "76a2fd3d3ea4bd5e33fa2f90f2782464",
+    "hash": "041338892eafba622cf78c0a55711aba",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -53,74 +53,17 @@
             "time": "2014-03-12 00:05:31"
         },
         {
-            "name": "components/backbone",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/backbone.git",
-                "reference": "f415ff7f0b30bec12392c771ce9223edf780fbcb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/backbone/zipball/f415ff7f0b30bec12392c771ce9223edf780fbcb",
-                "reference": "f415ff7f0b30bec12392c771ce9223edf780fbcb",
-                "shasum": ""
-            },
-            "require": {
-                "components/underscore": ">=1.4.3"
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "backbone.js"
-                    ],
-                    "files": [
-                        "backbone-min.js"
-                    ],
-                    "shim": {
-                        "deps": [
-                            "underscore"
-                        ],
-                        "exports": "Backbone"
-                    }
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Ashkenas",
-                    "email": "jeremy@documentcloud.org"
-                }
-            ],
-            "description": "Give your JS App some Backbone with Models, Views, Collections, and Events.",
-            "homepage": "http://backbonejs.org",
-            "keywords": [
-                "browser",
-                "client",
-                "controller",
-                "model",
-                "router",
-                "server",
-                "view"
-            ],
-            "time": "2014-01-22 16:22:21"
-        },
-        {
             "name": "components/jquery",
-            "version": "2.1.0",
+            "version": "1.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
-                "reference": "099ad075783a6189f13c1e742e03f9cc95654a27"
+                "reference": "0e94233e6a4ab678d8fc04312241b2f840717b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/099ad075783a6189f13c1e742e03f9cc95654a27",
-                "reference": "099ad075783a6189f13c1e742e03f9cc95654a27",
+                "url": "https://api.github.com/repos/components/jquery/zipball/0e94233e6a4ab678d8fc04312241b2f840717b0c",
+                "reference": "0e94233e6a4ab678d8fc04312241b2f840717b0c",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +77,6 @@
                     ],
                     "files": [
                         "jquery.min.js",
-                        "jquery.min.map",
                         "jquery-migrate.js",
                         "jquery-migrate.min.js"
                     ]
@@ -153,59 +95,7 @@
             ],
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
-            "time": "2014-01-24 19:52:32"
-        },
-        {
-            "name": "components/underscore",
-            "version": "1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/underscore.git",
-                "reference": "38a139ff4aee2c57413aa4611137563474c45ac7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/underscore/zipball/38a139ff4aee2c57413aa4611137563474c45ac7",
-                "reference": "38a139ff4aee2c57413aa4611137563474c45ac7",
-                "shasum": ""
-            },
-            "require": {
-                "robloach/component-installer": "*"
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "underscore.js"
-                    ],
-                    "files": [
-                        "underscore-min.js"
-                    ],
-                    "shim": {
-                        "exports": "_"
-                    }
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Ashkenas",
-                    "email": "jeremy@documentcloud.org"
-                }
-            ],
-            "description": "JavaScript's functional programming helper library.",
-            "homepage": "http://underscorejs.org",
-            "keywords": [
-                "browser",
-                "client",
-                "functional",
-                "server",
-                "util"
-            ],
-            "time": "2013-10-24 06:09:45"
+            "time": "2013-07-16 10:41:05"
         },
         {
             "name": "d11wtq/boris",
@@ -664,12 +554,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-client.git",
-                "reference": "91bd27b18477b5c302705ffb89ecd789a0f9142d"
+                "reference": "2dde0d98f98a242a681a5cdfa354331fe2832d5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/91bd27b18477b5c302705ffb89ecd789a0f9142d",
-                "reference": "91bd27b18477b5c302705ffb89ecd789a0f9142d",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/2dde0d98f98a242a681a5cdfa354331fe2832d5f",
+                "reference": "2dde0d98f98a242a681a5cdfa354331fe2832d5f",
                 "shasum": ""
             },
             "require": {
@@ -709,20 +599,20 @@
                 "oauth2",
                 "single sign on"
             ],
-            "time": "2014-03-07 02:04:39"
+            "time": "2014-04-21 17:29:46"
         },
         {
             "name": "monolog/monolog",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174"
+                "reference": "1afc39690e7414412face1f8cbf67b73db34485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/392ef35fd470638e08d0160d6b1cbab63cb23174",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1afc39690e7414412face1f8cbf67b73db34485c",
+                "reference": "1afc39690e7414412face1f8cbf67b73db34485c",
                 "shasum": ""
             },
             "require": {
@@ -750,7 +640,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8.x-dev"
+                    "dev-master": "1.9.x-dev"
                 }
             },
             "autoload": {
@@ -777,7 +667,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-03-23 19:50:26"
+            "time": "2014-04-20 16:41:26"
         },
         {
             "name": "nesbot/carbon",
@@ -2105,7 +1995,6 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "components/backbone": 20,
         "league/oauth2-client": 20
     },
     "platform": [
