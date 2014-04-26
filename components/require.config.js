@@ -1,6 +1,10 @@
 var components = {
     "packages": [
         {
+            "name": "angularjs",
+            "main": "angularjs-built.js"
+        },
+        {
             "name": "jquery",
             "main": "jquery-built.js"
         }

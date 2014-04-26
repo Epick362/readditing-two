@@ -7,7 +7,8 @@
 		"laravel/framework": "4.1.*",
 		"components/jquery": "1.9.*",
 		"twitter/bootstrap": "3.1.*",
-		"league/oauth2-client": "dev-master"
+		"league/oauth2-client": "dev-master",
+		"components/angular.js": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
@@ -19,7 +20,8 @@
 			"app/tests/TestCase.php"
 		],
         "psr-0": {
-            "League\\OAuth2\\Client": "vendor/leauge/oauth2-client/src"
+            "League\\OAuth2\\Client": "vendor/leauge/oauth2-client/src",
+            "Readditing\\Readability": "workbench/readditing/readability/src"
         }
 	},
 	"scripts": {

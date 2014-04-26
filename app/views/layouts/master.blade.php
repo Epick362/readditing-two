@@ -50,8 +50,9 @@
 		</div>
 
 		<script>
-			TOKEN = {{ $token or '' }};
+			TOKEN = {{ $token or "" }};
 		</script>
+		<script src="{{ URL::asset('packages/angular.js/angular.min.js') }}"></script>
 		<script src="{{ URL::asset('packages/jquery/jquery.min.js') }}"></script>
 		<script src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js') }}"></script>
 		<script src="{{ URL::asset('js/main.js') }}"></script>

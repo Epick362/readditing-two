@@ -17,6 +17,12 @@ class FrontpageController extends BaseController {
 
 	public function subreddit($subreddit = 'home')
 	{
+		$readability = new Readditing\Readability\Readability(['url' => 'http://www.sciencedaily.com/releases/2014/04/140425104714.htm']);
+
+		$readability->init();
+
+		print_r($readability->getContent()->innerHTML);
+
 		return View::make('frontpage')->with('subreddit', $subreddit);
 	}
 

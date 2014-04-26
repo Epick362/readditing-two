@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function() {
-	return View::make('frontpage');
-});
+Route::get('/', 'FrontpageController@subreddit');
 
 Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
 
