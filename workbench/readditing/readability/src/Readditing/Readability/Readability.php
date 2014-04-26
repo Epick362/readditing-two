@@ -47,18 +47,13 @@ class Readability {
 	* @return DOMElement
 	*/
 
-	public function __construct($options = array())
+	public function __construct($url)
 	{
-		foreach ($options as $option => $value) {
-			if (isset($this->{$option})) {
-				$this->{$option} = $value;
-			}
-		}
-
+		$this->url = $url;
 		$this->dom = new \DOMDocument();
 		$this->dom->preserveWhiteSpace = false;
 		libxml_use_internal_errors(true);
-		$this->dom->loadHTMLFile('http://www.sciencedaily.com/releases/2014/04/140425104714.htm');
+		$this->dom->loadHTMLFile($this->url);
 		$html = $this->dom->saveHTML();
 
 		/* Turn all double br's into p's */
@@ -118,6 +113,8 @@ class Readability {
 	**/
 	public function init()
 	{
+		$starttime = microtime();
+
 		if (!isset($this->dom->documentElement)) return false;
 		$this->removeScripts($this->dom);
 		//die($this->getInnerHTML($this->dom->documentElement));
@@ -173,7 +170,11 @@ class Readability {
 		// Set title and content instance variables
 		$this->articleTitle = $articleTitle;
 		$this->articleContent = $articleContent;
-		
+			
+		$endtime = microtime() - $starttime;
+
+		//print_r($endtime);
+
 		return $this->success;
 	}
 	

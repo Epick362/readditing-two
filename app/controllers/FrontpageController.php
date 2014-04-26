@@ -11,19 +11,28 @@ class FrontpageController extends BaseController {
 	| based routes. That's great! Here is an example controller method to
 	| get you started. To route to this controller, just add the route:
 	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
 	*/
 
 	public function subreddit($subreddit = 'home')
 	{
-		$readability = new Readditing\Readability\Readability(['url' => 'http://www.sciencedaily.com/releases/2014/04/140425104714.htm']);
+		$viewData = array();
+		$viewData['subreddit'] = $subreddit;
 
-		$readability->init();
+		$links = ['http://www.sciencedaily.com/releases/2014/04/140425104714.htm', 
+					'http://www.thewire.com/technology/2014/04/elon-musks-space-x-claims-an-evolutionary-breakthrough-in-rocket-technology/361244/'];
 
-		print_r($readability->getContent()->innerHTML);
+		$i = 0;
+		foreach($links as $link) {
+			$readability = new Readditing\Readability\Readability($link);
+			$readability->init();
 
-		return View::make('frontpage')->with('subreddit', $subreddit);
+			$viewData['posts'][$i]['title'] = $readability->getTitle()->innerHTML;
+			$viewData['posts'][$i]['content'] = $readability->getContent()->innerHTML;
+
+			$i++;
+		}
+
+		return View::make('frontpage', $viewData);
 	}
 
 	public function auth() {
