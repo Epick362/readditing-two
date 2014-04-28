@@ -18,8 +18,9 @@ class FrontpageController extends BaseController {
 		$viewData = array();
 		$viewData['subreddit'] = $subreddit;
 
-		$links = ['http://www.sciencedaily.com/releases/2014/04/140425104714.htm', 
-					'http://www.thewire.com/technology/2014/04/elon-musks-space-x-claims-an-evolutionary-breakthrough-in-rocket-technology/361244/'];
+		$links = ['http://www.cnn.com/2014/04/25/justice/texas-family-wins-fracking-lawsuit/index.html',
+				'http://www.sciencedaily.com/releases/2014/04/140425104714.htm', 
+				'http://www.thewire.com/technology/2014/04/elon-musks-space-x-claims-an-evolutionary-breakthrough-in-rocket-technology/361244/'];
 
 		$i = 0;
 		foreach($links as $link) {

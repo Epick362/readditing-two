@@ -12,7 +12,7 @@ class Readability {
 	public $dom;
 	public $url = null; // optional - URL where HTML was retrieved
 	public $debug = false;
-	public $lightClean = true; // preserves more content (experimental) added 2012-09-19
+	public $lightClean = false; // preserves more content (experimental) added 2012-09-19
 	protected $body = null; // 
 	protected $bodyCache = null; // Cache the body HTML in case we need to re-use it later
 	protected $flags = 7; // 1 | 2 | 4;   // Start with all flags set.
@@ -55,6 +55,12 @@ class Readability {
 		libxml_use_internal_errors(true);
 		$this->dom->loadHTMLFile($this->url);
 		$html = $this->dom->saveHTML();
+
+		if (function_exists('tidy_parse_string')) {
+			$tidy = tidy_parse_string($html, array(), 'UTF8');
+			$tidy->cleanRepair();
+			$html = $tidy->value;
+		}
 
 		/* Turn all double br's into p's */
 		$html = preg_replace($this->regexps['replaceBrs'], '</p><p>', $html);
@@ -379,6 +385,18 @@ class Readability {
 		if ($this->revertForcedParagraphElements) {
 			$this->revertReadabilityStyledElements($articleContent);
 		}
+
+		/* Turn images' sources to absoulte path */
+		/*
+		$xp = new \DOMXPath($articleContent->ownerDocument);
+		$images = $xp->query('//img[not(starts-with(@src, "http:") or starts-with(@src, "https:") or starts-with(@src, "data:"))]');
+		for ($i = $images->length-1; $i >= 0; $i--) {
+			$img = $images->item($i);
+		    $img->setAttribute('src',
+		        $this->url . ltrim($img->getAttribute('src'), '/'));
+		    $img->setAttribute('class', 'img-round img-responsive');
+		}
+		*/
 
 		/* Clean out junk from the article content */
 		$this->cleanConditionally($articleContent, 'form');

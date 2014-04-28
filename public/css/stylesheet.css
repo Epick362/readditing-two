@@ -19,7 +19,10 @@ body > .container {
 	overflow: hidden;
 	max-height: 250px;
 }
-.panel-body > img {
+.panel-text img {
+	display: none;
+}
+.panel-body img {
 	margin: 0 auto;
 }
 

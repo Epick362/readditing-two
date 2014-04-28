@@ -7,6 +7,7 @@
 		<div class="panel-heading">
 			{{ $post['title'] }}
 			<a class="pull-right" href="#">youtube.com</a>
+			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
 			<div class="panel-text panel-text-short">
