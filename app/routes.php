@@ -15,4 +15,4 @@ Route::get('/', 'FrontpageController@subreddit');
 
 Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
 
-Route::get('/auth/login', array('before' => 'oauth', 'uses' => 'FrontpageController@auth'));
+Route::get('/auth/login', 'AuthController@auth');

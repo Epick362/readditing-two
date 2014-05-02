@@ -7,7 +7,7 @@
 		"laravel/framework": "4.1.*",
 		"components/jquery": "1.9.*",
 		"twitter/bootstrap": "3.1.*",
-		"league/oauth2-client": "dev-master",
+		"madewithlove/laravel-oauth2": "dev-master",
 		"components/angular.js": "dev-master"
 	},
 	"autoload": {
