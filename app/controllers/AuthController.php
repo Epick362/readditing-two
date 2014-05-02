@@ -13,27 +13,75 @@ class AuthController extends Controller {
 			'secret' => 'diuIcaD4ejI0ZUlQXbDqRTxBRjA',
 		));
 
-		if (!isset($_GET['code'])) {
+		if(Cookie::get('refresh_token')) {
+			try {
+				$params = $provider->access(Cookie::get('refresh_token'), array('grant_type' => 'refresh_token'));
+
+				$this->authorize($params, $provider);
+			}
+
+			catch (OAuth2_Exception $e) {
+				echo 'Something went wrong<br />';
+				echo '<pre>'.$e.'</pre>';
+				return;
+			}
+		}else if (!isset($_GET['code'])) {
 			// By sending no options it'll come back here
-			return $provider->authorize(array('duration' => 'permanent'));
+			return $provider->authorize();
 		}else{
 			try {
 				$params = $provider->access($_GET['code']);
 
-					$token = new Token_Access(array(
-						'access_token' => $params->access_token
-					));
-					$user = $provider->get_user_info($token);
-
-				// Here you should use this information to A) look for a user B) help a new user sign up with existing data.
-				// If you store it all in a cookie and redirect to a registration page this is crazy-simple.
-				echo "<pre>";
-				var_dump($user);
+				$this->authorize($params, $provider);
 			}
 
 			catch (OAuth2_Exception $e) {
-				echo $e;
+				echo 'Something went wrong<br />';
+				echo '<pre>'.$e.'</pre>';
+				return;
 			}
 		}
+
+		// assume the login went OK
+		return Redirect::intended('/');
+	}
+
+	private function authorize($params, $provider) {
+		$token = new Token_Access(array(
+			'access_token' => $params->access_token
+		));
+			
+		$user = $provider->get_user_info($token);
+
+		// Just dump all of the user info into session
+		/*
+			array(10) {
+			  ["name"]=>
+			  string(9) "Epick_362"
+			  ["created"]=>
+			  float(1375747259)
+			  ["created_utc"]=>
+			  float(1375743659)
+			  ["link_karma"]=>
+			  int(12)
+			  ["comment_karma"]=>
+			  int(37)
+			  ["over_18"]=>
+			  bool(true)
+			  ["is_gold"]=>
+			  bool(false)
+			  ["is_mod"]=>
+			  bool(false)
+			  ["has_verified_email"]=>
+			  bool(false)
+			  ["id"]=>
+			  string(5) "cn3jt"
+			}
+		*/
+		Session::put('user', $user);
+		Cookie::queue('token_generated', time(), 60 * 24 * 30);
+
+		// Set the refresh token cookies
+		Cookie::queue('refresh_token', $params->refresh_token, 60 * 24 * 30);		
 	}
 }
