@@ -13,7 +13,7 @@
 
 App::before(function($request)
 {
-	if(Cookie::get('refresh_token') && Cookie::get('token_generated') + 3600 > time()) {
+	if(Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') + 3600 > time()) {
 		return Redirect::to('auth/login');
 	}
 });

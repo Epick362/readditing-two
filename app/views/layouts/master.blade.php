@@ -41,6 +41,13 @@
 							</ul>
 						</li>
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						@if(!Session::has('user'))
+							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with Reddit</a>
+						@else
+							<li><a href="#">{{ Session::get('user')['name'] }}</a></li>
+						@endif
+					</ul>
 				</div>
 			</div>
 		</div>

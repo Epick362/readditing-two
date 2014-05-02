@@ -41,9 +41,8 @@ class AuthController extends Controller {
 				return;
 			}
 		}
-
-		// assume the login went OK
-		return Redirect::intended('/');
+		
+		return Redirect::to('/');
 	}
 
 	private function authorize($params, $provider) {

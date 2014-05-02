@@ -2,6 +2,10 @@
 
 @section('content')
 
+	@if(Session::has('user'))
+		<pre>{{ print_r(Session::get('user')) }}</pre>
+	@endif
+
 	@foreach($posts as $post)
 	<div class="panel panel-default">
 		<div class="panel-heading">
