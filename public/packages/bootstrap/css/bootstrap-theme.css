@@ -68,7 +68,11 @@ a:focus {
   background: #FFF;
   color: #1A1A1A;
 }
-
+.navbar-brand {
+  font-family: Palatino, sans-serif;
+  font-size: 26px;
+  line-height: 24px;
+}
 .navbar-default .navbar-nav>.dropdown>a .caret, 
 .navbar-default .navbar-nav>.dropdown>a:hover .caret, 
 .navbar-default .navbar-nav>.dropdown>a:focus .caret,
@@ -85,9 +89,6 @@ a:focus {
   border-bottom: 3px #3069AB solid;
   -webkit-box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.16);
   box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.16);
-}
-.navbar-default a {
-  color: #1A1A1A;
 }
 .navbar-default .navbar-nav>li>a {
   color: #1A1A1A;
