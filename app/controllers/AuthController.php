@@ -41,7 +41,7 @@ class AuthController extends Controller {
 				return;
 			}
 		}
-		
+
 		return Redirect::to('/');
 	}
 
@@ -78,9 +78,12 @@ class AuthController extends Controller {
 			}
 		*/
 		Session::put('user', $user);
+		Session::put('access_token', $params->access_token);
 		Cookie::queue('token_generated', time(), 60 * 24 * 30);
 
 		// Set the refresh token cookies
-		Cookie::queue('refresh_token', $params->refresh_token, 60 * 24 * 30);		
+		if(isset($parems->refresh_token) && $params->refresh_token != '') {
+			Cookie::queue('refresh_token', $params->refresh_token, 60 * 24 * 30);	
+		}	
 	}
 }

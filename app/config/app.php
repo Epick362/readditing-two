@@ -107,7 +107,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		
-		'Readditing\Readability\ReadabilityServiceProvider'
+		'Readditing\Readability\ReadabilityServiceProvider',
+		'Readditing\Reddit\RedditServiceProvider'
 	),
 
 	/*

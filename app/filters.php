@@ -13,7 +13,8 @@
 
 App::before(function($request)
 {
-	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') + 3600 > time()) {
+	// if the token is older than 1 hour -> refresh it
+	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') <= time() - 3600) {
 		return Redirect::to('auth/login');
 	}
 });

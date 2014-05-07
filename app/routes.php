@@ -16,3 +16,9 @@ Route::get('/', 'FrontpageController@subreddit');
 Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
 
 Route::get('/auth/login', 'AuthController@auth');
+
+Route::get('/test', function() {
+	echo '<pre>';
+	print_r(Reddit::fetch('/hot.json'));
+	return;
+});
