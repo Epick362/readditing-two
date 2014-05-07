@@ -7,7 +7,7 @@
 	@endif
 
 	@foreach($posts as $post)
-	<div class="panel panel-default">
+	<div class="panel panel-default" data-extra="{{ $post['extra'] or '' }}">
 		<div class="panel-heading">
 			{{ $post['title'] }}
 			<a class="pull-right" href="#">youtube.com</a>
