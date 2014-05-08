@@ -82,7 +82,7 @@ class AuthController extends Controller {
 		Cookie::queue('token_generated', time(), 60 * 24 * 30);
 
 		// Set the refresh token cookies
-		if(isset($parems->refresh_token) && $params->refresh_token != '') {
+		if(isset($parems->refresh_token) && $params->refresh_token != NULL) {
 			Cookie::queue('refresh_token', $params->refresh_token, 60 * 24 * 30);	
 		}	
 	}
