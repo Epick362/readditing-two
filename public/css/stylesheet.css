@@ -7,6 +7,10 @@ body > .container {
 	margin: 5px auto;
 }
 
+.panel {
+	margin-bottom: 40px;
+}
+
 .panel-body > .panel-text {
 	position: relative;
 	margin: 0 auto;
@@ -15,6 +19,12 @@ body > .container {
 	font-size: 16px;
 	line-height: 1.65;
 }
+
+.panel-footer [class^="icon-"], .panel-footer [class*=" icon-"] {
+	font-size: 18px;
+	padding: 5px;
+}
+
 .panel-text-short {
 	overflow: hidden;
 	max-height: 250px;

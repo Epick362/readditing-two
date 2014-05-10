@@ -7,7 +7,7 @@
 	@endif
 
 	@foreach($posts as $post)
-	<div class="panel panel-default" data-extra="{{ $post['extra'] or '' }}">
+	<div class="panel nsfw panel-default" data-extra="{{ $post['extra'] or '' }}">
 		<div class="panel-heading">
 			{{ $post['title'] }}
 			<a class="pull-right" href="#">youtube.com</a>
@@ -22,10 +22,21 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<a href="#">save</a>
-			<a href="#">report</a>
-
-			<a href="#" class="btn btn-default btn-xs pull-right">0 comments</a>
+			<div class="row">
+				<div class="col-sm-4">
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Save"><i class="icon-disk"></i></a>
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Report"><i class="icon-warning"></i></a>
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Hide"><i class="icon-eye-blocked"></i></a>
+				</div>
+				<div class="col-sm-4 text-center">
+					<a href="#"><i class="icon-bubbles"></i> 0 comments</a>
+				</div>
+				<div class="col-sm-4 text-right">
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Tweet this"><i class="icon-twitter"></i></a>
+					<a href="#" data-toggle="tooltip" data-placement="top" title="+ this"><i class="icon-googleplus"></i></a>
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Like this"><i class="icon-facebook"></i></a>					
+				</div>
+			</div>
 		</div>	
 		<?= View::make('partials.modal'); ?>
 	</div>

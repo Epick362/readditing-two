@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap/css/bootstrap-theme.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/stylesheet.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/icomoon.css') }}">
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,400,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
@@ -59,10 +60,16 @@
 				</div>
 			</div>
 		</div>
-
 		<script src="{{ URL::asset('packages/angular.js/angular.min.js') }}"></script>
 		<script src="{{ URL::asset('packages/jquery/jquery.min.js') }}"></script>
 		<script src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js') }}"></script>
 		<script src="{{ URL::asset('js/main.js') }}"></script>
+		<script>
+			$(function() {
+				$('a[title]').tooltip(
+					{ 'delay' : { 'show': 300, 'hide': 200 } }
+				);
+			});
+		</script>
 	</body>
 </html>
