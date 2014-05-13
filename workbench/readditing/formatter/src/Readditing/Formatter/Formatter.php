@@ -15,6 +15,11 @@ class Formatter {
 	{
 		$class = __NAMESPACE__ . '\\Provider\\' . ucfirst($name);
 
-		return new $class($data);
+		if(class_exists($class)) {
+			return new $class($data);
+		}else{
+			$classname = __NAMESPACE__ . '\\Provider\\OtherProvider';
+			return new $classname($data);
+		}
 	}
 }

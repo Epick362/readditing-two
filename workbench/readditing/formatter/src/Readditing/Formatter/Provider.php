@@ -21,7 +21,7 @@ abstract class Provider {
 
 	}
 
-	abstract public function greeting();
+	abstract public function getContent();
 
 	/**
 	 * Return the value of any protected class variable.
@@ -36,5 +36,4 @@ abstract class Provider {
 	{
 		return $this->$key;
 	}
-
 }

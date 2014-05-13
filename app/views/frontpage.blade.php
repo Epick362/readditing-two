@@ -24,16 +24,17 @@
 		<div class="panel-footer">
 			<div class="row">
 				<div class="col-sm-4">
-				@if(Session::has('user'))
-					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="save" title="Save"><i class="icon-disk"></i></a>
-					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="report" title="Report"><i class="icon-warning"></i></a>
-					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="hide" title="Hide"><i class="icon-eye-blocked"></i></a>
-				@endif
+					Submitted by <a href="#">USER</a> in <a href="#">SUBREDDIT</a> 
 				</div>
 				<div class="col-sm-4 text-center">
 					<a href="#" class="btn-showcomments"><i class="icon-bubbles"></i> 0 comments</a>
 				</div>
 				<div class="col-sm-4 text-right">
+				@if(Session::has('user'))
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="save" title="Save"><i class="icon-disk"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="report" title="Report"><i class="icon-warning"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="hide" title="Hide"><i class="icon-eye-blocked"></i></a>
+				@endif
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Tweet this"><i class="icon-twitter"></i></a>
 					<a href="#" data-toggle="tooltip" data-placement="top" title="+ this"><i class="icon-googleplus"></i></a>
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Like this"><i class="icon-facebook"></i></a>					

@@ -10,12 +10,15 @@ class Imgur extends Provider {
 	*/
 	public $name = 'imgur';
 
+	public function __construct($data) {
+		$this->data = $data;
+	}
 	/**
-	 * Returns the authorization URL for the provider.
+	 * This is where the magic happens
 	 *
-	 * @return  string
+	 * @return  Array
 	 */
-	public function greeting()
+	public function getContent()
 	{
 		return $this->name;
 	}

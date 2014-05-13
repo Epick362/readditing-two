@@ -13,10 +13,6 @@ class Reddit {
 		}
 	}
 
-	public static function greeting(){
-		return "What up dawg " . self::$access_token;
-	}
-
 	public static function fetch($api, $params = array(), $method = 'GET') {
 		$url = self::$reddit_url . '' . $api;
 

@@ -15,43 +15,39 @@ class FrontpageController extends BaseController {
 	|
 	*/
 
-	public function subreddit($subreddit = 'home')
+	public function subreddit($subreddit = 'home', $after = NULL)
 	{
 		$viewData = array();
 		$viewData['subreddit'] = $subreddit;
 
-		$links = ['http://www.cnn.com/2014/04/25/justice/texas-family-wins-fracking-lawsuit/index.html#',
-				'http://www.sciencedaily.com/releases/2014/04/140425104714.htm', 
-				'http://www.thewire.com/technology/2014/04/elon-musks-space-x-claims-an-evolutionary-breakthrough-in-rocket-technology/361244/'];
+		$posts = Reddit::fetch('/hot.json');
 
-		$i = 0;
-		foreach($links as $link) {
-			$saved_article = Article::where('url', $link)->first();
-			if(! $saved_article) {
-				$readability = new Readditing\Readability\Readability($link);
-				$readability->init();
+		if(isset($posts['data']['children'])) {
+			foreach($posts['data']['children'] as $_post) {
 
-				$viewData['posts'][$i]['title'] = $readability->getTitle()->innerHTML;
-				$viewData['posts'][$i]['content'] = $readability->getContent()->innerHTML;
+				$parts = parse_url($_post['data']['url']);
 
-				$article = new Article;
-				$article->url = $link;
-				$article->title = $readability->getTitle()->innerHTML;
-				$article->content = $readability->getContent()->innerHTML;
-				$article->save();
-			}else{
-				$article = $saved_article;
+				$host = str_replace('www.', '', $parts['host']);
+				$matches = array();
+				preg_match('/(.*?)((\.co)?.[a-z]{2,4})$/i', $host, $matches);
+				if(strchr($matches[1], '.')) {
+					$_url = substr(strrchr($matches[1], '.'), 1);
+				}else{
+					$_url = $matches[1];
+				}
 
-				$viewData['posts'][$i]['title'] = $article->title;
-				$viewData['posts'][$i]['content'] = $article->content;
-				$viewData['posts'][$i]['extra'] = 'cached';
+				$formatter = Formatter::provider($_url, $_post);
+				print_r($formatter->getContent());
+				echo '<br/>';
 			}
-
-			$i++;
+			die;
+		}else{
+			App::abort(503);
 		}
 
-		$formatter = Formatter::provider('imgur', array('data' => 'lol'));
-		print_r($formatter->greeting());
+		/*
+
+		*/
 
 		return View::make('frontpage', $viewData);
 	}
