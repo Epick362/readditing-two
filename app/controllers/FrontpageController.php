@@ -1,5 +1,7 @@
 <?php
 
+use Readditing\Formatter\Formatter as Formatter;
+
 class FrontpageController extends BaseController {
 
 	/*
@@ -47,6 +49,9 @@ class FrontpageController extends BaseController {
 
 			$i++;
 		}
+
+		$formatter = Formatter::provider('imgur', array('data' => 'lol'));
+		print_r($formatter->greeting());
 
 		return View::make('frontpage', $viewData);
 	}

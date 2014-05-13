@@ -7,7 +7,7 @@
 	@endif
 
 	@foreach($posts as $post)
-	<div class="panel nsfw panel-default" data-extra="{{ $post['extra'] or '' }}">
+	<div class="panel panel-default" data-extra="{{ $post['extra'] or '' }}">
 		<div class="panel-heading">
 			{{ $post['title'] }}
 			<a class="pull-right" href="#">youtube.com</a>
@@ -24,12 +24,14 @@
 		<div class="panel-footer">
 			<div class="row">
 				<div class="col-sm-4">
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Save"><i class="icon-disk"></i></a>
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Report"><i class="icon-warning"></i></a>
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Hide"><i class="icon-eye-blocked"></i></a>
+				@if(Session::has('user'))
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="save" title="Save"><i class="icon-disk"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="report" title="Report"><i class="icon-warning"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="hide" title="Hide"><i class="icon-eye-blocked"></i></a>
+				@endif
 				</div>
 				<div class="col-sm-4 text-center">
-					<a href="#"><i class="icon-bubbles"></i> 0 comments</a>
+					<a href="#" class="btn-showcomments"><i class="icon-bubbles"></i> 0 comments</a>
 				</div>
 				<div class="col-sm-4 text-right">
 					<a href="#" data-toggle="tooltip" data-placement="top" title="Tweet this"><i class="icon-twitter"></i></a>
@@ -38,7 +40,7 @@
 				</div>
 			</div>
 		</div>	
-		<?= View::make('partials.modal'); ?>
+		<?= View::make('partials.modal')->with('post', $post); ?>
 	</div>
 	@endforeach
 	<div class="panel panel-default">

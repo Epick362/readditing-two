@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5570f544c251a807d90292ac963ca4c1",
+    "hash": "2ab4c018b4bfb01474173d4bb90d5716",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -517,13 +517,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/madewithlove/laravel-oauth2.git",
-                "reference": "dc57803eae55c35e03372783fbfc19eeb4d7cbd4"
+                "url": "https://github.com/Epick362/laravel-oauth2-reddit.git",
+                "reference": "250dc3ecd83cf26629135d8b6ae1c1914d09e355"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/madewithlove/laravel-oauth2/zipball/dc57803eae55c35e03372783fbfc19eeb4d7cbd4",
-                "reference": "dc57803eae55c35e03372783fbfc19eeb4d7cbd4",
+                "url": "https://api.github.com/repos/Epick362/laravel-oauth2-reddit/zipball/250dc3ecd83cf26629135d8b6ae1c1914d09e355",
+                "reference": "250dc3ecd83cf26629135d8b6ae1c1914d09e355",
                 "shasum": ""
             },
             "require": {
@@ -535,14 +535,17 @@
                     "OAuth2": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "description": "Authorize users in your application with multiple OAuth 2.0 providers.",
             "homepage": "http://github.com/madewithlove/laravel-oauth2",
             "keywords": [
                 "laravel",
                 "oauth2"
             ],
-            "time": "2014-02-24 12:27:00"
+            "support": {
+                "source": "https://github.com/Epick362/laravel-oauth2-reddit/tree/master",
+                "issues": "https://github.com/Epick362/laravel-oauth2-reddit/issues"
+            },
+            "time": "2014-05-07 01:15:25"
         },
         {
             "name": "monolog/monolog",
@@ -1029,25 +1032,28 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.1.0",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68"
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/748c01c1144713ac0118396935d10b6ceec91b68",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -1076,7 +1082,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-03-18 09:03:27"
+            "time": "2014-05-08 08:11:19"
         },
         {
             "name": "symfony/browser-kit",
