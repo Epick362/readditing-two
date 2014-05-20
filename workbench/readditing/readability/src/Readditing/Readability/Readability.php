@@ -53,7 +53,7 @@ class Readability {
 		$this->dom = new \DOMDocument();
 		$this->dom->preserveWhiteSpace = false;
 		libxml_use_internal_errors(true);
-		$this->dom->loadHTMLFile($this->url);
+		@$this->dom->loadHTMLFile($this->url);
 		$html = $this->dom->saveHTML();
 
 		if (function_exists('tidy_parse_string')) {
@@ -154,7 +154,7 @@ class Readability {
 			$this->success = false;
 			$articleContent = $this->dom->createElement('div');
 			$articleContent->setAttribute('id', 'readability-content');
-			$articleContent->innerHTML = '<p>Sorry, Readability was unable to parse this page for content.</p>';		
+			$articleContent->innerHTML = '<div class="alert alert-warning"><strong>Oops!</strong> We couldn\'t get this content for you</div>';		
 		}
 		
 		$overlay->setAttribute('id', 'readOverlay');
@@ -474,7 +474,7 @@ class Readability {
 			case 'DT':
 			case 'LI':
 			case 'FORM':
-				$readability->value -= 3;
+				$readability->value -= 10;
 				break;
 
 			case 'H1':
@@ -661,7 +661,7 @@ class Readability {
 					$page->documentElement->appendChild($topCandidate);
 				}
 			} else {
-				$topCandidate->innerHTML = $page->innerHTML;
+				$topCandidate->innerHTML = DOMinnerHTML($page);
 				$page->innerHTML = '';
 				$page->appendChild($topCandidate);
 			}
@@ -958,7 +958,7 @@ class Readability {
 				}
 
 				/* Then check the elements inside this element for the same. */
-				if (preg_match($this->regexps['video'], $targetList->item($y)->innerHTML)) {
+				if (preg_match($this->regexps['video'], DOMinnerHTML($targetList->item($y)))) {
 					continue;
 				}
 			}
