@@ -10,24 +10,26 @@
 	<div class="panel panel-default" data-extra="{{ $post['extra'] or '' }}">
 		<div class="panel-heading">
 			{{ $post['title'] }}
-			<a class="pull-right" href="#">youtube.com</a>
+			<a class="pull-right" href="{{ $post['url'] }}" target="_blank" rel="nofollow">{{ $post['source'] or '' }}</a>
 			<div class="clearfix"></div>
 		</div>
 		<div class="panel-body">
 			<div class="panel-text panel-text-short">
 				{{ $post['content'] }}
 			</div>
+			@if(strlen($post['content']) > 250)
 			<div class="showmore-container">
 				<a class="btn btn-default btn-block btn-showmore">Show More</a>
 			</div>
+			@endif
 		</div>
 		<div class="panel-footer">
 			<div class="row">
 				<div class="col-sm-4">
-					Submitted by <a href="#">USER</a> in <a href="#">SUBREDDIT</a> 
+					<a href="#">{{ $post['author'] }}</a> in <a href="#">{{ $post['subreddit'] }}</a> 
 				</div>
 				<div class="col-sm-4 text-center">
-					<a href="#" class="btn-showcomments"><i class="icon-bubbles"></i> 0 comments</a>
+					<a href="#" class="btn-showcomments"><i class="icon-bubbles"></i> {{ $post['comments'] }} comments</a>
 				</div>
 				<div class="col-sm-4 text-right">
 				@if(Session::has('user'))

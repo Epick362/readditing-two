@@ -37,10 +37,15 @@ class FrontpageController extends BaseController {
 				}
 
 				$formatter = Formatter::provider($_url, $_post);
-				print_r($formatter->getContent());
-				echo '<br/>';
+				$post = $formatter->getPost();
+				$post['url'] = $_post['data']['url'];
+				$post['subreddit'] = $_post['data']['subreddit'];
+				$post['author'] = $_post['data']['author'];
+				$post['created'] = $_post['data']['created'];
+				$post['comments'] = $_post['data']['num_comments'];
+
+				$viewData['posts'][] = $post;
 			}
-			die;
 		}else{
 			App::abort(503);
 		}
