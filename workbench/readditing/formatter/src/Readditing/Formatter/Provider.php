@@ -21,7 +21,7 @@ abstract class Provider {
 
 	}
 
-	abstract public function getContent();
+	abstract public function getPost();
 
 	/**
 	 * Return the value of any protected class variable.

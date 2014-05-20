@@ -20,7 +20,7 @@ class OtherProvider extends Provider {
 	 *
 	 * @return  Array
 	 */
-	public function getContent()
+	public function getPost()
 	{
 		$saved_article = \Article::where('url', $this->data['data']['url'])->first();
 		if(!$saved_article) {
@@ -31,7 +31,7 @@ class OtherProvider extends Provider {
 			$result['content'] = $readability->getContent()->innerHTML;
 
 			$article = new \Article;
-			$article->url = $link;
+			$article->url = $this->data['data']['url'];
 			$article->title = $readability->getTitle()->innerHTML;
 			$article->content = $readability->getContent()->innerHTML;
 			$article->save();
@@ -42,6 +42,9 @@ class OtherProvider extends Provider {
 			$result['content'] = $article->content;
 			$result['extra'] = 'cached';
 		}
+
+		$purl = parse_url($this->data['data']['url']);
+		$result['source'] = preg_replace('/^www\./i', '', $purl['host']);
 
 		return $result;
 	}

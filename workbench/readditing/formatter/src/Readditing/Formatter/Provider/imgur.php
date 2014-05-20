@@ -18,8 +18,8 @@ class Imgur extends Provider {
 	 *
 	 * @return  Array
 	 */
-	public function getContent()
+	public function getPost()
 	{
-		return $this->name;
+		return array('title' => $this->data['data']['title'], 'content' => '<pre>'.print_r($this->data, true).'</pre>', 'source' => 'imgur.com');
 	}
 }
