@@ -22,7 +22,7 @@ class FrontpageController extends BaseController {
 
 		$posts = Reddit::fetch('/hot.json');
 
-		if(isset($posts['data']['children'])) {
+		if(isset($posts['data']['children']) && !empty($posts['data']['children'])) {
 			foreach($posts['data']['children'] as $_post) {
 
 				$parts = parse_url($_post['data']['url']);
@@ -47,12 +47,8 @@ class FrontpageController extends BaseController {
 				$viewData['posts'][] = $post;
 			}
 		}else{
-			App::abort(503);
+			App::abort(503, 'Reddit failed to return any data.');
 		}
-
-		/*
-
-		*/
 
 		return View::make('frontpage', $viewData);
 	}
