@@ -661,7 +661,7 @@ class Readability {
 					$page->documentElement->appendChild($topCandidate);
 				}
 			} else {
-				$topCandidate->innerHTML = DOMinnerHTML($page);
+				//$topCandidate->innerHTML = $this->DOMinnerHTML($page);
 				$page->innerHTML = '';
 				$page->appendChild($topCandidate);
 			}
@@ -735,7 +735,7 @@ class Readability {
 					$nodeToAppend = $this->dom->createElement('div');
 					try {
 						$nodeToAppend->setAttribute('id', $siblingNode->getAttribute('id'));
-						$nodeToAppend->innerHTML = $siblingNode->innerHTML;
+						$nodeToAppend->innerHTML = $this->DOMinnerHTML($siblingNode);
 					}
 					catch(Exception $e)
 					{
@@ -954,11 +954,6 @@ class Readability {
 				
 				/* First, check the elements attributes to see if any of them contain youtube or vimeo */
 				if (preg_match($this->regexps['video'], $attributeValues)) {
-					continue;
-				}
-
-				/* Then check the elements inside this element for the same. */
-				if (preg_match($this->regexps['video'], DOMinnerHTML($targetList->item($y)))) {
 					continue;
 				}
 			}

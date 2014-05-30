@@ -27,14 +27,20 @@ class OtherProvider extends Provider {
 			$readability = new Readability($this->data['data']['url']);
 			$readability->init();
 
-			$result['title'] = $readability->getTitle()->innerHTML;
-			$result['content'] = $readability->getContent()->innerHTML;
+			if($readability->getContent()) {
+				$result['title'] = $readability->getTitle()->innerHTML;
+				$result['content'] = $readability->getContent()->innerHTML;
 
-			$article = new \Article;
-			$article->url = $this->data['data']['url'];
-			$article->title = $readability->getTitle()->innerHTML;
-			$article->content = $readability->getContent()->innerHTML;
-			$article->save();
+				$article = new \Article;
+				$article->url = $this->data['data']['url'];
+				$article->title = $readability->getTitle()->innerHTML;
+				$article->content = $readability->getContent()->innerHTML;
+				$article->save();
+			}else{
+				$result['title'] = 'Error';
+				$result['content'] = '';
+				$result['extra'] = 'error';
+			}
 		}else{
 			$article = $saved_article;
 
