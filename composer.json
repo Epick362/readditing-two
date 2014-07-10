@@ -27,6 +27,7 @@
 		],
         "psr-0": {
             "League\\OAuth2\\Client": "vendor/leauge/oauth2-client/src",
+            "Readditing\\Reddit": "workbench/readditing/reddit/src",
             "Readditing\\Readability": "workbench/readditing/readability/src",
             "Readditing\\Formatter": "workbench/readditing/formatter/src"
         }
