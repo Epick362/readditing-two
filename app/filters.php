@@ -17,6 +17,8 @@ App::before(function($request)
 	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') <= time() - 3600) {
 		return Redirect::to('auth/login');
 	}
+
+	dd($_ENV);
 });
 
 
