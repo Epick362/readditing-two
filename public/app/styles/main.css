@@ -7527,6 +7527,11 @@ a:focus {
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
 }
+.navbar-brand {
+  font-family: Palatino, Cambria, Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 24px;
+}
 .navbar-default {
   opacity: 0.95;
   border-bottom: 3px #3069ab solid;

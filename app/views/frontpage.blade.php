@@ -29,17 +29,17 @@
 					<a href="#">{{ $post['author'] }}</a> in <a href="#">{{ $post['subreddit'] }}</a> 
 				</div>
 				<div class="col-sm-4 text-center">
-					<a href="#" class="btn-showcomments"><i class="icon-bubbles"></i> {{ $post['comments'] }} comments</a>
+					<a href="#" class="btn-showcomments"><i class="fa fa-comment-o"></i> {{ $post['comments'] }} comments</a>
 				</div>
 				<div class="col-sm-4 text-right">
 				@if(Session::has('user'))
-					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="save" title="Save"><i class="icon-disk"></i></a>
-					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="report" title="Report"><i class="icon-warning"></i></a>
-					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="hide" title="Hide"><i class="icon-eye-blocked"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="save" title="Save"><i class="fa fa-save"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="report" title="Report"><i class="fa fa-flag"></i></a>
+					<a href="#" class="btn-postAction" data-toggle="tooltip" data-action="hide" title="Hide"><i class="fa fa-eye"></i></a>
 				@endif
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Tweet this"><i class="icon-twitter"></i></a>
-					<a href="#" data-toggle="tooltip" data-placement="top" title="+ this"><i class="icon-googleplus"></i></a>
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Like this"><i class="icon-facebook"></i></a>					
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Tweet this"><i class="fa fa-twitter"></i></a>
+					<a href="#" data-toggle="tooltip" data-placement="top" title="+ this"><i class="fa fa-google-plus"></i></a>
+					<a href="#" data-toggle="tooltip" data-placement="top" title="Like this"><i class="fa fa-facebook"></i></a>					
 				</div>
 			</div>
 		</div>	
