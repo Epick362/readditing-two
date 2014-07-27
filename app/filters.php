@@ -25,9 +25,7 @@ App::before(function($request)
 		Config::set('database.connections.mongodb.port', $mongo['port']);
 		Config::set('database.connections.mongodb.username', $mongo['user']);
 		Config::set('database.connections.mongodb.password', $mongo['pass']);
-		Config::set('database.connections.mongodb.database', $mongo['path']);
-
-		dd(Config::get('database.connections.mongodb'));
+		Config::set('database.connections.mongodb.database', substr($mongo['path'], 1));
 	}
 });
 
