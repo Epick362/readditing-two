@@ -18,7 +18,15 @@ App::before(function($request)
 		return Redirect::to('auth/login');
 	}
 
-	dd($_ENV);
+	if(isset($_ENV['MONGOHQ_URL'])) {
+		$mongo = parse_url($_ENV['MONGOHQ_URL'], PHP_URL_PATH);
+
+		Config::set('database.connections.mongodb.host', $mongo['host']);
+		Config::set('database.connections.mongodb.port', $mongo['port']);
+		Config::set('database.connections.mongodb.username', $mongo['user']);
+		Config::set('database.connections.mongodb.password', $mongo['pass']);
+		Config::set('database.connections.mongodb.database', $mongo['query']);
+	}
 });
 
 
