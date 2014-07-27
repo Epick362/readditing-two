@@ -21,6 +21,8 @@ App::before(function($request)
 	if(isset($_ENV['MONGOHQ_URL'])) {
 		$mongo = parse_url($_ENV['MONGOHQ_URL'], PHP_URL_PATH);
 
+		dd($mongo);
+
 		Config::set('database.connections.mongodb.host', $mongo['host']);
 		Config::set('database.connections.mongodb.port', $mongo['port']);
 		Config::set('database.connections.mongodb.username', $mongo['user']);
