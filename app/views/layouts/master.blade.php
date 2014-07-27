@@ -6,11 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap/css/bootstrap.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('packages/bootstrap/css/bootstrap-theme.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/stylesheet.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/icomoon.css') }}">
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 	</head>
 	<body>
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -52,17 +48,18 @@
 			</div>
 		</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 col-lg-offset-1">
-					@yield('content')
+		<div id="wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+						@yield('content')
+					</div>
 				</div>
 			</div>
 		</div>
-		<script src="{{ URL::asset('packages/angular.js/angular.min.js') }}"></script>
-		<script src="{{ URL::asset('packages/jquery/jquery.min.js') }}"></script>
-		<script src="{{ URL::asset('packages/bootstrap/js/bootstrap.min.js') }}"></script>
-		<script src="{{ URL::asset('js/main.js') }}"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="{{ URL::asset('app/scripts/main.js') }}"></script>
 		<script>
 			$(function() {
 				$('a[title]').tooltip(

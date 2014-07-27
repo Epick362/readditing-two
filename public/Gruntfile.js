@@ -124,7 +124,7 @@ module.exports = function (grunt) {
     less: {
       dist: {
         files: {
-          '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/main.less']
+          '<%= yeoman.app %>/styles/main.css': ['<%= yeoman.app %>/styles/*.less']
         },
         options: {
           sourceMap: true,
@@ -270,7 +270,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'coffee',
       'less',
       'copy:server',
       'watch'
