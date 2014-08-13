@@ -31,11 +31,7 @@ class OtherProvider extends Provider {
 				$result['title'] = $readability->getTitle()->innerHTML;
 				$result['content'] = $readability->getContent()->innerHTML;
 
-				$article = new \Article;
-				$article->url = $this->data['data']['url'];
-				$article->title = $readability->getTitle()->innerHTML;
-				$article->content = $readability->getContent()->innerHTML;
-				$article->save();
+				\Article::saveArticle($this->data['data']['url'], $result);
 			}else{
 				$result['title'] = 'Error';
 				$result['content'] = '';
