@@ -7,6 +7,11 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
+
+		<script src="{{ URL::asset('app/scripts/app.js') }}"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -57,7 +62,6 @@
 				</div>
 			</div>
 		</div>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="{{ URL::asset('app/scripts/main.js') }}"></script>
 		<script>

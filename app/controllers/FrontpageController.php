@@ -1,7 +1,5 @@
 <?php
 
-use Readditing\Formatter\Formatter as Formatter;
-
 class FrontpageController extends BaseController {
 
 	/*
@@ -15,41 +13,17 @@ class FrontpageController extends BaseController {
 	|
 	*/
 
-	public function subreddit($subreddit = 'home', $after = NULL)
+	public function subreddit($subreddit = NULL, $after = NULL)
 	{
-		$viewData = array();
-		$viewData['subreddit'] = $subreddit;
+		$view = array();
+		$view['subreddit'] = $subreddit;
 
-		$posts = Reddit::fetch('/hot.json');
+		$view['posts'] = Subreddit::fetch($subreddit);
 
-		if(isset($posts['data']['children']) && !empty($posts['data']['children'])) {
-			foreach($posts['data']['children'] as $_post) {
-
-				$parts = parse_url($_post['data']['url']);
-
-				$host = str_replace('www.', '', $parts['host']);
-				$matches = array();
-				preg_match('/(.*?)((\.co)?.[a-z]{2,4})$/i', $host, $matches);
-				if(strchr($matches[1], '.')) {
-					$_url = substr(strrchr($matches[1], '.'), 1);
-				}else{
-					$_url = $matches[1];
-				}
-
-				$formatter = Formatter::provider($_url, $_post);
-				$post = $formatter->getPost();
-				$post['url'] = $_post['data']['url'];
-				$post['subreddit'] = $_post['data']['subreddit'];
-				$post['author'] = $_post['data']['author'];
-				$post['created'] = $_post['data']['created'];
-				$post['comments'] = $_post['data']['num_comments'];
-
-				$viewData['posts'][] = $post;
-			}
-		}else{
-			App::abort(503, 'Reddit failed to return any data.');
+		if($view['posts']) {
+			return View::make('frontpage', $view);
 		}
 
-		return View::make('frontpage', $viewData);
+		return App::abort(503, 'Reddit failed to respond.');
 	}
 }
