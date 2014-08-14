@@ -18,12 +18,6 @@ class FrontpageController extends BaseController {
 		$view = array();
 		$view['subreddit'] = $subreddit;
 
-		$view['posts'] = Subreddit::fetch($subreddit);
-
-		if($view['posts']) {
-			return View::make('frontpage', $view);
-		}
-
-		return App::abort(503, 'Reddit failed to respond.');
+		return View::make('frontpage', $view);
 	}
 }
