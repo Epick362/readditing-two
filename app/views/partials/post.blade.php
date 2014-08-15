@@ -4,11 +4,7 @@
 			<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 			<div class="clearfix"></div>
 		</div>
-		<div class="panel-body">
-			<div class="panel-text panel-text-short" ng-bind-html="post.content"></div>
-			<div class="showmore-container" ng-if="post.content.length > 250">
-				<a class="btn btn-default btn-block btn-showmore">Show More</a>
-			</div>
+		<div class="panel-body" show-more ng-bind-html="post.content">
 		</div>
 		<div class="panel-footer">
 			<div class="row">

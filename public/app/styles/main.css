@@ -7505,7 +7505,7 @@ button.close {
   content: "\f196";
 }
 #wrap {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 a:hover,
 a:focus {
@@ -7535,8 +7535,8 @@ a:focus {
 .navbar-default {
   opacity: 0.95;
   border-bottom: 3px #3069ab solid;
-  -webkit-box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.1);
-  box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.1);
+  -webkit-box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.05);
+  box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.05);
 }
 .panel-heading {
   font-family: "Lato", Helvetica, Arial, sans-serif;

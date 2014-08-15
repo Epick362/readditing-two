@@ -28,26 +28,20 @@ class OtherProvider extends Provider {
 			$readability->init();
 
 			if($readability->getContent()) {
-				$result['title'] = $readability->getTitle()->innerHTML;
-				$result['content'] = $readability->getContent()->innerHTML;
+				$this->data['data']['readability'] = $readability->getContent()->innerHTML;
 
-				\Article::saveArticle($this->data['data']['url'], $result);
+				\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']));
 			}else{
-				$result['title'] = 'Error';
-				$result['content'] = '';
-				$result['extra'] = 'error';
+				$this->data['data']['readability'] = '';
 			}
 		}else{
 			$article = $saved_article;
 
-			$result['title'] = $article->title;
-			$result['content'] = $article->content;
-			$result['extra'] = 'cached';
+			$this->data['data']['readability'] = $article->content;
 		}
 
 		$purl = parse_url($this->data['data']['url']);
-		$result['source'] = preg_replace('/^www\./i', '', $purl['host']);
 
-		return $result;
+		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.other', $this->data)->render(), 'source' => preg_replace('/^www\./i', '', $purl['host']));
 	}
 }

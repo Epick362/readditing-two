@@ -4,8 +4,8 @@ angular.module('subredditService', [])
 
 		return {
 			// get all the comments
-			get : function() {
-				return $http.get('/api/r?formatted=1');
+			get : function(subreddit) {
+				return $http.get('/api/r/'+ subreddit +'?formatted=1');
 			}
 		}
 

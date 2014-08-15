@@ -201,6 +201,13 @@ class Readability {
 		if ($this->convertLinksToFootnotes && !preg_match('/wikipedia\.org/', @$this->url)) { 
 			$this->addFootnotes($articleContent);
 		}
+
+		/* Remove all style tags in head */
+		$tableTags = $articleContent->getElementsByTagName('table');
+		for ($i = $tableTags->length-1; $i >= 0; $i--)
+		{
+			$tableTags->item($i)->setAttribute('class', 'table table-bordered');
+		}
 	}
 	
 	/**
@@ -474,7 +481,7 @@ class Readability {
 			case 'DT':
 			case 'LI':
 			case 'FORM':
-				$readability->value -= 10;
+				$readability->value -= 25;
 				break;
 
 			case 'H1':
