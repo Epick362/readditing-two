@@ -7,8 +7,9 @@
 		@endif
 
 		<!-- LOADING =============================================== -->
-		<div class="alert alert-info" ng-show="loading">
-			<i class="fa fa-refresh fa-spin"></i> Loading content
+		<div class="loading" ng-show="loading">
+			<div class="ball-outer"></div>
+			<div class="ball-inner"></div>
 		</div>
 
 		@include('partials.post')

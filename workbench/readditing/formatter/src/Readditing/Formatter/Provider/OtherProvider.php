@@ -22,6 +22,19 @@ class OtherProvider extends Provider {
 	 */
 	public function getPost()
 	{
+		$purl = parse_url($this->data['data']['url']);
+
+		$images = array('png', 'jpg', 'jpeg', 'gif');
+		$after_dot = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '.') + 1);
+
+		if(in_array($after_dot, $images)) {
+			return array(
+				'title' => $this->data['data']['title'], 
+				'content' => \View::make('provider.other.image', $this->data)->render(), 
+				'source' => preg_replace('/^www\./i', '', $purl['host'])
+			);
+		}
+
 		$saved_article = \Article::where('url', $this->data['data']['url'])->first();
 		if(!$saved_article) {
 			$readability = new Readability($this->data['data']['url']);
@@ -40,8 +53,10 @@ class OtherProvider extends Provider {
 			$this->data['data']['readability'] = $article->content;
 		}
 
-		$purl = parse_url($this->data['data']['url']);
-
-		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.other', $this->data)->render(), 'source' => preg_replace('/^www\./i', '', $purl['host']));
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => \View::make('provider.other.article', $this->data)->render(), 
+			'source' => preg_replace('/^www\./i', '', $purl['host'])
+		);
 	}
 }

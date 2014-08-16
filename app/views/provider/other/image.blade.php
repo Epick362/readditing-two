@@ -1,0 +1,1 @@
+<img class="img-responsive img-rounded" style="margin: 0 auto;" src="{{ $data['url'] }}" />
