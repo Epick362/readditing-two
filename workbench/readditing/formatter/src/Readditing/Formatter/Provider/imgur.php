@@ -24,14 +24,19 @@ class Imgur extends Provider {
 	 */
 	public function getPost()
 	{
-		$this->data['data']['imgur-id'] = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '/') + 1);
+		$images = array('png', 'jpg', 'jpeg', 'gif', 'png?1', 'jpg?1', 'jpeg?1', 'gif?1');
+		$after_dot = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '.') + 1);
 
-		$client = new Client();
-		$response = $client->get("https://api.imgur.com/3/image/".$this->data['data']['imgur-id'], [
-			'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
-		])->json();
+		if(!in_array($after_dot, $images)) {
+			$this->data['data']['imgur-id'] = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '/') + 1);
 
-		$this->data['data']['url'] = $response['data']['link'];
+			$client = new Client();
+			$response = $client->get("https://api.imgur.com/3/image/".$this->data['data']['imgur-id'], [
+				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+			])->json();
+
+			$this->data['data']['url'] = $response['data']['link'];
+		}
 
 		return array(
 			'title' => $this->data['data']['title'], 
