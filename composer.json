@@ -10,11 +10,10 @@
         }
     ],
 	"require": {
-		"laravel/framework": "4.1.*",
-		"components/jquery": "1.9.*",
-		"twitter/bootstrap": "3.1.*",
+		"laravel/framework": "4.2.*",
 		"madewithlove/laravel-oauth2": "dev-master",
 		"jenssegers/mongodb": "dev-master",
+		"guzzlehttp/guzzle": "~4.0",
         "ext-memcached": "*",
         "ext-mongo": "*"
 	},
