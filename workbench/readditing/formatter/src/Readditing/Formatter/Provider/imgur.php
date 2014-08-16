@@ -6,6 +6,7 @@ use Readditing\Formatter\Provider;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
+use GuzzleHttp\Exception\ClientException;
 
 
 class Imgur extends Provider {
@@ -31,9 +32,17 @@ class Imgur extends Provider {
 			$this->data['data']['imgur-id'] = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '/') + 1);
 
 			$client = new Client();
-			$response = $client->get("https://api.imgur.com/3/image/".$this->data['data']['imgur-id'], [
-				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
-			])->json();
+			try {
+				$response = $client->get("https://api.imgur.com/3/image/".$this->data['data']['imgur-id'], [
+					'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+				])->json();
+			}catch (ClientException $e) {
+				return array(
+					'title' => $this->data['data']['title'], 
+					'content' => 'Sorry we couldn\'t get this image for you', 
+					'source' => 'imgur.com'
+				);
+			}
 
 			$this->data['data']['url'] = $response['data']['link'];
 		}
