@@ -5,11 +5,6 @@ angular.module('subredditCtrl', [])
 		// loading variable to show the spinning loading icon
 		$scope.loading = true;
 
-		// get all the comments first and bind it to the $scope.comments object
-		// use the function we created in our service
-		// GET ALL COMMENTS ====================================================
-		console.log($attrs.subreddit);
-
 		Subreddit.get($attrs.subreddit)
 			.success(function(data) {
 				for (var i = data.length - 1; i >= 0; i--) {
@@ -17,6 +12,9 @@ angular.module('subredditCtrl', [])
 				};
 				$scope.posts = data;
 				$scope.loading = false;
+			})
+			.error(function(data) {
+				console.log('error');
 			});
 	})
 

@@ -6,6 +6,8 @@
 			<pre>{{ print_r(Session::get('user')) }}</pre>
 		@endif
 
+		<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
+
 		<!-- LOADING =============================================== -->
 		<div class="loading" ng-show="loading">
 			<div class="ball-outer"></div>
