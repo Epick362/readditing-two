@@ -1,12 +1,36 @@
 angular.module('subredditService', [])
 
-	.factory('Subreddit', function($http) {
+	.factory('Reddit', function($http, $sce) {
+		var Reddit = function(subreddit) {
+			this.subreddit = subreddit;
+			this.posts = [];
+			this.busy = false;
+			this.after = '';
+		};
 
-		return {
-			// get all the comments
-			get : function(subreddit) {
-				return $http.get('/api/r/'+ subreddit +'?formatted=1');
+		Reddit.prototype.nextPage = function() {
+			if (this.busy) return;
+			this.busy = true;
+
+			if(this.subreddit) {
+				var url = '/api/r/'+this.subreddit+'?after='+this.after;
+			}else{
+				var url = '/api/r?after='+this.after;
 			}
-		}
 
+			$http.get(url).success(function(data) {
+				var posts = data;
+
+				for (var i = 0; i < posts.length; i++) {
+					posts[i].content = $sce.trustAsHtml(posts[i].content);
+					this.posts.push(posts[i]);
+				}
+
+
+				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+				this.busy = false;
+			}.bind(this));
+		};
+
+		return Reddit;
 	});

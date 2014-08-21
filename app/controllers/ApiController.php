@@ -9,13 +9,13 @@ class ApiController extends \BaseController {
 	 */
 	public function index($subreddit = NULL)
 	{
-		$data = Subreddit::fetch($subreddit, Input::get('formatted'));
+		$data = Subreddit::fetch($subreddit, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
 		}
 
-		return App::abort(404);
+		return Response::make(null, 404);
 	}
 
 

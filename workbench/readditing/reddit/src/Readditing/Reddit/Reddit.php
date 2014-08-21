@@ -16,16 +16,16 @@ class Reddit {
 	public static function fetch($api, $params = array(), $method = 'GET') {
 		$url = self::$reddit_url . '' . $api;
 
-		$params['access_token'] = self::$access_token;
-
 		$postdata = http_build_query($params);
+
+		$url .= '?'.$postdata;
+
 		$opts = array(
 			'http' => array(
 				'method'  => $method,
 				'header'  => array('Content-type: application/x-www-form-urlencoded',
 									'Authorization: bearer ' . self::$access_token,
-									'User-Agent: Readditing.com by Epick_362'),
-				'content' => $postdata
+									'User-Agent: Readditing.com by Epick_362')
 			)
 		);
 		$_default_opts = stream_context_get_params(stream_context_get_default());

@@ -37,16 +37,17 @@ class OtherProvider extends Provider {
 
 		$saved_article = \Article::where('url', $this->data['data']['url'])->first();
 		if(!$saved_article) {
-			$readability = new Readability($this->data['data']['url']);
-			$readability->init();
+			// $readability = new Readability($this->data['data']['url']);
+			// $readability->init();
 
-			if($readability->getContent()) {
-				$this->data['data']['readability'] = $readability->getContent()->innerHTML;
+			// if($readability->getContent()) {
+			// 	$this->data['data']['readability'] = $readability->getContent()->innerHTML;
 
-				\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']));
-			}else{
-				$this->data['data']['readability'] = '';
-			}
+			// 	\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']));
+			// }else{
+			// 	$this->data['data']['readability'] = '';
+			// }
+			$this->data['data']['readability'] = \View::make('partials.loading')->render();
 		}else{
 			$article = $saved_article;
 

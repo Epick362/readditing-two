@@ -13,7 +13,22 @@ class Formatter {
 	 */
 	public static function provider(array $data = NULL)
 	{
-		$parts = parse_url($data['data']['url']);
+
+		$_url = self::getSource($data['data']['url']);
+
+		$class = __NAMESPACE__ . '\\Provider\\' . ucfirst($_url);
+
+		if(class_exists($class)) {
+			return new $class($data);
+		}else{
+			$classname = __NAMESPACE__ . '\\Provider\\OtherProvider';
+			return new $classname($data);
+		}
+	}
+
+	public static function getSource($url) {
+
+		$parts = parse_url($url);
 
 		$host = str_replace('www.', '', $parts['host']);
 		$matches = array();
@@ -24,13 +39,6 @@ class Formatter {
 			$_url = $matches[1];
 		}
 
-		$class = __NAMESPACE__ . '\\Provider\\' . ucfirst($_url);
-
-		if(class_exists($class)) {
-			return new $class($data);
-		}else{
-			$classname = __NAMESPACE__ . '\\Provider\\OtherProvider';
-			return new $classname($data);
-		}
+		return $_url;
 	}
 }

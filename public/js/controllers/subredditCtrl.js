@@ -1,21 +1,8 @@
 angular.module('subredditCtrl', [])
 
 	// inject the Comment service into our controller
-	.controller('subredditController', function($scope, $attrs, $sce, $http, Subreddit) {
-		// loading variable to show the spinning loading icon
-		$scope.loading = true;
-
-		Subreddit.get($attrs.subreddit)
-			.success(function(data) {
-				for (var i = data.length - 1; i >= 0; i--) {
-					data[i].content = $sce.trustAsHtml(data[i].content);
-				};
-				$scope.posts = data;
-				$scope.loading = false;
-			})
-			.error(function(data) {
-				console.log('error');
-			});
+	.controller('subredditController', function($scope, $attrs, $http, Reddit) {
+		$scope.reddit = new Reddit($attrs.subreddit);
 	})
 
 	.directive('showMore', function($document){

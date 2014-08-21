@@ -8,12 +8,7 @@
 
 		<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
 
-		<!-- LOADING =============================================== -->
-		<div class="loading" ng-show="loading">
-			<div class="ball-outer"></div>
-			<div class="ball-inner"></div>
-		</div>
-
 		@include('partials.post')
+
 	</div>
 @stop
