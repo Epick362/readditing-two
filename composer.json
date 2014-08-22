@@ -6,12 +6,12 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Epick362/laravel-oauth2.git"
+            "url": "https://github.com/Epick362/laravel-oauth2"
         }
     ],
 	"require": {
 		"laravel/framework": "4.2.*",
-		"madewithlove/laravel-oauth2": "dev-master",
+		"madewithlove/laravel-oauth2": "master",
 		"jenssegers/mongodb": "dev-master",
 		"guzzlehttp/guzzle": "~4.0",
         "ext-memcached": "*",
