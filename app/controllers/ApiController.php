@@ -7,7 +7,7 @@ class ApiController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index($subreddit = NULL)
+	public function index($subreddit = NULL) 
 	{
 		$data = Subreddit::fetch($subreddit, Input::get('after'));
 
