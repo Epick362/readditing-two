@@ -6,7 +6,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Epick362/laravel-oauth2"
+            "url": "https://github.com/Epick362/laravel-oauth2.git"
         }
     ],
 	"require": {
