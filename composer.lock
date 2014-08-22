@@ -147,21 +147,21 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.1.8",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "e196b8f44f9492a11261ea8f7b9724613a198daf"
+                "reference": "47ca212e985d962b3cbd67675eec54bb72d66062"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e196b8f44f9492a11261ea8f7b9724613a198daf",
-                "reference": "e196b8f44f9492a11261ea8f7b9724613a198daf",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/47ca212e985d962b3cbd67675eec54bb72d66062",
+                "reference": "47ca212e985d962b3cbd67675eec54bb72d66062",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/streams": "~1.4",
+                "guzzlehttp/streams": "~2.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -175,7 +175,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -208,20 +208,20 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-14 20:29:51"
+            "time": "2014-08-20 05:30:12"
         },
         {
             "name": "guzzlehttp/streams",
-            "version": "1.5.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "fb0d1ee29987c2bdc59867bffaade6fc88c2675f"
+                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/fb0d1ee29987c2bdc59867bffaade6fc88c2675f",
-                "reference": "fb0d1ee29987c2bdc59867bffaade6fc88c2675f",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/f91b721d73f0e561410903b3b3c90a5d0e40b534",
+                "reference": "f91b721d73f0e561410903b3b3c90a5d0e40b534",
                 "shasum": ""
             },
             "require": {
@@ -233,7 +233,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -261,7 +261,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-08-10 23:57:01"
+            "time": "2014-08-17 21:15:53"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -528,13 +528,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Epick362/laravel-oauth2-reddit.git",
-                "reference": "250dc3ecd83cf26629135d8b6ae1c1914d09e355"
+                "url": "https://github.com/Epick362/laravel-oauth2.git",
+                "reference": "9cf337af187c81186953c627421520185fb0893d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Epick362/laravel-oauth2-reddit/zipball/250dc3ecd83cf26629135d8b6ae1c1914d09e355",
-                "reference": "250dc3ecd83cf26629135d8b6ae1c1914d09e355",
+                "url": "https://api.github.com/repos/Epick362/laravel-oauth2/zipball/9cf337af187c81186953c627421520185fb0893d",
+                "reference": "9cf337af187c81186953c627421520185fb0893d",
                 "shasum": ""
             },
             "require": {
@@ -553,10 +553,10 @@
                 "oauth2"
             ],
             "support": {
-                "source": "https://github.com/Epick362/laravel-oauth2-reddit/tree/master",
-                "issues": "https://github.com/Epick362/laravel-oauth2-reddit/issues"
+                "source": "https://github.com/Epick362/laravel-oauth2/tree/master",
+                "issues": "https://github.com/Epick362/laravel-oauth2/issues"
             },
-            "time": "2014-05-07 01:15:25"
+            "time": "2014-08-22 13:43:04"
         },
         {
             "name": "monolog/monolog",
