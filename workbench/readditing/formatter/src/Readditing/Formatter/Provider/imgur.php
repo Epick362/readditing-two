@@ -27,7 +27,7 @@ class Imgur extends Provider {
 	{
 		return array(
 			'title' => $this->data['data']['title'], 
-			'content' => parse_url($this->data['data']['url'])), 
+			'content' => parse_url($this->data['data']['url']), 
 			'source' => 'imgur.com'
 		);
 
