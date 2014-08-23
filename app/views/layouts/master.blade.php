@@ -61,12 +61,12 @@
 
 		<div id="wrap">
 			<div class="container">
-				<div class="row" style="position: relative">
+				<div class="row">
 					<div class="col-lg-8 col-lg-offset-1">
 						@yield('content')
 					</div>
-					<div class="col-lg-2" style="position: fixed; top: 0">
-						Yaya
+					<div class="col-lg-2">
+						<div style="position:fixed; top:120px">HEHEHHE</div>
 					</div>
 				</div>
 			</div>
