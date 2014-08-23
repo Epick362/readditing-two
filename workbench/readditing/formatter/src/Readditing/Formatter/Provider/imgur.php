@@ -25,6 +25,8 @@ class Imgur extends Provider {
 	 */
 	public function getPost()
 	{
+		dd(parse_url($this->data['data']['url']));
+
 		$images = array('png', 'jpg', 'jpeg', 'gif', 'png?1', 'jpg?1', 'jpeg?1', 'gif?1');
 		$after_dot = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '.') + 1);
 
