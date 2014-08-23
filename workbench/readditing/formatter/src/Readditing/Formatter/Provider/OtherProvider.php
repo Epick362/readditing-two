@@ -64,7 +64,8 @@ class OtherProvider extends Provider {
 				);
 			}
 
-			$this->data['data']['readability'] = \View::make('partials.loading')->render();
+			$this->data['data']['readability'] = $response['content'];
+			\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']));
 		}else{
 			$article = $saved_article;
 
