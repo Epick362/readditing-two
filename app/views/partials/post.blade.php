@@ -10,7 +10,7 @@
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-sm-4">
-						<a href=""><% post.author %></a> in <a href="{{ URL::to('r/') }}<% post.subreddit %>"><% post.subreddit %></a> 
+						<a href=""><% post.author %></a> in <a href="{{ URL::to('r') }}/<% post.subreddit %>"><% post.subreddit %></a> 
 					</div>
 					<div class="col-sm-4 text-center">
 						<a href="#" class="btn-showcomments"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
