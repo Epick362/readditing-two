@@ -62,7 +62,7 @@
 		<div id="wrap">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-10 col-lg-offset-1">
+					<div class="col-lg-8 col-lg-offset-2">
 						@yield('content')
 					</div>
 				</div>
