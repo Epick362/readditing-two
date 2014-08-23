@@ -5,6 +5,11 @@ namespace Readditing\Formatter\Provider;
 use Readditing\Formatter\Provider;
 use Readditing\Readability\Readability as Readability;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Message\Request;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Exception\ClientException;
+
 class OtherProvider extends Provider {
 	/**
 	* @var  string  provider name
@@ -47,6 +52,18 @@ class OtherProvider extends Provider {
 			// }else{
 			// 	$this->data['data']['readability'] = '';
 			// }
+
+			$client = new Client();
+			try {
+				$response = $client->get('https://readability.com/api/content/v1/parser?url='.$this->data['data']['url'].'&token=9724d804318495363bae40e8e8f9ffd30e43b716')->json();
+			}catch (ClientException $e) {
+				return array(
+					'title' => $this->data['data']['title'], 
+					'content' => 'Sorry we couldn\'t get this content for you', 
+					'source' => $purl['host']
+				);
+			}
+
 			$this->data['data']['readability'] = \View::make('partials.loading')->render();
 		}else{
 			$article = $saved_article;
