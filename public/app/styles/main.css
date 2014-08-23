@@ -7574,9 +7574,11 @@ a:focus {
   line-height: 1.65;
 }
 .panel-body > .panel-text img {
+  width: 100%;
+  height: auto;
   display: block;
-  margin: 5px auto;
-  border-radius: 3px;
+  margin: 10px auto;
+  border-radius: 6px;
 }
 .panel-footer [class^="fa-"],
 .panel-footer [class*=" fa-"] {
