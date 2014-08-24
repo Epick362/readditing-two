@@ -34,7 +34,6 @@ class Imgur extends Provider {
 			$parts = explode("/", $parsed_url['path']);
 
 			if($parts[0] === 'a') {
-				dd(print_r($parts));
 				return $this->getAlbum($parts[1]);
 			}else{
 				return $this->getImage($parts[0]);
@@ -55,7 +54,11 @@ class Imgur extends Provider {
 				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
 			])->json();
 		}catch (ClientException $e) {
-			return $this->fail();
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => 'Sorry wassadasda get this image for you', 
+			'source' => 'imgur.com'
+		);
 		}
 
 		return array(
