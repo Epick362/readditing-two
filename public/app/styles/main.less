@@ -34,12 +34,21 @@ a:focus {
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, .05), 0 1px 0 rgba(255, 255, 255, .1);
 }
 
-
 .navbar-brand {
-  font-family: @font-family-serif;
-  font-size: 26px;
-  line-height: 24px;
+  padding: 12px 15px;
 }
+
+.brand-image {
+  width: 35px;
+  height: 35px;
+  background-color: @brand-primary;
+  border-radius: 3px;
+  font-size: 36px;
+  line-height: 30px;
+  color: #fff;
+  text-align: center;
+}
+
 .navbar-default {
   opacity: 0.95;
   border-bottom: 3px @brand-primary solid;
@@ -61,7 +70,7 @@ a:focus {
   font-weight: 400;
 }
 .panel-body {
-  font-family: @font-family-serif;
+  line-height: @line-height-computed + 2px;
 }
 
 .panel-default > .panel-heading,
@@ -81,6 +90,7 @@ a:focus {
 }
 
 .panel-body > .panel-text {
+  font-family: @font-family-serif;
 	position: relative;
 	margin: 0 auto;
 	width: 85%;
@@ -105,6 +115,14 @@ a:focus {
 .panel-text-short {
 	overflow: hidden;
 	max-height: 250px;
+}
+
+.sidebar {
+  width: 260px;
+
+  & > .panel-heading {
+    font-size: 1.6em;
+  }
 }
 
 

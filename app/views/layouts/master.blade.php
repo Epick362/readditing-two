@@ -29,17 +29,19 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{ URL::to('') }}">Readditing</a>
+					<a class="navbar-brand" href="{{ URL::to('') }}">
+						<div class="brand-image">r</div>
+					</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
+						<li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ URL::to('/') }}">Browse</a></li>
+						<li><a href="http://blog.readditing.com">Blog</a></li>
+						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
-							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with Reddit</a>
+							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 						@else
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> {{ Session::get('user')['name'] }} <b class="caret"></b></a>
@@ -62,11 +64,11 @@
 		<div id="wrap">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 col-lg-offset-1">
+					<div class="col-md-8 col-md-offset-1">
 						@yield('content')
 					</div>
-					<div class="col-lg-2">
-						<div style="position:fixed; top:120px">HEHEHHE</div>
+					<div class="col-md-2 visible-md visible-lg">
+						@include('partials.sidebar')
 					</div>
 				</div>
 			</div>
