@@ -1,5 +1,5 @@
 
-<div style="position:fixed; top:120px">
+<div class="col-md-2" style="position:fixed; top:120px">
 	<div class="sidebar panel panel-default">
 		<div class="panel-heading">
 			Popular subreddits
