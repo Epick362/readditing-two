@@ -7507,6 +7507,9 @@ button.close {
 #wrap {
   margin-top: 120px;
 }
+a {
+  transition: color 0.2s ease;
+}
 a:hover,
 a:focus {
   text-decoration: none;
@@ -7539,6 +7542,12 @@ a:focus {
   line-height: 30px;
   color: #fff;
   text-align: center;
+  transition: all .3s;
+}
+.brand-image:hover {
+  -webkit-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
 }
 .navbar-default {
   opacity: 0.90;
