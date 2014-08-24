@@ -7541,10 +7541,14 @@ a:focus {
   text-align: center;
 }
 .navbar-default {
-  opacity: 0.95;
+  opacity: 0.90;
   border-bottom: 3px #3069ab solid;
   -webkit-box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.05);
   box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.05);
+  transition: opacity 0.3s ease-in;
+}
+.navbar-default:hover {
+  opacity: 1;
 }
 .panel-heading {
   font-family: "Lato", Helvetica, Arial, sans-serif;
