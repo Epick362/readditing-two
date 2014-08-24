@@ -48,19 +48,10 @@ class Imgur extends Provider {
 		);
 	}
 
-	public function getAlbum($id) {
-		$client = new Client();
-		try {
-			$response = $client->get("https://api.imgur.com/3/album/".$id, [
-				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
-			])->json();
-		}catch (ClientException $e) {
-			return $this->fail();
-		}
-
+	public function getAlbum() {
 		return array(
 			'title' => $this->data['data']['title'], 
-			'content' => '<pre>'.print_r($response, true).'</pre>', 
+			'content' => \View::make('provider.imgur', $this->data)->render(), 
 			'source' => 'imgur.com'
 		);
 	}
