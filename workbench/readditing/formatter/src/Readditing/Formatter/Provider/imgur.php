@@ -28,7 +28,7 @@ class Imgur extends Provider {
 		$parsed_url = parse_url($this->data['data']['url']);
 
 		$images = array('png', 'jpg', 'jpeg', 'gif');
-		$after_dot = substr($parsed_url['path'], strrpos($parsed_url, '.') + 1);
+		$after_dot = substr($parsed_url['path'], strrpos($parsed_url['path'], '.') + 1);
 
 		if(!in_array($after_dot, $images)) {
 			$parts = explode("/", $parsed_url['path']);
