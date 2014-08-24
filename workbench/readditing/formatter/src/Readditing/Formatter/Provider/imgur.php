@@ -33,9 +33,8 @@ class Imgur extends Provider {
 		if(!in_array($after_dot, $images)) {
 			$parts = explode("/", $parsed_url['path']);
 
-			return ['content' => print_r($parts)];
-
 			if($parts[1] == "a") {
+				dd('lol');
 				return $this->getAlbum($parts[1]);
 			}else{
 				return $this->getImage($parts[0]);
