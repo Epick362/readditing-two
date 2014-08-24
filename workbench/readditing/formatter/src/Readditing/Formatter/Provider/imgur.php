@@ -25,37 +25,68 @@ class Imgur extends Provider {
 	 */
 	public function getPost()
 	{
-		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => '<pre>'.print_r(parse_url($this->data['data']['url']), true).'</pre>', 
-			'source' => 'imgur.com'
-		);
+		$parsed_url = parse_url($this->data['data']['url']);
 
-		$images = array('png', 'jpg', 'jpeg', 'gif', 'png?1', 'jpg?1', 'jpeg?1', 'gif?1');
-		$after_dot = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '.') + 1);
+		$images = array('png', 'jpg', 'jpeg', 'gif');
+		$after_dot = substr($parsed_url['path'], strrpos($parsed_url, '.') + 1);
 
 		if(!in_array($after_dot, $images)) {
-			$this->data['data']['imgur-id'] = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '/') + 1);
+			$parts = explode("/", $parsed_url['path']);
 
-			$client = new Client();
-			try {
-				$response = $client->get("https://api.imgur.com/3/image/".$this->data['data']['imgur-id'], [
-					'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
-				])->json();
-			}catch (ClientException $e) {
-				return array(
-					'title' => $this->data['data']['title'], 
-					'content' => 'Sorry we couldn\'t get this image for you', 
-					'source' => 'imgur.com'
-				);
+			if($parts[0] === 'a') {
+				return $this->getAlbum($parts[1]);
+			}else{
+				return $this->getImage($parts[0]);
 			}
-
-			$this->data['data']['url'] = $response['data']['link'];
 		}
 
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => \View::make('provider.other.image', $this->data)->render(), 
+			'source' => 'imgur.com'
+		);
+	}
+
+	public function getAlbum($id) {
+		$client = new Client();
+		try {
+			$response = $client->get("https://api.imgur.com/3/album/".$id, [
+				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+			])->json();
+		}catch (ClientException $e) {
+			return $this->fail();
+		}
+
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => '<pre>'.print_r($response, true).'</pre>', 
+			'source' => 'imgur.com'
+		);
+	}
+
+	public function getImage($id) {
+		$client = new Client();
+		try {
+			$response = $client->get("https://api.imgur.com/3/image/".$id, [
+				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+			])->json();
+		}catch (ClientException $e) {
+			return $this->fail();
+		}
+
+		$this->data['data']['url'] = $response['link'];
+
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => \View::make('provider.other.image', $this->data)->render(), 
+			'source' => 'imgur.com'
+		);
+	}
+
+	private function fail() {
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => 'Sorry we couldn\'t get this image for you', 
 			'source' => 'imgur.com'
 		);
 	}
