@@ -7508,11 +7508,14 @@ button.close {
   margin-top: 120px;
 }
 a {
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 a:hover,
 a:focus {
   text-decoration: none;
+}
+a.btn {
+  transition: none;
 }
 .btn-default {
   color: #34A4F7;
@@ -7596,9 +7599,10 @@ a:focus {
   line-height: 1.65;
 }
 .panel-body > .panel-text img {
-  width: 100%;
-  height: auto;
   display: block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
   margin: 10px auto;
   border-radius: 6px;
 }

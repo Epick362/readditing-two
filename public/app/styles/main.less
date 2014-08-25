@@ -13,12 +13,16 @@
 } 
 
 a {
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 a:hover,
 a:focus {
 	text-decoration: none;
+}
+
+a.btn {
+  transition: none;
 }
 
 .btn-default {
@@ -115,11 +119,12 @@ a:focus {
 	line-height: 1.65;
 
   & img {
-    width: 100%;
-    height: auto;
     display: block;
+    width: 100% \9;
+    max-width: 100%;
+    height: auto;
     margin: 10px auto;
-    border-radius: 6px;
+    border-radius: 6px; 
   }
 }
 
