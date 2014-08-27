@@ -4,11 +4,11 @@ namespace Readditing\Formatter\Provider;
 
 use Readditing\Formatter\Provider;
 
-class Youtube extends Provider {
+class Youtu extends Provider {
 	/**
 	* @var  string  provider name
 	*/
-	public $name = 'youtube';
+	public $name = 'youtu';
 
 	public function __construct($data) {
 		$this->data = $data;
@@ -22,7 +22,7 @@ class Youtube extends Provider {
 	{
 		$parse_url = parse_url($this->data['data']['url']);
 
-		$this->data['data']['youtube-id'] = substr($parse_url['query'], strpos($parse_url['query'], "=") + 1);
+		$this->data['data']['youtube-id'] = substr($parse_url['path'], 1);
 
 		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.youtube', $this->data)->render(), 'source' => 'youtube.com');
 	}
