@@ -69,8 +69,7 @@ class Imgur extends Provider {
 
 		return array(
 			'title' => $this->data['data']['title'], 
-			//'content' => \View::make('provider.other.image', $this->data)->render(), 
-			'content' => '<pre>'.print_r($response).'</pre>',
+			'content' => \View::make('provider.other.image', $this->data)->render(), 
 			'source' => 'imgur.com'
 		);
 	}
@@ -78,7 +77,8 @@ class Imgur extends Provider {
 	private function fail() {
 		return array(
 			'title' => $this->data['data']['title'], 
-			'content' => 'Sorry we couldn\'t get this image for you', 
+			//'content' => 'Sorry we couldn\'t get this image for you', 
+			'content' => '<pre>'.print_r($response).'</pre>',
 			'source' => 'imgur.com'
 		);
 	}
