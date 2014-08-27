@@ -30,7 +30,7 @@ class Formatter {
 
 		$parts = parse_url($url);
 
-		print_r($parts, true);
+		print_r($parts);
 
 		$host = str_replace('www.', '', $parts['host']);
 		$matches = array();
