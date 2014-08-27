@@ -17,6 +17,8 @@ class Subreddit extends Moloquent {
 			$posts = Reddit::fetch('/hot.json', $params);
 		}
 
+		return print_r($posts, true);
+
 		if(isset($posts['data']['children']) && !empty($posts['data']['children'])) {
 			foreach($posts['data']['children'] as $_post) {
 
