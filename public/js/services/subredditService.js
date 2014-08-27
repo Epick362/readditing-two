@@ -18,7 +18,7 @@ angular.module('subredditService', [])
 				var url = '/api/r?after='+this.after;
 			}
 
-			$http.get(url)
+			$http('GET', url)
 			.success(function(data) {
 				var posts = data;
 
@@ -37,6 +37,7 @@ angular.module('subredditService', [])
 					'content': '<div class="alert alert-danger">Readditing has encountered a problem. Try refreshing the page.</div>',
 					'source': ''
 				});
+				this.busy = false;
 			}.bind(this));
 		};
 
