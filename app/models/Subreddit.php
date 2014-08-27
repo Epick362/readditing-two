@@ -17,7 +17,7 @@ class Subreddit extends Moloquent {
 			$posts = Reddit::fetch('/hot.json', $params);
 		}
 
-		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['kind'] == 't3') {
+		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {
 			foreach($posts['data']['children'] as $_post) {
 
 				$formatter = Formatter::provider($_post);
