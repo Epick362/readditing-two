@@ -9,11 +9,11 @@ use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Exception\ClientException;
 
-class Twitter extends Provider {
+class Soundcloud extends Provider {
 	/**
 	* @var  string  provider name
 	*/
-	public $name = 'twitter';
+	public $name = 'soundcloud';
 
 	public function __construct($data) {
 		$this->data = $data;

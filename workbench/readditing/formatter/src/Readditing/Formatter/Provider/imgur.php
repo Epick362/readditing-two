@@ -61,7 +61,7 @@ class Imgur extends Provider {
 			$response = $client->get("https://api.imgur.com/3/image/".$id, [
 				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
 			])->json();
-		}catch (ClientException $e) {
+		}catch (\Exception $e) {
 			return $this->fail();
 		}
 
