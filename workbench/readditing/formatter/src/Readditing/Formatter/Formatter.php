@@ -14,6 +14,8 @@ class Formatter {
 	public static function provider(array $data = NULL)
 	{
 
+		print_r($data['data']['url']);
+
 		$_url = self::getSource($data['data']['url']);
 
 		$class = __NAMESPACE__ . '\\Provider\\' . ucfirst($_url);
@@ -29,8 +31,6 @@ class Formatter {
 	public static function getSource($url) {
 
 		$parts = parse_url($url);
-
-		print_r($parts);
 
 		$host = str_replace('www.', '', $parts['host']);
 		$matches = array();
