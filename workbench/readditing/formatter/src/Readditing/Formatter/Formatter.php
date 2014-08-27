@@ -30,6 +30,8 @@ class Formatter {
 
 		$parts = parse_url($url);
 
+		print_r($parts, true);
+
 		$host = str_replace('www.', '', $parts['host']);
 		$matches = array();
 		preg_match('/(.*?)((\.co)?.[a-z]{2,4})$/i', $host, $matches);
