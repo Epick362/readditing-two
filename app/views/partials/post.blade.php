@@ -7,7 +7,7 @@
 			</div>
 			<div class="panel-body" ng-bind-html="post.content">
 			</div>
-			<div class="panel-footer">
+			<div class="panel-footer" ng-if="post.author">
 				<div class="row">
 					<div class="col-sm-4">
 						<a href=""><% post.author %></a> in <a href="{{ URL::to('r') }}/<% post.subreddit %>"><% post.subreddit %></a> 
