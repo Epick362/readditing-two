@@ -20,7 +20,9 @@ class Youtube extends Provider {
 	 */
 	public function getPost()
 	{
-		$this->data['data']['youtube-id'] = substr($this->data['data']['url'], strrpos($this->data['data']['url'], '=') + 1);
+		dd(parse_url($this->data['data']['url']));
+
+		$this->data['data']['youtube-id'] = '';
 
 		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.youtube', $this->data)->render(), 'source' => 'youtube.com');
 	}

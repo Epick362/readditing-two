@@ -30,12 +30,6 @@ class Formatter {
 
 		$host = str_replace('www.', '', $parts['host']);
 
-
-		if($parts['host'] == 'youtu.be') {
-			return 'youtube';
-		}
-
-
 		$matches = array();
 		preg_match('/(.*?)((\.co)?.[a-z]{2,4})$/i', $host, $matches);
 		if(strchr($matches[1], '.')) {
