@@ -27,7 +27,7 @@ class Soundcloud extends Provider {
 	{
 		try {
 			$client = new Client();
-			$response = $client->get("https://api.twitter.com/1/statuses/oembed.json?maxwidth=600&align=center&url=".urlencode($this->data['data']['url']))->json();
+			$response = $client->get("http://soundcloud.com/oembed?format=json&url=".urlencode($this->data['data']['url']))->json();
 		}catch (\Exception $e) {
 			return $this->fail();
 		}
@@ -35,15 +35,15 @@ class Soundcloud extends Provider {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => $response['html'], 
-			'source' => 'twitter.com'
+			'source' => 'soundcloud.com'
 		);
 	}
 
 	private function fail() {
 		return array(
 			'title' => $this->data['data']['title'], 
-			'content' => 'Sorry we couldn\'t get this tweet for you', 
-			'source' => 'twitter.com'
+			'content' => 'Sorry we couldn\'t get this music for you', 
+			'source' => 'soundcloud.com'
 		);
 	}
 }
