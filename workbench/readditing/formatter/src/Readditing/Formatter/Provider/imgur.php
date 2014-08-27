@@ -6,7 +6,6 @@ use Readditing\Formatter\Provider;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
-use GuzzleHttp\Exception\ClientException;
 
 
 class Imgur extends Provider {
@@ -56,12 +55,12 @@ class Imgur extends Provider {
 	}
 
 	public function getImage($id) {
-		$client = new Client();
 		try {
+			$client = new Client();
 			$response = $client->get("https://api.imgur.com/3/image/".$id, [
 				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
 			])->json();
-		}catch (ClientException $e) {
+		}catch (Exception $e) {
 			return $this->fail();
 		}
 

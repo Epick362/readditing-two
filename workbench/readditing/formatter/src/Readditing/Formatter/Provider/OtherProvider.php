@@ -53,8 +53,8 @@ class OtherProvider extends Provider {
 			// 	$this->data['data']['readability'] = '';
 			// }
 
-			$client = new Client();
 			try {
+				$client = new Client();
 				$response = $client->get('https://readability.com/api/content/v1/parser?url='.urlencode($this->data['data']['url']).'&token=9724d804318495363bae40e8e8f9ffd30e43b716')->json();
 			}catch (Exception $e) {
 				return array(
