@@ -18,7 +18,7 @@ angular.module('subredditService', [])
 				var url = '/api/r?after='+this.after;
 			}
 
-			$http('GET', url)
+			$http({method: 'GET', url: url})
 			.success(function(data) {
 				var posts = data;
 
