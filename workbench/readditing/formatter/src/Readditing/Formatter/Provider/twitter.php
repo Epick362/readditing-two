@@ -28,6 +28,8 @@ class Twitter extends Provider {
 		try {
 			$client = new Client();
 			$response = $client->get("https://api.twitter.com/1/statuses/oembed.json?maxwidth=600&align=center&url=".urlencode($this->data['data']['url']))->json();
+
+			dd($response);
 		}catch (ClientException $e) {
 			return $this->fail();
 		}
@@ -42,8 +44,8 @@ class Twitter extends Provider {
 	private function fail() {
 		return array(
 			'title' => $this->data['data']['title'], 
-			'content' => 'Sorry we couldn\'t get this image for you', 
-			'source' => 'imgur.com'
+			'content' => 'Sorry we couldn\'t get this tweet for you', 
+			'source' => 'twitter.com'
 		);
 	}
 }
