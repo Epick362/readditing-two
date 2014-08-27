@@ -65,7 +65,7 @@ class Imgur extends Provider {
 			return $this->fail();
 		}
 
-		$this->data['data']['url'] = $response['link'];
+		$this->data['data']['url'] = $response['data']['link'];
 
 		return array(
 			'title' => $this->data['data']['title'], 
