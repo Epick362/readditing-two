@@ -23,7 +23,7 @@ class Reddit extends Provider {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => \View::make('provider.reddit', $this->data)->render(), 
-			'source' => '(self.'.$this->data['data']['subreddit'].')'
+			'source' => 'self.'.$this->data['data']['subreddit']
 		);
 	}
 }

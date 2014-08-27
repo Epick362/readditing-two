@@ -18,7 +18,8 @@ angular.module('subredditService', [])
 				var url = '/api/r?after='+this.after;
 			}
 
-			$http.get(url).success(function(data) {
+			$http.get(url)
+			.success(function(data) {
 				var posts = data;
 
 				for (var i = 0; i < posts.length; i++) {
@@ -29,6 +30,13 @@ angular.module('subredditService', [])
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 				this.busy = false;
+			}.bind(this))
+			.error(function(data) {
+				this.posts.push({
+					'title': 'There was an error',
+					'content': '<div class="alert alert-danger">Readditing has encountered a problem. Try refreshing the page.</div>',
+					'source': ''
+				});
 			}.bind(this));
 		};
 
