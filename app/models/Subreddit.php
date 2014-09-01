@@ -2,7 +2,7 @@
 
 use Readditing\Formatter\Formatter as Formatter;
 
-class Subreddit extends Moloquent {
+class Subreddit extends Eloquent {
 
 	public static function fetch( $subreddit, $after ) {
 		$params = [];

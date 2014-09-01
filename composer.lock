@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4860011cf207ef3f2b2d3542dcb552e0",
+    "hash": "d677d2aa5f05cfb3b9f0f7dcaf629b29",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -347,64 +347,6 @@
                 "password"
             ],
             "time": "2013-04-30 19:58:08"
-        },
-        {
-            "name": "jenssegers/mongodb",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jenssegers/laravel-mongodb.git",
-                "reference": "d9f2c51c9e5ce2829c1869af943a827b52af5d9c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jenssegers/laravel-mongodb/zipball/d9f2c51c9e5ce2829c1869af943a827b52af5d9c",
-                "reference": "d9f2c51c9e5ce2829c1869af943a827b52af5d9c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": "4.2.*",
-                "illuminate/database": "4.2.*",
-                "illuminate/events": "4.2.*",
-                "illuminate/support": "4.2.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "*",
-                "orchestra/testbench": "2.2.*",
-                "satooshi/php-coveralls": "*"
-            },
-            "suggest": {
-                "jenssegers/mongodb-sentry": "Add Sentry support to Laravel-MongoDB",
-                "jenssegers/mongodb-session": "Add MongoDB session support to Laravel-MongoDB"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Jenssegers\\Mongodb": "src/",
-                    "Jenssegers\\Eloquent": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jens Segers",
-                    "homepage": "http://jenssegers.be"
-                }
-            ],
-            "description": "A MongoDB based Eloquent model and Query builder for Laravel 4",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel",
-                "model",
-                "mongo",
-                "mongodb"
-            ],
-            "time": "2014-08-12 11:00:20"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1936,8 +1878,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "madewithlove/laravel-oauth2": 20,
-        "jenssegers/mongodb": 20
+        "madewithlove/laravel-oauth2": 20
     },
     "prefer-stable": false,
     "platform": [],

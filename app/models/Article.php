@@ -1,5 +1,5 @@
 <?php
-class Article extends Moloquent {
+class Article extends Eloquent {
 
 	protected $table = 'articles';
 

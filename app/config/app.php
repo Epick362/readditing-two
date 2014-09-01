@@ -107,7 +107,6 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-		'Jenssegers\Mongodb\MongodbServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
 		
 		'Readditing\Readability\ReadabilityServiceProvider',

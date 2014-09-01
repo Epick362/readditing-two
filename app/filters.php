@@ -17,16 +17,6 @@ App::before(function($request)
 	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') <= time() - 3600) {
 		return Redirect::to('auth/login');
 	}
-
-	if(isset($_ENV['MONGOHQ_URL'])) {
-		$mongo = parse_url($_ENV['MONGOHQ_URL']);
-
-		Config::set('database.connections.mongodb.host', $mongo['host']);
-		Config::set('database.connections.mongodb.port', $mongo['port']);
-		Config::set('database.connections.mongodb.username', $mongo['user']);
-		Config::set('database.connections.mongodb.password', $mongo['pass']);
-		Config::set('database.connections.mongodb.database', substr($mongo['path'], 1));
-	}
 });
 
 
