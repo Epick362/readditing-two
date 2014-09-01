@@ -17,8 +17,6 @@ class Subreddit extends Eloquent {
 			$posts = Reddit::fetch('/hot.json', $params);
 		}
 
-		dd($posts);
-
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {
 			foreach($posts['data']['children'] as $_post) {
 
@@ -34,7 +32,7 @@ class Subreddit extends Eloquent {
 
 				$result[] = $post;
 			}
-
+			dd($result);
 			return $result;
 		}
 
