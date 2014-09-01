@@ -32,9 +32,9 @@ class Reddit {
 			$_default_opts = stream_context_get_params(stream_context_get_default());
 			$context = stream_context_create(array_merge_recursive($_default_opts['options'], $opts));
 
-			return json_decode(@file_get_contents($url, false, $context), true);
+			return @file_get_contents($url, false, $context);
 		});
 
-		return $response;
+		return json_decode($response);
 	}
 }
