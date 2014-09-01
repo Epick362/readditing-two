@@ -32,9 +32,10 @@ class Subreddit extends Eloquent {
 
 				$result[] = $post;
 			}
-			dd($result);
 			return $result;
 		}
+
+		var_dump($posts); die;
 
 		return false;
 	}
