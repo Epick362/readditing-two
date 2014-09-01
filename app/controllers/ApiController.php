@@ -15,7 +15,7 @@ class ApiController extends \BaseController {
 			return Response::json($data);
 		}
 
-		return Response::make('Failed to get any data', 404);
+		return Response::make(null, 404);
 	}
 
 
