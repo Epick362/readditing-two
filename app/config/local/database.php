@@ -7,7 +7,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'database',
+			'database'  => 'readditing',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
