@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Jenssegers\Mongodb\MongodbServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 		
 		'Readditing\Readability\ReadabilityServiceProvider',
 		'Readditing\Reddit\RedditServiceProvider'

@@ -14,8 +14,10 @@
 		"madewithlove/laravel-oauth2": "dev-master",
 		"jenssegers/mongodb": "dev-master",
 		"guzzlehttp/guzzle": "~4.0",
-        "ext-memcached": "*",
-        "ext-mongo": "*"
+		"fzaninotto/faker": "v1.3.0"
+	},
+	"require-dev": {
+	    "way/generators": "2.*"
 	},
 	"autoload": {
 		"classmap": [
