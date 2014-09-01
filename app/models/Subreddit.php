@@ -12,7 +12,7 @@ class Subreddit extends Eloquent {
 		}
 
 		if($subreddit) {
-			$posts = Cache::remember('users', $minutes, function() {
+			$posts = Cache::remember('subreddit_'.$subreddit, 10, function() {
 				return Reddit::fetch('/r/'.$subreddit.'/hot.json', $params);
 			});
 		}else{
