@@ -20,7 +20,7 @@ class Reddit {
 
 		$url .= '?'.$postdata;
 
-		$response = \Cache::remember($url, 5, function() {
+		$response = \Cache::remember($url, 5, function() use($method) {
 			$opts = array(
 				'http' => array(
 					'method'  => $method,
