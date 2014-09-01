@@ -33,6 +33,8 @@ class Reddit {
 
 		$response = json_decode(@file_get_contents($url, false, $context), true);
 
+		dd($response);
+
 		return $response;
 	}
 }
