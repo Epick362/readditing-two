@@ -40,7 +40,7 @@ class Reddit {
 		$request = $client->createRequest('GET', $url);
 
 
-		dd($request->eof());
+		dd($request->getHeaders());
 
 		// $opts = array(
 		// 	'http' => array(
