@@ -26,6 +26,8 @@ angular.module('subredditCtrl', [])
 
 	            console.log('adssadasdasd');
 
+	            console.log(element.find('a'));
+
 	            element.find('a').css('background', 'red');
 
 	            element.find('a').append(' <i class="fa fa-share-square-o"></i>');
