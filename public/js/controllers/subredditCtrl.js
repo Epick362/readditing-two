@@ -22,7 +22,7 @@ angular.module('subredditCtrl', [])
 	    return {
 	        restrict: 'A',
 	        link: function(scope, element, attrs) {
-	        	$(element).each(function(index, obj){
+	        	element.each(function(index, obj){
 				    //you can use this to access the current item
 				    if(obj.is('a')) {
 				    	console.log(obj);
