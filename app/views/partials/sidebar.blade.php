@@ -1,17 +1,19 @@
 
 <div class="col-md-2" style="position:fixed; top:120px">
-	@if($subreddit)
+	@if(isset($subreddit) && $subreddit)
 	<div class="sidebar panel panel-default">
 		<div class="panel-body">
-			{{ $subreddit }} <br />
+			<div class="panel-heading">
+				{{ $subreddit }}
+			</div>
 			@if(Session::has('user'))
-			<a href="" class="btn btn-default">Subscribe</a>
+			<a href="#" class="btn btn-default btn-block"><i class="fa fa-bookmark"></i> Subscribe</a>
 			@endif
 		</div>
 	</div>
 	@endif
 
-	@if($popular)
+	@if(isset($popular) && $popular)
 	<div class="sidebar panel panel-default">
 		<div class="panel-heading">
 			Popular subreddits
