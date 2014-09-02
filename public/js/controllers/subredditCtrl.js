@@ -26,7 +26,7 @@ angular.module('subredditCtrl', [])
 
 	            console.log('adssadasdasd');
 
-	            console.log(element.find('a'));
+	            console.log($(element).find('a'));
 
 	            element.find('.panel-text').remove();
 
