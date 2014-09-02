@@ -43,6 +43,8 @@ class Subreddit extends Eloquent {
 			Reddit::fetch('/subreddits/popular');
 		});
 
+		dd($popular);
+
 		if($popular) {
 			return $popular;
 		}

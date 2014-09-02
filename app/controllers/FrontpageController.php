@@ -20,8 +20,6 @@ class FrontpageController extends BaseController {
 
 		$view['popular'] = Subreddit::getPopular();
 
-		dd($view);
-
 		return View::make('frontpage', $view);
 	}
 }
