@@ -28,9 +28,7 @@ angular.module('subredditCtrl', [])
 
 	            console.log(element.find('a'));
 
-	            element.find('p').remove();
-
-	            element.find('a').css('background', 'red');
+	            element.find('.panel-text').remove();
 
 	            element.find('a').append(' <i class="fa fa-share-square-o"></i>');
 	        }
