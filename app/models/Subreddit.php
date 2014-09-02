@@ -39,10 +39,8 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getPopular() {
-		dd(Reddit::fetch('/subreddits/popular'));
-
 		$popular = Cache::remember('popular_subreddits', 3600, function() {
-			
+			Reddit::fetch('/subreddits/popular.json');
 		});
 
 		if($popular) {
