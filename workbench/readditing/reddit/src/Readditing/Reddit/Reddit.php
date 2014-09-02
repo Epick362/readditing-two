@@ -1,4 +1,5 @@
-<?php namespace Readditing\Reddit;
+<?php 
+namespace Readditing\Reddit;
  
 class Reddit {
 
