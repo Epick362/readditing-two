@@ -12,9 +12,9 @@ class Subreddit extends Eloquent {
 		}
 
 		if($subreddit) {
-			$posts = Reddit::fetch('/r/'.$subreddit.'/hot.json', $params);
+			$posts = Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
 		}else{
-			$posts = Reddit::fetch('/hot.json', $params);
+			$posts = Reddit::fetch('hot.json', $params);
 		}
 
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {

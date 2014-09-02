@@ -9,7 +9,7 @@ use GuzzleHttp\Exception\ClientException;
 class Reddit {
 
 	protected static $access_token;
-	public static $reddit_url = 'https://oauth.reddit.com';
+	public static $reddit_url = 'https://oauth.reddit.com/';
  	
 	public function __construct() {
 		if(\Session::has('access_token')) {
