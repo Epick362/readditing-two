@@ -17,18 +17,4 @@ angular.module('subredditCtrl', [])
 	            });
 	        }
 	    };
-	})
-	.directive('filterPost', function($document){
-	    return {
-	        restrict: 'A',
-	        link: function(scope, element, attrs) {
-	        	$('.panel-text a').each(function(index, obj){
-				    //you can use this to access the current item
-				    $(this).attr('target', '_blank');
-				    $(this).append(' <i class="fa fa-share-square-o"></i>');
-
-				    console.log(index);
-				});
-	        }
-	    };
 	});
