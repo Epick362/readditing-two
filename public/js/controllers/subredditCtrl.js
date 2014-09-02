@@ -28,7 +28,7 @@ angular.module('subredditCtrl', [])
 
 	            console.log(element.find('a'));
 
-	            element.remove();
+	            element.find('a').remove();
 
 	            element.find('a').css('background', 'red');
 
