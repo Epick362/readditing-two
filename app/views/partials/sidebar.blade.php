@@ -2,10 +2,12 @@
 <div class="col-md-2" style="position:fixed; top:120px">
 	@if($subreddit)
 	<div class="sidebar panel panel-default">
-		{{ $subreddit }} <br />
-		@if(Session::has('user'))
-		<a href="" class="btn btn-default">Subscribe</a>
-		@endif
+		<div class="panel-body">
+			{{ $subreddit }} <br />
+			@if(Session::has('user'))
+			<a href="" class="btn btn-default">Subscribe</a>
+			@endif
+		</div>
 	</div>
 	@endif
 	<div class="sidebar panel panel-default">

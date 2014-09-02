@@ -22,7 +22,6 @@ class AuthController extends Controller {
 
 			catch (OAuth2_Exception $e) {
 				echo 'Something went wrong<br />';
-				echo '<pre>'.$e.'</pre>';
 				return;
 			}
 		}else if (!isset($_GET['code'])) {
@@ -37,7 +36,6 @@ class AuthController extends Controller {
 
 			catch (OAuth2_Exception $e) {
 				echo 'Something went wrong<br />';
-				echo '<pre>'.$e.'</pre>';
 				return;
 			}
 		}
