@@ -14,6 +14,8 @@
 	@endif
 
 	@if(isset($popular) && $popular)
+
+	{{ dd($popular) }}
 	<div class="sidebar panel panel-default">
 		<div class="panel-heading">
 			Popular subreddits
