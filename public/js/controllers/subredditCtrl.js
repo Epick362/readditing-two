@@ -22,12 +22,12 @@ angular.module('subredditCtrl', [])
 	    return {
 	        restrict: 'A',
 	        link: function(scope, element, attrs) {
-	        	$('a').each(function(index, obj){
+	        	$(element).find('a').each(function(index, obj){
 				    //you can use this to access the current item
 				    console.log(obj);
 				});
 
-	            element.find('a[href=*]').attr('target', '_blank');
+	            element.find('a').attr('target', '_blank');
 
 	            console.log('adssadasdasd');
 
