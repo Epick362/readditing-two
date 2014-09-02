@@ -22,8 +22,20 @@ class Youtube extends Provider {
 	{
 		$parse_url = parse_url($this->data['data']['url']);
 
+		if(!isset($parse_url['query'])) {
+			return $this->fail();
+		}
+
 		$this->data['data']['youtube-id'] = substr($parse_url['query'], strpos($parse_url['query'], "=") + 1);
 
 		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.youtube', $this->data)->render(), 'source' => 'youtube.com');
+	}
+
+	private function fail() {
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => 'Sorry we couldn\'t get this video for you', 
+			'source' => 'youtube.com'
+		);
 	}
 }
