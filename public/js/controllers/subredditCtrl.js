@@ -22,7 +22,7 @@ angular.module('subredditCtrl', [])
 	    return {
 	        restrict: 'A',
 	        link: function(scope, element, attrs) {
-	            element.find('a').attr('target', '_blank');
+	            $(element).find('a').attr('target', '_blank');
 
 	            console.log('adssadasdasd');
 
