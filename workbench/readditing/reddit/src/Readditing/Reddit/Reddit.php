@@ -36,7 +36,10 @@ class Reddit {
 		        ]
 		    ]
 		]);
-		$response = $client->get($url)->json();
+
+		dd($client);
+
+		$response = $client->get($url);
 
 		dd($response);
 
