@@ -37,11 +37,10 @@ class Reddit {
 		    ]
 		]);
 
-		dd($client);
+		$request = $client->createRequest('GET', $url);
 
-		$response = $client->get($url);
 
-		dd($response);
+		dd($request->eof());
 
 		// $opts = array(
 		// 	'http' => array(
