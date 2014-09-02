@@ -24,6 +24,8 @@ angular.module('subredditCtrl', [])
 	        link: function(scope, element, attrs) {
 	            element.find('a').attr('target', '_blank');
 
+	            console.log('adssadasdasd');
+
 	            element.find('a').append(' <i class="fa fa-share-square-o"></i>');
 	        }
 	    };
