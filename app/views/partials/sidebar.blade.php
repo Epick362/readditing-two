@@ -3,7 +3,7 @@
 	@if(isset($subreddit) && $subreddit)
 		<div class="sidebar panel panel-default">
 			<div class="panel-body">
-				<div class="panel-heading">
+				<div id="subreddit-name" class="panel-heading">
 					{{ $subreddit }}
 				</div>
 				@if(Session::has('user'))
