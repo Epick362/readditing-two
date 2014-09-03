@@ -27,6 +27,7 @@ angular.module('subredditService', [])
 					this.posts.push(posts[i]);
 				}
 
+				$("figure.upvoteable").upvoteable();
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 				this.busy = false;

@@ -101,11 +101,5 @@
 				</div>
 			</div>
 		</div>
-
-		<script>
-			$(function() {
-				$("figure.upvoteable").upvoteable();
-			});
-		</script>
 	</body>
 </html>

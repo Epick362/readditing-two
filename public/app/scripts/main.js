@@ -1,8 +1,6 @@
 $(function() {
 	$("figure.upvoteable").upvoteable();
 
-	console.log('hei boi');
-
 	$("figure.upvote").bind("upvote:added", function(e) {
 		
 	});
