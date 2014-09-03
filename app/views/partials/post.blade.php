@@ -1,7 +1,7 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" show-more data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
-				<figure class="upvote">
+				<figure class="upvote upvoteable">
 					<a class="upvoteobject">
 						<div class="opening">
 							<div class="circle"><div class="inner-circle"><i class="icon-arrow-up icon-2x"></i></div></div>
