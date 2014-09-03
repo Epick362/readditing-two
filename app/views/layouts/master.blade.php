@@ -80,18 +80,18 @@
 
 		<div id="wrap">
 			<div class="container">
-				@if(isset($subreddit) && $subreddit)
-				<div class="row">
-					<h1>
-						{{ $subreddit }} 
-						@if(Session::has('user'))
-							<a href="#" class="btn btn-default btn-block"><i class="fa fa-bookmark"></i> Subscribe</a>
-						@endif
-					</h1>
-				</div>
-				@endif
 				<div class="row">
 					<div class="col-md-8 col-md-offset-1">
+						@if(isset($subreddit) && $subreddit)
+						<div class="panel panel-default">
+							<h1>
+								{{ $subreddit }} 
+								@if(Session::has('user'))
+									<a href="#" class="btn btn-default btn-block"><i class="fa fa-bookmark"></i> Subscribe</a>
+								@endif
+							</h1>
+						</div>
+						@endif
 						@yield('content')
 					</div>
 					<div class="col-md-2 visible-md visible-lg">
