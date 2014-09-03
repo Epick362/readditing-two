@@ -23,28 +23,26 @@ class Reddit {
 		$url = self::$reddit_url . '' . $api;
 
 		$post = array();
+		$query = array();
 
 		if($method == 'POST') {
 			$post = $params;
 		}else{
-			$postdata = http_build_query($params);
-			$url .= '?'.$postdata;
+			$query = $params;
 		}
 
 		$client = new Client([
 		    'base_url' => self::$reddit_url,
-		    'defaults' => [
+		    'request.options' => [
 		        'headers' => [
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
 		        	'User-Agent' => 'Readditing.com by Epick_362'
-		        ]
+		        ],
+		        'query' => $query
 		    ]
 		], $post);
 
-		$request = $client->createRequest($method, $url);
-
-
-		return $client->send($request)->json();
+		return $client->$method($url, array(), $post)->send()->json();
 	}
 }
