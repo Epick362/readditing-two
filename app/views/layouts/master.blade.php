@@ -26,7 +26,6 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="http://cdn.bootcss.com/FitText.js/1.1/jquery.fittext.min.js"></script>
 
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
@@ -81,6 +80,16 @@
 
 		<div id="wrap">
 			<div class="container">
+				@if(isset($subreddit) && $subreddit)
+				<div class="row">
+					<h1>
+						{{ $subreddit }} 
+						@if(Session::has('user'))
+							<a href="#" class="btn btn-default btn-block"><i class="fa fa-bookmark"></i> Subscribe</a>
+						@endif
+					</h1>
+				</div>
+				@endif
 				<div class="row">
 					<div class="col-md-8 col-md-offset-1">
 						@yield('content')
@@ -91,13 +100,5 @@
 				</div>
 			</div>
 		</div>
-
-		<script>
-			$(function() {
-				$('#subreddit-name').fitText();
-
-				console.log('im working');
-			});
-		</script>
 	</body>
 </html>
