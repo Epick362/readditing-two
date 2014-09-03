@@ -22,9 +22,14 @@ class Reddit {
 	public static function fetch($api, $params = array(), $method = 'GET') {
 		$url = self::$reddit_url . '' . $api;
 
-		$postdata = http_build_query($params);
-		$url .= '?'.$postdata;
+		$post = array();
 
+		if($method == 'POST') {
+			$post = $params;
+		}else{
+			$postdata = http_build_query($params);
+			$url .= '?'.$postdata;
+		}
 
 		$client = new Client([
 		    'base_url' => self::$reddit_url,
@@ -35,7 +40,7 @@ class Reddit {
 		        	'User-Agent' => 'Readditing.com by Epick_362'
 		        ]
 		    ]
-		]);
+		], $post);
 
 		$request = $client->createRequest($method, $url);
 
