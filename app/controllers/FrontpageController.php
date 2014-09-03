@@ -20,7 +20,7 @@ class FrontpageController extends BaseController {
 
 		$view['popular'] = Subreddit::getPopular();
 
-		dd(Reddit::fetch('api/vote', [
+		dd(Reddit::fetch('api/vote.json', [
 			'dir' => 1,
 			'id' => 't3_2fc62m'
 		], 'POST'));
