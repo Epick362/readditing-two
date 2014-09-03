@@ -24,6 +24,7 @@
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 		
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/upvoteable.css') }}">
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
