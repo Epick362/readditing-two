@@ -22,7 +22,7 @@ class ApiController extends \BaseController {
 		$response = Reddit::fetch('api/vote', [
 			'dir' => 1,
 			'id' => $id
-		], 'POST');
+		], 'POST'); 
 
 		return Response::json($response);
 	} 
