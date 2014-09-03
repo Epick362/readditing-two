@@ -1,19 +1,19 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
-		<div class="upvote-wrapper">
-			<figure class="upvote">
-				<a class="upvoteobject">
-					<div class="opening">
-						<div class="circle"><div class="inner-circle"><i class="icon-arrow-up icon-2x"></i></div></div>
-					</div>
-				</a>
-
-				<a href="#upvote" class="count">
-					<span class="num">3882</span>
-					<span class="txt">Upvotes</span>
-				</a>
-			</figure>			
-		</div>
 		<div class="panel panel-default" show-more data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
+			<div class="upvote-wrapper">
+				<figure class="upvote">
+					<a class="upvoteobject">
+						<div class="opening">
+							<div class="circle"><div class="inner-circle"><i class="icon-arrow-up icon-2x"></i></div></div>
+						</div>
+					</a>
+
+					<a href="#upvote" class="count">
+						<span class="num">3882</span>
+						<span class="txt">Upvotes</span>
+					</a>
+				</figure>			
+			</div>
 			<div class="panel-heading">
 				<% post.title %>
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
