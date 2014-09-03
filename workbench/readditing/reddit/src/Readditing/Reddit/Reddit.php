@@ -33,7 +33,7 @@ class Reddit {
 
 		$client = new Client([
 		    'base_url' => self::$reddit_url,
-		    'request.options' => [
+		    'defaults' => [
 		        'headers' => [
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
@@ -41,7 +41,7 @@ class Reddit {
 		        ],
 		        'query' => $query
 		    ]
-		], $post);
+		]);
 
 		return $client->$method($url, array(), $post)->send()->json();
 	}
