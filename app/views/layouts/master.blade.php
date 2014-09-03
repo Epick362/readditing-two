@@ -87,7 +87,7 @@
 							<div class="panel-heading">
 								{{ $subreddit }} 
 								@if(Session::has('user'))
-									<a href="#" class="btn btn-default pull-right visible-sm-block"><i class="fa fa-bookmark"></i> Subscribe</a>
+									<a href="#" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
 								@endif
 							</div>
 						</div>
