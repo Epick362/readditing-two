@@ -17,9 +17,11 @@
     }
 
     Upvoteable.prototype.bindEvents = function() {
-      $('body').on('click', this.element, this.unupvote);
-      $('body').on('touchstart mouseenter', this.element, this.start);
-      return $('body').on('touchend mouseleave', this.element, this.end);
+      console.log(this.element);
+
+      $(document).on('click', this.element, this.unupvote);
+      $(document).on('touchstart mouseenter', this.element, this.start);
+      $(document).on('touchend mouseleave', this.element, this.end);
     };
 
     Upvoteable.prototype.isUpvoteable = function() {
