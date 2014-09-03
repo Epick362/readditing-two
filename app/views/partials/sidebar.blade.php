@@ -1,7 +1,7 @@
 
-<div class="col-md-2" style="position:fixed; top:120px">
+<div class="sidebar">
 	@if(isset($popular) && $popular)
-		<div class="sidebar panel panel-default">
+		<div class="panel panel-default">
 			<div class="panel-heading">
 				Popular subreddits
 			</div>

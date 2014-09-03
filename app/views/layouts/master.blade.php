@@ -93,7 +93,7 @@
 						@endif
 						@yield('content')
 					</div>
-					<div class="col-md-2 visible-md visible-lg">
+					<div class="col-md-3 visible-md visible-lg">
 						@include('partials.sidebar')
 					</div>
 				</div>

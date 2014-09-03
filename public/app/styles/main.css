@@ -7616,7 +7616,9 @@ a.btn {
   max-height: 250px;
 }
 .sidebar {
-  width: 190px;
+  position: fixed;
+  top: 70px;
+  width: 263px;
 }
 .sidebar > .panel-heading {
   font-size: 1.6em;
