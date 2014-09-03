@@ -84,12 +84,12 @@
 					<div class="col-md-8 col-md-offset-1">
 						@if(isset($subreddit) && $subreddit)
 						<div class="panel panel-default">
-							<h1>
+							<div class="panel-heading">
 								{{ $subreddit }} 
 								@if(Session::has('user'))
 									<a href="#" class="btn btn-default pull-right visible-sm-block"><i class="fa fa-bookmark"></i> Subscribe</a>
 								@endif
-							</h1>
+							</div>
 						</div>
 						@endif
 						@yield('content')
