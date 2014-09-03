@@ -7621,6 +7621,9 @@ a.btn {
 .sidebar > .panel-heading {
   font-size: 1.6em;
 }
+.upvote-wrapper {
+  position: relative;
+}
 .media {
   position: relative;
   overflow: hidden;
