@@ -12,6 +12,7 @@
       this.end = __bind(this.end, this);
       this.start = __bind(this.start, this);
       this.bindEvents();
+      console.log('log?');
       this.counter = $('.count .num', this.element);
       this.element.data('upvoteable', this);
     }
@@ -21,7 +22,7 @@
 
       $(document).on('click', this.element, this.unupvote);
       $(document).on('touchstart mouseenter', this.element, this.start);
-      $(document).on('touchend mouseleave', this.element, this.end);
+      return $(document).on('touchend mouseleave', this.element, this.end);
     };
 
     Upvoteable.prototype.isUpvoteable = function() {
