@@ -85,10 +85,8 @@
 						@if(isset($subreddit) && $subreddit)
 						<div class="panel panel-default">
 							<div class="panel-heading">
-								{{ $subreddit }} 
-								@if(Session::has('user'))
-									<a href="#" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
-								@endif
+								/r/{{ $subreddit }} 
+								<a href="#" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
 							</div>
 						</div>
 						@endif

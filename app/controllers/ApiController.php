@@ -7,9 +7,9 @@ class ApiController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index($subreddit = NULL) 
+	public function subreddit($subreddit = NULL) 
 	{
-		$data = Subreddit::fetch($subreddit, Input::get('after'));
+		$data = Subreddit::getPosts($subreddit, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
@@ -18,5 +18,25 @@ class ApiController extends \BaseController {
 		return Response::make('Could not get any data.', 503);
 	}
 
+	public function storeVote($id) {
+		$response = Reddit::fetch('api/vote', [
+			'dir' => 1,
+			'id' => $id
+		], 'POST');
 
+		return Response::json($response);
+	} 
+
+	public function destroyVote($id) {
+		
+	} 
+
+
+	public function storeSave($id) {
+
+	} 
+
+	public function destroySave($id) {
+		
+	} 
 }

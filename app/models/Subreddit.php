@@ -4,7 +4,7 @@ use Readditing\Formatter\Formatter as Formatter;
 
 class Subreddit extends Eloquent {
 
-	public static function fetch( $subreddit, $after ) {
+	public static function getPosts( $subreddit, $after ) {
 		$params = [];
 
 		if($after) {

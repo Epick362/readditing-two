@@ -37,7 +37,7 @@ class Reddit {
 		    ]
 		]);
 
-		$request = $client->createRequest('GET', $url);
+		$request = $client->createRequest($method, $url);
 
 
 		return $client->send($request)->json();

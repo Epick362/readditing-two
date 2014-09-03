@@ -17,19 +17,15 @@ Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
 
 Route::get('/auth/login', 'AuthController@auth');
 
-Route::get('/test', function() {
-	echo '<pre>';
-	print_r(Reddit::fetch('/hot.json'));
-	return;
-});
-
 // =============================================
 // API ROUTES ==================================
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
+	Route::get('/r/{subreddit?}', 'ApiController@subreddit');
 
-	// since we will be using this just for CRUD, we won't need create and edit
-	// Angular will handle both of those forms
-	// this ensures that a user can't access api/create or api/edit when there's nothing there
-	Route::get('/r/{subreddit?}', 'ApiController@index');
+	Route::post('/vote/{id}', 'ApiController@storeVote');
+	Route::delete('/vote/{id}', 'ApiController@destroyVote');
+
+	Route::post('/save/{id}', 'ApiController@storeSave');
+	Route::delete('/save/{id}', 'ApiController@destroySave');	
 });
