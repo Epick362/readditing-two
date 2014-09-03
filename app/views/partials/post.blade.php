@@ -4,7 +4,7 @@
 				<figure class="upvote upvoteable">
 					<a class="upvoteobject">
 						<div class="opening">
-							<div class="circle"><div class="inner-circle"><i class="icon-arrow-up icon-2x"></i></div></div>
+							<div class="circle"><div class="inner-circle"><i class="fa fa-arrow-up"></i></div></div>
 						</div>
 					</a>
 
@@ -12,7 +12,7 @@
 						<span class="num">3882</span>
 						<span class="txt">Upvotes</span>
 					</a>
-				</figure>			
+				</figure>
 			</div>
 			<div class="panel-heading">
 				<% post.title %>
