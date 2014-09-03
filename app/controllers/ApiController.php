@@ -20,7 +20,7 @@ class ApiController extends \BaseController {
 
 	public function storeVote($id) {
 		$response = Reddit::fetch('api/vote', [
-			'dir' => 1,
+			'dir' => '1',
 			'id' => $id
 		], 'POST'); 
 
