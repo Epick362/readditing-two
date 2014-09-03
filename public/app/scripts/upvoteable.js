@@ -20,8 +20,8 @@
       this.element.mouseenter(this.start);
       this.element.mouseleave(this.end);
       this.element.click(this.unupvote);
-      $(this.element).on('touchstart', this.element, this.start);
-      return $(this.element).on('touchend', this.element, this.end);
+      $('body').on('touchstart', this.element, this.start);
+      return $('body').on('touchend', this.element, this.end);
     };
 
     Upvoteable.prototype.isUpvoteable = function() {
