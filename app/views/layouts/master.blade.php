@@ -32,8 +32,6 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
 		<script src="http://code.angularjs.org/1.0.1/angular-sanitize-1.0.1.js "></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/upvoteable.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/main.js') }}"></script>
 		
 		<script src="{{ URL::asset('js/services/subredditService.js') }}"></script>
 		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>
