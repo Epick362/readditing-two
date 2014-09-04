@@ -7615,12 +7615,12 @@ a.btn {
   overflow: hidden;
   max-height: 250px;
 }
-.sidebar {
+.col-md-3.sidebar {
   position: fixed;
   top: 120px;
   width: 263px;
 }
-.sidebar .panel-heading {
+.col-md-3.sidebar .panel-heading {
   font-size: 1.6em;
 }
 .upvote-wrapper {
