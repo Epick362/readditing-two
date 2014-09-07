@@ -35,8 +35,7 @@ angular.module('angular-kudos', [])
             $scope.kudoCountValue = function(){
                 if ($scope.ogKudosCount){
                     return true;
-                }
-                else{
+                }else{
                     return false;
                 }
             };
