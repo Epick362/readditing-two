@@ -5,16 +5,15 @@ angular.module('subredditCtrl', [])
 		$scope.reddit = new Reddit($attrs.subreddit);
 
 		$scope.vote = function(id, dir) {
-			var url = 'api/vote/' + id;
+			var url = 'api/vote/t3_' + id;
 
 			console.log(url);
 
 			$http({method: 'POST', url: url})
-			.success(function(data) {
-				console.log(data);
+			.success(function() {
 				alert('okay');
 			})
-			.error(function(data) {
+			.error(function() {
 				alert('error');
 			});
 		};
