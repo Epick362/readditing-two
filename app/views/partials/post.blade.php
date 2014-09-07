@@ -1,20 +1,7 @@
-	<div og-kudos="" og-kudos-id="opAObabrTvpQMiM" og-kudos-count="317" og-kudos-done="addCount(quote.id)"></div>
-
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" show-more data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
-				<figure class="upvote">
-					<a class="upvoteobject">
-						<div class="opening">
-							<div class="circle"><div class="inner-circle"><i class="icon-arrow-up icon-2x"></i></div></div>
-						</div>
-					</a>
-
-					<a href="#upvote" class="count">
-						<span class="num">3882</span>
-						<span class="txt">Upvotes</span>
-					</a>
-				</figure>			
+				<div og-kudos og-kudos-id="post.id" og-kudos-count="post.upvotes" og-kudos-done=""></div>
 			</div>
 			<div class="panel-heading">
 				<% post.title %>
