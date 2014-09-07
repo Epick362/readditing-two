@@ -3,6 +3,18 @@ angular.module('subredditCtrl', [])
 	// inject the Comment service into our controller
 	.controller('subredditController', function($scope, $attrs, $http, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
+
+		$scope.vote = function(id, dir) {
+			var url = 'api/vote/' + id;
+
+			$http({method: 'POST', url: url})
+			.success(function(data) {
+				alert('okay');
+			})
+			.error(function(data) {
+				alert('error');
+			});
+		};
 	})
 
 	.directive('showMore', function($document){
