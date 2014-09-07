@@ -1,15 +1,18 @@
-p.count{
+p.count {
 	display: block;
 }
-div.opening{
+
+div.opening {
 	background-color:#fff;
 	width:60px;
 	height:60px;
 	border-radius:50%;
 	margin:0 auto;
 	border:5px solid #000;
-	position:relative}
-div.opening div.circle{
+	position:relative
+}
+
+div.opening div.circle {
 	background-color:#000;
 	width:50px;
 	height:50px;
@@ -39,24 +42,23 @@ div.opening div.circle{
 	-moz-backface-visibility: visible;
 }
 
-figure{
-	display:block;
-	position:relative;
-	margin:0 auto;
-	left:auto;
-	top:auto;
-	
+figure {
+	display: block;
+	position: relative;
+	margin: 0px auto;
+	left: auto;
+	top: auto;
+	margin-top: 20px;
 }
-figure.kudo{
-	position: absolute;
-	right: 50%;
-	margin-right: -40px;
-	
-	text-align:center;
-}
-/*figure.kudo article a.kudobject p{text-align:center;display:block;margin:0;padding:0;line-height:50px;width:auto;height:auto}*/
 
-.kudo.complete a.kudobject div.opening div.circle{
+figure.kudo {
+	position: absolute;
+	left: -80px;
+	top: 0;
+	text-align: center;
+}
+
+.kudo.complete a.kudobject div.opening div.circle {
 	background-image: url(../images/heart_60x60.png);
 	background-position: center; 
 	background-repeat: no-repeat;
@@ -64,9 +66,11 @@ figure.kudo{
 	background-size:80%;
 	-moz-background-size:80%;
 }
+
 a.count {
 	text-decoration: none;
 }
+
 a.count span {
 	width:auto;
 	text-transform:uppercase;
@@ -78,12 +82,15 @@ a.count span {
 	line-height: 13px;
 	margin-top:5px;
 }
+
 a.count span.num {
 	font-size: 18px;
 }
+
 a.count span.txt {
 	font-size: 11px;
 }
+
 a.count p span.dont-move{
 	font-size:18px;
 	text-transform:none;
@@ -93,6 +100,7 @@ a.count p span.dont-move{
 	margin-top:8px;
 	letter-spacing:0;
 }
+
 a.kudobject{
 	display: block;
 	cursor: pointer;
