@@ -27,12 +27,13 @@ angular.module('angular-kudos', [])
                ogKudosDone:'&ogKudosDone'},
 
         controller: ['$scope','$element','$timeout',
-         function($scope, $element, $timeout){
-            $scope.kudod = function(){
+        function($scope, $element, $timeout) {
+
+            $scope.kudod = function() {
                 return $element.hasClass('complete');
             };
 
-            $scope.kudoCountValue = function(){
+            $scope.kudoCountValue = function() {
                 if ($scope.ogKudosCount){
                     return true;
                 }else{
@@ -40,15 +41,15 @@ angular.module('angular-kudos', [])
                 }
             };
             
-            $scope.start = function(){
+            $scope.start = function() {
                 if(!$scope.kudod()){
                     $element.addClass('active');
-                 $scope.timer = $timeout($scope.complete, 700);
-                  return $scope.timer;
-              }
-                };
+                    $scope.timer = $timeout($scope.complete, 700);
+                    return $scope.timer;
+                }
+            };
 
-            $scope.end = function(){
+            $scope.end = function() {
                 $scope.stopKudo = true;
                 if(!$scope.kudod()){
                     $element.removeClass('active');
@@ -66,9 +67,9 @@ angular.module('angular-kudos', [])
                 $element.addClass('complete');
                 if($scope.ogKudosDone){
                     return $scope.ogKudosDone();
-                }
-                            
-            };             
+                }          
+            };   
+                     
             }]
         };
     })
