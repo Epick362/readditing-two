@@ -45,8 +45,6 @@ class Reddit {
 
 		$response = $client->$method($url, array(), $post);
 
-		dd($response);
-
 		return $response->json();
 	}
 }
