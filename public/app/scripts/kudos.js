@@ -67,7 +67,7 @@ angular.module('angular-kudos', [])
                 $element.addClass('complete');
                 if($scope.ogKudosDone){
                     return $scope.ogKudosDone();
-                }          
+                }
             };   
 
             }]
