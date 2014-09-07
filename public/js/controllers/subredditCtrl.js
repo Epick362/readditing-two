@@ -9,6 +9,7 @@ angular.module('subredditCtrl', [])
 
 			$http({method: 'POST', url: url})
 			.success(function(data) {
+				console.log(data);
 				alert('okay');
 			})
 			.error(function(data) {
