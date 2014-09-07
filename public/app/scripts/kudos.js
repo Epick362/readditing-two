@@ -4,7 +4,7 @@
  * License: MIT
  */
 
-angular.module('angular-kudos', ['ngStorage'])
+angular.module('angular-kudos', [])
     
     
     .directive('ogKudos', function(){
@@ -26,19 +26,8 @@ angular.module('angular-kudos', ['ngStorage'])
                ogKudosId:'@ogKudosId',
                ogKudosDone:'&ogKudosDone'},
 
-        controller: ['$scope','$element','$timeout','$localStorage',
-         function($scope,$element,$timeout,$localStorage){
-            
-            $scope.$storage = $localStorage.$default({           
-               visitedKudos : []                             
-            });
-
-            for(var i=0; i<$localStorage.visitedKudos.length; i++){
-                if ($scope.ogKudosId == $localStorage.visitedKudos[i]){
-                   $element.addClass('complete');
-                }
-            }  
-
+        controller: ['$scope','$element','$timeout',
+         function($scope, $element, $timeout){
             $scope.kudod = function(){
                 return $element.hasClass('complete');
             };
@@ -76,7 +65,6 @@ angular.module('angular-kudos', ['ngStorage'])
             $scope.complete = function(){
                 $scope.end();
                 $element.addClass('complete');
-                $localStorage.visitedKudos.push($scope.ogKudosId);
                 if($scope.ogKudosDone){
                     return $scope.ogKudosDone();
                 }
