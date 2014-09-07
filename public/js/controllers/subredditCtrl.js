@@ -7,6 +7,8 @@ angular.module('subredditCtrl', [])
 		$scope.vote = function(id, dir) {
 			var url = 'api/vote/' + id;
 
+			console.log(url);
+
 			$http({method: 'POST', url: url})
 			.success(function(data) {
 				console.log(data);
