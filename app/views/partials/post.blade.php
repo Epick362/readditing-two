@@ -1,3 +1,12 @@
+	<figure ng-mouseenter="start()" ng-mouseleave="end()" class="kudo kudoable" og-kudos="" og-kudos-id="opAObabrTvpQMiM" og-kudos-count="317" og-kudos-done="addCount(quote.id)"><a class="kudobject">
+		<div class="opening">
+			<div class="circle">
+				&nbsp;
+			</div>
+		</div>
+		</a><a href="#kudo" class="count"><span class="num ng-binding" ng-show="kudoCountValue">317</span><span class="txt">Kudos</span></a>
+	</figure>
+
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" show-more data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
