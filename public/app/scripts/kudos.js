@@ -11,7 +11,7 @@ angular.module('angular-kudos', [])
     var kudosHTML = 
         "<figure ng-mouseenter='start()' ng-mouseleave='end()' class='kudo kudoable'>" +
             "<a class='kudobject'>" +
-                "<div class='opening'><div class='circle'><div class='inner-circle'><i class=\"fa fa-arrow-up\"></i></div></div></div>" +
+                "<div class='opening'><div class='circle'>&nbsp;</div></div>" +
             "</a>" +
             "<a href='#kudo' class='count'>" +
                 "<span class='num' ng-show='kudoCountValue' >{{getKudoCount()}}</span>" +
@@ -69,7 +69,7 @@ angular.module('angular-kudos', [])
                     return $scope.ogKudosDone();
                 }          
             };   
-                     
+
             }]
         };
     })
