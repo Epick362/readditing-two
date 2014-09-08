@@ -22,15 +22,6 @@ class Reddit {
 	public static function fetch($api, $params = array(), $method = 'GET') {
 		$url = self::$reddit_url . '' . $api;
 
-		$post = array();
-		$query = array();
-
-		if($method == 'POST') {
-			$post = $params;
-		}else{
-			$query = $params;
-		}
-
 		$client = new Client([
 		    'base_url' => self::$reddit_url,
 		    'defaults' => [
@@ -38,14 +29,19 @@ class Reddit {
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
 		        	'User-Agent' => 'Readditing.com by Epick_362'
-		        ],
-		        'query' => $query
+		        ]
 		    ]
 		]);
 
-		dd($post);
-
-		$response = $client->$method($url, array(), $post);
+		if($method == 'POST') {
+			$response = $client->post($url, [
+				'body' => $params
+			]);
+		}else{
+			$client->$method($url, [
+				'query' => $params
+			]);
+		}
 
 		return $response->json();
 	}
