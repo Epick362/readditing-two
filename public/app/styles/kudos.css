@@ -53,6 +53,8 @@ figure {
   left: auto;
   top: auto;
   margin-top: 20px;
+
+  cursor: pointer;
 }
 
 figure.kudo {
