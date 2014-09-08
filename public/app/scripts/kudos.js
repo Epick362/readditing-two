@@ -31,6 +31,7 @@ angular.module('angular-kudos', [])
         function($scope, $element, $timeout) {
 
             if($scope.ogKudosComplete) {
+                console.log($scope.ogKudosComplete);
                 console.log($scope.ogKudosId);
             }
 
