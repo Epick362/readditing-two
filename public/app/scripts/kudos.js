@@ -9,7 +9,7 @@ angular.module('angular-kudos', [])
     
     .directive('ogKudos', function(){
     var kudosHTML = 
-        "<figure ng-mouseenter='start()' ng-mouseleave='end()' class='kudo kudoable'>" +
+        "<figure ng-mouseenter='start()' ng-mouseleave='end()' ng-click='reset()' class='kudo kudoable'>" +
             "<a class='kudobject'>" +
                 "<div class='opening'><div class='circle'>&nbsp;</div></div>" +
             "</a>" +
@@ -68,7 +68,11 @@ angular.module('angular-kudos', [])
                 if($scope.ogKudosDone){
                     return $scope.ogKudosDone();
                 }
-            };   
+            };  
+
+            $scope.reset = function() {
+                $element.removeClass('complete');
+            }
 
             }]
         };

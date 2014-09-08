@@ -28,7 +28,12 @@ class ApiController extends \BaseController {
 	} 
 
 	public function destroyVote($id) {
-		
+		$response = Reddit::fetch('api/vote', [
+			'dir' => '0',
+			'id' => $id
+		], 'POST'); 
+
+		return Response::json($response);		
 	} 
 
 
