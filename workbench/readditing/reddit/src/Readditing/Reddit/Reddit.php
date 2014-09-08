@@ -43,6 +43,8 @@ class Reddit {
 			]);
 		}
 
+		dd($response);
+
 		return $response->json();
 	}
 }
