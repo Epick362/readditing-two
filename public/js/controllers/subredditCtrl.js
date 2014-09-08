@@ -7,9 +7,7 @@ angular.module('subredditCtrl', [])
 		$scope.vote = function(id, dir) {
 			var url = 'api/vote/t3_' + id;
 
-			console.log(dir);
-
-			if(dir == '1') {
+			if(dir === 1) {
 				var method = 'POST';
 			}else{
 				var method = 'DELETE';
