@@ -24,10 +24,15 @@ angular.module('angular-kudos', [])
         replace: true,
         scope:{ogKudosCount:'@ogKudosCount',
                ogKudosId:'@ogKudosId',
-               ogKudosDone:'&ogKudosDone'},
+               ogKudosDone:'&ogKudosDone',
+               ogKudosComplete:'&ogKudosComplete'},
 
         controller: ['$scope','$element','$timeout',
         function($scope, $element, $timeout) {
+
+            if($scope.ogKudosComplete) {
+                console.log($scope.ogKudosId);
+            }
 
             $scope.kudod = function() {
                 return $element.hasClass('complete');
