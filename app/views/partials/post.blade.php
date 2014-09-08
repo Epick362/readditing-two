@@ -1,6 +1,7 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" show-more data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
+				<% console.log(post.likes) %>
 				<div og-kudos og-kudos-complete="<% post.likes %>" og-kudos-id="<% post.id %>" og-kudos-count="<% post.ups %>" og-kudos-done="vote(post.id, 1)" og-kudos-undone="vote(post.id, 0)"></div>
 			</div>
 			<div class="panel-heading">
