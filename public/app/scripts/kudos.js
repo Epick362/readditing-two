@@ -13,7 +13,7 @@ angular.module('angular-kudos', [])
             "<a class='kudobject'>" +
                 "<div class='opening'><div class='circle'>&nbsp;</div></div>" +
             "</a>" +
-            "<a href='#kudo' class='count'>" +
+            "<a class='count'>" +
                 "<span class='num' ng-show='kudoCountValue' >{{getKudoCount()}}</span>" +
                 "<span class='txt'>Upvotes</span>" +
            " </a>" +
@@ -74,9 +74,7 @@ angular.module('angular-kudos', [])
             };  
 
             $scope.reset = function() {
-                if(!$scope.kudod()){
-                    $element.removeClass('complete');
-                }
+                $element.removeClass('complete');
             };
 
             }]
