@@ -25,6 +25,7 @@ angular.module('angular-kudos', [])
         scope:{ogKudosCount:'@ogKudosCount',
                ogKudosId:'@ogKudosId',
                ogKudosDone:'&ogKudosDone',
+               ogKudosUndone:'&ogKudosUndone',
                ogKudosComplete:'@ogKudosComplete'},
 
         controller: ['$scope','$element','$timeout',
