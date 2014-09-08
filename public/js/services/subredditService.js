@@ -24,6 +24,7 @@ angular.module('subredditService', [])
 
 				for (var i = 0; i < posts.length; i++) {
 					posts[i].content = $sce.trustAsHtml(posts[i].content);
+					console.log(posts[i].id+' liked: '+ posts[i].likes);
 					this.posts.push(posts[i]);
 				}
 
