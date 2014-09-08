@@ -29,11 +29,6 @@ angular.module('angular-kudos', [])
 
         controller: ['$scope','$element','$timeout',
         function($scope, $element, $timeout) {
-
-            if($scope.ogKudosComplete) {
-                $scope.end();
-            }
-
             $scope.kudod = function() {
                 return $element.hasClass('complete');
             };
@@ -79,7 +74,11 @@ angular.module('angular-kudos', [])
                 if(!$scope.kudod()){
                     $element.removeClass('complete');
                 }
-            }
+            };
+
+            if($scope.ogKudosComplete) {
+                $scope.complete();
+            };
 
             }]
         };
