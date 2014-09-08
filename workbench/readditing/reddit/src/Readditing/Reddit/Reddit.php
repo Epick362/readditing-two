@@ -38,7 +38,7 @@ class Reddit {
 				'body' => $params
 			]);
 		}else{
-			$client->$method($url, [
+			$response = $client->$method($url, [
 				'query' => $params
 			]);
 		}
