@@ -76,6 +76,9 @@ angular.module('angular-kudos', [])
 
             $scope.reset = function() {
                 $element.removeClass('complete');
+                if($scope.ogKudosUndone) {
+                    return $scope.ogKudosUndone();
+                }
             };
 
             }]
