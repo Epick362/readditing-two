@@ -59,6 +59,9 @@ angular.module('angular-kudos', [])
             };    
             
             $scope.getKudoCount = function(){
+                if($scope.ogKudosComplete) {
+                    $element.addClass('complete');
+                };
                 return $scope.ogKudosCount;
             }
 
@@ -74,10 +77,6 @@ angular.module('angular-kudos', [])
                 if(!$scope.kudod()){
                     $element.removeClass('complete');
                 }
-            };
-
-            if($scope.ogKudosComplete) {
-                $scope.complete();
             };
 
             }]
