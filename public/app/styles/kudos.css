@@ -43,7 +43,7 @@ div.opening div.circle {
 }
 
 .inner-circle {
-  margin-top: 10px;
+  margin-top: 3px;
 }
 
 figure {
@@ -65,7 +65,7 @@ figure.kudo {
 }
 
 .kudo a.kudobject div.opening div.circle {
-  color: #000;
+  color: transparent;
   font-size: 30px;
 }
 
