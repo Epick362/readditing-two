@@ -7,8 +7,6 @@ angular.module('subredditCtrl', [])
 		$scope.vote = function(id, dir) {
 			var url = 'api/vote/t3_' + id;
 
-			console.log(dir);
-
 			if(dir === 1) {
 				var method = 'POST';
 			}else{
@@ -16,11 +14,8 @@ angular.module('subredditCtrl', [])
 			}
 
 			$http({method: method, url: url})
-			.success(function() {
-				alert('okay');
-			})
 			.error(function() {
-				alert('error');
+				alert('Error while upvoting.');
 			});
 		};
 	})
