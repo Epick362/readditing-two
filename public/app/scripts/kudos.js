@@ -76,6 +76,7 @@ angular.module('angular-kudos', [])
 
             $scope.reset = function() {
                 if($scope.ogKudosUndone && $scope.ogKudosLogged) {
+                     $scope.ogKudosComplete = 0;
                      $element.removeClass('complete');
                     return $scope.ogKudosUndone();
                 }
