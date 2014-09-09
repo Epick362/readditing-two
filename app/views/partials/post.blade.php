@@ -1,5 +1,5 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
-		<div class="panel panel-default" show-more data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
+		<div class="panel panel-default" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
 				<div 
 					og-kudos 
@@ -16,7 +16,7 @@
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
-			<div class="panel-body" ng-bind-html="post.content">
+			<div class="panel-body" show-more ng-bind-html="post.content">
 			</div>
 			<div class="panel-footer" ng-if="post.author">
 				<div class="row">
