@@ -24,7 +24,7 @@ angular.module('angular-kudos', [])
         replace: true,
         scope:{ogKudosCount:'@ogKudosCount',
                ogKudosId:'@ogKudosId',
-               ogKudosLoggedIn:'@ogKudosLoggedIn',
+               ogKudosLogged:'@ogKudosLogged',
                ogKudosDone:'&ogKudosDone',
                ogKudosUndone:'&ogKudosUndone',
                ogKudosComplete:'@ogKudosComplete'},
