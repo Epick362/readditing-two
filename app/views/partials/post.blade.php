@@ -28,8 +28,8 @@
 					</div>
 					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
-						<a class="btn btn-link btn-sm" tooltip="Save"><i class="fa fa-save"></i> Save</a>
-						<a class="btn btn-link btn-sm" tooltip="Share"><i class="fa fa-share"></i> Share</a>
+						<a href="" tooltip="Save"><i class="fa fa-save"></i> Save</a> 
+						<a href="" tooltip="Share"><i class="fa fa-share"></i> Share</a>
 					</div>
 					@endif
 				</div>
