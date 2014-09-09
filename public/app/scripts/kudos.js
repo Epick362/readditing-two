@@ -44,7 +44,7 @@ angular.module('angular-kudos', [])
             };
             
             $scope.start = function() {
-                if(!$scope.kudod()){
+                if(!$scope.kudod() && $scope.ogKudosLogged){
                     $element.addClass('active');
                     $scope.timer = $timeout($scope.complete, 700);
                     return $scope.timer;
@@ -56,17 +56,10 @@ angular.module('angular-kudos', [])
                 if(!$scope.kudod()){
                     $element.removeClass('active');
                    return $timeout.cancel($scope.timer);
-        
                 }
             };    
             
             $scope.getKudoCount = function(){
-                console.log($scope.ogKudosLogged);
-
-                if($scope.ogKudosLogged) {
-                    $element.addClass('kudoable');
-                }
-
                 if($scope.ogKudosComplete) {
                     $element.addClass('complete');
                 };
@@ -76,13 +69,13 @@ angular.module('angular-kudos', [])
             $scope.complete = function(){
                 $scope.end();
                 $element.addClass('complete');
-                if($scope.ogKudosDone){
+                if($scope.ogKudosDone && $scope.ogKudosLogged){
                     return $scope.ogKudosDone();
                 }
             };  
 
             $scope.reset = function() {
-                if($scope.kudod && $scope.ogKudosUndone) {
+                if($scope.kudod && $scope.ogKudosUndone && $scope.ogKudosLogged) {
                      $element.removeClass('complete');
                     return $scope.ogKudosUndone();
                 }
