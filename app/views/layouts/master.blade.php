@@ -29,7 +29,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap.min.js"></script>
+		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
 		<script src="http://code.angularjs.org/1.0.1/angular-sanitize-1.0.1.js "></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
