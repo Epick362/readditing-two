@@ -11,7 +11,7 @@ angular.module('angular-kudos', [])
     var kudosHTML = 
         "<figure ng-mouseenter='start()' ng-mouseleave='end()' ng-click='reset()' class='kudo'>" +
             "<a class='kudobject'>" +
-                "<div class='opening'><div class='circle'>&nbsp;</div></div>" +
+                "<div class='opening'><div class='circle'><div class='inner-circle'><i class='fa fa-arrow-up'></div></div></div>" +
             "</a>" +
             "<a class='count'>" +
                 "<span class='num' ng-show='kudoCountValue'>{{getKudoCount()}}</span>" +
