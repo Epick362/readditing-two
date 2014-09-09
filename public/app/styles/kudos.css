@@ -64,10 +64,17 @@ figure.kudo {
   text-align: center;
 }
 
+.kudo a.kudobject div.opening div.circle {
+  color: #000;
+  font-size: 30px;
+}
+
 .kudo.complete a.kudobject div.opening div.circle {
   background-color: #FF4400;
   background-size: 80%;
   -moz-background-size: 80%;
+
+  color: #FFF;
 }
 
 a.count {
