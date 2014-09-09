@@ -9,12 +9,12 @@ angular.module('angular-kudos', [])
     
     .directive('ogKudos', function(){
     var kudosHTML = 
-        "<figure ng-mouseenter='start()' ng-mouseleave='end()' ng-click='reset()' class='kudo kudoable'>" +
+        "<figure ng-mouseenter='start()' ng-mouseleave='end()' ng-click='reset()' class='kudo'>" +
             "<a class='kudobject'>" +
                 "<div class='opening'><div class='circle'>&nbsp;</div></div>" +
             "</a>" +
             "<a class='count'>" +
-                "<span class='num' ng-show='kudoCountValue' >{{getKudoCount()}}</span>" +
+                "<span class='num' ng-show='kudoCountValue'>{{getKudoCount()}}</span>" +
                 "<span class='txt'>Upvotes</span>" +
            " </a>" +
         "</figure>"
@@ -24,6 +24,7 @@ angular.module('angular-kudos', [])
         replace: true,
         scope:{ogKudosCount:'@ogKudosCount',
                ogKudosId:'@ogKudosId',
+               ogKudosLoggedIn:'@ogKudosLoggedIn',
                ogKudosDone:'&ogKudosDone',
                ogKudosUndone:'&ogKudosUndone',
                ogKudosComplete:'@ogKudosComplete'},
@@ -60,6 +61,10 @@ angular.module('angular-kudos', [])
             };    
             
             $scope.getKudoCount = function(){
+                if($scope.ogKudosLoggedIn) {
+                    $element.addClass('kudoable');
+                }
+
                 if($scope.ogKudosComplete) {
                     $element.addClass('complete');
                 };
