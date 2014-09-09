@@ -61,7 +61,9 @@ angular.module('angular-kudos', [])
             };    
             
             $scope.getKudoCount = function(){
-                if($scope.ogKudosLoggedIn) {
+                console.log($scope.ogKudosLoggedIn);
+
+                if($scope.ogKudosLoggedIn != '0') {
                     $element.addClass('kudoable');
                 }
 
