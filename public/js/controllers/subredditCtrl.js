@@ -20,11 +20,15 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.comments = function(id) {
+			var post = id;
+
 			var modalInstance = $modal.open({
 				templateUrl: 'comments.html',
 				controller: 'commentsController',
 				resolve: {
-					id: id
+					id: function() {
+						return post;
+					}
 				}
 			});
 		};
