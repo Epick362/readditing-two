@@ -34,6 +34,8 @@ angular.module('subredditCtrl', [])
 
 		$scope.id = id;
 
+		console.log($scope.id);
+
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');
 		};
