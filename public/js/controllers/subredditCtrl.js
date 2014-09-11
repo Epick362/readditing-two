@@ -19,10 +19,23 @@ angular.module('subredditCtrl', [])
 			});
 		};
 
-		$scope.comments = function() {
+		$scope.comments = function(id) {
 			var modalInstance = $modal.open({
-				templateUrl: 'comments.html'
+				templateUrl: 'comments.html',
+				controller: 'commentsController',
+				resolve: {
+					id: id
+				}
 			});
+		};
+	})
+
+	.controller('commentsController', function($scope, $modalInstance, id) {
+
+		$scope.id = id;
+
+		$scope.cancel = function () {
+			$modalInstance.dismiss('cancel');
 		};
 	})
 

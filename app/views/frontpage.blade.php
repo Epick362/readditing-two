@@ -19,10 +19,9 @@
 	            <h3 class="modal-title">Im a modal!</h3>
 	        </div>
 	        <div class="modal-body">
-	            adASDSAdada
+	            <% id %>
 	        </div>
 	        <div class="modal-footer">
-	            <button class="btn btn-primary" ng-click="ok()">OK</button>
 	            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 	        </div>
 	    </script>
