@@ -1,7 +1,7 @@
 angular.module('subredditCtrl', [])
 
 	// inject the Comment service into our controller
-	.controller('subredditController', function($scope, $attrs, $http, Reddit) {
+	.controller('subredditController', function($scope, $attrs, $http, $modal, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 
 		$scope.vote = function(id, dir) {
@@ -16,6 +16,12 @@ angular.module('subredditCtrl', [])
 			$http({method: method, url: url})
 			.error(function() {
 				alert('Error while upvoting.');
+			});
+		};
+
+		$scope.comments = function() {
+			var modalInstance = $modal.open({
+				templateUrl: 'comments.html'
 			});
 		};
 	})
