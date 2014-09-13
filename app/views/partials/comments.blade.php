@@ -5,7 +5,7 @@
 <div class="modal-body">
     <div infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<li ng-repeat="comment in reddit.comments">
-			<div ng-bind-html="comment.body"></div>
+			<% comment.body %>
 			<hr />
 		</li>
 	</div>
