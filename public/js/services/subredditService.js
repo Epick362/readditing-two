@@ -23,7 +23,9 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var posts = data;
 
-				this.posts.push(posts);
+				for (var i = 0; i < posts.length; i++) {
+					this.posts.push(posts[i]);
+				}
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 				this.busy = false;
@@ -50,7 +52,9 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var comments = data;
 
-				this.comments.push(comments);
+				for (var i = 0; i < comments.length; i++) {
+					this.comments.push(comments[i]);
+				}
 
 				this.after = "t3_" + this.comments[this.comments.length - 1].id;
 				this.busy = false;
