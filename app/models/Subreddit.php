@@ -64,6 +64,10 @@ class Subreddit extends Eloquent {
 	private static function _formatComment($comments) {
 		$result = [];
 
+		if(!isset($comments['data']) || !isset($comments['data']['children'])) {
+			return false;
+		}
+
 		foreach($comments['data']['children'] as $_comment) {
 			if($_comment['kind'] == 't1') {
 				$comment = [];
