@@ -16,13 +16,9 @@
 
 
 		<script type="text/ng-template" id="comment_tree.html">
-			<li class="media">
-				<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
-				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
-				<div ng-bind-html="comment.body"></div>
-
-				<div ng-repeat="reply in comment.replies" ng-include="'comment_tree.html'"></div>
-			</li>
+			<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
+			<h4 class="media-heading"><a href="#"><% reply.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% reply.score %></small></h4>
+			<div ng-bind-html="reply.body"></div>
 		</script>
 
 		<script type="text/ng-template" id="comments.html">
