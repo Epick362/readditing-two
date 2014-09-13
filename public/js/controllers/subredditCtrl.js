@@ -27,7 +27,8 @@ angular.module('subredditCtrl', [])
 					post: function() {
 						return post;
 					}
-				}
+				},
+				size: 'lg'
 			});
 		};
 	})
