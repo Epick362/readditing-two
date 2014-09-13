@@ -23,11 +23,7 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var posts = data;
 
-				for (var i = 0; i < posts.length; i++) {
-					posts[i].content = $sce.trustAsHtml(posts[i].content);
-					this.posts.push(posts[i]);
-				}
-
+				this.posts.push(posts);
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 				this.busy = false;
@@ -54,9 +50,7 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var comments = data;
 
-				for (var i = 0; i < comments.length; i++) {
-					this.comments.push(comments[i]);
-				}
+				this.comments.push(comments);
 
 				this.after = "t3_" + this.comments[this.comments.length - 1].id;
 				this.busy = false;
