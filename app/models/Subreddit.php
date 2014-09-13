@@ -50,7 +50,7 @@ class Subreddit extends Eloquent {
 				$comment['id'] = $_comment['data']['id'];
 				$comment['author'] = $_comment['data']['author'];
 				$comment['score'] = $_comment['data']['score'];
-				$comment['body'] = $_comment['data']['body_html'];
+				$comment['body'] = $_comment['data']['body'];
 				$comment['created'] = $_comment['data']['created'];
 				$comment['likes'] = $_comment['data']['likes'];
 				$comment['saved'] = $_comment['data']['saved'];
