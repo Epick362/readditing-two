@@ -1,12 +1,4 @@
 
-<script type="text/ng-template"  id="comment_tree.html">
-	<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
-	<h4 class="media-heading"><a href="#"><% reply.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% reply.score %></small></h4>
-	<div ng-bind-html="reply.body"></div>
-
-	<li class="media" ng-repeat="reply2 in reply.replies" ng-include="'comment_tree.html'"></li>
-</script>
-
 <div class="modal-header">
 	<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     <h3 class="modal-title"><% post.title %></h3>
