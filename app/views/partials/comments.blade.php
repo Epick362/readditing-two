@@ -1,7 +1,7 @@
 
 <div class="modal-header">
 	<button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-    <h3 class="modal-title"><% post.title %></h3>
+    <h3 class="modal-title"><% post.title %> <a href="http://google.sk/">adibdwao</a></h3>
 </div>
 <div class="modal-body">
     <ul class="media-list" infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
@@ -9,7 +9,7 @@
 			<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
 			<div class="media-body">
 				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
-				
+				<div ng-bind-html="comment.body"></div>
 			</div>
 		</li>
 	</ul>
