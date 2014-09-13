@@ -10,9 +10,9 @@
 			<div class="media-body">
 				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
 				<div ng-bind-html="comment.body"></div>
-			</div>
 
-			<div class="media" ng-repeat="reply in comment.replies" ng-include="'comment_tree.html'"></div>
+				<div class="media" ng-repeat="reply in comment.replies" ng-include="'comment_tree.html'"></div>
+			</div>
 		</li>
 	</ul>
 
