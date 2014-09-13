@@ -34,7 +34,7 @@ angular.module('subredditCtrl', [])
 
 	.controller('commentsController', function($scope, $modalInstance, post, Reddit) {
 		$scope.post = post;
-		$scope.reddit = new Reddit($attrs.subreddit, $scope.post.id);
+		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
 		console.log($scope.post.id);
 
