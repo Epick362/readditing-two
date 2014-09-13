@@ -12,7 +12,7 @@
 				<div ng-bind-html="comment.body"></div>
 
 				<div ng-repeat="reply in comment.replies">
-					<% reply %>
+					<% reply.author %>
 				</div>
 			</div>
 		</li>
