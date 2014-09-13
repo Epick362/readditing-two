@@ -19,7 +19,7 @@ class ApiController extends \BaseController {
 	}
 
 	public function indexComment($subreddit, $thing) {
-		$response = Reddit::fetch('api/r/'.$subreddit.'/comments/'.$thing);
+		$response = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
 
 		return Response::json($response);
 	}
