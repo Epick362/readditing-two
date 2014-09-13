@@ -7,7 +7,7 @@
 <div class="modal-footer">
     <button class="btn btn-warning btn-block" ng-click="cancel()">Cancel</button>
 
-    <div infinite-scroll='reddit.getComments()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+    <div infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<li ng-repeat="comment in reddit.comments">
 			<img src="http://placehold.it/20x20" >
 		</li>

@@ -1,7 +1,7 @@
 angular.module('subredditService', [])
 
 	.factory('Reddit', function($http, $sce) {
-		var Reddit = function(subreddit, thing) {
+		var Reddit = function(subreddit) {
 			this.subreddit = subreddit;
 			this.thing = thing;
 			this.posts = [];
@@ -43,16 +43,17 @@ angular.module('subredditService', [])
 			}.bind(this));
 		};
 
-		Reddit.prototype.getComments = function() {
+		Reddit.prototype.getComments = function(thing) {
 			if (this.busy) return;
 			this.busy = true;
 
-			var url = '/api/r/'+this.subreddit+'/comments/t3_'+this.thing.id;
+			this.thing = thing;
+
+			var url = '/api/r/'+this.subreddit+'/comments/'+this.thing.id;
 
 			$http({method: 'GET', url: url})
 			.success(function(data) {
 				var comments = data;
-				console.log(comments);
 
 				for (var i = 0; i < comments.length; i++) {
 					comments[i].content = $sce.trustAsHtml(comments[i].content);
