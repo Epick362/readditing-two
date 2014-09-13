@@ -45,7 +45,7 @@ class Subreddit extends Eloquent {
 		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
-			foreach($comments['data']['children'] as $_comment) {
+			foreach($comments[1]['data']['children'] as $_comment) {
 
 				$comment['id'] = $_comment['data']['id'];
 				$comment['author'] = $_comment['data']['author'];
