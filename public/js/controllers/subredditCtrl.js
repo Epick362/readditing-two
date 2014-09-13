@@ -19,14 +19,12 @@ angular.module('subredditCtrl', [])
 			});
 		};
 
-		$scope.comments = function(id) {
-			var post = id;
-
+		$scope.comments = function(post) {
 			var modalInstance = $modal.open({
 				templateUrl: 'comments.html',
 				controller: 'commentsController',
 				resolve: {
-					id: function() {
+					post: function() {
 						return post;
 					}
 				}
@@ -34,11 +32,11 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
-	.controller('commentsController', function($scope, $modalInstance, id) {
+	.controller('commentsController', function($scope, $modalInstance, post) {
+		$scope.post = post;
+		$scope.reddit = new Reddit($attrs.subreddit, $scope.post.id);
 
-		$scope.id = id;
-
-		console.log($scope.id);
+		console.log($scope.post.id);
 
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');

@@ -15,16 +15,8 @@
 		<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
 
 		<script type="text/ng-template" id="comments.html">
-	        <div class="modal-header">
-	            <h3 class="modal-title">Im a modal!</h3>
-	        </div>
-	        <div class="modal-body">
-	            <% id %>
-	        </div>
-	        <div class="modal-footer">
-	            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-	        </div>
-	    </script>
+			@include('partials.comments')
+		</script>
 
 		@include('partials.post')
 

@@ -18,6 +18,12 @@ class ApiController extends \BaseController {
 		return Response::make('Could not get any data.', 503);
 	}
 
+	public function indexComment($subreddit, $thing) {
+		$response = Reddit::fetch('api/r/'.$subreddit.'/comments/'.$thing);
+
+		return Response::json($response);
+	}
+
 	public function storeVote($id) {
 		$response = Reddit::fetch('api/vote', [
 			'dir' => '1',

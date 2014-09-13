@@ -1,9 +1,11 @@
 angular.module('subredditService', [])
 
 	.factory('Reddit', function($http, $sce) {
-		var Reddit = function(subreddit) {
+		var Reddit = function(subreddit, thing) {
 			this.subreddit = subreddit;
+			this.thing = thing;
 			this.posts = [];
+			this.comments = [];
 			this.busy = false;
 			this.after = '';
 		};
@@ -39,6 +41,36 @@ angular.module('subredditService', [])
 				});
 				this.busy = false;
 			}.bind(this));
+		};
+
+		Reddit.prototype.getComments = function() {
+			if (this.busy) return;
+			this.busy = true;
+
+			var url = '/api/r/'+this.subreddit+'/comments/t3_'+this.thing.id;
+
+			$http({method: 'GET', url: url})
+			.success(function(data) {
+				var comments = data;
+				console.log(comments);
+
+				for (var i = 0; i < comments.length; i++) {
+					comments[i].content = $sce.trustAsHtml(comments[i].content);
+					this.comments.push(comments[i]);
+				}
+
+
+				this.after = "t3_" + this.comments[this.comments.length - 1].id;
+				this.busy = false;
+			}.bind(this))
+			.error(function(data) {
+				this.comments.push({
+					'title': 'There was an error',
+					'content': '<div class="alert alert-danger">Readditing has encountered a problem. Try refreshing the page.</div>',
+					'source': ''
+				});
+				this.busy = false;
+			}.bind(this));			
 		};
 
 		return Reddit;
