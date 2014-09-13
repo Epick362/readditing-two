@@ -14,13 +14,6 @@
 
 		<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
 
-
-		<script type="text/ng-template" id="comment_tree.html">
-			<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
-			<h4 class="media-heading"><a href="#"><% reply.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% reply.score %></small></h4>
-			<div ng-bind-html="reply.body"></div>
-		</script>
-
 		<script type="text/ng-template" id="comments.html">
 			@include('partials.comments')
 		</script>
