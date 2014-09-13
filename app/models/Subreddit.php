@@ -65,7 +65,7 @@ class Subreddit extends Eloquent {
 		$result = [];
 
 		foreach($comments['data']['children'] as $_comment) {
-			if($comment['kind'] == 't1') {
+			if($_comment['kind'] == 't1') {
 				$comment = [];
 				$comment['id'] = $_comment['data']['id'];
 				$comment['author'] = $_comment['data']['author'];
