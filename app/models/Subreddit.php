@@ -41,7 +41,7 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
-	public static function getComments( $subreddit, $thing, $after == null ) {
+	public static function getComments( $subreddit, $thing, $after = null ) {
 		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
