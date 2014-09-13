@@ -9,7 +9,7 @@
 			<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
 			<div class="media-body">
 				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
-				<span ng-bind-html="comment.body"></span>
+				<div ng-bind-html="comment.body"></div>
 			</div>
 		</li>
 	</ul>
