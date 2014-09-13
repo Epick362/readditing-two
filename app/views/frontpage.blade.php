@@ -28,7 +28,6 @@
 					<a class="btn btn-default btn-xs" href="#">Give Gold</a>
 				</div>
 
-				<div class="media" ng-repeat="reply in comment.replies" ng-include="'comment.html'"></div>
 			</div>
 		</script>
 
