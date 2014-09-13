@@ -15,11 +15,20 @@
 		<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
 
 
-		<script type="text/ng-template" id="comment_tree.html">
+		<script type="text/ng-template" id="comment.html">
 			<a class="pull-left" href="#"><img class="media-object" src="http://placehold.it/64x64"></a>
 			<div class="media-body">
-				<h4 class="media-heading"><a href="#"><% reply.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% reply.score %></small></h4>
-				<div ng-bind-html="reply.body"></div>
+				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
+				<div ng-bind-html="comment.body"></div>
+
+				<div>
+					<a class="btn btn-default btn-xs" href="">Reply</a>
+					<a class="btn btn-default btn-xs" href="">Save</a>
+					<a class="btn btn-default btn-xs" href="">Report</a>
+					<a class="btn btn-default btn-xs" href="">Give Gold</a>
+				</div>
+
+				<div class="media" ng-repeat="reply in comment.replies" ng-include="'comment_tree.html'"></div>
 			</div>
 		</script>
 
