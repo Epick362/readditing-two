@@ -3,7 +3,6 @@ angular.module('subredditService', [])
 	.factory('Reddit', function($http, $sce) {
 		var Reddit = function(subreddit) {
 			this.subreddit = subreddit;
-			this.thing = thing;
 			this.posts = [];
 			this.comments = [];
 			this.busy = false;
