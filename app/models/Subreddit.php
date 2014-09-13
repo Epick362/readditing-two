@@ -47,8 +47,7 @@ class Subreddit extends Eloquent {
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
 			foreach($comments[1]['data']['children'] as $_comment) {
 
-				dd($_comment);
-
+				$comment = [];
 				$comment['id'] = $_comment['data']['id'];
 				$comment['author'] = $_comment['data']['author'];
 				$comment['score'] = $_comment['data']['score'];
