@@ -80,9 +80,7 @@ class Subreddit extends Eloquent {
 				$comment['created'] = $_comment['data']['created'];
 				$comment['likes'] = $_comment['data']['likes'];
 				$comment['saved'] = $_comment['data']['saved'];
-				if($_comment['data']['replies']) {
-					$comment['replies'] = self::_formatComment($_comment['data']['replies']);
-				}
+				$comment['replies'] = self::_formatComment($_comment['data']['replies']);
 
 				$result[] = $comment;	
 			}
