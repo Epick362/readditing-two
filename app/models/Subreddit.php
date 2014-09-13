@@ -49,6 +49,9 @@ class Subreddit extends Eloquent {
 
 				$comment = [];
 				$comment['id'] = $_comment['data']['id'];
+				if(!isset($_comment['data']['author'])) {
+					dd($_comment);
+				}
 				$comment['author'] = $_comment['data']['author'];
 				$comment['score'] = $_comment['data']['score'];
 				$comment['body'] = $_comment['data']['body_html'];
