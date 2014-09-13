@@ -19,7 +19,7 @@ class ApiController extends \BaseController {
 	}
 
 	public function indexComment($subreddit, $thing) {
-		$data = Subreddit::getPosts($subreddit, $thing);
+		$data = Subreddit::getComments($subreddit, $thing);
 
 		if($data) {
 			return Response::json($data);
