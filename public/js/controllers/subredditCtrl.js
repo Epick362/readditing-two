@@ -1,5 +1,11 @@
 angular.module('subredditCtrl', [])
 
+	.config(function($sceProvider) {
+	  // Completely disable SCE.  For demonstration purposes only!
+	  // Do not use in new projects.
+	  $sceProvider.enabled(false);
+	})
+
 	// inject the Comment service into our controller
 	.controller('subredditController', function($scope, $attrs, $http, $modal, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
