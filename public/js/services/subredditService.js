@@ -48,7 +48,7 @@ angular.module('subredditService', [])
 
 			this.thing = thing;
 
-			var url = '/api/r/'+this.subreddit+'/comments/'+this.thing;
+			var url = '/api/r/'+this.subreddit+'/comments/'+this.thing+'.json';
 
 			$http({method: 'GET', url: url})
 			.success(function(data) {
