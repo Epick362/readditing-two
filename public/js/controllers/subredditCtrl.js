@@ -42,6 +42,12 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
+	.filter('unsafe', function($sce) {
+	    return function(val) {
+	        return $sce.trustAsHtml(val);
+	    };
+	})
+
 	.directive('showMore', function($document){
 	    return {
 	        restrict: 'A',
