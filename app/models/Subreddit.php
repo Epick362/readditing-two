@@ -45,23 +45,7 @@ class Subreddit extends Eloquent {
 		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
-			foreach($comments[1]['data']['children'] as $_comment) {
-				if($_comment['kind'] == 't1') {
-					$comment = [];
-					$comment['id'] = $_comment['data']['id'];
-					$comment['author'] = $_comment['data']['author'];
-					$comment['score'] = $_comment['data']['score'];
-					$comment['body'] = html_entity_decode($_comment['data']['body_html']);
-					$comment['created'] = $_comment['data']['created'];
-					$comment['likes'] = $_comment['data']['likes'];
-					$comment['saved'] = $_comment['data']['saved'];
-					$comment['replies'] = $_comment['data']['replies'];
-
-					$result[] = $comment;	
-				}
-			}
-
-			return $result;
+			self::_formatComment($comments[1]);
 		}
 
 		return false;
@@ -76,4 +60,26 @@ class Subreddit extends Eloquent {
 
 		return false;
 	}
-}
+
+	private static function _formatComment($comments) {
+		$result = [];
+
+		foreach($comments['data']['children'] as $_comment) {
+			if($comment['kind'] == 't1') {
+				$comment = [];
+				$comment['id'] = $_comment['data']['id'];
+				$comment['author'] = $_comment['data']['author'];
+				$comment['score'] = $_comment['data']['score'];
+				$comment['body'] = html_entity_decode($_comment['data']['body_html']);
+				$comment['created'] = $_comment['data']['created'];
+				$comment['likes'] = $_comment['data']['likes'];
+				$comment['saved'] = $_comment['data']['saved'];
+				$comment['replies'] = self::_formatComment($_comment['data']['replies']);
+
+				$result[] = $comment;	
+			}
+		}
+
+		return $result;
+	}
+} 
