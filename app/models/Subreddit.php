@@ -46,21 +46,19 @@ class Subreddit extends Eloquent {
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
 			foreach($comments[1]['data']['children'] as $_comment) {
+				if($_comment['kind'] == 't1') {
+					$comment = [];
+					$comment['id'] = $_comment['data']['id'];
+					$comment['author'] = $_comment['data']['author'];
+					$comment['score'] = $_comment['data']['score'];
+					$comment['body'] = $_comment['data']['body_html'];
+					$comment['created'] = $_comment['data']['created'];
+					$comment['likes'] = $_comment['data']['likes'];
+					$comment['saved'] = $_comment['data']['saved'];
+					$comment['replies'] = $_comment['data']['replies'];
 
-				$comment = [];
-				$comment['id'] = $_comment['data']['id'];
-				if(!isset($_comment['data']['author'])) {
-					dd($_comment);
+					$result[] = $comment;	
 				}
-				$comment['author'] = $_comment['data']['author'];
-				$comment['score'] = $_comment['data']['score'];
-				$comment['body'] = $_comment['data']['body_html'];
-				$comment['created'] = $_comment['data']['created'];
-				$comment['likes'] = $_comment['data']['likes'];
-				$comment['saved'] = $_comment['data']['saved'];
-				$comment['replies'] = $_comment['data']['replies'];
-
-				$result[] = $comment;
 			}
 
 			return $result;
