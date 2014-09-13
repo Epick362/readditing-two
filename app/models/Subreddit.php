@@ -41,6 +41,30 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
+	public static function getComments( $subreddit, $thing, $after == null ) {
+		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
+
+		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
+			foreach($comments['data']['children'] as $_comment) {
+
+				$comment['id'] = $_comment['data']['id'];
+				$comment['author'] = $_comment['data']['author'];
+				$comment['score'] = $_comment['data']['score'];
+				$comment['body'] = $_comment['data']['body_html'];
+				$comment['created'] = $_comment['data']['created'];
+				$comment['likes'] = $_comment['data']['likes'];
+				$comment['saved'] = $_comment['data']['saved'];
+				$comment['replies'] = $_comment['data']['replies'];
+
+				$result[] = $comment;
+			}
+
+			return $result;
+		}
+
+		return false;
+	}
+
 	public static function getPopular() {
 		$popular = Reddit::fetch('subreddits/popular.json');
 

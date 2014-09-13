@@ -55,6 +55,7 @@ angular.module('subredditService', [])
 				var comments = data;
 
 				for (var i = 0; i < comments.length; i++) {
+					comments[i].content = $sce.trustAsHtml(comments[i].content);
 					this.comments.push(comments[i]);
 				}
 

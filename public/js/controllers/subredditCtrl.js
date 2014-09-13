@@ -36,8 +36,6 @@ angular.module('subredditCtrl', [])
 		$scope.post = post;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
-		console.log($scope.post.id);
-
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');
 		};

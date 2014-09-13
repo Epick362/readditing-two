@@ -5,7 +5,8 @@
 <div class="modal-body">
     <div infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<li ng-repeat="comment in reddit.comments">
-			<img src="http://placehold.it/20x20" >
+			<div ng-bind-html="comment.body"></div>
+			<hr />
 		</li>
 	</div>
 
