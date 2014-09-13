@@ -12,7 +12,7 @@
 				<div ng-bind-html="comment.body"></div>
 			</div>
 
-			<div ng-repeat="reply in comment.replies" ng-include="'comment_tree.html'"></div>
+			<div class="media" ng-repeat="reply in comment.replies" ng-include="'comment_tree.html'"></div>
 		</li>
 	</ul>
 
