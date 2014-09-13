@@ -45,7 +45,7 @@ class Subreddit extends Eloquent {
 		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
-			self::_formatComment($comments[1]);
+			return self::_formatComment($comments[1]);
 		}
 
 		return false;
