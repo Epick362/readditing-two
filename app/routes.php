@@ -21,9 +21,8 @@ Route::get('/auth/login', 'AuthController@auth');
 // API ROUTES ==================================
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
-	Route::get('/r/{subreddit?}', 'ApiController@subreddit');
-
 	Route::get('/r/{subreddit?}/comments/{thing?}', 'ApiController@indexComment');
+	Route::get('/r/{subreddit?}', 'ApiController@subreddit');
 
 	Route::post('/vote/{id}', 'ApiController@storeVote');
 	Route::delete('/vote/{id}', 'ApiController@destroyVote');
