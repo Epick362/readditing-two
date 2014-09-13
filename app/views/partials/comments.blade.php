@@ -11,6 +11,8 @@
 				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
 				<div ng-bind-html="comment.body"></div>
 
+				<% comment.replies %>
+
 				<li class="media" ng-repeat="reply in comment.replies">
 					<% reply.author %>
 				</li>
