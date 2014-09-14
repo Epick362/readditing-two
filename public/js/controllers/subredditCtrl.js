@@ -25,6 +25,24 @@ angular.module('subredditCtrl', [])
 			});
 		};
 
+		$scope.save = function(id, type, dir) {
+			var url = 'api/save/'+ type +'_' + id;
+
+			if(dir === 1) {
+				var method = 'POST';
+			}else{
+				var method = 'DELETE';
+			}
+
+			$http({method: method, url: url})
+			.success(function() {
+				alert('ok');
+			})
+			.error(function() {
+				alert('Error while upvoting.');
+			});	
+		};
+
 		$scope.comments = function(post) {
 			var modalInstance = $modal.open({
 				templateUrl: 'comments.html',

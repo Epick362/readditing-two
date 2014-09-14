@@ -28,7 +28,7 @@
 					</div>
 					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
-						<a href="" tooltip="Save"><i class="fa fa-save"></i> Save to Reddit</a>
+						<a ng-click="save(comment.id, 't3', 1)" href="" tooltip="Save"><i class="fa fa-save"></i> Save to Reddit</a>
 					</div>
 					@endif
 				</div>

@@ -19,14 +19,14 @@
 			<div class="media-body">
 				<h4 class="media-heading"><a href="#"><% comment.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
 				<div ng-bind-html="comment.body"></div>
-
+				@if(Session::has('user'))
 				<div>
 					<a class="btn btn-default btn-xs" href="#">Reply</a>
-					<a class="btn btn-default btn-xs" href="#">Save</a>
+					<a class="btn btn-default btn-xs" ng-click="save(comment.id, 't1', 1)">Save</a>
 					<a class="btn btn-default btn-xs" href="#">Report</a>
 					<a class="btn btn-default btn-xs" href="#">Give Gold</a>
 				</div>
-
+				@endif
 				<div ng-if="comment.replies.length > 0" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
 			</div>
 		</script>
