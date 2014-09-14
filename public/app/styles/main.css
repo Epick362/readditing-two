@@ -7585,6 +7585,7 @@ a.active:hover {
 .panel {
   margin-left: -15px;
   margin-right: -15px;
+  border-radius: 0;
 }
 @media (min-width: 768px) {
   .panel {
