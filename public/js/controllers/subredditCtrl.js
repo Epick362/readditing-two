@@ -50,6 +50,9 @@ angular.module('subredditCtrl', [])
 				resolve: {
 					post: function() {
 						return post;
+					},
+					save: function() {
+						return $scope.save;
 					}
 				},
 				size: 'lg'
@@ -57,8 +60,9 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
-	.controller('commentsController', function($scope, $modalInstance, post, Reddit) {
+	.controller('commentsController', function($scope, $modalInstance, post, save, Reddit) {
 		$scope.post = post;
+		$scope.save = save;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
 		$scope.cancel = function () {
