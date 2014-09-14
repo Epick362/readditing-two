@@ -41,6 +41,11 @@ a.btn {
 .btn-link {
   -webkit-box-shadow: none;
           box-shadow: none;
+
+  &.active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 a.active {
@@ -48,6 +53,7 @@ a.active {
 
   &:hover {
     color: darken(@brand-alternate, 10%);
+    text-decoration: none;
   }
 }
 
