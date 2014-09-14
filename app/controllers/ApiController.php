@@ -48,10 +48,18 @@ class ApiController extends \BaseController {
 
 
 	public function storeSave($id) {
+		$response = Reddit::fetch('api/save', [
+			'id' => $id
+		], 'POST'); 
 
+		return Response::json($response);
 	} 
 
 	public function destroySave($id) {
-		
+		$response = Reddit::fetch('api/unsave', [
+			'id' => $id
+		], 'POST'); 
+
+		return Response::json($response);		
 	} 
 }
