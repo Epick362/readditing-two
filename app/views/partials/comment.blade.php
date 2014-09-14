@@ -3,15 +3,15 @@
 	<div ng-bind-html="comment.body"></div>
 	@if(Session::has('user'))
 	<div>
-		<a href="#">Reply</a>
+		<a class="btn btn-link btn-xs" href="#">Reply</a>
 		<span ng-if="!comment.saved">
-			<a ng-click="save(comment, 't1', 1)">Save</a>
+			<a href="" class="btn btn-link btn-xs" ng-click="save(comment, 't1', 1)">Save</a>
 		</span>
 		<span ng-if="comment.saved">
-			<a class="active" ng-click="save(comment, 't1', 0)">Unsave</a>
+			<a href="" class="btn btn-link btn-xs active" ng-click="save(comment, 't1', 0)">Unsave</a>
 		</span>
-		<a href="#">Report</a>
-		<a href="#">Give Gold</a>
+		<a class="btn btn-link btn-xs" href="#">Report</a>
+		<a class="btn btn-link btn-xs" href="#">Give Gold</a>
 	</div>
 	@endif
 	<div ng-if="comment.replies.length > 0" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
