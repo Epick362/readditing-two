@@ -2,6 +2,17 @@
 
 @section('content')
 	<div id="subreddit" ng-app="subredditApp" ng-controller="subredditController" subreddit="{{ $subreddit or false }}">
+		@if(isset($subreddit) && $subreddit)
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				/r/{{ $subreddit }} 
+				@if(Session::has('user'))
+					<a href="" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
+				@endif
+			</div>
+		</div>
+		@endif
+
 		@if(Session::has('user'))
 			<h1>User Data</h1>
 			<pre>{{ print_r(Session::get('user'), true) }}</pre>

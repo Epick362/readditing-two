@@ -86,14 +86,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-1">
-						@if(isset($subreddit) && $subreddit)
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								/r/{{ $subreddit }} 
-								<a href="#" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
-							</div>
-						</div>
-						@endif
 						@yield('content')
 					</div>
 					<div class="col-md-3 visible-md visible-lg">
