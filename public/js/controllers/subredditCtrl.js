@@ -30,15 +30,17 @@ angular.module('subredditCtrl', [])
 
 			if(dir === 1) {
 				var method = 'POST';
-				thing.saved = true;
 			}else{
 				var method = 'DELETE';
-				thing.saved = false;
 			}
 
 			$http({method: method, url: url})
 			.success(function() {
-				alert('ok');
+				if(dir === 1) {
+					thing.saved = true;
+				}else{
+					thing.saved = false;
+				}
 			})
 			.error(function() {
 				alert('Error while upvoting.');

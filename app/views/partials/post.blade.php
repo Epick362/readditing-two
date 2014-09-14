@@ -28,7 +28,12 @@
 					</div>
 					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
-						<a ng-click="save(post.id, 't3', 1)" href="" tooltip="Save"><i class="fa fa-save"></i> Save to Reddit</a>
+						<span ng-if="!comment.saved">
+							<a ng-click="save(post, 't3', 1)" href="" tooltip="Save"><i class="fa fa-save"></i> Save to Reddit</a>
+						</span>
+						<span ng-if="comment.saved">
+							<a ng-click="save(post, 't3', 0)" href="" tooltip="Unsave"><i class="fa fa-save"></i> Unsave</a>
+						</span>
 					</div>
 					@endif
 				</div>
