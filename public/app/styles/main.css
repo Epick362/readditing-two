@@ -7532,16 +7532,24 @@ a.btn {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+.btn-link:hover {
+  text-decoration: none;
+}
 .btn-link.active {
   -webkit-box-shadow: none;
   box-shadow: none;
+  border: 1px solid #ff621e;
+}
+.btn-link.active:hover {
+  border: none;
+  background: #ff621e;
+  color: #FFF;
 }
 a.active {
   color: #ff621e;
 }
 a.active:hover {
   color: #ea4700;
-  text-decoration: none;
 }
 .text-alternate {
   color: #ff621e;
