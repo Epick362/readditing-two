@@ -7593,6 +7593,8 @@ a.active:hover {
   .panel {
     margin-left: 0;
     margin-right: 0;
+    border-left: 1px solid;
+    border-right: 1px solid;
   }
 }
 .panel-heading {
