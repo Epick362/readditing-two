@@ -32,7 +32,7 @@
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
 		<script src="http://code.angularjs.org/1.0.1/angular-sanitize-1.0.1.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.8.0/angular-moment.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
 		
