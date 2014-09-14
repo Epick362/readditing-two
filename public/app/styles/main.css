@@ -7541,7 +7541,6 @@ a.btn {
   border: 1px solid #ff621e;
 }
 .btn-link.active:hover {
-  border: none;
   background: #ff621e;
   color: #FFF;
 }

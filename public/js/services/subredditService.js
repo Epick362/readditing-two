@@ -46,7 +46,7 @@ angular.module('subredditService', [])
 
 			this.thing = thing;
 
-			var url = '/api/r/'+this.subreddit+'/comments/'+this.thing;
+			var url = '/api/r/'+this.subreddit+'/comments/'+this.thing+'?after='+this.after;
 
 			$http({method: 'GET', url: url})
 			.success(function(data) {
@@ -56,7 +56,7 @@ angular.module('subredditService', [])
 					this.comments.push(comments[i]);
 				}
 
-				this.after = "t3_" + this.comments[this.comments.length - 1].id;
+				this.after = "t1_" + this.comments[this.comments.length - 1].id;
 				this.busy = false;
 			}.bind(this))
 			.error(function(data) {
