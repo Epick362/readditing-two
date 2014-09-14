@@ -1,5 +1,5 @@
 <div class="media-body">
-	<div class="pull-right visible-lg visible-md"><span am-time-ago="comment.created"></span></div>
+	<div class="pull-right visible-lg visible-md"><span am-time-ago="comment.created" am-preprocess="unix"></span></div>
 	<h4 class="media-heading"><a href="#"><% comment.author %></a> <small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small></h4>
 	<div class="clearfix"></div>
 	<div ng-bind-html="comment.body"></div>
