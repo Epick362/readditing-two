@@ -25,13 +25,15 @@ angular.module('subredditCtrl', [])
 			});
 		};
 
-		$scope.save = function(id, type, dir) {
-			var url = 'api/save/'+ type +'_' + id;
+		$scope.save = function(thing, type, dir) {
+			var url = 'api/save/'+ type +'_' + thing.id;
 
 			if(dir === 1) {
 				var method = 'POST';
+				thing.saved = true;
 			}else{
 				var method = 'DELETE';
+				thing.saved = false;
 			}
 
 			$http({method: method, url: url})
@@ -69,24 +71,6 @@ angular.module('subredditCtrl', [])
 			$modalInstance.dismiss('cancel');
 		};
 	})
-
-	.directive('ngBindHtmlUnsafe', ['$sce', function($sce){
-	    return {
-	        scope: {
-	            ngBindHtmlUnsafe: '=',
-	        },
-	        template: "<div ng-bind-html='trustedHtml'></div>",
-	        link: function($scope, iElm, iAttrs, controller) {
-	            $scope.updateView = function() {
-	                $scope.trustedHtml = $sce.trustAsHtml($scope.ngBindHtmlUnsafe);
-	            }
-
-	            $scope.$watch('ngBindHtmlUnsafe', function(newVal, oldVal) {
-	                $scope.updateView(newVal);
-	            });
-	        }
-	    };
-	}])
 
 	.directive('showMore', function($document){
 	    return {

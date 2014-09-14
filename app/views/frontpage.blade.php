@@ -22,7 +22,12 @@
 				@if(Session::has('user'))
 				<div>
 					<a class="btn btn-default btn-xs" href="#">Reply</a>
-					<a class="btn btn-default btn-xs" ng-click="save(comment.id, 't1', 1)">Save</a>
+					<span ng-if="!comment.saved">
+						<a class="btn btn-default btn-xs" ng-click="save(comment, 't1', 1)">Save</a>
+					</span>
+					<span ng-if="comment.saved">
+						<a class="btn btn-primary btn-xs" ng-click="save(comment, 't1', 0)">Unsave</a>
+					</span>
 					<a class="btn btn-default btn-xs" href="#">Report</a>
 					<a class="btn btn-default btn-xs" href="#">Give Gold</a>
 				</div>
