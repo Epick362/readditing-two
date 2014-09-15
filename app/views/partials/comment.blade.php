@@ -2,8 +2,12 @@
 	<div class="pull-right visible-lg visible-md"><small class="text-muted" am-time-ago="comment.created" am-preprocess="unix"></small></div>
 	<h4 class="media-heading">
 		<a href=""><% comment.author %></a> 
-		<a ng-if="!comment.liked" href="" class="btn btn-link btn-xs" ng-click="upvote(comment, 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
-		<a ng-if="comment.liked" href="" class="btn btn-link btn-xs active" ng-click="upvote(comment, 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+		@if(Session::has('user'))
+			<a ng-if="!comment.liked" href="" class="btn btn-default btn-xs" ng-click="upvote(comment, 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+			<a ng-if="comment.liked" href="" class="btn btn-link btn-xs active" ng-click="upvote(comment, 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+		@else
+			<small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small>
+		@endif
 	</h4>
 	<div class="clearfix"></div>
 	<div ng-bind-html="comment.body"></div>

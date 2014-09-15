@@ -89,6 +89,9 @@ angular.module('subredditCtrl', [])
 					},
 					save: function() {
 						return $scope.save;
+					},
+					vote: function() {
+						return $scope.vote;
 					}
 				},
 				size: 'lg'
