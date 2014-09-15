@@ -27,7 +27,7 @@ class Subreddit extends Eloquent {
 				$post['url'] = $_post['data']['url'];
 				$post['subreddit'] = $_post['data']['subreddit'];
 				$post['author'] = $_post['data']['author'];
-				$post['created'] = $_post['data']['created'];
+				$post['created'] = $_post['data']['created_utc'];
 				$post['ups'] = $_post['data']['ups'];
 				$post['likes'] = $_post['data']['likes'];
 				$post['saved'] = $_post['data']['saved'];
@@ -77,7 +77,7 @@ class Subreddit extends Eloquent {
 				$comment['author'] = $_comment['data']['author'];
 				$comment['score'] = $_comment['data']['score'];
 				$comment['body'] = html_entity_decode($_comment['data']['body_html']);
-				$comment['created'] = $_comment['data']['created'];
+				$comment['created'] = $_comment['data']['created_utc'];
 				$comment['likes'] = $_comment['data']['likes'];
 				$comment['saved'] = $_comment['data']['saved'];
 				$comment['replies'] = self::_formatComment($_comment['data']['replies']);
