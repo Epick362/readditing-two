@@ -30,7 +30,7 @@ class ApiController extends \BaseController {
 
 	public function storeVote($id) {
 		$response = Reddit::fetch('api/vote', [
-			'dir' => '1',
+			'dir' => 1,
 			'id' => $id
 		], 'POST'); 
 
@@ -39,7 +39,7 @@ class ApiController extends \BaseController {
 
 	public function destroyVote($id) {
 		$response = Reddit::fetch('api/vote', [
-			'dir' => '0',
+			'dir' => 0,
 			'id' => $id
 		], 'POST'); 
 
