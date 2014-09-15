@@ -8,8 +8,6 @@ class AuthController extends Controller {
 
 	public function auth()
 	{
-		dd(Session::get('intended'));
-
 		$provider = OAuth2::provider('reddit', array(
 			'id' => '7Ojt4UvaXdlfIg',
 			'secret' => 'diuIcaD4ejI0ZUlQXbDqRTxBRjA',
