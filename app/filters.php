@@ -13,11 +13,11 @@
 
 App::before(function($request)
 {
-	print_r(Cookie::get('token_generated'));
+	var_dump(Cookie::get('token_generated'));
 echo '<br />';
-	print_r(time());
+	var_dump(time());
 echo '<br />';
-	print_r(Cookie::get('refresh_token'));
+	var_dump(Cookie::get('refresh_token'));
 
 	die;
 
