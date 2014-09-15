@@ -34,8 +34,6 @@ class ApiController extends \BaseController {
 			'id' => $id
 		], 'POST'); 
 
-		dd($response);
-
 		return Response::json($response);
 	} 
 
