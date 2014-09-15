@@ -8,7 +8,7 @@
 				/r/{{ $subreddit }} 
 				@if(Session::has('user'))
 					<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
-					<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-default btn-lg pull-right active"><i class="fa fa-times"></i> Unsubscribe</a>
+					<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg pull-right"><i class="fa fa-times"></i> Unsubscribe</a>
 				@endif
 			</div>
 		</div>
