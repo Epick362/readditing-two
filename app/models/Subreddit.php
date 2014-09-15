@@ -76,6 +76,8 @@ class Subreddit extends Eloquent {
 	public static function isSubscribedToSubreddit($subreddit) {
 		$mine = Reddit::fetch('reddits/mine.json'); 
 
+		dd($mine);
+
 		if($mine) {
 			foreach($mine['data']['children'] as $sub) {
 				if($sub['data']['display_name'] == $subreddit) {
