@@ -9,11 +9,12 @@ angular.module('subredditCtrl', [])
 	// inject the Comment service into our controller
 	.controller('subredditController', function($scope, $attrs, $http, $modal, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
-
 		$scope.subscribed = $attrs.subscribed;
 
+		var base_url = 'http://107.170.53.44/';
+
 		$scope.vote = function(id, dir) {
-			var url = 'api/vote/t3_' + id;
+			var url = base_url + 'api/vote/t3_' + id;
 
 			if(dir === 1) {
 				var method = 'POST';
@@ -28,7 +29,7 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.save = function(thing, type, dir) {
-			var url = 'api/save/'+ type +'_' + thing.id;
+			var url = base_url + 'api/save/'+ type +'_' + thing.id;
 
 			if(dir === 1) {
 				var method = 'POST';
@@ -50,7 +51,7 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.subscribe = function(dir) {
-			var url = 'api/subscribe/'+ $attrs.subreddit;
+			var url = base_url + 'api/subscribe/'+ $attrs.subreddit;
 
 			if(dir === 1) {
 				var method = 'POST';
