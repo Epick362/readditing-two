@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	<div id="subreddit" ng-app="subredditApp" ng-controller="subredditController" subreddit="{{ $subreddit or false }}" subscribed="{{ $subscribed or false }}">
+	<div id="subreddit" ng-controller="subredditController" subreddit="{{ $subreddit or false }}" subscribed="{{ $subscribed or false }}">
 		@if(isset($subreddit) && $subreddit)
 		<div class="panel panel-default">
 			<div class="panel-heading">
