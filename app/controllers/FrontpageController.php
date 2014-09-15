@@ -18,6 +18,10 @@ class FrontpageController extends BaseController {
 		$view = array();
 		$view['subreddit'] = $subreddit;
 
+		if($subreddit) {
+			$view['subscribed'] = Subreddit::isSubscribedToSubreddit($subreddit);
+		}
+
 		$view['popular'] = Subreddit::getPopular();
 
 		return View::make('frontpage', $view);

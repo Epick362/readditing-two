@@ -30,4 +30,7 @@ Route::group(array('prefix' => 'api'), function() {
 
 	Route::post('/save/{id}', 'ApiController@storeSave');
 	Route::delete('/save/{id}', 'ApiController@destroySave');	
+
+	Route::post('/subscribe/{id}', 'ApiController@storeSubscribe');
+	Route::delete('/subscribe/{id}', 'ApiController@destroySubscribe');	
 });

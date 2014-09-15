@@ -10,6 +10,8 @@ angular.module('subredditCtrl', [])
 	.controller('subredditController', function($scope, $attrs, $http, $modal, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 
+		$scope.subscribed = $attrs.subscribed;
+
 		$scope.vote = function(id, dir) {
 			var url = 'api/vote/t3_' + id;
 
@@ -43,9 +45,31 @@ angular.module('subredditCtrl', [])
 				}
 			})
 			.error(function() {
-				alert('Error while upvoting.');
+				alert('Error while saving.');
 			});	
 		};
+
+		$scope.subscribe = function(dir) {
+			var url = 'api/subscribe/'+ $attrs.subreddit;
+
+			if(dir === 1) {
+				var method = 'POST';
+			}else{
+				var method = 'DELETE';
+			}
+
+			$http({method: method, url: url})
+			.success(function() {
+				if(dir === 1) {
+					$scope.subscribed = true;
+				}else{
+					$scope.subscribed = false;
+				}
+			})
+			.error(function() {
+				alert('Error while subscribing.');
+			});	
+		}
 
 		$scope.comments = function(post) {
 			var modalInstance = $modal.open({

@@ -63,6 +63,30 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
+	public static function getSubredditData($subreddit) {
+		$data = Reddit::fetch('r/'.$subreddit.'/about.json'); 
+
+		if($data) {
+			return $data;
+		}
+
+		return false;
+	}
+
+	public static function isSubscribedToSubreddit($subreddit) {
+		$mine = Reddit::fetch('reddits/mine.json'); 
+
+		if($mine) {
+			foreach($mine['data']['children'] as $sub) {
+				if($sub['data']['display_name'] == $subreddit) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	private static function _formatComment($comments) {
 		$result = [];
 
