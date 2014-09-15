@@ -62,4 +62,31 @@ class ApiController extends \BaseController {
 
 		return Response::json($response);		
 	} 
+
+
+	public function storeSubscribe($id) {
+		$subreddit = self::_getSubredditData($id);
+
+		$response = Reddit::fetch('api/subscribe', [
+			'action' => 'sub',
+			'sr' => 't5_'.$subreddit['data']['id']
+		], 'POST'); 
+
+		return Response::json($response);
+	} 
+
+	public function destroySubscribe($id) {
+		$subreddit = self::_getSubredditData($id);
+
+		$response = Reddit::fetch('api/subscribe', [
+			'action' => 'unsub',
+			'sr' => 't5_'.$subreddit['data']['id']
+		], 'POST'); 
+
+		return Response::json($response);		
+	} 
+
+	private function _getSubredditData($subreddit) {
+		return Reddit::fetch('r/'.$subreddit.'/about.json'); 
+	}
 }
