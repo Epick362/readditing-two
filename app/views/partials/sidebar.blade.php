@@ -1,5 +1,5 @@
 
-<div class="sidebar">
+<div class="sidebar" style="position:fixed">
 	@if(isset($popular) && $popular)
 		<div class="panel panel-default">
 			<div class="panel-heading">
