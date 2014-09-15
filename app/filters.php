@@ -14,7 +14,7 @@
 App::before(function($request)
 {
 	// if the token is older than 1 hour -> refresh it
-	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') <= time()) {
+	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') + 3600 <= time()) {
 		return Redirect::to('auth/login');
 	}
 });
