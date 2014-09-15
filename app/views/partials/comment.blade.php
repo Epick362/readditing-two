@@ -3,8 +3,8 @@
 	<h4 class="media-heading">
 		<a href=""><% comment.author %></a> 
 		@if(Session::has('user'))
-			<a ng-if="!comment.liked" href="" class="btn btn-default btn-xs" ng-click="upvote(comment, 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
-			<a ng-if="comment.liked" href="" class="btn btn-link btn-xs active" ng-click="upvote(comment, 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+			<a ng-if="!comment.liked" href="" class="btn btn-default btn-xs" ng-click="vote(comment, 't3', 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+			<a ng-if="comment.liked" href="" class="btn btn-link btn-xs active" ng-click="vote(comment, 't3', 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
 		@else
 			<small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small>
 		@endif
