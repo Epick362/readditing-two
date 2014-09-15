@@ -15,6 +15,10 @@ Route::get('/', 'FrontpageController@subreddit');
 
 Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
 
+Route::get('about', function() {
+	return Response::view('about');
+});
+
 Route::get('/auth/login', 'AuthController@auth');
 
 // =============================================
