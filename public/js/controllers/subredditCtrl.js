@@ -99,9 +99,10 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
-	.controller('commentsController', function($scope, $modalInstance, post, save, Reddit) {
+	.controller('commentsController', function($scope, $modalInstance, post, save, vote, Reddit) {
 		$scope.post = post;
 		$scope.save = save;
+		$scope.vote = vote;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
 		$scope.cancel = function () {
