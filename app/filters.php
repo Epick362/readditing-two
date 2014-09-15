@@ -14,9 +14,9 @@
 App::before(function($request)
 {
 	print_r(Cookie::get('token_generated'));
-
+echo '<br />';
 	print_r(time());
-
+echo '<br />';
 	print_r(Cookie::get('refresh_token'));
 
 	die;
