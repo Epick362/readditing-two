@@ -85,12 +85,7 @@
 		<div id="wrap">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-1">
-						@yield('content')
-					</div>
-					<div class="col-md-3 visible-md visible-lg">
-						@include('partials.sidebar')
-					</div>
+					@yield('content')
 				</div>
 			</div>
 		</div>
