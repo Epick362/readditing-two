@@ -7,8 +7,8 @@
 					og-kudos-complete="<% post.likes %>" 
 					og-kudos-id="<% post.id %>" 
 					og-kudos-count="<% post.ups %>" 
-					og-kudos-done="vote(post.id, 1)" 
-					og-kudos-undone="vote(post.id, 0)"
+					og-kudos-done="vote(post, 't1', 1)" 
+					og-kudos-undone="vote(post, 't1', 0)"
 				></div>
 			</div>
 			<div class="panel-heading">

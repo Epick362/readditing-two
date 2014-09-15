@@ -13,8 +13,8 @@ angular.module('subredditCtrl', [])
 
 		var base_url = 'http://107.170.53.44/';
 
-		$scope.vote = function(id, dir) {
-			var url = base_url + 'api/vote/t3_' + id;
+		$scope.vote = function(thing, type, dir) {
+			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
 
 			if(dir === 1) {
 				var method = 'POST';
@@ -23,6 +23,13 @@ angular.module('subredditCtrl', [])
 			}
 
 			$http({method: method, url: url})
+			.success(function() {
+				if(dir === 1) {
+					thing.liked = true;
+				}else{
+					thing.liked = false;
+				}
+			})
 			.error(function() {
 				alert('Error while upvoting.');
 			});
