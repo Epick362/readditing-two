@@ -44,7 +44,7 @@
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<button type="button" ng-init="navCollapsed = false" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -54,7 +54,7 @@
 						<div class="brand-image">r</div>
 					</a>
 				</div>
-				<div class="collapse navbar-collapse">
+				<div class="nav-collapse" collapse="navCollapsed">
 					<ul class="nav navbar-nav">
 						<li class="{{ Request::is('') ? 'active' : '' }}"><a href="{{ URL::to('/') }}">Browse</a></li>
 						<li><a href="http://blog.readditing.com">Blog</a></li>
