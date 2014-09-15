@@ -19,6 +19,10 @@ Route::get('about', function() {
 	return Response::view('about');
 });
 
+Route::get('u', function() {
+	dd(Request::url());
+});
+
 Route::get('/auth/login', 'AuthController@auth');
 
 // =============================================
