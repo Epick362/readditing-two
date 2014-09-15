@@ -54,7 +54,7 @@
 						<div class="brand-image">r</div>
 					</a>
 				</div>
-				<div class="collapse navbar-collapse">
+				<div collapse="navCollapsed">
 					<ul class="nav navbar-nav">
 						<li class="{{ Request::is('') ? 'active' : '' }}"><a href="{{ URL::to('/') }}">Browse</a></li>
 						<li><a href="http://blog.readditing.com">Blog</a></li>
