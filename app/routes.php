@@ -20,7 +20,7 @@ Route::get('about', function() {
 });
 
 Route::get('u', function() {
-	dd(Request::url());
+	dd();
 });
 
 Route::get('/auth/login', 'AuthController@auth');

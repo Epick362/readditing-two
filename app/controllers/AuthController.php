@@ -40,7 +40,7 @@ class AuthController extends Controller {
 			}
 		}
 
-		return Redirect::to('/');
+		return Redirect::to(Session::pull('intended', '/'));
 	}
 
 	private function authorize($params, $provider) {
