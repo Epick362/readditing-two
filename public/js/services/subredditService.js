@@ -34,7 +34,7 @@ angular.module('subredditService', [])
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
 				var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
-				$location.url(path + '?after=' + this.after);
+				$location.url(path + '?after=t3_' + posts[0].id);
 
 				this.busy = false;
 			}.bind(this))
