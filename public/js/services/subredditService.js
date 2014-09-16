@@ -9,9 +9,11 @@ angular.module('subredditService', [])
 			this.after = '';
 		};
 
-		Reddit.prototype.nextPage = function() {
+		Reddit.prototype.nextPage = function(after) {
 			if (this.busy) return;
 			this.busy = true;
+
+			this.after = after;
 
 			if(this.subreddit) {
 				var url = '/api/r/'+this.subreddit+'?after='+this.after;
