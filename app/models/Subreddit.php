@@ -5,7 +5,9 @@ use Readditing\Formatter\Formatter as Formatter;
 class Subreddit extends Eloquent {
 
 	public static function getPosts( $subreddit, $after ) {
-		$params = [];
+		$params = [
+			'limit' => '10'
+		];
 
 		if($after) {
 			$params['after'] = $after;
