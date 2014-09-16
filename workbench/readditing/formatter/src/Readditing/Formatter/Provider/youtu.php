@@ -22,7 +22,9 @@ class Youtu extends Provider {
 	{
 		$parse_url = parse_url($this->data['data']['url']);
 
-		$this->data['data']['youtube-id'] = substr($parse_url['path'], 1);
+		$path = strtok(substr($parse_url['path'], 1), '&');
+
+		$this->data['data']['youtube-id'] = $path;
 
 		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.youtube', $this->data)->render(), 'source' => 'youtube.com');
 	}
