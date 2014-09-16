@@ -33,6 +33,8 @@ class Subreddit extends Eloquent {
 				$post['saved'] = $_post['data']['saved'];
 				$post['comments'] = $_post['data']['num_comments'];
 
+				$post['nsfw'] = $_post['data']['over_18'];
+
 				$result[] = $post;
 			}
 			return $result;
