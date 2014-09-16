@@ -26,7 +26,7 @@
 			</script>
 
 			@if(Input::has('after'))
-				<a class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
+				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
 			@endif
 
 			@include('partials.post')

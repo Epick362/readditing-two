@@ -7,6 +7,8 @@ angular.module('subredditService', [])
 			this.comments = [];
 			this.busy = false;
 			this.after = '';
+
+			$location.hashPrefix('!');
 		};
 
 		Reddit.prototype.nextPage = function(after) {
