@@ -1,6 +1,6 @@
 angular.module('subredditService', [])
 
-	.factory('Reddit', function($http, $sce) {
+	.factory('Reddit', function($http, $sce, $location) {
 		var Reddit = function(subreddit) {
 			this.subreddit = subreddit;
 			this.posts = [];
@@ -28,6 +28,10 @@ angular.module('subredditService', [])
 				}
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+
+				var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
+				$location.url(path + '?after=' + this.after);
+
 				this.busy = false;
 			}.bind(this))
 			.error(function(data) {

@@ -8,7 +8,7 @@ angular.module('subredditCtrl', [])
 	})
 
 	// inject the Comment service into our controller
-	.controller('subredditController', function($scope, $attrs, $http, $modal, $location, Reddit) {
+	.controller('subredditController', function($scope, $attrs, $http, $modal, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
 
@@ -16,10 +16,6 @@ angular.module('subredditCtrl', [])
 
 		$scope.vote = function(thing, type, dir) {
 			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
-
-
-		    var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
-		    $location.url(path + '?q=' + $attrs.subreddit);
 
 			if(dir === 1) {
 				var method = 'POST';
