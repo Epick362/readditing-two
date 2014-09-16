@@ -1,9 +1,10 @@
 angular.module('subredditCtrl', [])
 
-	.config(function($sceProvider) {
+	.config(function($sceProvider, $locationProvider) {
 	  // Completely disable SCE.  For demonstration purposes only!
 	  // Do not use in new projects.
 	  $sceProvider.enabled(false);
+	  $locationProvider.html5Mode(true);
 	})
 
 	// inject the Comment service into our controller
@@ -15,6 +16,10 @@ angular.module('subredditCtrl', [])
 
 		$scope.vote = function(thing, type, dir) {
 			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
+
+
+		    var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
+		    $location.url(path + '?q=' + $attrs.subreddit);
 
 			if(dir === 1) {
 				var method = 'POST';
