@@ -7,8 +7,6 @@ angular.module('subredditService', [])
 			this.comments = [];
 			this.busy = false;
 			this.after = '';
-
-			this.page = 0;
 		};
 
 		Reddit.prototype.nextPage = function(after) {
@@ -29,15 +27,17 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var posts = data;
 
+				var last = this.posts[this.posts.length - 1].id;
+
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
 				}
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
-				if(this.page !== 0) {
+				if(typeof last !== undefined) {
 					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
-					$location.url(path + '?after=t3_' + posts[0].id);
+					$location.url(path + '?after=t3_' + last.id);
 				}
 
 				this.busy = false;
