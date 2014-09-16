@@ -1,4 +1,4 @@
-	<div infinite-scroll="reddit.nextPage('{{ Input::get('after', '') }}')" infinite-scroll-disabled="reddit.busy" infinite-scroll-distance="0" infinite-scroll-immediate-check="1">
+	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
 				<div 

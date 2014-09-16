@@ -1,6 +1,6 @@
 angular.module('subredditService', [])
 
-	.factory('Reddit', function($http, $sce, $location) {
+	.factory('Reddit', function($http, $sce) {
 		var Reddit = function(subreddit) {
 			this.subreddit = subreddit;
 			this.posts = [];
@@ -9,13 +9,9 @@ angular.module('subredditService', [])
 			this.after = '';
 		};
 
-		Reddit.prototype.nextPage = function(after) {
+		Reddit.prototype.nextPage = function() {
 			if (this.busy) return;
 			this.busy = true;
-
-			if(this.after === '') {
-				this.after = after;
-			}
 
 			if(this.subreddit) {
 				var url = '/api/r/'+this.subreddit+'?after='+this.after;
@@ -27,21 +23,12 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var posts = data;
 
-				var last = this.posts[this.posts.length - 1];
-
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
 				}
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
-
-				if(typeof last !== 'undefined') {
-					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
-					$location.url(path + '?after=t3_' + last.id);
-				}
-
 				this.busy = false;
-				this.page++;
 			}.bind(this))
 			.error(function(data) {
 				this.posts.push({
