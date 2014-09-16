@@ -35,7 +35,7 @@ angular.module('subredditService', [])
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
-				if(typeof last !== undefined) {
+				if(typeof last !== 'undefined') {
 					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
 					$location.url(path + '?after=t3_' + last.id);
 				}
