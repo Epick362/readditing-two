@@ -78,7 +78,7 @@ class Subreddit extends Eloquent {
 
 		if(!empty($mine) && isset($mine['data'])) {
 			foreach($mine['data']['children'] as $sub) {
-				if($sub['data']['display_name'] == $subreddit) {
+				if(strtolower($sub['data']['display_name']) == strtolower($subreddit)) {
 					return true;
 				}
 			}
