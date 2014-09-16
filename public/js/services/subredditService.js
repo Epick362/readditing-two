@@ -13,7 +13,9 @@ angular.module('subredditService', [])
 			if (this.busy) return;
 			this.busy = true;
 
-			this.after = after;
+			if(this.after === '') {
+				this.after = after;
+			}
 
 			if(this.subreddit) {
 				var url = '/api/r/'+this.subreddit+'?after='+this.after;
