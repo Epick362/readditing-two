@@ -27,7 +27,7 @@ angular.module('subredditService', [])
 			.success(function(data) {
 				var posts = data;
 
-				var last = this.posts[this.posts.length - 1].id;
+				var last = this.posts[this.posts.length - 1];
 
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
