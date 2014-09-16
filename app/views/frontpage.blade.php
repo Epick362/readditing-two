@@ -25,6 +25,10 @@
 				@include('partials.comments')
 			</script>
 
+			@if(Input::has('after'))
+				<a class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
+			@endif
+
 			@include('partials.post')
 
 		</div>		
