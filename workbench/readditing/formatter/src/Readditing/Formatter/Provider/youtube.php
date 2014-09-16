@@ -26,7 +26,7 @@ class Youtube extends Provider {
 			return $this->fail();
 		}
 
-		$this->data['data']['youtube-id'] = substr($parse_url['query'], strpos($parse_url['query'], "=") + 1);
+		$this->data['data']['youtube-id'] = strtok(substr($parse_url['query'], strpos($parse_url['query'], "=") + 1), '&');
 
 		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.youtube', $this->data)->render(), 'source' => 'youtube.com');
 	}
