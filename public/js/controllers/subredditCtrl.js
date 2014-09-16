@@ -1,10 +1,11 @@
 angular.module('subredditCtrl', [])
 
 	.config(function($sceProvider, $locationProvider) {
-	  // Completely disable SCE.  For demonstration purposes only!
-	  // Do not use in new projects.
-	  $sceProvider.enabled(false);
-	  $locationProvider.html5Mode(true);
+		// Completely disable SCE.  For demonstration purposes only!
+		// Do not use in new projects.
+		$sceProvider.enabled(false);
+		$locationProvider.html5Mode(true);
+		$locationProvider.hashPrefix('!');
 	})
 
 	// inject the Comment service into our controller
