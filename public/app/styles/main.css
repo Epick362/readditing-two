@@ -7555,6 +7555,12 @@ a.active:hover {
 }
 .navbar-brand {
   padding: 12px 15px;
+  transition: all .3s;
+}
+.navbar-brand:hover {
+  -webkit-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
 }
 .brand-image {
   width: 35px;
@@ -7565,12 +7571,6 @@ a.active:hover {
   line-height: 30px;
   color: #fff;
   text-align: center;
-  transition: all .3s;
-}
-.brand-image:hover {
-  -webkit-transform: scale(1.25);
-  -ms-transform: scale(1.25);
-  transform: scale(1.25);
 }
 .navbar-default {
   opacity: 0.90;

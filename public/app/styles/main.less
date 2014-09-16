@@ -73,6 +73,13 @@ a.active {
 
 .navbar-brand {
   padding: 12px 15px;
+  transition: all .3s;
+  
+  &:hover {   
+    -webkit-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    transform: scale(1.25);
+  }
 }
 
 .brand-image {
@@ -84,14 +91,6 @@ a.active {
   line-height: 30px;
   color: #fff;
   text-align: center;
-
-  transition: all .3s;
-
-  &:hover {   
-    -webkit-transform: scale(1.25);
-    -ms-transform: scale(1.25);
-    transform: scale(1.25);
-  }
 }
 
 .navbar-default {
