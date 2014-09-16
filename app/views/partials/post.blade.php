@@ -1,5 +1,5 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
-		<div class="panel panel-default" ng-class="<% 'nsfw' : post.nsfw %>" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
+		<div class="panel panel-default" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
 				<div 
 					og-kudos 
