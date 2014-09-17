@@ -112,8 +112,14 @@ angular.module('subredditCtrl', [])
 
 	.directive('showMore', function($document){
 	    return {
-	        restrict: 'A',
 	        link: function(scope, element, attrs) {
+	        	element.find('a').attr('target', '_blank');
+
+	        	element.find('*').removeAttr('style');
+	        	element.find('*').removeAttr('class');
+
+	        	element.find('script').remove();
+
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
