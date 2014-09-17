@@ -370,7 +370,7 @@ function htmlSanitizeWriter(buf){
             out(' ');
             out(key);
             out('="');
-            out(encodeEntities(value));
+            out(value);
             out('"');
           }
         });
