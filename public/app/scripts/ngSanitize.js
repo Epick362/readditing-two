@@ -366,11 +366,11 @@ function htmlSanitizeWriter(buf){
         out(tag);
         angular.forEach(attrs, function(value, key){
           var lkey=angular.lowercase(key);
-          if (validAttrs[lkey]==true && (uriAttrs[lkey]!==true || value.match(URI_REGEXP))) {
+          if (validAttrs[lkey]==true && (value.match(URI_REGEXP))) {
             out(' ');
             out(key);
             out('="');
-            out(value);
+            out(encodeEntities(value));
             out('"');
           }
         });
