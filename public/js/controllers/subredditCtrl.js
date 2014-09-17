@@ -122,12 +122,8 @@ angular.module('subredditCtrl', [])
 	            });
 	        },
 	        compile: function(element) {
-	        	element.find('a').attr('target', '_blank');
-
-	        	element.find('*').removeAttr('style');
-	        	element.find('*').removeAttr('class');
-
-	        	element.find('script').remove();
+				var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
+				elems.attr("target", "_blank");
 	        }
 	    };
 	});
