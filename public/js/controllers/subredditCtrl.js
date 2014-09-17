@@ -113,9 +113,8 @@ angular.module('subredditCtrl', [])
 	.directive('targetBlank', function() {
 		return {
 			compile: function(element) {
-				console.log('meh');
-				var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
-				console.log(elems);
+				var elems = element.find("a");
+				console.log(elems.attr('href'));
 				elems.attr("target", "_blank");
 			}
 		};
