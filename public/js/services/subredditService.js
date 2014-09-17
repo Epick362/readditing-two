@@ -1,6 +1,6 @@
 angular.module('subredditService', [])
 
-	.factory('Reddit', function($http, $sce) {
+	.factory('Reddit', function($http, $compile) {
 		var Reddit = function(subreddit) {
 			this.subreddit = subreddit;
 			this.posts = [];
