@@ -26,6 +26,8 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
 
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
 		<script src="http://code.angularjs.org/1.0.1/angular-sanitize-1.0.1.js"></script>
