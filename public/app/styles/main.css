@@ -7504,6 +7504,10 @@ button.close {
 .fa-plus-square-o:before {
   content: "\f196";
 }
+html,
+body {
+  height: 100%;
+}
 #wrap {
   margin-top: 120px;
 }
