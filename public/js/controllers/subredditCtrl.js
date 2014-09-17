@@ -110,8 +110,18 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
+	directive('targetBlank', function() {
+	  return {
+	    compile: function(element) {
+	      var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
+	      elems.attr("target", "_blank");
+	    }
+	  };
+	})
+
 	.directive('showMore', function($document){
 	    return {
+	    	restrict: 'A',
 	        link: function(scope, element, attrs) {
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
@@ -119,12 +129,6 @@ angular.module('subredditCtrl', [])
 	                element.find('.showmore-container').remove();
 	                element.find('.panel-text').removeClass('panel-text-short');
 	            });
-	        },
-	        compile: function(element) {
-	        	console.log('mehee');
-
-				var elems = element.find('a');
-				elems.attr("target", "_blank");
 	        }
 	    };
 	});
