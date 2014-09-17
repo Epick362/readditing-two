@@ -118,7 +118,6 @@ angular.module('subredditCtrl', [])
 	    return {
 	    	restrict: 'A',
 	        link: function(scope, element, attrs) {
-	        	element.find("a").attr('target', '_blank');
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
