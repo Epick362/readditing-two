@@ -2,10 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Readditing.com | {{ $subreddit or 'Seamless reddit experience' }}</title>
+		<title>Readditing | {{ $subreddit or 'better reddit experience' }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="">
+		<meta name="description" content="Readditing is a social reddit website">
+		<meta name="keywords" content="reddit social friends news information readdit readditing">
+		<meta name="author" content="Filip Hajek">
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
