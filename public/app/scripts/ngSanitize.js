@@ -372,7 +372,7 @@ function htmlSanitizeWriter(buf){
             out('="');
             out(encodeEntities(value));
             out('"');
-            if(lkey === 'a') {
+            if(key == 'a') {
               out(' target="_blank"');
             }
           }
