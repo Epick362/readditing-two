@@ -1,1 +1,1 @@
-<img class="img-responsive img-rounded" style="margin: 0 auto;" src="{{ $data['url'] }}" />
+<img class="img-responsive img-rounded center-block" src="{{ $data['url'] }}" />
