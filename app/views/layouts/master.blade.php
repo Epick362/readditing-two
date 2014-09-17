@@ -34,6 +34,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/ngHtmlCompile.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
 		
 		<script src="{{ URL::asset('js/services/subredditService.js') }}"></script>
