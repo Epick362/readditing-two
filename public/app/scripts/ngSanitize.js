@@ -372,6 +372,9 @@ function htmlSanitizeWriter(buf){
             out('="');
             out(encodeEntities(value));
             out('"');
+            if(lkey === 'a') {
+              out(' target="_blank"');
+            }
           }
         });
         out(unary ? '/>' : '>');
