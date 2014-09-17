@@ -15,8 +15,6 @@
 			</div>
 			@endif
 
-			<a href="" ng-click="comments()">NIEO</a>
-
 			<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
 
 			<script type="text/ng-template" id="comment.html">
@@ -26,6 +24,8 @@
 			<script type="text/ng-template" id="comments.html">
 				@include('partials.comments')
 			</script>
+
+			<a href="" ng-click="comments()">NIEO</a>
 
 			@include('partials.post')
 
