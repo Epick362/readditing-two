@@ -24,9 +24,7 @@
 			<script type="text/ng-template" id="comments.html">
 				@include('partials.comments')
 			</script>
-
-			<a href="" ng-click="comments()">NIEO</a>
-
+			
 			@include('partials.post')
 
 		</div>		
