@@ -7510,9 +7510,6 @@ button.close {
 a {
   transition: all 0.2s ease;
 }
-.modal-open {
-  overflow: scroll;
-}
 a:hover,
 a:focus {
   text-decoration: none;
