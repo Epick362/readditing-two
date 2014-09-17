@@ -111,12 +111,14 @@ angular.module('subredditCtrl', [])
 	})
 
 	.directive('targetBlank', function() {
-	  return {
-	    compile: function(element) {
-	      var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
-	      elems.attr("target", "_blank");
-	    }
-	  };
+		return {
+			compile: function(element) {
+				console.log('meh');
+				var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
+				console.log(elems);
+				elems.attr("target", "_blank");
+			}
+		};
 	})
 
 	.directive('showMore', function($document){
