@@ -150,7 +150,7 @@ var optionalEndTagBlockElements = makeMap("colgroup,dd,dt,li,p,tbody,td,tfoot,th
 // Safe Block Elements - HTML5
 var blockElements = angular.extend({}, optionalEndTagBlockElements, makeMap("address,article," +
         "blockquote,caption,center,del,dir,div,dl,figure,figcaption,h1,h2,h3,h4,h5,h6," +
-        "header,hgroup,hr,ins,map,menu,ol,pre,script,section,table,ul,embed"));
+        "header,hgroup,hr,ins,map,menu,ol,pre,script,section,table,ul,embed,iframe"));
 
 // Inline Elements - HTML5
 var inlineElements = angular.extend({}, optionalEndTagInlineElements, makeMap("a,abbr,acronym,b,bdi,bdo," +
