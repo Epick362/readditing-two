@@ -104,16 +104,6 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
-	.directive('targetBlank', function() {
-		return {
-			compile: function(element) {
-				var elems = element.find("a");
-				console.log(elems.attr('href'));
-				elems.attr("target", "_blank");
-			}
-		};
-	})
-
 	.directive('showMore', function($document){
 	    return {
 	    	restrict: 'A',
