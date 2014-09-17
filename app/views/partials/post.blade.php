@@ -1,4 +1,8 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+		<div class="img-responsive img-rounded block-centered">
+			<img src="http://placehold.it/290x80" />
+		</div>
+
 		<div class="panel panel-default" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper">
 				<div 
