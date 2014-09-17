@@ -16,7 +16,8 @@
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
-			<div class="panel-body" show-more target-blank ng-bind-html="post.content">
+			<div class="panel-body" show-more target-blank>
+				<span ng-bind-html="post.content"></span>
 			</div>
 			<div class="panel-footer" ng-if="post.author">
 				<div class="row">
