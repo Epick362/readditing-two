@@ -112,6 +112,7 @@ angular.module('subredditCtrl', [])
 
 	.directive('showMore', function($document){
 	    return {
+	    	restrict: 'AEC',
 	        link: function(scope, element, attrs) {
 	        	element.find('a').attr('target', '_blank');
 
