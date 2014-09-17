@@ -17,6 +17,7 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="panel-body" show-more target-blank>
+				<a href="foo">Test</a>
 				<span ng-bind-html="post.content"></span>
 			</div>
 			<div class="panel-footer" ng-if="post.author">
