@@ -7511,7 +7511,7 @@ a {
   transition: all 0.2s ease;
 }
 .modal-open {
-  overflow: auto;
+  overflow: scroll;
 }
 a:hover,
 a:focus {
