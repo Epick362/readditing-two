@@ -8,6 +8,13 @@
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
 
+		<!-- Open Graph data -->
+		<meta property="og:title" content="Readditing.com | {{ $subreddit or 'better reddit experience' }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://www.readditing.com/" />
+		<meta property="og:image" content="http://www.readditing.com/apple-touch-icon-120x120.png" />
+		<meta property="og:description" content="Readditing is a social reddit website" />
+
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
