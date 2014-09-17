@@ -59,7 +59,6 @@
 						<li class="{{ Request::is('') ? 'active' : '' }}"><a href="{{ URL::to('/') }}">Browse</a></li>
 						<li><a href="http://blog.readditing.com">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
-						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="" ng-click="comment()">About</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))

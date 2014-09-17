@@ -15,6 +15,8 @@
 			</div>
 			@endif
 
+			<a href="" ng-click="comment()">NIEO</a>
+
 			<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
 
 			<script type="text/ng-template" id="comment.html">
