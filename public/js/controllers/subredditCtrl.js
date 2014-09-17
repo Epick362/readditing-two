@@ -114,19 +114,20 @@ angular.module('subredditCtrl', [])
 	    return {
 	    	restrict: 'AEC',
 	        link: function(scope, element, attrs) {
-	        	element.find('a').attr('target', '_blank');
-
-	        	element.find('*').removeAttr('style');
-	        	element.find('*').removeAttr('class');
-
-	        	element.find('script').remove();
-
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
 	                element.find('.showmore-container').remove();
 	                element.find('.panel-text').removeClass('panel-text-short');
 	            });
+	        },
+	        compile: function(element) {
+	        	element.find('a').attr('target', '_blank');
+
+	        	element.find('*').removeAttr('style');
+	        	element.find('*').removeAttr('class');
+
+	        	element.find('script').remove();
 	        }
 	    };
 	});
