@@ -112,7 +112,6 @@ angular.module('subredditCtrl', [])
 
 	.directive('showMore', function($document){
 	    return {
-	    	restrict: 'AEC',
 	        link: function(scope, element, attrs) {
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
@@ -122,7 +121,9 @@ angular.module('subredditCtrl', [])
 	            });
 	        },
 	        compile: function(element) {
-				var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
+	        	console.log('mehee');
+
+				var elems = element.find('a');
 				elems.attr("target", "_blank");
 	        }
 	    };
