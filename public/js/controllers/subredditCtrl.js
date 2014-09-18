@@ -86,20 +86,14 @@ angular.module('subredditCtrl', [])
 					},
 					vote: function() {
 						return $scope.vote;
+					},
+					reply: function() {
+						return $scope.reply;
 					}
 				},
 				size: 'lg'
 			});
 		};
-	})
-
-	.controller('commentsController', function($scope, $modalInstance, post, save, vote, Reddit) {
-		$scope.post = post;
-		$scope.save = save;
-		$scope.vote = vote;
-		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
-
-		var base_url = 'http://107.170.53.44/';
 
 		$scope.reply = function(thing, type) {
 			var url = base_url + 'api/comment';
@@ -119,6 +113,14 @@ angular.module('subredditCtrl', [])
 				alert('Error while posting.');
 			});
 		};
+	})
+
+	.controller('commentsController', function($scope, $modalInstance, post, save, vote, reply, Reddit) {
+		$scope.post = post;
+		$scope.save = save;
+		$scope.vote = vote;
+		$scope.reply = reply;
+		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');
