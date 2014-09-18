@@ -22,7 +22,7 @@
 	<div class="replyForm"></div>
 	<div class="form-group">
 		<textarea class="form-control" rows="3"></textarea>
-		<button class="btn btn-primary">Send</button>
+		<button style="margin-top:10px" class="btn btn-primary">Send</button>
 	</div>
 	<div ng-if="comment.replies.length > 0" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
 </div>
