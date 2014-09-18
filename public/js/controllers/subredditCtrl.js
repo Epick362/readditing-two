@@ -127,7 +127,7 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
-	.directive('replyForm', function($document){
+	.directive('replyForm', function($compile){
 	    return {
 	    	restrict: 'A',
 	        link: function(scope, element, attrs) {
