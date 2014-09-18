@@ -28,6 +28,30 @@ class ApiController extends \BaseController {
 		return Response::make('Could not get any data.', 503);
 	}
 
+	public function storeComment() {
+		$validator = Validator::make(
+		    array(
+		        'text' => Input::post('text'),
+		        'thing' => Input::post('thing')
+		    ),
+		    array(
+		        'text' => 'required',
+		        'thing' => 'required|alpha_dash'
+		    )
+		);
+
+		if($validator->passes()) {
+			$response = Reddit::fetch('api/comment', [
+				'text' => Input::post('text'),
+				'thing_id' => Input::post('thing')
+			], 'POST');
+
+			return Response::json($response);
+		}
+
+		return Response::make('Bad input.', 400);
+	}
+
 	public function storeVote($id) {
 		$response = Reddit::fetch('api/vote', [
 			'dir' => '1',
