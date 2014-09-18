@@ -31,8 +31,8 @@ class ApiController extends \BaseController {
 	public function storeComment() {
 		$validator = Validator::make(
 		    array(
-		        'text' => Input::post('text'),
-		        'thing' => Input::post('thing')
+		        'text' => Input::get('text'),
+		        'thing' => Input::get('thing')
 		    ),
 		    array(
 		        'text' => 'required',
@@ -42,8 +42,8 @@ class ApiController extends \BaseController {
 
 		if($validator->passes()) {
 			$response = Reddit::fetch('api/comment', [
-				'text' => Input::post('text'),
-				'thing_id' => Input::post('thing')
+				'text' => Input::get('text'),
+				'thing_id' => Input::get('thing')
 			], 'POST');
 
 			return Response::json($response);
