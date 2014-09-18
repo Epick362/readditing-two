@@ -99,6 +99,25 @@ angular.module('subredditCtrl', [])
 		$scope.vote = vote;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
+		$scope.reply = function(thing, type) {
+			var url = base_url + 'api/comment';
+
+			$http({
+				method: 'POST', 
+				url: url,
+				data: {
+					text: '123 Test',
+					thing: type + '_' + thing.id
+				}
+			})
+			.success(function() {
+				alert('Ok. -Rammus');
+			})
+			.error(function() {
+				alert('Error while posting.');
+			});
+		};
+
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');
 		};

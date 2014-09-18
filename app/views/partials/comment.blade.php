@@ -13,7 +13,7 @@
 	<div ng-bind-html="comment.body"></div>
 	@if(Session::has('user'))
 	<div>
-		<a class="btn btn-link btn-xs" href="#">Reply</a>
+		<a href="" class="btn btn-link btn-xs" ng-click="reply(comment, 't1')">Reply</a>
 		<a ng-if="!comment.saved" href="" class="btn btn-link btn-xs" ng-click="save(comment, 't1', 1)">Save</a>
 		<a ng-if="comment.saved" href="" class="btn btn-link btn-xs active" ng-click="save(comment, 't1', 0)">Unsave</a>
 		<a class="btn btn-link btn-xs" href="https://www.reddit.com/gold?goldtype=gift&amp;months=1&amp;thing=t1_<% comment.id %>" target="_blank">Give Gold</a>
