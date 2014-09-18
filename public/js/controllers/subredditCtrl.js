@@ -134,7 +134,7 @@ angular.module('subredditCtrl', [])
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                angular.element(element).append($compile('<a href="" ng-click="reply(comment, \'t1\')">Reply</a>')(scope));
+	                element.closest('.media-body').first('.replyForm').append($compile('<a href="" ng-click="reply(comment, \'t1\')">Reply</a>')(scope));
 	            });
 	        }
 	    };
