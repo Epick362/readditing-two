@@ -99,6 +99,8 @@ angular.module('subredditCtrl', [])
 		$scope.vote = vote;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
+		var base_url = 'http://107.170.53.44/';
+
 		$scope.reply = function(thing, type) {
 			var url = base_url + 'api/comment';
 
