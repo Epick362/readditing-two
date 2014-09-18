@@ -127,6 +127,19 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
+	.directive('replyForm', function($document){
+	    return {
+	    	restrict: 'A',
+	        link: function(scope, element, attrs) {
+	            element.bind('click', function(e) {
+	                e.stopPropagation();
+
+	                angular.element(element).append($compile('<a href="" ng-click="reply(comment, \'t1\')">Reply</a>')(scope));
+	            });
+	        }
+	    };
+	})
+
 	.directive('showMore', function($document){
 	    return {
 	    	restrict: 'A',
