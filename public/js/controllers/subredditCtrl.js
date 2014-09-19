@@ -136,7 +136,7 @@ angular.module('subredditCtrl', [])
 
 	                element.closest('.media-body').find('.replyForm:first').append($compile('<div class="form-group">
 		<textarea class="form-control" ng-model="comment.reply" rows="3"></textarea>
-		<button style="margin-top:10px" class="btn btn-primary" ng-click="reply(comment, 't1')">Send</button>
+		<button style="margin-top:10px" class="btn btn-primary" ng-click="reply(comment, \'t1\')">Send</button>
 	</div>')(scope));
 	            });
 	        }
