@@ -102,7 +102,7 @@ angular.module('subredditCtrl', [])
 				method: 'POST', 
 				url: url,
 				data: {
-					text: '123 Test',
+					text: thing.reply,
 					thing: type + '_' + thing.id
 				}
 			})

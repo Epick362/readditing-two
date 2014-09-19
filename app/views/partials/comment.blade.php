@@ -21,8 +21,8 @@
 	@endif
 	<div class="replyForm"></div>
 	<div class="form-group">
-		<textarea class="form-control" rows="3"></textarea>
-		<button style="margin-top:10px" class="btn btn-primary">Send</button>
+		<textarea class="form-control" ng-model="comment.reply" rows="3"></textarea>
+		<button style="margin-top:10px" class="btn btn-primary" ng-click="reply(comment, 't1')">Send</button>
 	</div>
 	<div ng-if="comment.replies.length > 0" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
 </div>
