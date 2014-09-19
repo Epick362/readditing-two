@@ -134,7 +134,10 @@ angular.module('subredditCtrl', [])
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                element.closest('.media-body').find('.replyForm:first').append($compile('<a href="" ng-click="reply(comment, \'t1\')">Reply</a>')(scope));
+	                element.closest('.media-body').find('.replyForm:first').append($compile('<div class="form-group">
+		<textarea class="form-control" ng-model="comment.reply" rows="3"></textarea>
+		<button style="margin-top:10px" class="btn btn-primary" ng-click="reply(comment, 't1')">Send</button>
+	</div>')(scope));
 	            });
 	        }
 	    };
