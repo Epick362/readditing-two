@@ -135,7 +135,7 @@ angular.module('subredditCtrl', [])
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin-top:10px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
+	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-if="comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
 	            });
 	        }
 	    };
