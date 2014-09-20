@@ -98,6 +98,8 @@ angular.module('subredditCtrl', [])
 		$scope.reply = function(thing, type) {
 			var url = base_url + 'api/comment';
 
+			console.log(thing.replied);
+
 			$http({
 				method: 'POST', 
 				url: url,
@@ -109,6 +111,7 @@ angular.module('subredditCtrl', [])
 			.success(function() {
 				thing.replied = true;
 				alert('Ok. -Rammus');
+				console.log(thing.replied);
 			})
 			.error(function() {
 				alert('Error while posting.');
