@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
-		<div id="subreddit" subreddit="{{ $subreddit or false }}" subscribed="{{ $subscribed or false }}">
+		<div id="subreddit" ng-controller="subredditController" subreddit="{{ $subreddit or false }}" subscribed="{{ $subscribed or false }}">
 			@if(isset($subreddit) && $subreddit)
 			<div class="panel panel-default">
 				<div class="panel-heading">
