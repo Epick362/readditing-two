@@ -72,7 +72,7 @@
 						<form ng-submit="jumpTo()" class="navbar-form">
 							<div class="input-group">
 								<span class="input-group-addon">/r/</span>
-								<input type="text" name="subreddit" ng-model="sr" class="form-control col-sm-3 col-md-4">
+								<input type="text" name="subreddit" ng-model="sr" value="{{ $subreddit }}" placeholder="subreddit" class="form-control col-sm-3 col-md-4">
 								<div class="input-group-btn">
 									<button type="submit" class="btn btn-primary">Go</button>
 								</div>
