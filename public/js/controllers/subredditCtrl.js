@@ -127,6 +127,7 @@ angular.module('subredditCtrl', [])
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
 		$scope.replied = function(comment) {
+			console.log('heu');
 			if(typeof comment.replied === 'undefined') {
 				return true;
 			}else{
