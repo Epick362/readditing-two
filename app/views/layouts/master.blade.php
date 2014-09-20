@@ -12,6 +12,7 @@
 		<meta property="og:title" content="Readditing.com | {{ $subreddit or 'better reddit experience' }}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
+		<meta property="og:image" content="http://www.readditing.com/apple-touch-icon-120x120.png" />
 		<meta property="og:description" content="Readditing is a social reddit website" />
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
