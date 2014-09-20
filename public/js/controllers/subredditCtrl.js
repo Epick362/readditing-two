@@ -98,8 +98,6 @@ angular.module('subredditCtrl', [])
 		$scope.reply = function(thing, type) {
 			var url = base_url + 'api/comment';
 
-			console.log(thing.replied);
-
 			$http({
 				method: 'POST', 
 				url: url,
@@ -111,7 +109,6 @@ angular.module('subredditCtrl', [])
 			.success(function() {
 				thing.replied = true;
 				alert('Ok. -Rammus');
-				console.log(thing.replied);
 			})
 			.error(function() {
 				alert('Error while posting.');
@@ -126,15 +123,6 @@ angular.module('subredditCtrl', [])
 		$scope.reply = reply;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
-		$scope.replied = function(comment) {
-			console.log('heu');
-			if(typeof comment.replied === 'undefined') {
-				return true;
-			}else{
-				return false;
-			}
-		};
-
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');
 		};
@@ -146,8 +134,8 @@ angular.module('subredditCtrl', [])
 	        link: function(scope, element, attrs) {
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
-
-	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-if="replied(comment)" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
+	                
+	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
 	            });
 	        }
 	    };
