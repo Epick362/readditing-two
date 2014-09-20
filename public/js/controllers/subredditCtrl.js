@@ -4,9 +4,7 @@ angular.module('subredditCtrl', [])
 	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
-
-		$scope.sr = $attrs.subreddit;
-
+		
 		var base_url = 'http://107.170.53.44/';
 
 		$scope.jumpTo = function() {
