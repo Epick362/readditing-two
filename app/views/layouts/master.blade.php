@@ -68,6 +68,17 @@
 						<li><a href="http://blog.readditing.com">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
+					<div class="col-sm-4 col-md-4">
+						<form class="navbar-form">
+							<div class="input-group">
+								<span class="input-group-addon">r/</span>
+								<input type="text" name="subreddit" value="home" class="form-control col-sm-3 col-md-4" placeholder="subreddit">
+								<div class="input-group-btn">
+									<input type="submit" name="" value="Go" class="btn btn-primary">
+								</div>
+							</div>
+						</form>
+					</div>
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
