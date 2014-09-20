@@ -4,7 +4,13 @@ angular.module('subredditCtrl', [])
 	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
-		
+
+
+		// A HACK TO FIX BUGGY MODAL SCROLL TO TOP
+		var hackmodal = $modal.open();
+		hackmodal.close();
+		// HACK END
+
 		var base_url = 'http://107.170.53.44/';
 
 		$scope.jumpTo = function() {
