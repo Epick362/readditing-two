@@ -30,10 +30,10 @@
 					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
 						<span ng-if="!post.saved">
-							<a ng-click="save(post, 't3', 1)" href="" tooltip="Save"><i class="fa fa-save"></i> Save</a>
+							<a ng-click="save(post, 't3', 1)" href=""><i class="fa fa-save"></i> Save</a>
 						</span>
 						<span ng-if="post.saved">
-							<a ng-click="save(post, 't3', 0)" class="active" href="" tooltip="Unsave"><i class="fa fa-save"></i> Unsave</a>
+							<a ng-click="save(post, 't3', 0)" class="active" href=""><i class="fa fa-save"></i> Unsave</a>
 						</span>
 					</div>
 					@endif
