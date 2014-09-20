@@ -5,7 +5,13 @@ angular.module('subredditCtrl', [])
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
 
+		$scope.sr = $attrs.subreddit;
+
 		var base_url = 'http://107.170.53.44/';
+
+		$scope.jumpTo = function() {
+			$window.location.href = base_url + 'r/' + $scope.sr;
+		}
 
 		$scope.vote = function(thing, type, dir) {
 			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
@@ -134,7 +140,7 @@ angular.module('subredditCtrl', [])
 	        link: function(scope, element, attrs) {
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
-	                
+
 	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
 	            });
 	        }

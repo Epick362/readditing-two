@@ -69,12 +69,12 @@
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
 					<div class="col-sm-4 col-md-4">
-						<form class="navbar-form">
+						<form ng-submit="jumpTo()" class="navbar-form">
 							<div class="input-group">
-								<span class="input-group-addon">r/</span>
-								<input type="text" name="subreddit" value="{{ $subreddit }}" class="form-control col-sm-3 col-md-4" placeholder="subreddit">
+								<span class="input-group-addon">/r/</span>
+								<input type="text" name="subreddit" ng-model="sr" class="form-control col-sm-3 col-md-4">
 								<div class="input-group-btn">
-									<input type="submit" name="" value="Go" class="btn btn-primary">
+									<button type="submit" class="btn btn-primary">Go</button>
 								</div>
 							</div>
 						</form>
