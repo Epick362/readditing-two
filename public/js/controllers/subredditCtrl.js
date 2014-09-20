@@ -8,7 +8,9 @@ angular.module('subredditCtrl', [])
 
 		// A HACK TO FIX BUGGY MODAL SCROLL TO TOP
 		var hackmodal = $modal.open({template: '.'});
-		hackmodal.dismiss('cancel');
+		hackmodal.opened(function() {
+			hackmodal.dismiss('cancel');
+		});
 		// HACK END
 
 		var base_url = 'http://107.170.53.44/';
