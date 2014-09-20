@@ -72,7 +72,7 @@
 						<form class="navbar-form">
 							<div class="input-group">
 								<span class="input-group-addon">r/</span>
-								<input type="text" name="subreddit" value="home" class="form-control col-sm-3 col-md-4" placeholder="subreddit">
+								<input type="text" name="subreddit" value="{{ $subreddit }}" class="form-control col-sm-3 col-md-4" placeholder="subreddit">
 								<div class="input-group-btn">
 									<input type="submit" name="" value="Go" class="btn btn-primary">
 								</div>
