@@ -7,7 +7,7 @@ angular.module('subredditCtrl', [])
 
 
 		// A HACK TO FIX BUGGY MODAL SCROLL TO TOP
-		var hackmodal = $modal.open({template: ''});
+		var hackmodal = $modal.open({template: '.'});
 		hackmodal.close();
 		// HACK END
 
