@@ -48,7 +48,7 @@
 		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>
 		<script src="{{ URL::asset('js/app.js') }}"></script>
 	</head>
-	<body ng-app="subredditApp">
+	<body ng-app="subredditApp" ng-controller="subredditController">
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
