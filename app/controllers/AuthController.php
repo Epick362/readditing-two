@@ -40,8 +40,6 @@ class AuthController extends Controller {
 			}
 		}
 
-		dd(Session::get('intended'));
-
 		return Redirect::to(Session::pull('intended', '/'));
 	}
 
