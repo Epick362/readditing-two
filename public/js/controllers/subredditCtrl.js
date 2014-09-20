@@ -1,7 +1,7 @@
 angular.module('subredditCtrl', [])
 
 	// inject the Comment service into our controller
-	.controller('subredditController', function($scope, $attrs, $http, $modal, Reddit) {
+	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
 
