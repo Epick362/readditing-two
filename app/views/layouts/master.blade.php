@@ -48,7 +48,7 @@
 		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>
 		<script src="{{ URL::asset('js/app.js') }}"></script>
 	</head>
-	<body ng-app="subredditApp">
+	<body ng-app="subredditApp" ng-controller="subredditController">
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
@@ -68,6 +68,17 @@
 						<li><a href="http://blog.readditing.com">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
+					<div class="col-sm-4 col-md-4">
+						<form ng-submit="jumpTo()" class="navbar-form">
+							<div class="input-group">
+								<span class="input-group-addon">/r/</span>
+								<input type="text" name="subreddit" ng-model="sr" placeholder="{{ $subreddit or 'subreddit' }}" class="form-control col-sm-3 col-md-4">
+								<div class="input-group-btn">
+									<button type="submit" class="btn btn-primary">Go</button>
+								</div>
+							</div>
+						</form>
+					</div>
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
