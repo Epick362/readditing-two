@@ -126,6 +126,14 @@ angular.module('subredditCtrl', [])
 		$scope.reply = reply;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
+		$scope.replied = function(comment) {
+			if(typeof comment.replied === 'undefined') {
+				return true;
+			}else{
+				return false;
+			}
+		};
+
 		$scope.cancel = function () {
 			$modalInstance.dismiss('cancel');
 		};
@@ -138,7 +146,7 @@ angular.module('subredditCtrl', [])
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-if="comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
+	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-if="replied(comment)" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
 	            });
 	        }
 	    };
