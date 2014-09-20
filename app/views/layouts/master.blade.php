@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Readditing | {{ $subreddit or 'better reddit experience' }}</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="Readditing is a social reddit website">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
