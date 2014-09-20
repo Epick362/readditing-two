@@ -11,21 +11,13 @@ class ApiController extends \BaseController {
 	{
 		$data = Subreddit::getPosts($subreddit, Input::get('after'));
 
-		if($data) {
-			return Response::json($data);
-		}
-
-		return Response::make('Could not get any data.', 503);
+		return Response::json($data);
 	}
 
 	public function indexComment($subreddit, $thing) {
 		$data = Subreddit::getComments($subreddit, $thing);
 
-		if($data) {
-			return Response::json($data);
-		}
-
-		return Response::make('Could not get any data.', 503);
+		return Response::json($data);
 	}
 
 	public function storeComment() {
