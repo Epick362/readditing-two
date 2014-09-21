@@ -116,14 +116,21 @@ angular.module('subredditCtrl', [])
 			.success(function() {
 				thing.replied = true;
 
-				thing.replies.push({
+				var reply = {
 					author: $scope.user,
 					score: 1,
 					body: thing.reply,
 					likes: true,
 					saved: false,
 					replies: false
-				});
+				};
+
+				if(typeof thing.replies !== 'object') {
+					thing.replies = [];
+				}
+
+				thing.replies.push(reply);
+				
 				console.log(thing.replies);
 				alert('Ok. -Rammus');
 			})
