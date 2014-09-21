@@ -92,7 +92,7 @@
 				<div class="row">
 					@yield('content')
 
-					<a href="" ng-click='comments({{
+					<a href="" ng-click='comments({
         "title": "Test post",
         "content": "<div class=\"panel-text panel-text-short\">\n\t<!-- SC_OFF --><div class=\"md\"><p>Hello</p>\n</div><!-- SC_ON -->\n</div>\n",
         "source": "self.Readditingcom",
@@ -106,7 +106,7 @@
         "saved": false,
         "comments": 2,
         "nsfw": false
-    }})'></a>
+    })'></a>
 				</div>
 			</div>
 		</div>
