@@ -2,6 +2,7 @@
 
 @section('content')
 	<div class="col-md-6 col-md-offset-3">
+		<a ng-click="comments({id: '2gabn8', subreddit: 'readditingcom'})" href="">Click</a>
 		<h1 style="margin-top:0">About</h1>
 		<hr />
 		<p class="lead">

@@ -6,7 +6,8 @@ var subredditApp = angular.module('subredditApp', [
 		'ngSanitize', 
 		'infinite-scroll', 
 		'angular-kudos', 
-		'angularMoment'
+		'angularMoment',
+		'ngDialog'
 	], function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');

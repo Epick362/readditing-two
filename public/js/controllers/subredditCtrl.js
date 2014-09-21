@@ -1,7 +1,7 @@
 angular.module('subredditCtrl', [])
 
 	// inject the Comment service into our controller
-	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
+	.controller('subredditController', function($scope, $attrs, $http, ngDialog, $window, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
 
@@ -78,24 +78,11 @@ angular.module('subredditCtrl', [])
 		}
 
 		$scope.comments = function(post) {
-			var modalInstance = $modal.open({
+			$scope.post = post;
+			ngDialog.open({
 				templateUrl: 'comments.html',
 				controller: 'commentsController',
-				resolve: {
-					post: function() {
-						return post;
-					},
-					save: function() {
-						return $scope.save;
-					},
-					vote: function() {
-						return $scope.vote;
-					},
-					reply: function() {
-						return $scope.reply;
-					}
-				},
-				size: 'lg'
+				scope: $scope
 			});
 		};
 
@@ -120,11 +107,11 @@ angular.module('subredditCtrl', [])
 		};
 	})
 
-	.controller('commentsController', function($scope, $modalInstance, post, save, vote, reply, Reddit) {
-		$scope.post = post;
-		$scope.save = save;
-		$scope.vote = vote;
-		$scope.reply = reply;
+	.controller('commentsController', function($scope, Reddit) {
+		$scope.post = $scope.$parent.post;
+		$scope.save = $scope.$parent.save;
+		$scope.vote = $scope.$parent.vote;
+		$scope.reply = $scope.$parent.reply;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
 
 		$scope.cancel = function () {
