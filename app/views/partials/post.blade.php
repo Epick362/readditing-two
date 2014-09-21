@@ -1,5 +1,5 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
-		<div class="panel panel-default" id="<% post.id %>" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
+		<div class="panel panel-default" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper" ng-if="post.author">
 				<div 
 					og-kudos 
@@ -25,7 +25,7 @@
 						<a href=""><% post.author %></a> in <a href="{{ URL::to('r') }}/<% post.subreddit %>"><% post.subreddit %></a> 
 					</div>
 					<div class="col-sm-4 text-center">
-						<a href="#<% post.id %>" ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
+						<a href="" ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
 					</div>
 					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
