@@ -94,7 +94,8 @@ angular.module('subredditCtrl', [])
 					reply: function() {
 						return $scope.reply;
 					}
-				}
+				},
+				size: 'lg'
 			});
 		};
 
