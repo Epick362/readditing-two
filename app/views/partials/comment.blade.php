@@ -3,8 +3,8 @@
 	<h4 class="media-heading">
 		<a ng-class="{'active': post.author == comment.author}" ng-href="{{ URL::to('') }}/u/<% comment.author %>"><% comment.author %></a> 
 		@if(Session::has('user'))
-			<a ng-if="!comment.liked" href="" class="btn btn-default btn-xs" ng-click="vote(comment, 't1', 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
-			<a ng-if="comment.liked" href="" class="btn btn-link btn-xs active" ng-click="vote(comment, 't1', 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+			<a ng-if="!comment.likes" href="" class="btn btn-default btn-xs" ng-click="vote(comment, 't1', 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
+			<a ng-if="comment.likes" href="" class="btn btn-link btn-xs active" ng-click="vote(comment, 't1', 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
 		@else
 			<small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small>
 		@endif
@@ -20,5 +20,5 @@
 	</div>
 	@endif
 	<div class="replyForm"></div>
-	<div ng-if="comment.replies !== false" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
+	<div ng-if="comment.replies.length > 0" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
 </div>
