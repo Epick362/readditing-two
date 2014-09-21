@@ -34,7 +34,12 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
 	</head>
-	<body ng-app="subredditApp" ng-controller="subredditController" subreddit="{{ $subreddit or false }}" subscribed="{{ $subscribed or false }}">
+	<body 
+		ng-app="subredditApp" 
+		ng-controller="subredditController" 
+		user="{{ Session::get('user')['name'] or false }}" 
+		subreddit="{{ $subreddit or false }}" 
+		subscribed="{{ $subscribed or false }}">
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">

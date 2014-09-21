@@ -4,6 +4,7 @@ angular.module('subredditCtrl', [])
 	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
 		$scope.reddit = new Reddit($attrs.subreddit);
 		$scope.subscribed = $attrs.subscribed;
+		$scope.user = $attrs.user;
 
 		var base_url = 'http://107.170.53.44/';
 
@@ -116,8 +117,7 @@ angular.module('subredditCtrl', [])
 				thing.replied = true;
 
 				thing.replies.push({
-					id: 'xyxyxy',
-					author: 'Me',
+					author: $scope.user,
 					score: 1,
 					body: thing.reply,
 					likes: true,
