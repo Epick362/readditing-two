@@ -26,11 +26,11 @@
 	</div>
 
 
-	<script type="text/ng-template" id="comment">
+	<script type="text/ng-template" id="comment.html">
 		@include('partials.comment')
 	</script>
 
-	<script type="text/ng-template" id="comments">
+	<script type="text/ng-template" id="comments.html">
 		@include('partials.comments')
 	</script>
 @stop
