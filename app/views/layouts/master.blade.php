@@ -37,7 +37,7 @@
 	<body 
 		ng-app="subredditApp" 
 		ng-controller="subredditController" 
-		user="{{ Session::get('user')['name'] or false }}" 
+		user="{{ $username or false }}" 
 		subreddit="{{ $subreddit or false }}" 
 		subscribed="{{ $subscribed or false }}">
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">

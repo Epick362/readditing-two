@@ -18,7 +18,7 @@
 	<div class="clearfix"></div>
 	<div ng-bind-html="comment.body"></div>
 	@if(Session::has('user'))
-	<div>
+	<div ng-if="comment.id">
 		<a href="" class="btn btn-link btn-xs" reply-form>Reply</a>
 		<a ng-if="!comment.saved" href="" class="btn btn-link btn-xs" ng-click="save(comment, 't1', 1)">Save</a>
 		<a ng-if="comment.saved" href="" class="btn btn-link btn-xs active" ng-click="save(comment, 't1', 0)">Unsave</a>
