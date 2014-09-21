@@ -7530,7 +7530,7 @@ a.btn {
 }
 .btn-upvote {
   border: 1px solid #ff621e;
-  color: 1px #ff621e;
+  color: #ff621e;
   background-color: white;
   border-radius: 50%;
   transition: background 500ms ease;
