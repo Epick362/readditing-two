@@ -44,11 +44,11 @@ a.btn {
   background-color: white;
   border-radius: 50%;
 
-  transition: background-color .5s ease;
+  transition: background-color .5s ease !important;
 
   &:hover {
-    background-color: fade(@brand-alternate, 50%);
-    color: lighten(@brand-alternate, 10%);
+    background-color: fade(@brand-alternate, 80%);
+    color: @brand-alternate;
   }
 
   &.active {
