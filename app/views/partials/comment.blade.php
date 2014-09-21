@@ -20,5 +20,5 @@
 	</div>
 	@endif
 	<div class="replyForm"></div>
-	<div ng-if="comment.replies" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
+	<div ng-if="comment.replies !== false" class="media" ng-repeat="comment in comment.replies" ng-include="'comment.html'"></div>
 </div>
