@@ -25,7 +25,7 @@
 						<a href=""><% post.author %></a> in <a href="{{ URL::to('r') }}/<% post.subreddit %>"><% post.subreddit %></a> 
 					</div>
 					<div class="col-sm-4 text-center">
-						<button ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</button>
+						<a onclick="return false;" ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
 					</div>
 					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
