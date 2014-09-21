@@ -15,7 +15,7 @@ class ApiController extends \BaseController {
 			return Response::json($data);
 		}
 
-		return Response::json(['content' => \View::make('errors.nodata')->render()]);
+		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
 	}
 
 	public function indexComment($subreddit, $thing) {
@@ -25,7 +25,7 @@ class ApiController extends \BaseController {
 			return Response::json($data);
 		}
 
-		return Response::json(['content' => \View::make('errors.nodata')->render()]);
+		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
 	}
 
 	public function storeComment() {
