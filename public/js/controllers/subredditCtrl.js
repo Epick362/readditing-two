@@ -24,8 +24,10 @@ angular.module('subredditCtrl', [])
 			.success(function() {
 				if(dir === 1) {
 					thing.likes = true;
+					thing.score ++;
 				}else{
 					thing.likes = false;
+					thing.score --;
 				}
 			})
 			.error(function() {

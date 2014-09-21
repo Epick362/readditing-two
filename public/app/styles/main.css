@@ -7528,6 +7528,23 @@ a.btn {
   background-color: #34A4F7;
   border-color: #34A4F7;
 }
+.btn-upvote {
+  border: 1px solid #ff621e;
+  color: 1px #ff621e;
+  background-color: white;
+  border-radius: 50%;
+  transition: background 500ms ease;
+}
+.btn-upvote:hover {
+  background-color: rgba(255, 98, 30, 0.5);
+}
+.btn-upvote.active {
+  background-color: #ff621e;
+  color: white;
+}
+.btn-upvote.active:hover {
+  background-color: #ea4700;
+}
 .btn-link {
   -webkit-box-shadow: none;
   box-shadow: none;

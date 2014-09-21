@@ -38,6 +38,28 @@ a.btn {
   border-color: #34A4F7;
 }
 
+.btn-upvote {
+  border: 1px solid @brand-alternate;
+  color: 1px @brand-alternate;
+  background-color: white;
+  border-radius: 50%;
+
+  transition: background 500ms ease;
+
+  &:hover {
+    background-color: fade(@brand-alternate, 50%);
+  }
+
+  &.active {
+    background-color: @brand-alternate;
+    color: white;
+
+    &:hover {
+      background-color: darken(@brand-alternate, 10%);
+    }
+  }
+}
+
 .btn-link {
   -webkit-box-shadow: none;
           box-shadow: none;
