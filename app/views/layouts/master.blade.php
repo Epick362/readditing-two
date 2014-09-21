@@ -31,6 +31,7 @@
 		<meta name="msapplication-TileColor" content="#2b5797">
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 		
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/ngDialog.min.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/ngDialog-theme-default.min.css') }}">
