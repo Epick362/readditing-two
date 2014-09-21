@@ -57,7 +57,6 @@ angular.module('subredditService', [])
 				}
 
 				this.after = "t1_" + this.comments[this.comments.length - 1].id;
-				this.busy = false;
 			}.bind(this))
 			.error(function(data) {
 				this.comments.push({
@@ -65,7 +64,6 @@ angular.module('subredditService', [])
 					'content': '<div class="alert alert-danger">Readditing has encountered a problem. Try refreshing the page.</div>',
 					'source': ''
 				});
-				this.busy = false;
 			}.bind(this));			
 		};
 

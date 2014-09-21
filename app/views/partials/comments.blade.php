@@ -9,7 +9,7 @@
 	</ul>
 
 	<!-- LOADING =============================================== -->
-	<div class="loading" ng-show="reddit.busy">
+	<div class="loading" ng-if="!reddit.comments" ng-show="reddit.busy">
 		<div class="ball-outer"></div>
 		<div class="ball-inner"></div>
 	</div>
