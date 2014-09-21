@@ -124,6 +124,7 @@ angular.module('subredditCtrl', [])
 					saved: false,
 					replies: false
 				});
+				console.log(thing.replies);
 				alert('Ok. -Rammus');
 			})
 			.error(function() {
