@@ -7537,6 +7537,7 @@ a.btn {
 }
 .btn-upvote:hover {
   background-color: rgba(255, 98, 30, 0.5);
+  color: #ff8651;
 }
 .btn-upvote.active {
   background-color: #ff621e;
