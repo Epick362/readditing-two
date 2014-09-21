@@ -80,7 +80,7 @@ angular.module('subredditCtrl', [])
 		$scope.comments = function(post) {
 			$scope.post = post;
 			ngDialog.open({
-				templateUrl: 'comments.html',
+				template: 'comments.html',
 				controller: 'commentsController',
 				scope: $scope
 			});
