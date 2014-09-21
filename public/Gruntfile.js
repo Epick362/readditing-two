@@ -193,9 +193,9 @@ module.exports = function (grunt) {
     cssmin: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/styles/main.css': [
+          '<%= yeoman.app %>/styles/main.min.css': [
             '.tmp/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
+            '<%= yeoman.app %>/styles/main.css'
           ]
         }
       }
@@ -271,6 +271,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'less',
+      'cssmin',
       'copy:server',
       'watch'
     ]);
