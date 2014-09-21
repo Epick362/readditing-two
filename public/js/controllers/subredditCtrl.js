@@ -115,10 +115,6 @@ angular.module('subredditCtrl', [])
 		$scope.vote = $scope.$parent.vote;
 		$scope.reply = $scope.$parent.reply;
 		$scope.reddit = new Reddit($scope.post.subreddit, $scope.post.id);
-
-		$scope.cancel = function () {
-			$modalInstance.dismiss('cancel');
-		};
 	})
 
 	.directive('replyForm', function($compile){
