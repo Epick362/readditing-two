@@ -106,7 +106,7 @@
         "saved": false,
         "comments": 2,
         "nsfw": false
-    })'></a>
+    })'>Click</a>
 				</div>
 			</div>
 		</div>
