@@ -91,6 +91,22 @@
 			<div class="container">
 				<div class="row">
 					@yield('content')
+
+					<a href="" ng-click='comments({{
+        "title": "Test post",
+        "content": "<div class=\"panel-text panel-text-short\">\n\t<!-- SC_OFF --><div class=\"md\"><p>Hello</p>\n</div><!-- SC_ON -->\n</div>\n",
+        "source": "self.Readditingcom",
+        "id": "2gy98n",
+        "url": "http://www.reddit.com/r/Readditingcom/comments/2gy98n/test_post/",
+        "subreddit": "Readditingcom",
+        "author": "Epick_362",
+        "created": 1411221880,
+        "ups": 1,
+        "likes": true,
+        "saved": false,
+        "comments": 2,
+        "nsfw": false
+    }})'></a>
 				</div>
 			</div>
 		</div>
