@@ -33,20 +33,6 @@
 		
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
-
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
-		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
-		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
-		
-		<script src="{{ URL::asset('js/services/subredditService.js') }}"></script>
-		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>
-		<script src="{{ URL::asset('js/app.js') }}"></script>
 	</head>
 	<body ng-app="subredditApp" ng-controller="subredditController" subreddit="{{ $subreddit or false }}" subscribed="{{ $subscribed or false }}">
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -108,6 +94,20 @@
 				</div>
 			</div>
 		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
+		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
+		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
+		
+		<script src="{{ URL::asset('js/services/subredditService.js') }}"></script>
+		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>
+		<script src="{{ URL::asset('js/app.js') }}"></script>
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
