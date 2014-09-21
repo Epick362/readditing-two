@@ -82,7 +82,9 @@ angular.module('subredditCtrl', [])
 			ngDialog.open({
 				template: 'comments.html',
 				controller: 'commentsController',
-				scope: $scope
+				scope: $scope,
+				showClose: false,
+				className: 'ngdialog-theme-default'
 			});
 		};
 
