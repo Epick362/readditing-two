@@ -16,14 +16,6 @@
 			@endif
 
 			<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
-
-			<script type="text/ng-template" id="comment.html">
-				@include('partials.comment')
-			</script>
-
-			<script type="text/ng-template" id="comments.html">
-				@include('partials.comments')
-			</script>
 			
 			@include('partials.post')
 
@@ -32,4 +24,13 @@
 	<div class="col-md-3 visible-md visible-lg">
 		@include('partials.sidebar')
 	</div>
+
+
+	<script type="text/ng-template" id="comment.html">
+		@include('partials.comment')
+	</script>
+
+	<script type="text/ng-template" id="comments.html">
+		@include('partials.comments')
+	</script>
 @stop
