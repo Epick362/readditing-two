@@ -33,7 +33,7 @@
 		
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/bower_components/ngDialog/css/ngDialog.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/ngDialog.min.css') }}">
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
@@ -44,7 +44,7 @@
 		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
-		<script src="{{ URL::asset('app/bower_components/ngDialog/js/ngDialog.min.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/ngDialog.min.js') }}"></script>
 		
 		<script src="{{ URL::asset('js/services/subredditService.js') }}"></script>
 		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>
