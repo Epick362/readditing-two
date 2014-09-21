@@ -1,7 +1,7 @@
 <div class="media-body">
 	<div class="pull-right visible-lg visible-md"><small class="text-muted" am-time-ago="comment.created" am-preprocess="unix"></small></div>
 	<h4 class="media-heading">
-		<a ng-class="{'active': post.author === comment.author'}" ng-href="{{ URL::to('') }}/u/<% comment.author %>"><% comment.author %></a> 
+		<a ng-class="{'active': post.author === comment.author'}" ng-href="{{ URL::to('') }}/u/<% comment.author %>"><% post.author %><% comment.author %></a> 
 		@if(Session::has('user'))
 			<a ng-if="!comment.liked" href="" class="btn btn-default btn-xs" ng-click="vote(comment, 't1', 1)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
 			<a ng-if="comment.liked" href="" class="btn btn-link btn-xs active" ng-click="vote(comment, 't1', 0)"><i class="fa fa-arrow-up"></i> <% comment.score %></a>
