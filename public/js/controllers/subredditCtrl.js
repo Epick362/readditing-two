@@ -114,6 +114,16 @@ angular.module('subredditCtrl', [])
 			})
 			.success(function() {
 				thing.replied = true;
+
+				thing.replies.push({
+					id: 'xyxyxy',
+					author: 'Me',
+					score: 1,
+					body: thing.reply,
+					likes: true,
+					saved: false,
+					replies: false
+				});
 				alert('Ok. -Rammus');
 			})
 			.error(function() {
