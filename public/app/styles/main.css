@@ -7533,7 +7533,7 @@ a.btn {
   color: #ff621e;
   background-color: white;
   border-radius: 50%;
-  transition: background 500ms ease;
+  transition: background-color 0.5s ease;
 }
 .btn-upvote:hover {
   background-color: rgba(255, 98, 30, 0.5);
@@ -7545,6 +7545,7 @@ a.btn {
 }
 .btn-upvote.active:hover {
   background-color: #ea4700;
+  color: white;
 }
 .btn-link {
   -webkit-box-shadow: none;
