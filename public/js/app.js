@@ -1,6 +1,5 @@
 
 var subredditApp = angular.module('subredditApp', [
-		'ui.bootstrap', 
 		'subredditCtrl', 
 		'subredditService', 
 		'ngSanitize', 
