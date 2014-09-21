@@ -56,8 +56,6 @@ angular.module('subredditService', [])
 					this.comments.push(comments[i]);
 				}
 
-				console.log(this.comments);
-
 				this.after = "t1_" + this.comments[this.comments.length - 1].id;
 			}.bind(this))
 			.error(function(data) {
