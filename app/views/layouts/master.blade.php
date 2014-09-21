@@ -34,7 +34,6 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/ngDialog.min.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/ngDialog-theme-default.min.css') }}">
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
