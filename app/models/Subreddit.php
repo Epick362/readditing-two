@@ -47,7 +47,6 @@ class Subreddit extends Eloquent {
 
 	public static function getComments( $subreddit, $thing, $after = null ) {
 		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
-			'limit' => 100,
 			'depth' => 3
 		]);
 
