@@ -1,0 +1,3 @@
+<div class="alert alert-info">
+	There doesn't seem to be anything more...
+</div>

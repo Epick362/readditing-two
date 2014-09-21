@@ -11,13 +11,21 @@ class ApiController extends \BaseController {
 	{
 		$data = Subreddit::getPosts($subreddit, Input::get('after'));
 
-		return Response::json($data);
+		if($data) {
+			return Response::json($data);
+		}
+
+		return Response::json(['content' => \View::make('errors.nodata')->render()]);
 	}
 
 	public function indexComment($subreddit, $thing) {
 		$data = Subreddit::getComments($subreddit, $thing);
 
-		return Response::json($data);
+		if($data) {
+			return Response::json($data);
+		}
+
+		return Response::json(['content' => \View::make('errors.nodata')->render()]);
 	}
 
 	public function storeComment() {
