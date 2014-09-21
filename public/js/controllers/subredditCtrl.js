@@ -23,9 +23,9 @@ angular.module('subredditCtrl', [])
 			$http({method: method, url: url})
 			.success(function() {
 				if(dir === 1) {
-					thing.liked = true;
+					thing.likes = true;
 				}else{
-					thing.liked = false;
+					thing.likes = false;
 				}
 			})
 			.error(function() {
@@ -94,8 +94,7 @@ angular.module('subredditCtrl', [])
 					reply: function() {
 						return $scope.reply;
 					}
-				},
-				size: 'lg'
+				}
 			});
 		};
 
