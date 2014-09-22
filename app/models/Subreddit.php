@@ -14,7 +14,7 @@ class Subreddit extends Eloquent {
 		}
 
 		if($subreddit) {
-			$posts = Cache::remember(urlencode('r/'.$subreddit.'hot.json?after='.$after), 10, function() {
+			$posts = Cache::remember(urlencode('r/'.$subreddit.'hot.json?after='.$after), 10, function() use($subreddit, $params) {
 				return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
 			});
 		}else{
