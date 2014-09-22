@@ -7536,9 +7536,6 @@ a.btn {
   transition: all .5s ease !important;
 }
 .btn-upvote.lg {
-  position: absolute;
-  left: -70px;
-  margin-top: 10px;
   width: 60px;
   height: 60px;
   font-size: 30px;
@@ -7687,6 +7684,13 @@ a.active:hover {
 }
 .upvote-wrapper {
   position: relative;
+}
+.upvote-container {
+  position: absolute;
+  left: -70px;
+  margin-top: 10px;
+  font-size: 21px;
+  font-weight: bold;
 }
 .media-body > .media {
   margin-left: 30px;

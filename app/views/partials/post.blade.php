@@ -1,14 +1,15 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper" ng-if="post.author">
-				<span ng-if="!post.likes">
-					<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)"><i class="fa fa-arrow-up"></i></a>
-					<p><% post.score %></p>
-				</span>
-				<span ng-if="post.likes">
-					<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)"><i class="fa fa-arrow-up"></i></a>
-					<p class="text-alternate"><% post.score %></p>
-				</span>
+				<div class="upvote-container">
+					<span ng-if="!post.likes">
+						<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)"><i class="fa fa-arrow-up"></i></a>
+					</span>
+					<span ng-if="post.likes">
+						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)"><i class="fa fa-arrow-up"></i></a>
+					</span>
+					<p ng-class="{text-alernate: post.likes}"><% post.score %></p>
+				</div>
 			</div>
 			<div class="panel-heading">
 				<% post.title %>
