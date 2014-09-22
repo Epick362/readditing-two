@@ -19,9 +19,7 @@ class Subreddit extends Eloquent {
 			});
 		}else{
 			if(Session::has('user')) {
-				$posts = Cache::remember(urlencode('hot.json?user='.Session::get('user')['name'].'&after='.$after), 10, function() use($subreddit, $params) {
-					return Reddit::fetch('hot.json', $params);
-				});
+				$posts = Reddit::fetch('hot.json', $params);
 			}else{
 				$posts = Cache::remember(urlencode('hot.json?after='.$after), 10, function() use($subreddit, $params) {
 					return Reddit::fetch('hot.json', $params);
@@ -56,9 +54,17 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getComments( $subreddit, $thing, $after = null ) {
-		$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
-			'depth' => 4
-		]);
+		if(Session::has('user')) {
+			$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+				'depth' => 4
+			]);
+		}else{
+			$comments = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'.json'), 10, function() use($subreddit, $thing) {
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+							'depth' => 4
+						]);
+			});
+		}
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
 			return self::_formatComment($comments[1]);
@@ -68,7 +74,9 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getPopular() {
-		$popular = Reddit::fetch('subreddits/popular.json');
+		$popular = Cache::remember(urlencode('subreddits/popular.json'), 1440, function() {
+			return Reddit::fetch('subreddits/popular.json'); 
+		});
 
 		if($popular) {
 			return $popular;
@@ -78,7 +86,9 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getSubredditData($subreddit) {
-		$data = Reddit::fetch('r/'.$subreddit.'/about.json'); 
+		$data = Cache::remember(urlencode('r/'.$subreddit.'/about.json'), 60, function() use($subreddit) {
+			return Reddit::fetch('r/'.$subreddit.'/about.json'); 
+		});
 
 		if($data) {
 			return $data;
