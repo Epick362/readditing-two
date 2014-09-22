@@ -28,7 +28,7 @@ class CleanArticles extends Command {
 	 */
 	public function fire()
 	{
-		$affected_rows = Article::where('updated_at' >= Carbon::now()->subDays(1)->toDateTimeString())->delete();
+		$affected_rows = Article::where('updated_at', '>=', Carbon::now()->subDays(1)->toDateTimeString())->delete();
 
 		if($affected_rows) {
 			$this->info('Articles purged.');
