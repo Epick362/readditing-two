@@ -14,11 +14,19 @@ class Subreddit extends Eloquent {
 		}
 
 		if($subreddit) {
-			$posts = Cache::remember(urlencode('r/'.$subreddit.'hot.json?after='.$after), 10, function() use($subreddit, $params) {
+			$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?after='.$after), 10, function() use($subreddit, $params) {
 				return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
 			});
 		}else{
-			$posts = Reddit::fetch('hot.json', $params);
+			if(Session::has('user')) {
+				$posts = Cache::remember(urlencode('hot.json?user='.Session::get('user')['name'].'&after='.$after), 10, function() use($subreddit, $params) {
+					return Reddit::fetch('hot.json', $params);
+				});
+			}else{
+				$posts = Cache::remember(urlencode('hot.json?after='.$after), 10, function() use($subreddit, $params) {
+					return Reddit::fetch('hot.json', $params);
+				});
+			}
 		}
 
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {
