@@ -8,7 +8,7 @@
 					<span ng-if="post.likes">
 						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)"><i class="fa fa-arrow-up"></i></a>
 					</span>
-					<p ng-class="{text-alernate: post.likes}"><% post.score %></p>
+					<p class="text-center" ng-class="{text-alernate: post.likes}"><% post.score %></p>
 				</div>
 			</div>
 			<div class="panel-heading">
