@@ -7541,7 +7541,8 @@ a.btn {
   margin-top: 10px;
   width: 60px;
   height: 60px;
-  font-size: 32px;
+  font-size: 30px;
+  border: 2px solid;
 }
 .btn-upvote:hover {
   -webkit-box-shadow: inset 0 0 10px 0px rgba(255, 98, 30, 0.4);

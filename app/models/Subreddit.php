@@ -30,7 +30,7 @@ class Subreddit extends Eloquent {
 				$post['subreddit'] = $_post['data']['subreddit'];
 				$post['author'] = $_post['data']['author'];
 				$post['created'] = $_post['data']['created_utc'];
-				$post['ups'] = $_post['data']['ups'];
+				$post['score'] = $_post['data']['score'];
 				$post['likes'] = $_post['data']['likes'];
 				$post['saved'] = $_post['data']['saved'];
 				$post['comments'] = $_post['data']['num_comments'];

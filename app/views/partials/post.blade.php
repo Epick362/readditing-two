@@ -3,11 +3,11 @@
 			<div class="upvote-wrapper" ng-if="post.author">
 				<span ng-if="!post.likes">
 					<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)"><i class="fa fa-arrow-up"></i></a>
-					<small class="text-alternate"><% post.score %></small>
+					<p><% post.score %></p>
 				</span>
 				<span ng-if="post.likes">
 					<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)"><i class="fa fa-arrow-up"></i></a>
-					<small class="text-alternate"><% post.score %></small>
+					<p class="text-alternate"><% post.score %></p>
 				</span>
 			</div>
 			<div class="panel-heading">
