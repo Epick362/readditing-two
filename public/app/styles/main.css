@@ -7533,10 +7533,11 @@ a.btn {
   color: #ff621e;
   background-color: white;
   border-radius: 50%;
-  transition: background-color 0.5s ease !important;
+  transition: all .5s ease !important;
 }
 .btn-upvote:hover {
-  background-color: rgba(255, 98, 30, 0.2);
+  -webkit-box-shadow: inset 5px 5px 5px 5px rgba(255, 98, 30, 0.01);
+  box-shadow: inset 5px 5px 5px 5px rgba(255, 98, 30, 0.01);
   color: #ff621e;
 }
 .btn-upvote.active {

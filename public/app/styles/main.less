@@ -44,10 +44,11 @@ a.btn {
   background-color: white;
   border-radius: 50%;
 
-  transition: background-color .5s ease !important;
+  transition: all .5s ease !important;
 
   &:hover {
-    background-color: fade(@brand-alternate, 20%);
+    -webkit-box-shadow:inset 5px 5px 5px 5px fade(@brand-alternate, 1%);
+    box-shadow:inset 5px 5px 5px 5px fade(@brand-alternate, 1%);
     color: @brand-alternate;
   }
 
