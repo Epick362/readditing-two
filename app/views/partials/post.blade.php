@@ -1,15 +1,14 @@
 	<div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<div class="panel panel-default" ng-class="(post.nsfw) ? 'nsfw' : ''" data-extra="<% post.extra %>" ng-repeat="post in reddit.posts">
 			<div class="upvote-wrapper" ng-if="post.author">
-				<div 
-					og-kudos 
-					og-kudos-logged="{{ Session::has('user') ? '1' : '' }}" 
-					og-kudos-complete="<% post.likes %>" 
-					og-kudos-id="<% post.id %>" 
-					og-kudos-count="<% post.ups %>" 
-					og-kudos-done="vote(post, 't3', 1)" 
-					og-kudos-undone="vote(post, 't3', 0)"
-				></div>
+				<span ng-if="!post.likes">
+					<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)"><i class="fa fa-arrow-up"></i></a>
+					<small class="text-alternate"><% post.score %></small>
+				</span>
+				<span ng-if="post.likes">
+					<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)"><i class="fa fa-arrow-up"></i></a>
+					<small class="text-alternate"><% post.score %></small>
+				</span>
 			</div>
 			<div class="panel-heading">
 				<% post.title %>
