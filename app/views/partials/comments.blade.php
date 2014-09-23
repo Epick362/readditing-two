@@ -4,7 +4,7 @@
     <h3 class="modal-title"><% post.title %></h3>
 </div>
 <div class="modal-body">
-	<a href="" class="btn btn-link btn-xs" reply-form>Reply</a>
+	<a href="" class="btn btn-link btn-xs" reply-form="post">Reply</a>
 	<a ng-if="!post.saved" href="" class="btn btn-link btn-xs" ng-click="save(post, 't3', 1)">Save</a>
 	<a ng-if="post.saved" href="" class="btn btn-link btn-xs active" ng-click="save(post, 't3', 0)">Unsave</a>
 	<a class="btn btn-link btn-xs" href="https://www.reddit.com/gold?goldtype=gift&amp;months=1&amp;thing=t3_<% post.id %>" target="_blank">Give Gold</a>

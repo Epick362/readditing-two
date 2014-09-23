@@ -160,7 +160,7 @@ angular.module('subredditCtrl', [])
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                if(attrs['type'] === 'post') {
+	                if(attrs['reply-form'] === 'post') {
 	                	element.closest('.modal-dialog').find('.media-body:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(post, \'t3\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
 	                }else{
 	                	element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
