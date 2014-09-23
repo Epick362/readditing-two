@@ -132,8 +132,6 @@ angular.module('subredditCtrl', [])
 
 					thing.replies.push(reply);
 				}
-
-				alert('Ok. -Rammus');
 			})
 			.error(function() {
 				alert('Error while posting.');
