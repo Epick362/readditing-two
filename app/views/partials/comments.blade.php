@@ -11,15 +11,8 @@
 </div>
 <div class="modal-footer">
     <ul class="media-list" infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
-		<li class="media">
-			<div class="media-body"></div>
-		</li>
 		<li ng-if="reddit.comments.length > 0" class="media" ng-repeat="comment in reddit.comments" ng-include="'comment.html'"></li>
 	</ul>
-
-	<div ng-show="reddit.busy && reddit.comments.length == 0" class="alert alert-info">
-		There doesn't seem to be anything more here...
-	</div>
 
 	<!-- LOADING =============================================== -->
 	<div class="loading" ng-show="reddit.busy && reddit.comments.length == 0">
