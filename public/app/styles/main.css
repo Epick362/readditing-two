@@ -7510,6 +7510,9 @@ button.close {
 .ng-cloak {
   display: none;
 }
+.modal-footer {
+  text-align: left;
+}
 a {
   transition: all 0.2s ease;
 }

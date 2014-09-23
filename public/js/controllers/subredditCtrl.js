@@ -116,20 +116,22 @@ angular.module('subredditCtrl', [])
 			.success(function() {
 				thing.replied = true;
 
-				var reply = {
-					author: $scope.user,
-					score: 1,
-					body: thing.reply,
-					likes: true,
-					saved: false,
-					replies: false
-				};
+				if(type !== 't3') {		
+					var reply = {
+						author: $scope.user,
+						score: 1,
+						body: thing.reply,
+						likes: true,
+						saved: false,
+						replies: false
+					};
 
-				if(typeof thing.replies !== 'object') {
-					thing.replies = [];
+					if(typeof thing.replies !== 'object') {
+						thing.replies = [];
+					}
+
+					thing.replies.push(reply);
 				}
-
-				thing.replies.push(reply);
 
 				alert('Ok. -Rammus');
 			})
@@ -158,7 +160,11 @@ angular.module('subredditCtrl', [])
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
+	                if(attrs['type'] === 'post') {
+	                	element.closest('.modal-dialog').find('.media-body:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(post, \'t3\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
+	                }else{
+	                	element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
+	                }
 	            });
 	        }
 	    };
