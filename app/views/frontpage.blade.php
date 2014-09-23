@@ -10,7 +10,7 @@
 	>
 @overwrite
 
-@section('navbar-middle')
+@section('nav-middle')
 	<div class="col-sm-4 col-md-4">
 		<form ng-submit="jumpTo()" class="navbar-form">
 			<div class="input-group">
