@@ -10,11 +10,10 @@
 	<a class="btn btn-link btn-xs" href="https://www.reddit.com/gold?goldtype=gift&amp;months=1&amp;thing=t3_<% post.id %>" target="_blank">Give Gold</a>
 </div>
 <div class="modal-footer">
-	<li class="media">
-		<div class="media-body"></div>
-	</li>
-
     <ul class="media-list" infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+		<li class="media">
+			<div class="media-body"></div>
+		</li>
 		<li class="media" ng-repeat="comment in reddit.comments" ng-include="'comment.html'"></li>
 	</ul>
 
