@@ -26,7 +26,7 @@ class Vine extends Provider {
 			return $this->fail();
 		}
 
-		$this->data['data']['vine-id'] = substr($parsed_url['path'], strrpos($parsed_url['path'], '/') + 1);
+		$this->data['data']['vine-id'] = substr($parse_url['path'], strrpos($parse_url['path'], '/') + 1);
 
 		return array('title' => $this->data['data']['title'], 'content' => \View::make('provider.vine', $this->data)->render(), 'source' => 'vine.co');
 	}
