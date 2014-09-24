@@ -46,7 +46,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{ URL::to('') }}">
+					<a class="navbar-brand" href="{{ URL::to('') }}" target="_self">
 						<div class="brand-image">r</div>
 					</a>
 				</div>
@@ -58,7 +58,7 @@
 					</ul>
 
 					@yield('nav-middle')
-					
+
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
