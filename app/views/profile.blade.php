@@ -27,6 +27,10 @@
 			@include('partials.comments')
 		</script>
 
+		@if(Input::has('after'))
+			<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
+		@endif
+		
 		@include('partials.post', ['function' => "reddit.nextProfilePage('". $category ."', '". Input::get('after', '') ."')"])
     </div>
 @stop
