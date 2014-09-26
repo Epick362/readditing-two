@@ -119,7 +119,7 @@ class Subreddit extends Eloquent {
 	private static function _formatPost($posts) {
 		$result = [];
 
-		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {
+		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
 			foreach($posts['data']['children'] as $_post) {
 
 				$formatter = Formatter::provider($_post);
