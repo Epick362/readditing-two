@@ -34,7 +34,7 @@ angular.module('subredditService', [])
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
-				if(last !== 'undefined') {
+				if(typeof last != 'undefined') {
   					var History = window.History;
 					var path = History.getState();
 
@@ -81,7 +81,7 @@ angular.module('subredditService', [])
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
-				if(last !== 'undefined') {
+				if(typeof last != 'undefined') {
   					var History = window.History;
 					var path = History.getState();
 
