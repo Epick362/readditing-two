@@ -33,30 +33,29 @@ class Subreddit extends Eloquent {
 			}
 		}
 
-		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {
-			foreach($posts['data']['children'] as $_post) {
+		return self::_formatPost($posts);
+	}
 
-				$formatter = Formatter::provider($_post);
-				$post = $formatter->getPost();
+	public static function getProfilePosts( $user, $category, $after ) {
+		$params = [
+			'limit' => '10'
+		];
 
-				$post['id'] = $_post['data']['id'];
-				$post['url'] = $_post['data']['url'];
-				$post['subreddit'] = $_post['data']['subreddit'];
-				$post['author'] = $_post['data']['author'];
-				$post['created'] = $_post['data']['created_utc'];
-				$post['score'] = $_post['data']['score'];
-				$post['likes'] = $_post['data']['likes'];
-				$post['saved'] = $_post['data']['saved'];
-				$post['comments'] = $_post['data']['num_comments'];
-
-				$post['nsfw'] = $_post['data']['over_18'];
-
-				$result[] = $post;
-			}
-			return $result;
+		if($after) {
+			$params['after'] = $after;
 		}
 
-		return false;
+		if(Session::has('user')) {
+			$posts = Cache::remember(urlencode('user/'.$user.'/'.$category.'.json?user='.Session::get('user')['name'].'&after='.$after), 10, function() use($user, $category, $params) {
+				return Reddit::fetch('user/'.$user.'/'.$category.'.json', $params);
+			});
+		}else{
+			$posts = Cache::remember(urlencode('user/'.$user.'/'.$category.'.json?after='.$after), 10, function() use($user, $category, $params) {
+				return Reddit::fetch('user/'.$user.'/'.$category.'.json', $params);
+			});
+		}
+
+		return self::_formatPost($posts);
 	}
 
 	public static function getComments( $subreddit, $thing, $after = null ) {
@@ -112,6 +111,35 @@ class Subreddit extends Eloquent {
 					return true;
 				}
 			}
+		}
+
+		return false;
+	}
+
+	private static function _formatPost($posts) {
+		$result = [];
+
+		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && $posts['data']['children'][0]['kind'] == 't3') {
+			foreach($posts['data']['children'] as $_post) {
+
+				$formatter = Formatter::provider($_post);
+				$post = $formatter->getPost();
+
+				$post['id'] = $_post['data']['id'];
+				$post['url'] = $_post['data']['url'];
+				$post['subreddit'] = $_post['data']['subreddit'];
+				$post['author'] = $_post['data']['author'];
+				$post['created'] = $_post['data']['created_utc'];
+				$post['score'] = $_post['data']['score'];
+				$post['likes'] = $_post['data']['likes'];
+				$post['saved'] = $_post['data']['saved'];
+				$post['comments'] = $_post['data']['num_comments'];
+
+				$post['nsfw'] = $_post['data']['over_18'];
+
+				$result[] = $post;
+			}
+			return $result;
 		}
 
 		return false;

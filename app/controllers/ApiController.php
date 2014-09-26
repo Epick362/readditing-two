@@ -7,9 +7,18 @@ class ApiController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function subreddit($subreddit = NULL) 
-	{
+	public function subreddit($subreddit = NULL) {
 		$data = Subreddit::getPosts($subreddit, Input::get('after'));
+
+		if($data) {
+			return Response::json($data);
+		}
+
+		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
+	}
+
+	public function indexProfile($user, $category) {
+		$data = Subreddit::getProfilePosts($user, $category, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
