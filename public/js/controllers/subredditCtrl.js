@@ -2,8 +2,12 @@ angular.module('subredditCtrl', [])
 
 	// inject the Comment service into our controller
 	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
-		$scope.reddit = new Reddit($attrs.subreddit);
-		$scope.subscribed = $attrs.subscribed;
+		if($attrs.subreddit) {
+			$scope.reddit = new Reddit($attrs.subreddit);
+			$scope.subscribed = $attrs.subscribed;
+		}else{
+			$scope.reddit = new Reddit(false, $attrs.profile);
+		}
 		$scope.user = $attrs.user;
 
 		var base_url = 'http://107.170.53.44/';

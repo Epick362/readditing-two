@@ -19,9 +19,7 @@ Route::get('about', function() {
 	return Response::view('about');
 });
 
-Route::get('u', function() {
-	dd();
-});
+Route::get('u/{user}', 'ProfileController@overview');
 
 Route::get('/auth/login', 'AuthController@auth');
 

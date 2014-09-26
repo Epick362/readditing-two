@@ -1,12 +1,42 @@
 angular.module('subredditService', [])
 
 	.factory('Reddit', function($http, $compile) {
-		var Reddit = function(subreddit) {
+		var Reddit = function(subreddit, profile) {
 			this.subreddit = subreddit;
+			this.profile = profile;
 			this.posts = [];
 			this.comments = [];
 			this.busy = false;
 			this.after = '';
+		};
+
+		Reddit.prototype.nextProfilePage = function(category) {
+			if (this.busy) return;
+			this.busy = true;
+
+			this.category = category;
+
+			var url = '/api/user/'+this.profile+'/'+this.category+'?after='+this.after;
+
+			$http({method: 'GET', url: url})
+			.success(function(data) {
+				var posts = data;
+
+				for (var i = 0; i < posts.length; i++) {
+					this.posts.push(posts[i]);
+				}
+
+				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+				this.busy = false;
+			}.bind(this))
+			.error(function(data) {
+				this.posts.push({
+					'title': 'There was an error',
+					'content': '<div class="alert alert-danger">Readditing has encountered a problem. Try refreshing the page.</div>',
+					'source': ''
+				});
+				this.busy = false;
+			}.bind(this));
 		};
 
 		Reddit.prototype.nextPage = function() {
