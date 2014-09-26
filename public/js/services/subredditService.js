@@ -66,7 +66,7 @@ angular.module('subredditService', [])
 
 				if(typeof last !== 'undefined') {
   					var History = window.History;
-					var path = History.getHash();
+					var path = History.getState();
 
 					console.log(path); 
 				}
