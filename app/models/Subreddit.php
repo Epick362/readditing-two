@@ -14,9 +14,15 @@ class Subreddit extends Eloquent {
 		}
 
 		if($subreddit) {
-			$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?after='.$after), 10, function() use($subreddit, $params) {
-				return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
-			});
+			if(Session::has('user')) {
+				$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?user='.Session::get('user')['name'].'&after='.$after), 10, function() use($subreddit, $params) {
+					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
+				});
+			}else{
+				$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?after='.$after), 10, function() use($subreddit, $params) {
+					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
+				});
+			}
 		}else{
 			if(Session::has('user')) {
 				$posts = Reddit::fetch('hot.json', $params);
