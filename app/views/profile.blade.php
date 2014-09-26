@@ -11,8 +11,8 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-2" ng-cloak>
+		<h1 style="margin-top:0">{{ $user }}</h1>
 		<ul class="nav nav-tabs nav-justified" style="margin-bottom:10px">
-			<li><strong>{{ $user }}</strong></li>
 			<li class="{{ Request::is($user.'/') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user) }}">Overview</a></li>
 			<li class="{{ Request::is($user.'/saved') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/saved') }}">Saved</a></li>
 			<li class="{{ Request::is($user.'/submitted') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/submitted') }}">Submitted</a></li>
