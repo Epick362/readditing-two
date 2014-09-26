@@ -27,7 +27,7 @@ Route::get('/auth/login', 'AuthController@auth');
 // API ROUTES ==================================
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
-	Route::get('/r/{subreddit?}', 'ApiController@indexPosts');
+	Route::get('/r/{subreddit?}', 'ApiController@indexPost');
 
 	Route::get('/u/{user}/{category?}', 'ApiController@indexProfile');
 
