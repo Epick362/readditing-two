@@ -68,7 +68,7 @@ angular.module('subredditService', [])
   					var History = window.History;
 					var path = History.getState();
 
-					History.replaceState(null, null, '?after='+last.id)
+					History.replaceState(null, null, '?after=t3_'+last.id)
 				}
 
 				this.busy = false;
