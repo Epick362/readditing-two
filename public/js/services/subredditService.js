@@ -68,7 +68,13 @@ angular.module('subredditService', [])
   					var History = window.History;
 					var path = History.getState();
 
-					History.replaceState(null, null, '?after=t3_'+last.id)
+					if(this.subreddit) {
+						var title = 'Readditing | '+this.subreddit+' | Page '+this.page;
+					}else{
+						var title = 'Readditing | Page '+this.page;
+					}
+
+					History.replaceState(null, title, '?after=t3_'+last.id);
 				}
 
 				this.busy = false;
