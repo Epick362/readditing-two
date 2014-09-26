@@ -121,23 +121,24 @@ class Subreddit extends Eloquent {
 
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
 			foreach($posts['data']['children'] as $_post) {
+				if($_post['kind'] === 't3') {
+					$formatter = Formatter::provider($_post);
+					$post = $formatter->getPost();
 
-				$formatter = Formatter::provider($_post);
-				$post = $formatter->getPost();
+					$post['id'] = $_post['data']['id'];
+					$post['url'] = $_post['data']['url'];
+					$post['subreddit'] = $_post['data']['subreddit'];
+					$post['author'] = $_post['data']['author'];
+					$post['created'] = $_post['data']['created_utc'];
+					$post['score'] = $_post['data']['score'];
+					$post['likes'] = $_post['data']['likes'];
+					$post['saved'] = $_post['data']['saved'];
+					$post['comments'] = $_post['data']['num_comments'];
 
-				$post['id'] = $_post['data']['id'];
-				$post['url'] = $_post['data']['url'];
-				$post['subreddit'] = $_post['data']['subreddit'];
-				$post['author'] = $_post['data']['author'];
-				$post['created'] = $_post['data']['created_utc'];
-				$post['score'] = $_post['data']['score'];
-				$post['likes'] = $_post['data']['likes'];
-				$post['saved'] = $_post['data']['saved'];
-				$post['comments'] = $_post['data']['num_comments'];
+					$post['nsfw'] = $_post['data']['over_18'];
 
-				$post['nsfw'] = $_post['data']['over_18'];
-
-				$result[] = $post;
+					$result[] = $post;
+				}
 			}
 			return $result;
 		}
