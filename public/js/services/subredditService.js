@@ -68,6 +68,8 @@ angular.module('subredditService', [])
   					var History = window.History;
 					var path = History.getState();
 
+					History.pushState(null, null, '?state='+last.id)
+
 					console.log(path); 
 				}
 
