@@ -22,7 +22,7 @@
 			<div class="panel-footer" ng-if="post.author">
 				<div class="row">
 					<div class="col-sm-4">
-						<a href=""><% post.author %></a> in <a href="{{ URL::to('r') }}/<% post.subreddit %>"><% post.subreddit %></a> 
+						<a ng-href="{{ URL::to('u') }}/<% post.author %>"><% post.author %></a> in <a href="{{ URL::to('r') }}/<% post.subreddit %>"><% post.subreddit %></a> 
 					</div>
 					<div class="col-sm-4 text-center">
 						<a href="" ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
