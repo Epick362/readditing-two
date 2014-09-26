@@ -48,6 +48,10 @@
 			<script type="text/ng-template" id="comments.html">
 				@include('partials.comments')
 			</script>
+
+			@if(Input::has('after'))
+				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
+			@endif
 			
 			@include('partials.post')
 
