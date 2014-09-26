@@ -68,7 +68,7 @@ angular.module('subredditService', [])
   					var History = window.History;
 					var path = History.getHash();
 
-					console.log(path);
+					console.log(path); 
 				}
 
 				this.busy = false;
