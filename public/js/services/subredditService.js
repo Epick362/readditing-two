@@ -39,9 +39,13 @@ angular.module('subredditService', [])
 			}.bind(this));
 		};
 
-		Reddit.prototype.nextPage = function() {
+		Reddit.prototype.nextPage = function(after) {
 			if (this.busy) return;
 			this.busy = true;
+
+			if(this.after === '') {
+				this.after = after;
+			}
 
 			if(this.subreddit) {
 				var url = '/api/r/'+this.subreddit+'?after='+this.after;
@@ -52,13 +56,23 @@ angular.module('subredditService', [])
 			$http({method: 'GET', url: url})
 			.success(function(data) {
 				var posts = data;
+				var last = this.posts[this.posts.length - 1];
 
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
 				}
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+
+				if(typeof last !== 'undefined') {
+  					var History = window.History;
+					var path = History.getHash();
+
+					console.log(path);
+				}
+
 				this.busy = false;
+				this.page++;
 			}.bind(this))
 			.error(function(data) {
 				this.posts.push({
