@@ -8,11 +8,16 @@ angular.module('subredditService', [])
 			this.comments = [];
 			this.busy = false;
 			this.after = '';
+			this.page = 1;
 		};
 
-		Reddit.prototype.nextProfilePage = function(category) {
+		Reddit.prototype.nextProfilePage = function(category, after) {
 			if (this.busy) return;
 			this.busy = true;
+
+			if(this.after === '') {
+				this.after = after;
+			}
 
 			this.category = category;
 
@@ -21,13 +26,29 @@ angular.module('subredditService', [])
 			$http({method: 'GET', url: url})
 			.success(function(data) {
 				var posts = data;
+				var last = this.posts[this.posts.length - 1];
 
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
 				}
 
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+
+				if(typeof last !== 'undefined') {
+  					var History = window.History;
+					var path = History.getState();
+
+					if(this.subreddit) {
+						var title = 'Readditing | '+this.subreddit+' | Page '+this.page;
+					}else{
+						var title = 'Readditing | Page '+this.page;
+					}
+
+					History.replaceState(null, title, '?after=t3_'+last.id);
+				}
+
 				this.busy = false;
+				this.page++;
 			}.bind(this))
 			.error(function(data) {
 				this.posts.push({

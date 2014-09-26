@@ -19,7 +19,7 @@ Route::get('about', function() {
 	return Response::view('about');
 });
 
-Route::get('u/{user}', 'ProfileController@overview');
+Route::get('u/{user}/{category?}', 'ProfileController@index');
 
 Route::get('/auth/login', 'AuthController@auth');
 

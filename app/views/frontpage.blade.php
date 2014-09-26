@@ -53,7 +53,7 @@
 				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
 			@endif
 			
-			@include('partials.post')
+			@include('partials.post', ['function' => "reddit.nextPage('{{ Input::get('after', '') }}')"])
 
 		</div>		
 	</div>

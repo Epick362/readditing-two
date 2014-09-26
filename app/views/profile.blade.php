@@ -28,5 +28,7 @@
 		<script type="text/ng-template" id="comments.html">
 			@include('partials.comments')
 		</script>
+
+		@include('partials.post', ['function' => "reddit.nextProfilePage('{{ $category }}', '{{ Input::get('after', '') }}')"])
     </div>
 @stop
