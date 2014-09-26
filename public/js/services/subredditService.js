@@ -32,11 +32,9 @@ angular.module('subredditService', [])
 					this.posts.push(posts[i]);
 				}
 
-				if(typeof this.posts[this.posts.length - 1].id !== 'undefined') {
-					this.after = "t3_" + this.posts[this.posts.length - 1].id;
-				}
+				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
-				if(typeof last !== 'undefined') {
+				if(last !== 'undefined') {
   					var History = window.History;
 					var path = History.getState();
 
@@ -81,11 +79,9 @@ angular.module('subredditService', [])
 					this.posts.push(posts[i]);
 				}
 
-				if(typeof this.posts[this.posts.length - 1].id !== 'undefined') {
-					this.after = "t3_" + this.posts[this.posts.length - 1].id;
-				}
+				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
-				if(typeof last !== 'undefined') {
+				if(last !== 'undefined') {
   					var History = window.History;
 					var path = History.getState();
 
