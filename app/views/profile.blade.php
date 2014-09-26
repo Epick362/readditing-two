@@ -14,7 +14,7 @@
 		<p class="lead text-center" style="font-size:42px">{{ $user }}</p>
 		<ul class="nav nav-tabs nav-justified" style="margin-bottom:20px">
 			<li class="{{ Request::is('u/'.$user) ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user) }}">Overview</a></li>
-			<li class="{{ Request::is('u/'.$user.'/saved') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/saved') }}">Saved</a></li>
+			<li class="{{ Request::is('u/'.$user.'/liked') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/liked') }}">Liked</a></li>
 			<li class="{{ Request::is('u/'.$user.'/submitted') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/submitted') }}">Submitted</a></li>
 			<li class="{{ Request::is('u/'.$user.'/gilded') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/gilded') }}">Gilded</a></li>
 		</ul>
