@@ -21,7 +21,7 @@ angular.module('subredditService', [])
 
 			this.category = category;
 
-			var url = '/api/user/'+this.profile+'/'+this.category+'?after='+this.after;
+			var url = '/api/u/'+this.profile+'/'+this.category+'?after='+this.after;
 
 			$http({method: 'GET', url: url})
 			.success(function(data) {
@@ -38,11 +38,7 @@ angular.module('subredditService', [])
   					var History = window.History;
 					var path = History.getState();
 
-					if(this.subreddit) {
-						var title = 'Readditing | '+this.subreddit+' | Page '+this.page;
-					}else{
-						var title = 'Readditing | Page '+this.page;
-					}
+					var title = 'Readditing | '+this.profile+' | Page '+this.page;
 
 					History.replaceState(null, title, '?after=t3_'+last.id);
 				}
