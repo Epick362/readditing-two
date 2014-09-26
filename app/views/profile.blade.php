@@ -18,8 +18,6 @@
 			<li class=""><a href="{{ URL::to('u/'.$user.'/submitted') }}">Submitted</a></li>
 			<li class=""><a href="{{ URL::to('u/'.$user.'/gilded') }}">Gilded</a></li>
 		</ul>
-		
-		@include('partials.post')
 
 		<script type="text/ng-template" id="comment.html">
 			@include('partials.comment')
