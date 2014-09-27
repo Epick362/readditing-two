@@ -28,6 +28,7 @@ Route::get('/auth/login', 'AuthController@auth');
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
 	Route::get('/r/{subreddit?}', 'ApiController@indexPost');
+	Route::post('/submit', 'ApiController@storePost');
 
 	Route::get('/u/{user}/{category?}', 'ApiController@indexProfile');
 

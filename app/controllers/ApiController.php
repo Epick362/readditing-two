@@ -17,6 +17,29 @@ class ApiController extends \BaseController {
 		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
 	}
 
+	public function storePost() {
+		$validator = Validator::make(
+		    array(
+		        'title' => Input::get('title'),
+		        'sr' => Input::get('sr'),
+		        'kind' => Input::get('kind'),
+		    ),
+		    array(
+		        'title' => 'required|alpha_num',
+		        'sr' => 'required|alpha_dash',
+		        'kind' => 'required|in:self,link',
+		    )
+		);
+
+		if($validator->passes()) {
+			$response = Subreddit::submitPost(Input::all());
+
+			return Response::json($response);
+		}
+
+		return Response::make('Bad input.', 400);		
+	}
+
 	public function indexProfile($user, $category = 'overview') {
 		$data = Subreddit::getProfilePosts($user, $category, Input::get('after'));
 

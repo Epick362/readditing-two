@@ -36,6 +36,10 @@ class Subreddit extends Eloquent {
 		return self::_formatPost($posts);
 	}
 
+	public static function submitPost( $data ) {
+		return Reddit::fetch('api/submit', $data, 'POST');;
+	}
+
 	public static function getProfilePosts( $user, $category, $after ) {
 		$params = [
 			'limit' => '10'
