@@ -27,7 +27,7 @@ class ApiController extends \BaseController {
 		    array(
 		        'title' => 'required|alpha_num',
 		        'sr' => 'required|alpha_dash',
-		        'kind' => 'required|in:self,link',
+		        'kind' => 'required',
 		    )
 		);
 

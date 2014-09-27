@@ -36,8 +36,17 @@ class Subreddit extends Eloquent {
 		return self::_formatPost($posts);
 	}
 
-	public static function submitPost( $data ) {
-		return Reddit::fetch('api/submit', $data, 'POST');;
+	public static function submitPost( $input ) {
+		$data = [
+			'title' => $input['title'],
+			'sr' => $input['sr'],
+			'kind' => $input['kind'],
+			'text' => $input['text'],
+			'url' => $input['url'],
+			'save' => true
+		];
+
+		return Reddit::fetch('api/submit', $data, 'POST');
 	}
 
 	public static function getProfilePosts( $user, $category, $after ) {
