@@ -25,7 +25,7 @@ class ApiController extends \BaseController {
 		        'kind' => Input::get('kind'),
 		    ),
 		    array(
-		        'title' => 'required|alpha_num',
+		        'title' => 'required',
 		        'sr' => 'required|alpha_dash',
 		        'kind' => 'required',
 		    )
