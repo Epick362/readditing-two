@@ -26,9 +26,9 @@
 
 @section('sidebar')
 	@if(isset($subreddit) && $subreddit)
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?after='.$subreddit) }}">Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?subreddit='.$subreddit) }}" style="margin-bottom:20px">Submit new post</a>
 	@else
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}">Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:20px">Submit new post</a>
 	@endif
 @stop
 
