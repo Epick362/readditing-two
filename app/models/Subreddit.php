@@ -41,10 +41,16 @@ class Subreddit extends Eloquent {
 			'title' => $input['title'],
 			'sr' => $input['sr'],
 			'kind' => $input['kind'],
-			'text' => $input['text'],
-			'url' => $input['url'],
 			'save' => true
 		];
+
+		if(isset($input['text'])) {
+			$data['text'] = $input['text'];
+		}elseif(isset($input['url'])) {
+			$data['url'] = $input['url'];
+		}else{
+			return false;
+		}
 
 		return Reddit::fetch('api/submit', $data, 'POST');
 	}
