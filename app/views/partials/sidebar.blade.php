@@ -1,5 +1,7 @@
 
 <div class="sidebar">
+	@yield('sidebar')
+
 	@if(isset($popular) && $popular)
 		<div class="panel panel-default">
 			<div class="panel-heading">

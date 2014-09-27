@@ -24,6 +24,14 @@
 	</div>
 @stop
 
+@section('sidebar')
+	@if(isset($subreddit) && $subreddit)
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?after='.$subreddit) }}">Submit new post</a>
+	@else
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}">Submit new post</a>
+	@endif
+@stop
+
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
 		<div id="subreddit" ng-cloak>
