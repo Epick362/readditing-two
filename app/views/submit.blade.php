@@ -26,26 +26,29 @@
 @section('content')
 	<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default">
-			<form role="form">
-				<div class="form-group">
-					<label for="title">Title</label>
-					<input type="text" class="form-control" id="title" placeholder="Title">
-				</div>
-				@if(Input::get('subreddit'))
-				<div class="form-group">
-					<label for="subreddit">Subreddit</label>
-					<input type="text" class="form-control" id="subreddit" placeholder="Subreddit">
-				</div>
-				@endif
-				<div class="form-group">
-					<label for="text">Text</label>
-					<textarea type="text" class="form-control" id="text" placeholder="Text"></textarea>
-				</div>
+			<div class="panel-heading">Submit</div>
+			<div class="panel-body">
+				<form role="form">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" class="form-control" id="title" placeholder="Title">
+					</div>
+					@if(Input::get('subreddit'))
+					<div class="form-group">
+						<label for="subreddit">Subreddit</label>
+						<input type="text" class="form-control" id="subreddit" placeholder="Subreddit">
+					</div>
+					@endif
+					<div class="form-group">
+						<label for="text">Text</label>
+						<textarea type="text" class="form-control" id="text" placeholder="Text"></textarea>
+					</div>
 
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary" >Send</button>
-				</div>
-			</form>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary" >Send</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 @stop
