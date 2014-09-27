@@ -52,7 +52,7 @@
 				</div>
 				<div class="nav-collapse" collapse="navCollapsed">
 					<ul class="nav navbar-nav">
-						<li class="{{ Request::is('') ? 'active' : '' }}"><a href="{{ URL::to('/') }}">Browse</a></li>
+						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}">Submit</a></li>
 						<li><a href="http://blog.readditing.com">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>

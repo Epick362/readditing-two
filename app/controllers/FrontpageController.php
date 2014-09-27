@@ -27,4 +27,17 @@ class FrontpageController extends BaseController {
 
 		return View::make('frontpage', $view);
 	}
+
+	public function post($subreddit, $thing) {
+		$view = array();
+		$view['subreddit'] = $subreddit;
+		$view['username'] = Session::get('user')['name'];
+		$view['popular'] = Subreddit::getPopular();
+
+		return View::make('post', $view);
+	}
+
+	public function submit() {
+		return View::make('submit');
+	}
 }

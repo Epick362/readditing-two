@@ -14,14 +14,17 @@
 Route::get('/', 'FrontpageController@subreddit');
 
 Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
+Route::get('/r/{subreddit}/comments/{thing}', 'FrontpageController@post');
 
-Route::get('about', function() {
-	return Response::view('about');
-});
+Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 
 Route::get('/auth/login', 'AuthController@auth');
+
+Route::get('about', function() {
+	return Response::view('about');
+});
 
 // =============================================
 // API ROUTES ==================================
