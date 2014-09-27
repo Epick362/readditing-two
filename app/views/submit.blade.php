@@ -29,7 +29,7 @@
 			<div class="panel-heading">Submit a new post</div>
 			<div class="panel-body">
 				<tabset justified="true">
-					<tab heading="Selfpost">
+					<tab heading="Text">
 						<form role="form" style="margin-top:10px">
 							<div class="form-group">
 								<label>Title</label>
@@ -42,7 +42,7 @@
 							</div>
 							@endif
 							<div class="form-group">
-								<label>Text</label>
+								<label>Text <span class="text-muted">(optional)</span></label>
 								<textarea type="text" class="form-control" rows="6"></textarea>
 							</div>
 
