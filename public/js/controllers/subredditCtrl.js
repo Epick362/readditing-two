@@ -12,9 +12,13 @@ angular.module('subredditCtrl', [])
 
 		var base_url = 'http://107.170.53.44/';
 
+		$scope.submit = function() {
+			
+		};
+
 		$scope.jumpTo = function() {
 			$window.location.href = base_url + 'r/' + $scope.sr;
-		}
+		};
 
 		$scope.vote = function(thing, type, dir) {
 			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
