@@ -30,7 +30,7 @@
 			<div class="panel-body">
 				<tabset justified="true">
 					<tab heading="Textpost">
-						<form role="form">
+						<form role="form" style="margin-top:10px">
 							<div class="form-group">
 								<label>Title</label>
 								<input type="text" class="form-control">
@@ -52,7 +52,7 @@
 						</form>
 					</tab>
 					<tab heading="Link">
-						<form role="form">
+						<form role="form" style="margin-top:10px">
 							<div class="form-group">
 								<label>Title</label>
 								<input type="text" class="form-control">
