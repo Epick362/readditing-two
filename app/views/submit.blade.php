@@ -43,7 +43,7 @@
 							@endif
 							<div class="form-group">
 								<label>Text</label>
-								<textarea type="text" class="form-control"></textarea>
+								<textarea type="text" class="form-control" rows="6"></textarea>
 							</div>
 
 							<div class="form-group">
