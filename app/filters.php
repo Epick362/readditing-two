@@ -43,7 +43,11 @@ App::missing(function() {
 
 Route::filter('auth', function()
 {
-	if (!Session::has('access_token')) return Redirect::guest('login');
+	if (!Session::has('access_token')) {
+		Session::put('intended', Request::path());
+
+		return Redirect::to('login');
+	}
 });
 
 /*
