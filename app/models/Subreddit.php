@@ -4,7 +4,21 @@ use Readditing\Formatter\Formatter as Formatter;
 
 class Subreddit extends Eloquent {
 
-	public static function getPosts( $subreddit, $after ) {
+	public static function showPost( $subreddit, $thing ) {
+		if(Session::has('user')) {
+			$post = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user')['name']), 10, function() use($subreddit, $thing) {
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
+			});
+		}else{
+			$post = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing), 10, function() use($subreddit, $thing) {
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
+			});
+		}
+
+		return Response::json($post);
+	}
+
+	public static function indexPost( $subreddit, $after ) {
 		$params = [
 			'limit' => '10'
 		];
@@ -36,7 +50,7 @@ class Subreddit extends Eloquent {
 		return self::_formatPost($posts);
 	}
 
-	public static function submitPost( $input ) {
+	public static function storePost( $input ) {
 		$data = [
 			'title' => $input['title'],
 			'sr' => $input['sr'],

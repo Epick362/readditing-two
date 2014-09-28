@@ -1,9 +1,9 @@
 <?php
 
 class ApiController extends \BaseController {
-	
+
 	public function indexPost($subreddit = NULL) {
-		$data = Subreddit::getPosts($subreddit, Input::get('after'));
+		$data = Subreddit::indexPost($subreddit, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
@@ -27,7 +27,7 @@ class ApiController extends \BaseController {
 		);
 
 		if($validator->passes()) {
-			$response = Subreddit::submitPost(Input::all());
+			$response = Subreddit::storePost(Input::all());
 
 			return Response::json($response);
 		}
