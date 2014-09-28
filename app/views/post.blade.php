@@ -45,6 +45,15 @@
 				</div>
 			</div>
 		</div>
+
+
+		<script type="text/ng-template" id="comment.html">
+			@include('partials.comment')
+		</script>
+
+		<script type="text/ng-template" id="comments.html">
+			@include('partials.comments')
+		</script>
 	</div>
 	<div class="col-md-3 visible-md visible-lg">
 		@include('partials.sidebar')
