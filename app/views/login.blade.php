@@ -8,7 +8,7 @@
 			Logging in will enable you to upvote posts, comment, submit new ones and save content you like for later!
 	    </p>
 
-		<div class="text-center">
+		<div class="text-center" style="margin:20px">
 			<a class="btn btn-default btn-lg" href="{{ URL::to('auth/login') }}">Login with Reddit</a>
 		</div>
 
