@@ -57,6 +57,8 @@
 				</div>
 			</div>
 		</div>
+
+		<a class="btn btn-default btn-block" href="{{ URL::to('r/'.$post['subreddit']) }}">Jump back to /r/{{ $post['subreddit'] }}</a>
 	</div>
 	<div class="col-md-3 visible-md visible-lg">
 		@include('partials.sidebar')
