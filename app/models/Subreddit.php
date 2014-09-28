@@ -15,7 +15,7 @@ class Subreddit extends Eloquent {
 			});
 		}
 
-		return Response::json($post);
+		return $post;
 	}
 
 	public static function indexPost( $subreddit, $after ) {

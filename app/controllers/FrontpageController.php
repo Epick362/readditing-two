@@ -34,6 +34,8 @@ class FrontpageController extends BaseController {
 		$view['username'] = Session::get('user')['name'];
 		$view['popular'] = Subreddit::getPopular();
 
+		$view['post'] = Subreddit::showPost($subreddit, $thing);
+
 		return View::make('post', $view);
 	}
 

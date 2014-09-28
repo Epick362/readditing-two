@@ -26,9 +26,9 @@
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
 		<div id="subreddit">
-
-			Hello!
-
+			<pre>
+			{{ print_r($post) }}
+			</pre>
 		</div>
 	</div>
 	<div class="col-md-3 visible-md visible-lg">
