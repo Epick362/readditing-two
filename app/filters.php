@@ -43,13 +43,7 @@ App::missing(function() {
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
-});
-
-
-Route::filter('auth.basic', function()
-{
-	return Auth::basic();
+	if (!Session::has('access_token')) return Redirect::guest('login');
 });
 
 /*

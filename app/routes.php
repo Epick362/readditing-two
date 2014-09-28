@@ -16,16 +16,21 @@ Route::get('/', 'FrontpageController@subreddit');
 Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
 Route::get('/r/{subreddit}/comments/{thing}', 'FrontpageController@post');
 
-Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
-
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 
-Route::get('login', 'AuthController@auth');
+Route::get('auth/login', 'AuthController@auth');
 Route::get('logout', 'AuthController@logout');
+Route::get('login', function() {
+	return Response::view('login');
+});
 
 Route::get('about', function() {
 	return Response::view('about');
 });
+
+Route::group(array('before' => 'auth'), function() {
+	Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
+}
 
 // =============================================
 // API ROUTES ==================================
