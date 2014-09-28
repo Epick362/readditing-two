@@ -61,7 +61,7 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
-							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
+							<a href="{{ URL::to('login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 						@else
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> {{ Session::get('user')['name'] }} <b class="caret"></b></a>

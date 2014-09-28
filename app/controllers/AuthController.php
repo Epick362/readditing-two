@@ -84,4 +84,11 @@ class AuthController extends Controller {
 			Cookie::queue('refresh_token', $params->refresh_token, 60 * 24 * 30);	
 		}	
 	}
+
+	public function logout() {
+		Session::forget('access_token');
+		Session::forget('user');
+
+		return Redirect::intended('/');
+	}
 }

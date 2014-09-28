@@ -20,7 +20,8 @@ Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 
-Route::get('/auth/login', 'AuthController@auth');
+Route::get('login', 'AuthController@auth');
+Route::get('logout', 'AuthController@logout');
 
 Route::get('about', function() {
 	return Response::view('about');
