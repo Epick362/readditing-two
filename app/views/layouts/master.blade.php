@@ -66,13 +66,13 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> {{ Session::get('user')['name'] }} <b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
+									<li class="dropdown-header">My profile</li>
+									<li><a href="{{ URL::to('u/'.Session::get('user')['name']) }}">Overview</a></li>
+									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/submitted') }}">Submitted</a></li>
+									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/liked') }}">Liked</a></li>
+									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/saved') }}">Saved</a></li>
 									<li class="divider"></li>
-									<li class="dropdown-header">Nav header</li>
-									<li><a href="#">Separated link</a></li>
-									<li><a href="#">One more separated link</a></li>
+									<li><a href="{{ URL::to('logout') }}">Logout</a></li>
 								</ul>
 							</li>
 						@endif
