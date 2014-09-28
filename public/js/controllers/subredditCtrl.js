@@ -10,7 +10,7 @@ angular.module('subredditCtrl', [])
 		}
 		$scope.user = $attrs.user;
 
-		var base_url = 'http://107.170.53.44/';
+		var base_url = 'http://preview.readditing.com/';
 
 		$scope.submit = function(post, kind) {
 			if($attrs.user == false) {
