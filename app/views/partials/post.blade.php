@@ -37,7 +37,7 @@
 							</span>
 						@endif
 						<span>
-							<a href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>">Permalink</a>
+							<a href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"><i class="fa fa-share"></i> Permalink</a>
 						</span>
 					</div>
 				</div>
