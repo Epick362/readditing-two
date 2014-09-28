@@ -16,6 +16,10 @@
 			<li class="{{ Request::is('u/'.$user) ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user) }}">Overview</a></li>
 			<li class="{{ Request::is('u/'.$user.'/submitted') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/submitted') }}">Submitted</a></li>
 			<li class="{{ Request::is('u/'.$user.'/gilded') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/gilded') }}">Gilded</a></li>
+			@if($user === $username)
+			<li class="{{ Request::is('u/'.$user.'/liked') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/liked') }}">Liked</a></li>
+			<li class="{{ Request::is('u/'.$user.'/saved') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/saved') }}">Saved</a></li>
+			@endif
 		</ul>
 
 		<script type="text/ng-template" id="comment.html">
