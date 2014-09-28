@@ -13,7 +13,7 @@
 		</div>
 
 		<p>
-			Readditing enables you to <b>securely</b> log in to your reddit account without you having to provide your login credentials on our site. Click the button below to begin.
+			Readditing enables you to <b>securely</b> log in to your reddit account without you having to provide your login credentials on our site. Click the button above to begin.
 	    </p>
     </div>
 @stop
