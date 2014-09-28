@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+	About
+@stop
+
 @section('content')
 	<div class="col-md-6 col-md-offset-3">
 		<h1 style="margin-top:0">About</h1>

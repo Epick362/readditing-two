@@ -9,7 +9,7 @@
 		<meta name="author" content="Filip Hajek">
 
 		<!-- Open Graph data -->
-		<meta property="og:title" content="Readditing.com | {{ $subreddit or 'better reddit experience' }}" />
+		<meta property="og:title" content="Readditing.com | @yield('title', 'better reddit experience')" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
 		<meta property="og:image" content="http://www.readditing.com/apple-touch-icon-120x120.png" />

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+	{{ $post['title'] }} by {{ $post['author'] }}
+@stop
+
 @section('body')
 	<body 
 		ng-app="subredditApp" 

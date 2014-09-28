@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+	{{ $subreddit or 'frontpage' }}
+@stop
+
 @section('body')
 	<body 
 		ng-app="subredditApp" 

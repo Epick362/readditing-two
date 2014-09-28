@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+	Submit
+@stop
+
 @section('body')
 	<body 
 		ng-app="subredditApp" 

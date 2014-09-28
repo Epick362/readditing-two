@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+	Login
+@stop
+
 @section('content')
 	<div class="col-md-6 col-md-offset-3">
 		<h1 style="margin-top:0">Login</h1>

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+	{{ $user }}'s Profile
+@stop
+
 @section('body')
 	<body 
 		ng-app="subredditApp" 
