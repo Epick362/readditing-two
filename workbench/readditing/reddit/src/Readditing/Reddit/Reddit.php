@@ -34,6 +34,8 @@ class Reddit {
 		]);
 
 		if($method == 'POST') {
+			$params['api_type'] = 'json';
+			
 			$response = $client->post($url, [
 				'body' => $params
 			]);
