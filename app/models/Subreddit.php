@@ -66,7 +66,7 @@ class Subreddit extends Eloquent {
 			return false;
 		}
 
-		return Reddit::fetch('api/submit.json', $data, 'POST');
+		return Reddit::fetch('api/submit/?api_type=json', $data, 'POST');
 	}
 
 	public static function getProfilePosts( $user, $category, $after ) {
