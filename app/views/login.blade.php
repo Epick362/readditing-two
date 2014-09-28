@@ -5,7 +5,7 @@
 		<h1 style="margin-top:0">Login</h1>
 		<hr />
 		<p class="lead">
-			Logging in will enable you to upvote posts, comment, submit new ones and save content you like for later!
+			Logging in will enable you to comment, upvote posts, submit new ones and save content you like for later!
 	    </p>
 
 		<div class="text-center" style="margin:20px">
