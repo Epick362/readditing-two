@@ -32,10 +32,14 @@ class Formatter {
 
 		$matches = array();
 		preg_match('/(.*?)((\.co)?.[a-z]{2,4})$/i', $host, $matches);
-		if(strchr($matches[1], '.')) {
-			$_url = substr(strrchr($matches[1], '.'), 1);
+		if(isset($matches[1])) {
+			if(strchr($matches[1], '.')) {
+				$_url = substr(strrchr($matches[1], '.'), 1);
+			}else{
+				$_url = $matches[1];
+			}
 		}else{
-			$_url = $matches[1];
+			return 'OtherProvider';
 		}
 
 		return $_url;
