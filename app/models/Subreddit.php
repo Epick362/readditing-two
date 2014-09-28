@@ -165,6 +165,8 @@ class Subreddit extends Eloquent {
 	}
 
 	private static function _formatPost($_post) {
+		dd($_post);
+
 		$formatter = Formatter::provider($_post);
 		$post = $formatter->getPost();
 
