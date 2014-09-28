@@ -40,6 +40,10 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
+		<div class="ad-leaderboard">
+			<div id="bsap_1299172" class="bsarocks bsap_e5b2c2361c9aa558f3aae3449b24de26"></div>
+		</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				{{ $post['title'] }}

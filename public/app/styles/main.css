@@ -7704,6 +7704,12 @@ a.active:hover {
 .media-body > .media {
   margin-left: 30px;
 }
+.ad-leaderboard {
+  margin: 0 auto;
+  border: 1px solid #eeeeee;
+  height: 100px;
+  width: 100%;
+}
 .spinner {
   margin: 10px auto;
   width: 70px;
