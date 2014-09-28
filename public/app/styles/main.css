@@ -7705,6 +7705,7 @@ a.active:hover {
   margin-left: 30px;
 }
 .ad-leaderboard {
+  width: 728px;
   margin: 0 auto;
   margin-bottom: 20px;
 }
