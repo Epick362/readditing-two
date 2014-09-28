@@ -149,7 +149,7 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
-	private static function _formatPost($posts) {
+	private static function _formatPosts($posts) {
 		$result = [];
 
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
