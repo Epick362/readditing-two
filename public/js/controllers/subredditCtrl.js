@@ -13,7 +13,7 @@ angular.module('subredditCtrl', [])
 		var base_url = 'http://107.170.53.44/';
 
 		var loggedin = function() {
-			if($attrs.user === false) {
+			if($attrs.user == false) {
 				$window.location.href = base_url + 'login';
 			}
 		};
@@ -124,7 +124,7 @@ angular.module('subredditCtrl', [])
 
 		$scope.reply = function(thing, type) {
 			loggedin();
-			
+
 			var url = base_url + 'api/comment';
 
 			$http({
