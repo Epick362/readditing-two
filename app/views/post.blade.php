@@ -25,9 +25,17 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
-		<div id="subreddit">
-			{{ print_r($post) }}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{{ $post['title'] }}
+				<a class="pull-right" href="{{ $post['url'] }}" target="_blank" rel="nofollow">{{ $post['source'] }}</a>
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body">
+				{{ $post['content'] }}
+			</div>
 		</div>
+
 	</div>
 	<div class="col-md-3 visible-md visible-lg">
 		@include('partials.sidebar')
