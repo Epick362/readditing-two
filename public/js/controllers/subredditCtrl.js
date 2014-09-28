@@ -11,14 +11,7 @@ angular.module('subredditCtrl', [])
 		$scope.user = $attrs.user;
 
 		var base_url = 'http://107.170.53.44/';
-
-		var loggedin = function() {
-			if($attrs.user == false) {
-				$window.location.href = base_url + 'login';
-				return;
-			}
-		};
-
+		
 		$scope.submit = function() {
 
 		};
@@ -28,7 +21,10 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.vote = function(thing, type, dir) {
-			loggedin();
+			if($attrs.user == false) {
+				$window.location.href = base_url + 'login';
+				return;
+			}
 
 			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
 
@@ -54,7 +50,10 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.save = function(thing, type, dir) {
-			loggedin();
+			if($attrs.user == false) {
+				$window.location.href = base_url + 'login';
+				return;
+			}
 
 			var url = base_url + 'api/save/'+ type +'_' + thing.id;
 
@@ -78,7 +77,10 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.subscribe = function(dir) {
-			loggedin();
+			if($attrs.user == false) {
+				$window.location.href = base_url + 'login';
+				return;
+			}
 
 			var url = base_url + 'api/subscribe/'+ $attrs.subreddit;
 
@@ -124,7 +126,10 @@ angular.module('subredditCtrl', [])
 		};
 
 		$scope.reply = function(thing, type) {
-			loggedin();
+			if($attrs.user == false) {
+				$window.location.href = base_url + 'login';
+				return;
+			}
 
 			var url = base_url + 'api/comment';
 
