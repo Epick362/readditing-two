@@ -6,16 +6,16 @@ class Subreddit extends Eloquent {
 
 	public static function showPost( $subreddit, $thing ) {
 		if(Session::has('user')) {
-			$post = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user')['name']), 10, function() use($subreddit, $thing) {
+			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user')['name']), 10, function() use($subreddit, $thing) {
 				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
 			});
 		}else{
-			$post = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing), 10, function() use($subreddit, $thing) {
+			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing), 10, function() use($subreddit, $thing) {
 				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
 			});
 		}
 
-		return $post;
+		return self::formatPost($data[0]['data']['children'][0]);
 	}
 
 	public static function indexPost( $subreddit, $after ) {
@@ -47,7 +47,7 @@ class Subreddit extends Eloquent {
 			}
 		}
 
-		return self::_formatPost($posts);
+		return self::_formatPosts($posts);
 	}
 
 	public static function storePost( $input ) {
@@ -105,7 +105,7 @@ class Subreddit extends Eloquent {
 		}
 
 		if(isset($comments[1]['data']['children']) && !empty($comments[1]['data']['children']) && $comments[1]['data']['children'][0]['kind'] == 't1') {
-			return self::_formatComment($comments[1]);
+			return self::_formatComments($comments[1]);
 		}
 
 		return false;
@@ -155,22 +155,7 @@ class Subreddit extends Eloquent {
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
 			foreach($posts['data']['children'] as $_post) {
 				if($_post['kind'] === 't3') {
-					$formatter = Formatter::provider($_post);
-					$post = $formatter->getPost();
-
-					$post['id'] = $_post['data']['id'];
-					$post['url'] = $_post['data']['url'];
-					$post['subreddit'] = $_post['data']['subreddit'];
-					$post['author'] = $_post['data']['author'];
-					$post['created'] = $_post['data']['created_utc'];
-					$post['score'] = $_post['data']['score'];
-					$post['likes'] = $_post['data']['likes'];
-					$post['saved'] = $_post['data']['saved'];
-					$post['comments'] = $_post['data']['num_comments'];
-
-					$post['nsfw'] = $_post['data']['over_18'];
-
-					$result[] = $post;
+					$result[] = self::formatPost($_post);
 				}
 			}
 			return $result;
@@ -179,7 +164,26 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
-	private static function _formatComment($comments) {
+	private static function _formatPost($_post) {
+		$formatter = Formatter::provider($_post);
+		$post = $formatter->getPost();
+
+		$post['id'] = $_post['data']['id'];
+		$post['url'] = $_post['data']['url'];
+		$post['subreddit'] = $_post['data']['subreddit'];
+		$post['author'] = $_post['data']['author'];
+		$post['created'] = $_post['data']['created_utc'];
+		$post['score'] = $_post['data']['score'];
+		$post['likes'] = $_post['data']['likes'];
+		$post['saved'] = $_post['data']['saved'];
+		$post['comments'] = $_post['data']['num_comments'];
+
+		$post['nsfw'] = $_post['data']['over_18'];
+
+		return $post;
+	}
+
+	private static function _formatComments($comments) {
 		$result = [];
 
 		if(!isset($comments['data']) || !isset($comments['data']['children'])) {
