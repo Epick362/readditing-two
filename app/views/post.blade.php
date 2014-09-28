@@ -39,21 +39,9 @@
 					<div class="col-sm-4">
 						<a ng-href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">{{ $post['subreddit'] }}</a> 
 					</div>
-					<div class="col-sm-4 text-center">
-						<a href="" ng-click="comments({subreddit: '{{ $post['subreddit'] }}', id: 't3_{{ $post['id'] }}'})"><i class="fa fa-comment-o"></i> {{ $post['comments'] }} comments</a>
-					</div>
 				</div>
 			</div>
 		</div>
-
-
-		<script type="text/ng-template" id="comment.html">
-			@include('partials.comment')
-		</script>
-
-		<script type="text/ng-template" id="comments.html">
-			@include('partials.comments')
-		</script>
 	</div>
 	<div class="col-md-3 visible-md visible-lg">
 		@include('partials.sidebar')
