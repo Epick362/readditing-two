@@ -37,7 +37,7 @@
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-sm-4">
-						<a ng-href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">{{ $post['subreddit'] }}</a> 
+						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">{{ $post['subreddit'] }}</a> 
 					</div>
 				</div>
 			</div>

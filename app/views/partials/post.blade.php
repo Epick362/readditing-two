@@ -27,16 +27,19 @@
 					<div class="col-sm-4 text-center">
 						<a href="" ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
 					</div>
-					@if(Session::has('user'))
 					<div class="col-sm-4 text-right">
+						<span>
+							<a href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>">Permalink</a>
+						</span>
+					@if(Session::has('user'))
 						<span ng-if="!post.saved">
 							<a ng-click="save(post, 't3', 1)" href=""><i class="fa fa-save"></i> Save</a>
 						</span>
 						<span ng-if="post.saved">
 							<a ng-click="save(post, 't3', 0)" class="active" href=""><i class="fa fa-save"></i> Unsave</a>
 						</span>
-					</div>
 					@endif
+					</div>
 				</div>
 			</div>
 		</div>
