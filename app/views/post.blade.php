@@ -4,6 +4,17 @@
 	{{ $post['title'] }} by {{ $post['author'] }}
 @stop
 
+@section('og')
+	<!-- Open Graph data -->
+	<meta property="og:site_name" content="Readditing.com" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:title" content="{{ $post['title'] }} by {{ $post['author'] }}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="{{ Request::url() }}" />
+	<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
+	<meta property="og:description" content="{{ substr(strip_tags($post['content']), 0, 200) }}" />
+@overwrite
+
 @section('body')
 	<body 
 		ng-app="subredditApp" 

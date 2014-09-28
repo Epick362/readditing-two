@@ -2,18 +2,20 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Readditing | {{ $subreddit or 'better reddit experience' }}</title>
+		<title>Readditing | @yield('title', 'better reddit experience')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="Readditing is a social reddit website">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
 
+		@section('og')
 		<!-- Open Graph data -->
 		<meta property="og:title" content="Readditing.com | @yield('title', 'better reddit experience')" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
-		<meta property="og:image" content="http://www.readditing.com/apple-touch-icon-120x120.png" />
+		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
 		<meta property="og:description" content="Readditing is a social reddit website" />
+		@show
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
