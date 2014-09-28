@@ -38,6 +38,9 @@ class FrontpageController extends BaseController {
 	}
 
 	public function submit() {
+		$view['username'] = Session::get('user')['name'];
+		$view['subreddit'] = Input::get('subreddit');
+
 		return View::make('submit');
 	}
 }

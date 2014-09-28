@@ -34,12 +34,10 @@
 								<label>Title</label>
 								<input ng-model="post.title" type="text" class="form-control">
 							</div>
-							@if(!Input::get('subreddit'))
 							<div class="form-group">
 								<label>Subreddit</label>
-								<input ng-model="post.sr" type="text" class="form-control">
+								<input ng-model="post.sr" type="text" class="form-control" value="{{ $subreddit or '' }}">
 							</div>
-							@endif
 							<div class="form-group">
 								<label>Text <span class="text-muted">(optional)</span></label>
 								<textarea ng-model="post.text" type="text" class="form-control" rows="6"></textarea>
@@ -56,12 +54,10 @@
 								<label>Title</label>
 								<input ng-model="post.title" type="text" class="form-control">
 							</div>
-							@if(!Input::get('subreddit'))
 							<div class="form-group">
 								<label>Subreddit</label>
-								<input ng-model="post.sr" type="text" class="form-control">
+								<input ng-model="post.sr" type="text" class="form-control" value="{{ $subreddit or '' }}">
 							</div>
-							@endif
 							<div class="form-group">
 								<label>URL</label>
 								<input ng-model="post.url" type="text" class="form-control">
