@@ -34,14 +34,14 @@
 			<div class="panel-body" show-more>
 				{{ $post['content'] }}
 			</div>
-		</div>
-		<div class="panel-footer">
-			<div class="row">
-				<div class="col-sm-4">
-					<a ng-href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">$post['author']</a> 
-				</div>
-				<div class="col-sm-4 text-center">
-					<a href="" ng-click="comments({subreddit: '{{ $post['subreddit'] }}', id: 't3_{{ $post['id'] }}')"><i class="fa fa-comment-o"></i> {{ $post['comments'] }} comments</a>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-sm-4">
+						<a ng-href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">$post['author']</a> 
+					</div>
+					<div class="col-sm-4 text-center">
+						<a href="" ng-click="comments({subreddit: '{{ $post['subreddit'] }}', id: 't3_{{ $post['id'] }}')"><i class="fa fa-comment-o"></i> {{ $post['comments'] }} comments</a>
+					</div>
 				</div>
 			</div>
 		</div>
