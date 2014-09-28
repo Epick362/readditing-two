@@ -36,7 +36,7 @@
 							</div>
 							<div class="form-group">
 								<label>Subreddit</label>
-								<input ng-model="post.sr" type="text" class="form-control" value="{{ $subreddit or '' }}">
+								<input ng-model="post.sr" type="text" class="form-control" ng-init="post.sr='{{ $subreddit or '' }}'">
 							</div>
 							<div class="form-group">
 								<label>Text <span class="text-muted">(optional)</span></label>
@@ -56,7 +56,7 @@
 							</div>
 							<div class="form-group">
 								<label>Subreddit</label>
-								<input ng-model="post.sr" type="text" class="form-control" value="{{ $subreddit or '' }}">
+								<input ng-model="post.sr" type="text" class="form-control" ng-init="post.sr='{{ $subreddit or '' }}'">
 							</div>
 							<div class="form-group">
 								<label>URL</label>
