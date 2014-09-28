@@ -30,7 +30,7 @@ Route::get('about', function() {
 
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
-}
+});
 
 // =============================================
 // API ROUTES ==================================
