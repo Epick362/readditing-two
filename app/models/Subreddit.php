@@ -155,7 +155,7 @@ class Subreddit extends Eloquent {
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
 			foreach($posts['data']['children'] as $_post) {
 				if($_post['kind'] === 't3') {
-					$result[] = self::formatPost($_post);
+					$result[] = self::_formatPost($_post);
 				}
 			}
 			return $result;
@@ -165,8 +165,6 @@ class Subreddit extends Eloquent {
 	}
 
 	private static function _formatPost($_post) {
-		dd($_post);
-
 		$formatter = Formatter::provider($_post);
 		$post = $formatter->getPost();
 
