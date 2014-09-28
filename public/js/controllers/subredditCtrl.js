@@ -15,6 +15,7 @@ angular.module('subredditCtrl', [])
 		var loggedin = function() {
 			if($attrs.user == false) {
 				$window.location.href = base_url + 'login';
+				return;
 			}
 		};
 
