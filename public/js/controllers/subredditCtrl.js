@@ -11,9 +11,28 @@ angular.module('subredditCtrl', [])
 		$scope.user = $attrs.user;
 
 		var base_url = 'http://107.170.53.44/';
-		
-		$scope.submit = function() {
 
+		$scope.submit = function(post, kind) {
+			if($attrs.user == false) {
+				$window.location.href = base_url + 'login';
+				return;
+			}
+
+			var url = base_url + 'api/submit';
+
+			post['kind'] = kind;
+
+			$http({
+				method: 'POST', 
+				url: url,
+				data: post
+			})
+			.success(function(data) {
+				$window.location.href = base_url + 'r/'+post.sr+'/comments/'+data['json']['data']['id'];
+			})
+			.error(function() {
+				alert('Error while posting.');
+			});	
 		};
 
 		$scope.jumpTo = function() {

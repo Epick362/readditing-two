@@ -29,20 +29,20 @@
 			<div class="panel-body">
 				<tabset justified="true">
 					<tab heading="Text">
-						<form role="form" style="margin-top:10px">
+						<form ng-submit="submit(post, 'self')" role="form" style="margin-top:10px">
 							<div class="form-group">
 								<label>Title</label>
-								<input type="text" class="form-control">
+								<input ng-model="post.title" type="text" class="form-control">
 							</div>
 							@if(!Input::get('subreddit'))
 							<div class="form-group">
 								<label>Subreddit</label>
-								<input type="text" class="form-control">
+								<input ng-model="post.sr" type="text" class="form-control">
 							</div>
 							@endif
 							<div class="form-group">
 								<label>Text <span class="text-muted">(optional)</span></label>
-								<textarea type="text" class="form-control" rows="6"></textarea>
+								<textarea ng-model="post.text" type="text" class="form-control" rows="6"></textarea>
 							</div>
 
 							<div class="form-group">
@@ -51,20 +51,20 @@
 						</form>
 					</tab>
 					<tab heading="Link">
-						<form role="form" style="margin-top:10px">
+						<form ng-submit="submit(post, 'link')" role="form" style="margin-top:10px">
 							<div class="form-group">
 								<label>Title</label>
-								<input type="text" class="form-control">
+								<input ng-model="post.title" type="text" class="form-control">
 							</div>
 							@if(!Input::get('subreddit'))
 							<div class="form-group">
 								<label>Subreddit</label>
-								<input type="text" class="form-control">
+								<input ng-model="post.sr" type="text" class="form-control">
 							</div>
 							@endif
 							<div class="form-group">
 								<label>URL</label>
-								<input type="text" class="form-control">
+								<input ng-model="post.url" type="text" class="form-control">
 							</div>
 
 							<div class="form-group">
