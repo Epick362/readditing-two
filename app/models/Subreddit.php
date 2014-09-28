@@ -149,21 +149,6 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
-	private static function _formatPosts($posts) {
-		$result = [];
-
-		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
-			foreach($posts['data']['children'] as $_post) {
-				if($_post['kind'] === 't3') {
-					$result[] = self::formatPost($_post);
-				}
-			}
-			return $result;
-		}
-
-		return false;
-	}
-
 	private static function _formatPost($_post) {
 		$formatter = Formatter::provider($_post);
 		$post = $formatter->getPost();
@@ -181,6 +166,21 @@ class Subreddit extends Eloquent {
 		$post['nsfw'] = $_post['data']['over_18'];
 
 		return $post;
+	}
+
+	private static function _formatPosts($posts) {
+		$result = [];
+
+		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
+			foreach($posts['data']['children'] as $_post) {
+				if($_post['kind'] === 't3') {
+					$result[] = self::formatPost($_post);
+				}
+			}
+			return $result;
+		}
+
+		return false;
 	}
 
 	private static function _formatComments($comments) {
