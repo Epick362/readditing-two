@@ -55,7 +55,8 @@ class Subreddit extends Eloquent {
 			'title' => $input['title'],
 			'sr' => $input['sr'],
 			'kind' => $input['kind'],
-			'save' => true
+			'save' => true,
+			'api_type' => 'json'
 		];
 
 		if(isset($input['text'])) {
