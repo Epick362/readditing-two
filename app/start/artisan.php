@@ -13,3 +13,4 @@
 
 
 	Artisan::add(new CleanArticles);
+	Artisan::add(new BlacklistUser);

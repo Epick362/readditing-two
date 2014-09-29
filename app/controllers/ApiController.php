@@ -36,6 +36,10 @@ class ApiController extends \BaseController {
 	}
 
 	public function indexProfile($user, $category = 'overview') {
+		if(BlacklistUsers::isBlacklisted($user)) {
+			return Response::make('This user\'s profile is private.');
+		}
+
 		$data = Subreddit::getProfilePosts($user, $category, Input::get('after'));
 
 		if($data) {
