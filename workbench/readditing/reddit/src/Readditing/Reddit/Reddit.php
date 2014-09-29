@@ -45,6 +45,10 @@ class Reddit {
 			]);
 		}
 
-		return $response->json();
+		try {
+			return $response->json();
+		}catch(\Exception $e){
+			return array();
+		}
 	}
 }

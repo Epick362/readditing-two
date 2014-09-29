@@ -7,15 +7,19 @@ class Subreddit extends Eloquent {
 	public static function showPost( $subreddit, $thing ) {
 		if(Session::has('user')) {
 			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user')['name']), 10, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 			});
 		}else{
 			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing), 10, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing);
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 			});
 		}
 
-		return self::_formatPost($data[0]['data']['children'][0]);
+		if($data) {
+			return self::_formatPost($data[0]['data']['children'][0]);
+		}
+
+		return false;
 	}
 
 	public static function indexPost( $subreddit, $after ) {
