@@ -45,7 +45,7 @@ class Reddit {
 			]);
 		}
 
-		dd($response->getBody());
+		dd($response->json());
 
 		return $response->json();
 	}
