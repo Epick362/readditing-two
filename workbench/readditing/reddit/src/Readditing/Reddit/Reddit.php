@@ -44,7 +44,8 @@ class Reddit {
 				'query' => $params
 			]);
 		}
-		dd($url);
+		print_r($url);
+		dd($response);
 
 		return $response->json();
 	}
