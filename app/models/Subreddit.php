@@ -200,7 +200,7 @@ class Subreddit extends Eloquent {
 				$comment['created'] = $_comment['data']['created_utc'];
 				$comment['likes'] = $_comment['data']['likes'];
 				$comment['saved'] = $_comment['data']['saved'];
-				$comment['replies'] = self::_formatComment($_comment['data']['replies']);
+				$comment['replies'] = self::_formatComments($_comment['data']['replies']);
 
 				$result[] = $comment;	
 			}
