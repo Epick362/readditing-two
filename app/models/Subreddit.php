@@ -66,7 +66,7 @@ class Subreddit extends Eloquent {
 			return false;
 		}
 
-		return Reddit::fetch('api/submit/?api_type=json', $data, 'POST');
+		return Reddit::fetch('api/submit', $data, 'POST');
 	}
 
 	public static function getProfilePosts( $user, $category, $after ) {
@@ -93,12 +93,12 @@ class Subreddit extends Eloquent {
 
 	public static function getComments( $subreddit, $thing, $after = null ) {
 		if(Session::has('user')) {
-			$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+			$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing, [
 				'depth' => 4
 			]);
 		}else{
-			$comments = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'.json'), 10, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+			$comments = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing), 10, function() use($subreddit, $thing) {
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing, [
 							'depth' => 4
 						]);
 			});
