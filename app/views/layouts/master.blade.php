@@ -37,7 +37,7 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
 	</head>
 	@section('body')
-	<body>
+	<body ng-app="readditingApp">
 	@show
 		<!-- BuySellAds Ad Code -->
 		<script type="text/javascript">
@@ -52,7 +52,7 @@
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" ng-init="navCollapsed = false" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle">
+        			<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -62,7 +62,7 @@
 						<div class="brand-image">r</div>
 					</a>
 				</div>
-				<div class="nav-collapse" collapse="navCollapsed">
+				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
 					<ul class="nav navbar-nav">
 						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}">Submit</a></li>
 						<li class="{{ Request::is('r/readditingcom') ? 'active' : '' }}"><a href="{{ URL::to('r/readditingcom') }}">Blog</a></li>

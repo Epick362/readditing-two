@@ -1,5 +1,5 @@
 
-var subredditApp = angular.module('subredditApp', [
+var subredditApp = angular.module('readditingApp', [
 		'ui.bootstrap', 
 		'subredditCtrl', 
 		'subredditService', 

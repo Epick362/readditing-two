@@ -17,7 +17,7 @@
 
 @section('body')
 	<body 
-		ng-app="subredditApp" 
+		ng-app="readditingApp" 
 		ng-controller="subredditController" 
 		user="{{ $username or false }}" 
 		subreddit="{{ $subreddit or false }}" 
