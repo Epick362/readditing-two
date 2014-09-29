@@ -8,6 +8,10 @@ class ProfileController extends BaseController {
 		$view['user'] = $user;
 		$view['category'] = $category;
 
+		if(BlacklistUsers::isBlacklisted($user)) {
+			return View::make('error.blacklisted', $view);
+		}
+
 		return View::make('profile', $view);
 	}
 }
