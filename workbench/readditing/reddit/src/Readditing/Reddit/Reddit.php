@@ -45,8 +45,6 @@ class Reddit {
 			]);
 		}
 
-		dd($response->json());
-
 		return $response->json();
 	}
 }
