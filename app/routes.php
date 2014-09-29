@@ -28,6 +28,10 @@ Route::get('about', function() {
 	return Response::view('about');
 });
 
+Route::get('404', function() {
+	return Response::view('errors.404');
+});
+
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
 });
