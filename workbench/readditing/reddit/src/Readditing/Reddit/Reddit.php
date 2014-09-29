@@ -33,6 +33,8 @@ class Reddit {
 		    ]
 		]);
 
+		$params['api_type'] = 'json';
+
 		if($method == 'POST') {
 			$response = $client->post($url, [
 				'body' => $params
@@ -42,6 +44,7 @@ class Reddit {
 				'query' => $params
 			]);
 		}
+		dd($url);
 
 		return $response->json();
 	}
