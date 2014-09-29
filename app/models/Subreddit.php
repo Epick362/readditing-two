@@ -89,7 +89,7 @@ class Subreddit extends Eloquent {
 			});
 		}
 
-		return self::_formatPost($posts);
+		return self::_formatPosts($posts);
 	}
 
 	public static function getComments( $subreddit, $thing, $after = null ) {
