@@ -36,6 +36,10 @@ class FrontpageController extends BaseController {
 
 		$view['post'] = Subreddit::showPost($subreddit, $thing);
 
+		if(BlacklistUsers::isBlacklisted($view['post']['author'])) {
+			return View::make('errors.blacklisted', $view);
+		}
+
 		return View::make('post', $view);
 	}
 
