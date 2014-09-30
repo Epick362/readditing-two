@@ -66,7 +66,7 @@
 				</div>
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
 					<ul class="nav navbar-nav">
-						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}">Submit</a></li>
+						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}" analytics-on>Submit</a></li>
 						<li class="{{ Request::is('r/readditingcom') ? 'active' : '' }}"><a href="{{ URL::to('r/readditingcom') }}">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
@@ -75,7 +75,7 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
-							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn">Sign in with <i class="fa fa-lock"></i> Reddit</a>
+							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn" analytics-on analytics-event="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 						@else
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> {{ Session::get('user')['name'] }} <b class="caret"></b></a>
@@ -86,7 +86,7 @@
 									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/liked') }}">Liked</a></li>
 									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/saved') }}">Saved</a></li>
 									<li class="divider"></li>
-									<li><a href="{{ URL::to('logout') }}">Logout</a></li>
+									<li><a href="{{ URL::to('logout') }}" analytics-on>Logout</a></li>
 								</ul>
 							</li>
 						@endif
@@ -113,6 +113,9 @@
 		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
+
+		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>
 		
 		<script src="{{ URL::asset('js/services/subredditService.js') }}"></script>
 		<script src="{{ URL::asset('js/controllers/subredditCtrl.js') }}"></script>

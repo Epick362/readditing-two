@@ -6,8 +6,12 @@ var subredditApp = angular.module('readditingApp', [
 		'ngSanitize', 
 		'infinite-scroll', 
 		'angular-kudos', 
-		'angularMoment'
-	], function($interpolateProvider) {
+		'angularMoment',
+		'angulartics', 
+		'angulartics.google.analytics'
+	], function($interpolateProvider, $analyticsProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
+
+	$analyticsProvider.virtualPageviews(false);
 });

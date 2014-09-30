@@ -48,7 +48,7 @@
 							</div>
 
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Send</button>
+								<button type="submit" class="btn btn-primary" analytics-on analytics-event="Submit - send">Send</button>
 							</div>
 						</form>
 					</tab>
@@ -68,7 +68,7 @@
 							</div>
 
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary">Send</button>
+								<button type="submit" class="btn btn-primary" analytics-on analytics-event="Submit - send">Send</button>
 							</div>
 						</form>
 					</tab>

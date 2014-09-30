@@ -13,7 +13,7 @@
 	    </p>
 
 		<div class="text-center" style="margin:20px">
-			<a class="btn btn-default btn-lg" href="{{ URL::to('auth/login') }}">Login with Reddit</a>
+			<a class="btn btn-default btn-lg" href="{{ URL::to('auth/login') }}" analytics-on analytics-event="Login">Login with Reddit</a>
 		</div>
 
 		<p>

@@ -21,7 +21,7 @@
 				<span class="input-group-addon">/r/</span>
 				<input type="text" ng-model="sr" placeholder="{{ $subreddit or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
 				<div class="input-group-btn">
-					<button type="submit" class="btn btn-primary">Go</button>
+					<button type="submit" class="btn btn-primary" analytics-on analytics-event="Jump to subreddit">Go</button>
 				</div>
 			</div>
 		</form>
@@ -30,9 +30,9 @@
 
 @section('sidebar')
 	@if(isset($subreddit) && $subreddit)
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?subreddit='.$subreddit) }}" style="margin-bottom:20px">Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?subreddit='.$subreddit) }}" style="margin-bottom:20px" analytics-on>Submit new post</a>
 	@else
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:20px">Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:20px" analytics-on>Submit new post</a>
 	@endif
 @stop
 
