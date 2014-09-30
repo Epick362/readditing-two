@@ -3,10 +3,10 @@
 			<div class="upvote-wrapper" ng-if="post.author">
 				<div class="upvote-container">
 					<span ng-if="!post.likes">
-						<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)"><i class="fa fa-arrow-up"></i></a>
+						<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)" analytics-on analytics-event="Upvote"><i class="fa fa-arrow-up"></i></a>
 					</span>
 					<span ng-if="post.likes">
-						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)"><i class="fa fa-arrow-up"></i></a>
+						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)" analytics-on analytics-event="UnUpvote"><i class="fa fa-arrow-up"></i></a>
 					</span>
 					<p class="text-center" ng-class="{'text-alternate': post.likes}" style="margin-top:5px"><% post.score %></p>
 				</div>
@@ -30,10 +30,10 @@
 					<div class="col-sm-4 text-right">
 						@if(Session::has('user'))
 							<span ng-if="!post.saved">
-								<a ng-click="save(post, 't3', 1)" href=""><i class="fa fa-save"></i> Save</a>
+								<a ng-click="save(post, 't3', 1)" href="" analytics-on analytics-event="Save"><i class="fa fa-save"></i> Save</a>
 							</span>
 							<span ng-if="post.saved">
-								<a ng-click="save(post, 't3', 0)" class="active" href=""><i class="fa fa-save"></i> Unsave</a>
+								<a ng-click="save(post, 't3', 0)" class="active" href="" analytics-on analytics-event="Unsave"><i class="fa fa-save"></i> Unsave</a>
 							</span>
 						@endif
 						<span>
