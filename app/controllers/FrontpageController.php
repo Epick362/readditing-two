@@ -36,7 +36,7 @@ class FrontpageController extends BaseController {
 
 		$view['post'] = Subreddit::showPost($subreddit, $thing);
 
-		if($view['post']) {
+		if(!$view['post'] || BlacklistThings::isBlacklisted('t3_'.$view['post']['id'])) {
 			return Redirect::to('404');
 		}
 

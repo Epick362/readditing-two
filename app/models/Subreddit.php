@@ -160,7 +160,9 @@ class Subreddit extends Eloquent {
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
 			foreach($posts['data']['children'] as $_post) {
 				if($_post['kind'] === 't3') {
-					$result[] = self::_formatPost($_post);
+					if(!BlacklistThings::isBlacklisted($_post['data']['name']) && !BlacklistUsers::isBlacklisted($_post['data']['author'])) {
+						$result[] = self::_formatPost($_post);
+					}
 				}
 			}
 			return $result;
@@ -197,17 +199,19 @@ class Subreddit extends Eloquent {
 
 		foreach($comments['data']['children'] as $_comment) {
 			if($_comment['kind'] == 't1') {
-				$comment = [];
-				$comment['id'] = $_comment['data']['id'];
-				$comment['author'] = $_comment['data']['author'];
-				$comment['score'] = $_comment['data']['score'];
-				$comment['body'] = html_entity_decode($_comment['data']['body_html']);
-				$comment['created'] = $_comment['data']['created_utc'];
-				$comment['likes'] = $_comment['data']['likes'];
-				$comment['saved'] = $_comment['data']['saved'];
-				$comment['replies'] = self::_formatComments($_comment['data']['replies']);
+				if(!BlacklistUsers::isBlacklisted($_comment['data']['author']) && !BlacklistThings::isBlacklisted($_comment['data']['name'])) {
+					$comment = [];
+					$comment['id'] = $_comment['data']['id'];
+					$comment['author'] = $_comment['data']['author'];
+					$comment['score'] = $_comment['data']['score'];
+					$comment['body'] = html_entity_decode($_comment['data']['body_html']);
+					$comment['created'] = $_comment['data']['created_utc'];
+					$comment['likes'] = $_comment['data']['likes'];
+					$comment['saved'] = $_comment['data']['saved'];
+					$comment['replies'] = self::_formatComments($_comment['data']['replies']);
 
-				$result[] = $comment;	
+					$result[] = $comment;	
+				}
 			}
 		}
 
