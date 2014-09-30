@@ -1,7 +1,11 @@
 angular.module('subredditCtrl', [])
 
+	.config(["$provide", function ($provide) {
+        $provide.value("base_url", $("#ApiRoot").attr("href") + '/');
+    }])
+
 	// inject the Comment service into our controller
-	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit) {
+	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
 		if($attrs.subreddit) {
 			$scope.reddit = new Reddit($attrs.subreddit);
 			$scope.subscribed = $attrs.subscribed;
@@ -9,8 +13,6 @@ angular.module('subredditCtrl', [])
 			$scope.reddit = new Reddit(false, $attrs.profile);
 		}
 		$scope.user = $attrs.user;
-
-		var base_url = 'http://preview.readditing.com/';
 
 		$scope.submit = function(post, kind) {
 			if($attrs.user == false) {

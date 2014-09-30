@@ -9,8 +9,8 @@ class AuthController extends Controller {
 	public function auth()
 	{
 		$provider = OAuth2::provider('reddit', array(
-			'id' => '7Ojt4UvaXdlfIg',
-			'secret' => 'diuIcaD4ejI0ZUlQXbDqRTxBRjA',
+			'id' => Config::get('oauth.reddit.id'),
+			'secret' => Config::get('oauth.reddit.secret'),
 		));
 
 		if(Cookie::get('refresh_token')) {

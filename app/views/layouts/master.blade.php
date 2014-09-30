@@ -35,6 +35,8 @@
 		
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
+
+		<link id="ApiRoot" href="{{ URL::to('') }}" />
 	</head>
 	@section('body')
 	<body ng-app="readditingApp">
