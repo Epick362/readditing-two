@@ -17,6 +17,10 @@ App::before(function($request)
 	if(!Request::is('auth/login') && Cookie::get('refresh_token') && Cookie::get('token_generated') + 3600 <= time()) {
 		Session::put('intended', Request::path());
 		return Redirect::to('auth/login');
+	}else{
+		if(Session::has('user')) {
+			Session::put('user.settings', UsersSettings::getSettingsForSession(Session::get('user.name')));
+		}
 	}
 });
 

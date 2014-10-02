@@ -11,6 +11,7 @@
 		user="{{ $username or false }}" 
 		subreddit="{{ $subreddit or false }}" 
 		subscribed="{{ $subscribed or false }}"
+		nsfw="{{ Session::has('user.settings.nsfw') }}"
 	>
 @overwrite
 
@@ -30,10 +31,12 @@
 
 @section('sidebar')
 	@if(isset($subreddit) && $subreddit)
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?subreddit='.$subreddit) }}" style="margin-bottom:20px" analytics-on>Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?subreddit='.$subreddit) }}" style="margin-bottom:10px" analytics-on>Submit new post</a>
 	@else
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:20px" analytics-on>Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:10px" analytics-on>Submit new post</a>
 	@endif
+
+	<a class="btn btn-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:10px" analytics-on>Turn off NSFW posts</a>
 @stop
 
 @section('content')

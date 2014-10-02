@@ -16,7 +16,13 @@
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
-			<div class="panel-body" show-more ng-bind-html="post.content">
+			<div ng-show="post.nsfw && !nsfw" class="panel-body">
+				<a href="" ng-click="setNSFW()" class="nsfw" analytics-on analytics-event="NSFW ON">
+					<div class="title">NSFW</div>
+					Click to show
+				</a>
+			</div>
+			<div ng-show="!post.nsfw || nsfw" class="panel-body" show-more ng-bind-html="post.content">
 
 			</div>
 			<div class="panel-body hidden-lg hidden-md" ng-if="post.author">

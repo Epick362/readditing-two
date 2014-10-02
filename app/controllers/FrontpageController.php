@@ -17,8 +17,8 @@ class FrontpageController extends BaseController {
 	{
 		$view = array();
 		$view['subreddit'] = $subreddit;
-		$view['username'] = Session::get('user')['name'];
-
+		$view['username'] = Session::get('user.name');
+		
 		if($subreddit) {
 			$view['subscribed'] = Subreddit::isSubscribedToSubreddit($subreddit);
 		}

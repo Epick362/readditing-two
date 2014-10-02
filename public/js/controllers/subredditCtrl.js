@@ -13,6 +13,24 @@ angular.module('subredditCtrl', [])
 			$scope.reddit = new Reddit(false, $attrs.profile);
 		}
 		$scope.user = $attrs.user;
+		$scope.nsfw = $attrs.nsfw;
+
+		$scope.setNSFW = function() {
+			if(!$scope.nsfw) {
+				var method = 'POST';
+			}else{
+				var method = 'DELETE';
+			}
+
+			var url = base_url + 'api/settings/nsfw';
+
+			$scope.nsfw = !$scope.nsfw;
+
+			$http({
+				method: method, 
+				url: url
+			});
+		}
 
 		$scope.submit = function(post, kind) {
 			if($attrs.user == false) {

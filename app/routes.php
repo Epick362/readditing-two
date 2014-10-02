@@ -41,19 +41,25 @@ Route::group(array('before' => 'auth'), function() {
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
 	Route::get('/r/{subreddit?}', 'ApiController@indexPost');
-	Route::post('/submit', 'ApiController@storePost');
 
 	Route::get('/u/{user}/{category?}', 'ApiController@indexProfile');
 
 	Route::get('/r/{subreddit}/comments/{thing}', 'ApiController@indexComment');
-	Route::post('/comment', 'ApiController@storeComment');
 
-	Route::post('/vote/{id}', 'ApiController@storeVote');
-	Route::delete('/vote/{id}', 'ApiController@destroyVote');
+	Route::group(array('before' => 'auth'), function() {
+		Route::post('/submit', 'ApiController@storePost');
+		Route::post('/comment', 'ApiController@storeComment');
 
-	Route::post('/save/{id}', 'ApiController@storeSave');
-	Route::delete('/save/{id}', 'ApiController@destroySave');	
+		Route::post('/vote/{id}', 'ApiController@storeVote');
+		Route::delete('/vote/{id}', 'ApiController@destroyVote');
 
-	Route::post('/subscribe/{id}', 'ApiController@storeSubscribe');
-	Route::delete('/subscribe/{id}', 'ApiController@destroySubscribe');	
+		Route::post('/save/{id}', 'ApiController@storeSave');
+		Route::delete('/save/{id}', 'ApiController@destroySave');	
+
+		Route::post('/settings/{setting}', 'ApiController@storeSetting');
+		Route::delete('/settings/{setting}', 'ApiController@destroySetting');	
+
+		Route::post('/subscribe/{id}', 'ApiController@storeSubscribe');
+		Route::delete('/subscribe/{id}', 'ApiController@destroySubscribe');	
+	});
 });

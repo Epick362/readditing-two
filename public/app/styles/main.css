@@ -7620,6 +7620,7 @@ a.active:hover {
 .panel {
   margin-left: -15px;
   margin-right: -15px;
+  margin-bottom: 40px;
 }
 @media (min-width: 768px) {
   .panel {
@@ -7632,12 +7633,11 @@ a.active:hover {
 }
 .panel-heading {
   font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 2.2em;
+  font-size: 2.1em;
 }
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  font-weight: 100;
 }
 .panel-footer a {
   font-weight: 400;
@@ -7654,10 +7654,18 @@ a.active:hover {
   width: 90%;
   margin: 5px auto;
 }
-.panel {
-  margin-bottom: 40px;
+.panel-body a.nsfw {
+  display: block;
+  color: #d9534f;
+  text-align: center;
 }
-.panel-body > .panel-text {
+.panel-body a.nsfw .title {
+  font-size: 64px;
+  font-weight: 100;
+  letter-spacing: 14px;
+  line-height: 68px;
+}
+.panel-body .panel-text {
   font-family: Palatino, Cambria, Georgia, "Times New Roman", serif;
   position: relative;
   margin: 0 auto;
@@ -7666,7 +7674,7 @@ a.active:hover {
   font-size: 16px;
   line-height: 1.65;
 }
-.panel-body > .panel-text img {
+.panel-body .panel-text img {
   display: block;
   width: 100% \9;
   max-width: 100%;
@@ -7674,10 +7682,10 @@ a.active:hover {
   margin: 10px auto;
   border-radius: 6px;
 }
-.panel-body > .panel-text .navbar-fixed-top {
+.panel-body .panel-text .navbar-fixed-top {
   position: relative;
 }
-.panel-body > .panel-text .container {
+.panel-body .panel-text .container {
   width: 100%;
 }
 .panel-footer [class^="fa-"],
@@ -7690,7 +7698,6 @@ a.active:hover {
   max-height: 250px;
 }
 .col-md-3.sidebar {
-  position: fixed;
   top: 120px;
   width: 263px;
 }

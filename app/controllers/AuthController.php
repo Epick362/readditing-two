@@ -75,7 +75,21 @@ class AuthController extends Controller {
 			  string(5) "cn3jt"
 			}
 		*/
+
+		$_user = Users::where('name', $user['name'])->with('settings')->first();
+
+		if($_user) {
+			$_user->touch();
+		}else{
+			$_user = new \Users;
+			$_user['name'] = $user['name'];
+			$_user['created'] = $user['created_utc'];
+			$_user['over_18'] = $user['over_18'];
+			$_user->save();
+		}
+
 		Session::put('user', $user);
+
 		Session::put('access_token', $params->access_token);
 		Cookie::queue('token_generated', time(), 60 * 24 * 30);
 

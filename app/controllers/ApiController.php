@@ -119,6 +119,43 @@ class ApiController extends \BaseController {
 	} 
 
 
+	public function showSetting() {
+		return Response::json(UsersSettings::where('user', Session::get('user.name'))->first());
+	} 
+
+	public function indexSetting($setting) {
+		return Response::json(UsersSettings::where('user', Session::get('user.name'))->where('setting', $setting)->first());
+	} 
+
+	public function storeSetting($setting) {
+		$result = UsersSettings::where('user', Session::get('user.name'))->where('setting', $setting)->first();
+
+		if(is_null($result)) {
+			$_setting = new UsersSettings;
+			$_setting['user'] = Session::get('user.name');
+			$_setting['setting'] = $setting;
+			$_setting['value'] = 1;
+			$_setting->save();
+
+			return Response::json($_setting);
+		}
+
+		return Response::json(null);
+	} 
+
+	public function destroySetting($setting) {
+		$result = UsersSettings::where('user', Session::get('user.name'))->where('setting', $setting)->first();
+
+		if(!is_null($result)) {
+			$result->delete();
+
+			return Response::json($result);
+		}
+
+		return Response::json(null);
+	}
+
+
 	public function storeSubscribe($id) {
 		$subreddit = Subreddit::getSubredditData($id);
 
