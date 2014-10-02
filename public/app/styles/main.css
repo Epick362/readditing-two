@@ -7674,6 +7674,12 @@ a.active:hover {
   margin: 10px auto;
   border-radius: 6px;
 }
+.panel-body > .panel-text .navbar-fixed-top {
+  position: relative;
+}
+.panel-body > .panel-text .container {
+  width: 100%;
+}
 .panel-footer [class^="fa-"],
 .panel-footer [class*=" fa-"] {
   font-size: 18px;
