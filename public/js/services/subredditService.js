@@ -40,7 +40,7 @@ angular.module('subredditService', [])
 
 					var title = 'Readditing | '+this.profile+' | Page '+this.page;
 
-					History.replaceState(null, title, '?after=t3_'+last.id);
+					History.pushState(null, title, '?after=t3_'+last.id);
 				}
 
 				this.busy = false;
@@ -91,7 +91,7 @@ angular.module('subredditService', [])
 						var title = 'Readditing | Page '+this.page;
 					}
 
-					History.replaceState(null, title, '?after=t3_'+last.id);
+					History.pushState(null, title, '?after=t3_'+last.id);
 				}
 
 				this.busy = false;
