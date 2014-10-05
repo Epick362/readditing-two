@@ -6,11 +6,11 @@ class Subreddit extends Eloquent {
 
 	public static function showPost( $subreddit, $thing ) {
 		if(Session::has('user')) {
-			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user.name')), 10, function() use($subreddit, $thing) {
+			$data = Cache::tags(Session::get('user.name'), $subreddit, $thing)->remember('comments', 10, function() use($subreddit, $thing) {
 				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 			});
 		}else{
-			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing), 10, function() use($subreddit, $thing) {
+			$data = Cache::tags($subreddit, $thing)->remember('comments', 10, function() use($subreddit, $thing) {
 				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 			});
 		}
@@ -33,19 +33,21 @@ class Subreddit extends Eloquent {
 
 		if($subreddit) {
 			if(Session::has('user')) {
-				$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?user='.Session::get('user.name').'&after='.$after), 10, function() use($subreddit, $params) {
+				$posts = Cache::tags(Session::get('user.name'), $subreddit, $after)->remember('r', 10, function() use($subreddit, $params) {
 					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
 				});
 			}else{
-				$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?after='.$after), 10, function() use($subreddit, $params) {
+				$posts = Cache::tags($subreddit, $after)->remember('r', 10, function() use($subreddit, $params) {
 					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
 				});
 			}
 		}else{
 			if(Session::has('user')) {
-				$posts = Reddit::fetch('hot.json', $params);
+				$posts = Cache::tags(Session::get('user.name'), $after)->remember('r', 10, function() use($subreddit, $params) {
+					return Reddit::fetch('hot.json', $params);
+				});
 			}else{
-				$posts = Cache::remember(urlencode('hot.json?after='.$after), 10, function() use($subreddit, $params) {
+				$posts = Cache::tags($after)->remember('r', 10, function() use($subreddit, $params) {
 					return Reddit::fetch('hot.json', $params);
 				});
 			}
@@ -83,11 +85,11 @@ class Subreddit extends Eloquent {
 		}
 
 		if(Session::has('user')) {
-			$posts = Cache::remember(urlencode('user/'.$user.'/'.$category.'.json?user='.Session::get('user.name').'&after='.$after), 10, function() use($user, $category, $params) {
+			$posts = Cache::tags(Session::get('user.name'), $user, $category, $after)->remember('user', 10, function() use($user, $category, $params) {
 				return Reddit::fetch('user/'.$user.'/'.$category.'.json', $params);
 			});
 		}else{
-			$posts = Cache::remember(urlencode('user/'.$user.'/'.$category.'.json?after='.$after), 10, function() use($user, $category, $params) {
+			$posts = Cache::tags($user, $category, $after)->remember('user', 10, function() use($user, $category, $params) {
 				return Reddit::fetch('user/'.$user.'/'.$category.'.json', $params);
 			});
 		}
@@ -97,11 +99,13 @@ class Subreddit extends Eloquent {
 
 	public static function getComments( $subreddit, $thing, $after = null ) {
 		if(Session::has('user')) {
-			$comments = Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
-				'depth' => 4
-			]);
+			$comments = Cache::tags(Session::get('user.name'), $subreddit, $thing, 'depth4')->remember('comments', 10, function() use($subreddit, $thing) {
+				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+							'depth' => 4
+						]);
+			});
 		}else{
-			$comments = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'.json'), 10, function() use($subreddit, $thing) {
+			$comments = Cache::tags($subreddit, $thing, 'depth4')->remember('comments', 10, function() use($subreddit, $thing) {
 				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
 							'depth' => 4
 						]);
@@ -116,7 +120,7 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getPopular() {
-		$popular = Cache::remember(urlencode('subreddits/popular.json'), 1440, function() {
+		$popular = Cache::remember('popular', 1440, function() {
 			return Reddit::fetch('subreddits/popular.json'); 
 		});
 
@@ -129,7 +133,7 @@ class Subreddit extends Eloquent {
 
 	public static function getSubscribed() {
 		if(Session::has('user')) {
-			$subscribed = Cache::remember(urlencode('reddits/mine.json?user='.Session::get('user.name')), 60, function() {
+			$subscribed = Cache::tags(Session::get('user.name'))->remember('mine', 60, function() {
 				return Reddit::fetch('subreddits/mine.json'); 
 			});
 			
@@ -142,7 +146,7 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getSubredditData($subreddit) {
-		$data = Cache::remember(urlencode('r/'.$subreddit.'/about.json'), 60, function() use($subreddit) {
+		$data = Cache::tags($subreddit)->remember('about', 60, function() use($subreddit) {
 			return Reddit::fetch('r/'.$subreddit.'/about.json'); 
 		});
 
@@ -154,8 +158,10 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function isSubscribedToSubreddit($subreddit) {
-		$mine = Reddit::fetch('reddits/mine.json'); 
-
+		$mine = Cache::tags(Session::get('user.name'))->remember('mine', 60, function() use($subreddit) {
+			return Reddit::fetch('reddits/mine.json'); 
+		});
+		
 		if(!empty($mine) && isset($mine['data'])) {
 			foreach($mine['data']['children'] as $sub) {
 				if(strtolower($sub['data']['display_name']) == strtolower($subreddit)) {
