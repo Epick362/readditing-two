@@ -23,7 +23,7 @@ class FrontpageController extends BaseController {
 			$view['subscribed'] = Subreddit::isSubscribedToSubreddit($subreddit);
 		}
 
-		$view['popular'] = Subreddit::getPopular();
+		$view['popular'] = Subreddit::getSubscribed();
 
 		return View::make('frontpage', $view);
 	}
@@ -32,7 +32,7 @@ class FrontpageController extends BaseController {
 		$view = array();
 		$view['subreddit'] = $subreddit;
 		$view['username'] = Session::get('user')['name'];
-		$view['popular'] = Subreddit::getPopular();
+		$view['popular'] = Subreddit::getSubscribed();
 
 		$view['post'] = Subreddit::showPost($subreddit, $thing);
 

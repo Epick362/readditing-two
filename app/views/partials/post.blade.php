@@ -18,7 +18,7 @@
 			</div>
 			<div ng-show="post.nsfw && !nsfw" class="panel-body">
 				<a href="" ng-click="setNSFW()" class="nsfw" analytics-on analytics-event="NSFW ON">
-					<div class="title">NSFW</div>
+					<div class="title">&nbsp;NSFW</div>
 					Click to show
 				</a>
 			</div>

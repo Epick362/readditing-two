@@ -107,6 +107,8 @@ class ApiController extends \BaseController {
 			'id' => $id
 		], 'POST'); 
 
+		Cache::forget(urlencode('user/'.Session::get('user.name').'/saved.json?user='.Session::get('user.name').'&after='));
+
 		return Response::json($response);
 	} 
 
@@ -114,6 +116,8 @@ class ApiController extends \BaseController {
 		$response = Reddit::fetch('api/unsave', [
 			'id' => $id
 		], 'POST'); 
+		
+		Cache::forget(urlencode('user/'.Session::get('user.name').'/saved.json?user='.Session::get('user.name').'&after='));
 
 		return Response::json($response);		
 	} 
@@ -164,6 +168,8 @@ class ApiController extends \BaseController {
 			'sr' => 't5_'.$subreddit['data']['id']
 		], 'POST'); 
 
+		Cache::forget(urlencode('reddits/mine.json?user='.Session::get('user.name')));
+
 		return Response::json($response);
 	} 
 
@@ -174,6 +180,8 @@ class ApiController extends \BaseController {
 			'action' => 'unsub',
 			'sr' => 't5_'.$subreddit['data']['id']
 		], 'POST'); 
+
+		Cache::forget(urlencode('reddits/mine.json?user='.Session::get('user.name')));
 
 		return Response::json($response);		
 	} 

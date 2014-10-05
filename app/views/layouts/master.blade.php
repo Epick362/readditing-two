@@ -34,7 +34,6 @@
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 		
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/kudos.css') }}">
 
 		<link id="ApiRoot" href="{{ URL::to('') }}" />
 	</head>
@@ -112,7 +111,6 @@
 		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
 		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/kudos.js') }}"></script>
 
 		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>

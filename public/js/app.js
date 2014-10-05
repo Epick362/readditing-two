@@ -4,8 +4,7 @@ var subredditApp = angular.module('readditingApp', [
 		'subredditCtrl', 
 		'subredditService', 
 		'ngSanitize', 
-		'infinite-scroll', 
-		'angular-kudos', 
+		'infinite-scroll',
 		'angularMoment',
 		'angulartics', 
 		'angulartics.google.analytics'

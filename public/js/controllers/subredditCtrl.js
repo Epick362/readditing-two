@@ -51,7 +51,7 @@ angular.module('subredditCtrl', [])
 				$window.location.href = base_url + 'r/'+post.sr+'/comments/'+data['json']['data']['id'];
 			})
 			.error(function() {
-				alert('Error while posting.');
+				console.log('Error while posting.');
 			});	
 		};
 
@@ -73,18 +73,19 @@ angular.module('subredditCtrl', [])
 				var method = 'DELETE';
 			}
 
+			thing.likes = !thing.likes;
+
 			$http({method: method, url: url})
 			.success(function() {
 				if(dir === 1) {
-					thing.likes = true;
 					thing.score ++;
 				}else{
-					thing.likes = false;
 					thing.score --;
 				}
 			})
 			.error(function() {
-				alert('Error while upvoting.');
+				thing.likes = !thing.likes;
+				console.log('Error while upvoting.');
 			});
 		};
 
@@ -101,17 +102,13 @@ angular.module('subredditCtrl', [])
 			}else{
 				var method = 'DELETE';
 			}
+			
+			thing.saved = !thing.saved;
 
 			$http({method: method, url: url})
-			.success(function() {
-				if(dir === 1) {
-					thing.saved = true;
-				}else{
-					thing.saved = false;
-				}
-			})
 			.error(function() {
-				alert('Error while saving.');
+				thing.saved = !thing.saved;
+				console.log('Error while saving.');
 			});	
 		};
 
@@ -129,16 +126,11 @@ angular.module('subredditCtrl', [])
 				var method = 'DELETE';
 			}
 
+			$scope.subscribed = !$scope.subscribed;
+
 			$http({method: method, url: url})
-			.success(function() {
-				if(dir === 1) {
-					$scope.subscribed = true;
-				}else{
-					$scope.subscribed = false;
-				}
-			})
 			.error(function() {
-				alert('Error while subscribing.');
+				console.log('Error while subscribing.');
 			});	
 		}
 
@@ -180,19 +172,25 @@ angular.module('subredditCtrl', [])
 					thing: type + '_' + thing.id
 				}
 			})
-			.success(function() {
+			.success(function(data) {
 				thing.replied = true;
 
-				if(type !== 't3') {		
-					var reply = {
-						author: $scope.user,
-						score: 1,
-						body: thing.reply,
-						likes: true,
-						saved: false,
-						replies: false
-					};
+				var reply = data.json.data.things[0].data;
 
+				console.log(thing);
+
+				var reply = {
+					id: reply.id,
+					author: reply.author,
+					score: 1,
+					create: reply.created,
+					body: reply.body,
+					likes: true,
+					saved: false,
+					replies: false
+				};
+
+				if(type !== 't3') {		
 					if(typeof thing.replies !== 'object') {
 						thing.replies = [];
 					}
@@ -201,7 +199,7 @@ angular.module('subredditCtrl', [])
 				}
 			})
 			.error(function() {
-				alert('Error while posting.');
+				console.log('Error while posting.');
 			});
 		};
 	})

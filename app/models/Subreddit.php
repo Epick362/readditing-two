@@ -6,7 +6,7 @@ class Subreddit extends Eloquent {
 
 	public static function showPost( $subreddit, $thing ) {
 		if(Session::has('user')) {
-			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user')['name']), 10, function() use($subreddit, $thing) {
+			$data = Cache::remember(urlencode('r/'.$subreddit.'/comments/'.$thing.'/?user='.Session::get('user.name')), 10, function() use($subreddit, $thing) {
 				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
 			});
 		}else{
@@ -33,7 +33,7 @@ class Subreddit extends Eloquent {
 
 		if($subreddit) {
 			if(Session::has('user')) {
-				$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?user='.Session::get('user')['name'].'&after='.$after), 10, function() use($subreddit, $params) {
+				$posts = Cache::remember(urlencode('r/'.$subreddit.'/hot.json?user='.Session::get('user.name').'&after='.$after), 10, function() use($subreddit, $params) {
 					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
 				});
 			}else{
@@ -59,7 +59,6 @@ class Subreddit extends Eloquent {
 			'title' => $input['title'],
 			'sr' => $input['sr'],
 			'kind' => $input['kind'],
-			'save' => true,
 			'api_type' => 'json'
 		];
 
@@ -84,7 +83,7 @@ class Subreddit extends Eloquent {
 		}
 
 		if(Session::has('user')) {
-			$posts = Cache::remember(urlencode('user/'.$user.'/'.$category.'.json?user='.Session::get('user')['name'].'&after='.$after), 10, function() use($user, $category, $params) {
+			$posts = Cache::remember(urlencode('user/'.$user.'/'.$category.'.json?user='.Session::get('user.name').'&after='.$after), 10, function() use($user, $category, $params) {
 				return Reddit::fetch('user/'.$user.'/'.$category.'.json', $params);
 			});
 		}else{
@@ -126,6 +125,20 @@ class Subreddit extends Eloquent {
 		}
 
 		return false;
+	}
+
+	public static function getSubscribed() {
+		if(Session::has('user')) {
+			$subscribed = Cache::remember(urlencode('reddits/mine.json?user='.Session::get('user.name')), 60, function() {
+				return Reddit::fetch('subreddits/mine.json'); 
+			});
+			
+			if($subscribed) {
+				return $subscribed;
+			}
+		}
+
+		return self::getPopular();
 	}
 
 	public static function getSubredditData($subreddit) {

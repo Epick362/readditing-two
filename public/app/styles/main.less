@@ -12,7 +12,9 @@
 	margin-top: 120px; 
 } 
 
-.ng-cloak { display:none; }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 .modal-footer {
   text-align: left;
@@ -147,16 +149,33 @@ a.active {
   background-color: rgba(0, 0, 0, .01);
 }
 
+.dropdown-menu {
+  border-top: 0;
+  opacity: 0.95;
+}
+
 .panel {
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 40px;
 }
 
+.panel-default {
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+
 @media (min-width: @screen-tablet) {
   .panel {
     margin-left: 0;
     margin-right: 0;
+  }
+
+  .panel-default {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-radius: 3px;
   }
 }
 
@@ -243,12 +262,16 @@ a.active {
 	max-height: 250px;
 }
 
-.col-md-3.sidebar {
+.sidebar {
   top: 120px;
   width: 263px;
 
   & .panel-heading {
-    font-size: 1.6em;
+    font-size: 1.7em;
+  }
+
+  & .panel-body {
+    padding-top: 5px;
   }
 }
 

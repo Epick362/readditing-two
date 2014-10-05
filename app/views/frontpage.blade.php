@@ -36,12 +36,12 @@
 		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:10px" analytics-on>Submit new post</a>
 	@endif
 
-	<a class="btn btn-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:10px" analytics-on>Turn off NSFW posts</a>
+	<a ng-cloak class="btn btn-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:10px" analytics-on>Turn off NSFW posts</a>
 @stop
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
-		<div id="subreddit" ng-cloak>
+		<div id="subreddit ng-cloak" ng-cloak>
 			@if(isset($subreddit) && $subreddit)
 			<div class="panel panel-default">
 				<div class="panel-heading">
