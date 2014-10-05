@@ -80,9 +80,8 @@
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn hidden-xs" analytics-on analytics-event="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 		        		@else
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> {{ Session::get('user.name') }} <b class="caret"></b></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Session::get('user.name') }} <b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li class="dropdown-header">My profile</li>
 									<li><a href="{{ URL::to('u/'.Session::get('user')['name']) }}">Overview</a></li>
 									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/submitted') }}">Submitted</a></li>
 									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/liked') }}">Liked</a></li>
@@ -128,7 +127,7 @@
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-46225304-3', 'auto');
+		  ga('create', 'UA-46225304-1', 'auto');
 		  ga('send', 'pageview');
 
 		</script>
