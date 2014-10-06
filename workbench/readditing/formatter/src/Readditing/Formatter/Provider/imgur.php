@@ -2,7 +2,7 @@
 namespace Readditing\Formatter\Provider;
 
 use Readditing\Formatter\Provider;
-
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
@@ -56,16 +56,37 @@ class Imgur extends Provider {
 	}
 
 	public function getImage($id) {
-		try {
-			$client = new Client();
-			$response = $client->get("https://api.imgur.com/3/image/".$id, [
-				'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
-			])->json();
-		}catch (\Exception $e) {
+		$cache = \ImgurCache::where('name', $id)->first();
+
+		if($cache) {
+			$this->data['data']['url'] = $cache['link'];
+
+			$cache->touch();
+		}else if(!\Cache::has('imgurRateLimit')) {
+			try {
+				$client = new Client();
+				$imgur = $client->get("https://api.imgur.com/3/image/".$id, [
+					'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+				]);
+
+				$response = $imgur->json();
+			}catch (\Exception $e) {
+				return $this->fail();
+			}
+
+			if($imgur->getHeader('X-RateLimit-ClientRemaining') && $imgur->getHeader('X-RateLimit-ClientRemaining') < 10) {
+				\Cache::put('imgurRateLimit', Carbon::now(), Carbon::createFromTimeStamp($imgur->getHeader('X-RateLimit-ClientReset')) - Carbon::now());
+			}
+
+			$image = new \ImgurCache;
+			$image['name'] = $id;
+			$image['link'] = $response['data']['link'];
+			$image->save();
+
+			$this->data['data']['url'] = $response['data']['link'];
+		}else{
 			return $this->fail();
 		}
-
-		$this->data['data']['url'] = $response['data']['link'];
 
 		return array(
 			'title' => $this->data['data']['title'], 

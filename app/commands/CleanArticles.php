@@ -28,12 +28,20 @@ class CleanArticles extends Command {
 	 */
 	public function fire()
 	{
-		$affected_rows = Article::where('updated_at', '>=', Carbon::now()->subDays(1)->toDateTimeString())->delete();
+		$affected_rows_articles = Article::where('updated_at', '>=', Carbon::now()->subDays(1)->toDateTimeString())->delete();
 
-		if($affected_rows) {
+		if($affected_rows_articles) {
 			$this->info('Articles purged.');
 		}else{
 			$this->error('Article purging failed.');
+		}
+
+		$affected_rows_imgur = ImgurCache::where('updated_at', '>=', Carbon::now()->subDays(1)->toDateTimeString())->delete();
+
+		if($affected_rows_imgur) {
+			$this->info('Imgur purged.');
+		}else{
+			$this->error('Imgur purging failed.');
 		}
 	}
 
