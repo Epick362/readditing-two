@@ -74,8 +74,8 @@ class Imgur extends Provider {
 				return $this->fail();
 			}
 
-			if($imgur->getHeader('X-RateLimit-ClientRemaining') && $imgur->getHeader('X-RateLimit-ClientRemaining') < 10) {
-				\Cache::put('imgurRateLimit', Carbon::now(), Carbon::createFromTimeStamp($imgur->getHeader('X-RateLimit-ClientReset')) - Carbon::now());
+			if($imgur->getStatusCode() == 429 || ($imgur->getHeader('X-RateLimit-ClientRemaining') && $imgur->getHeader('X-RateLimit-ClientRemaining') < 10)) {
+				\Cache::put('imgurRateLimit', time(), Carbon::createFromTimeStamp($imgur->getHeader('X-RateLimit-ClientReset')) - Carbon::now());
 			}
 
 			$image = new \ImgurCache;
