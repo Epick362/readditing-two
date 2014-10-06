@@ -3,10 +3,10 @@
 			<div class="upvote-wrapper hidden-sm hidden-xs" ng-if="post.author">
 				<div class="upvote-container">
 					<span ng-if="!post.likes">
-						<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)" analytics-on analytics-event="Upvote"><i class="fa fa-arrow-up"></i></a>
+						<a href="" class="btn btn-upvote lg" ng-click="vote(post, 't3', 1)" analytics-on analytics-category="Upvote" analytics-label="Up"><i class="fa fa-arrow-up"></i></a>
 					</span>
 					<span ng-if="post.likes">
-						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)" analytics-on analytics-event="UnUpvote"><i class="fa fa-arrow-up"></i></a>
+						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)" analytics-on analytics-category="Upvote" analytics-label="Un"><i class="fa fa-arrow-up"></i></a>
 					</span>
 					<p class="text-center" ng-class="{'text-alternate': post.likes}" style="margin-top:5px"><% post.score %></p>
 				</div>
@@ -17,7 +17,7 @@
 				<div class="clearfix"></div>
 			</div>
 			<div ng-show="post.nsfw && !nsfw" class="panel-body">
-				<a href="" ng-click="setNSFW()" class="nsfw" analytics-on analytics-event="NSFW ON">
+				<a href="" ng-click="setNSFW()" class="nsfw" analytics-on analytics-category="NSFW" analytics-label="Turn on">
 					<div class="title">&nbsp;NSFW</div>
 					Click to show
 				</a>
@@ -30,11 +30,11 @@
 					<div class="col-xs-12 text-center">
 						@if(Session::has('user'))
 						<span ng-if="!post.likes">
-							<a href="" class="btn btn-upvote btn-xs" ng-click="vote(post, 't3', 1)" analytics-on analytics-event="Upvote"><i class="fa fa-arrow-up"></i></a>
+							<a href="" class="btn btn-upvote btn-xs" ng-click="vote(post, 't3', 1)" analytics-on analytics-category="Upvote" analytics-label="Up"><i class="fa fa-arrow-up"></i></a>
 							<small class="text-alternate"><% post.score %> upvotes</small>
 						</span>
 						<span ng-if="post.likes">
-							<a href="" class="btn btn-upvote btn-xs active" ng-click="vote(post, 't3', 0)" analytics-on analytics-event="UnUpvote"><i class="fa fa-arrow-up"></i></a>
+							<a href="" class="btn btn-upvote btn-xs active" ng-click="vote(post, 't3', 0)" analytics-on analytics-category="Upvote" analytics-label="Un"><i class="fa fa-arrow-up"></i></a>
 							<small class="text-alternate"><% post.score %> upvotes</small>
 						</span>		
 						@else	
@@ -54,10 +54,10 @@
 					<div class="col-xs-4 text-right">
 						@if(Session::has('user'))
 							<span ng-if="!post.saved">
-								<a ng-click="save(post, 't3', 1)" href="" analytics-on analytics-event="Save"><i class="fa fa-save"></i> Save</a>
+								<a ng-click="save(post, 't3', 1)" href="" analytics-on analytics-category="Save"><i class="fa fa-save"></i> Save</a>
 							</span>
 							<span ng-if="post.saved">
-								<a ng-click="save(post, 't3', 0)" class="active" href="" analytics-on analytics-event="Unsave"><i class="fa fa-save"></i> Unsave</a>
+								<a ng-click="save(post, 't3', 0)" class="active" href="" analytics-on analytics-category="Unsave"><i class="fa fa-save"></i> Unsave</a>
 							</span>
 						@endif
 						<span>
