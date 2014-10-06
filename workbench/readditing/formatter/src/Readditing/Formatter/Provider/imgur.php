@@ -75,7 +75,7 @@ class Imgur extends Provider {
 			}
 
 			if($imgur->getStatusCode() == 429 || ($imgur->getHeader('X-RateLimit-ClientRemaining') && $imgur->getHeader('X-RateLimit-ClientRemaining') < 10)) {
-				\Cache::put('imgurRateLimit', time(), 120);
+				\Cache::put('imgurRateLimit', 'now', 120);
 			}
 
 			$image = new \ImgurCache;
