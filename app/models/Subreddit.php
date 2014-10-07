@@ -194,6 +194,8 @@ class Subreddit extends Eloquent {
 		$formatter = Formatter::provider($_post);
 		$post = $formatter->getPost();
 
+		$post['title'] = htmlspecialchars_decode($post['title']);
+
 		$post['id'] = $_post['data']['id'];
 		$post['url'] = $_post['data']['url'];
 		$post['subreddit'] = $_post['data']['subreddit'];
