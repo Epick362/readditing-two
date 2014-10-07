@@ -12,7 +12,7 @@
 				</div>
 			</div>
 			<div class="panel-heading">
-				<% post.title %>
+				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"><% post.title %></a>
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
@@ -60,9 +60,6 @@
 								<a ng-click="save(post, 't3', 0)" class="active" href="" analytics-on analytics-category="Unsave"><i class="fa fa-save"></i> Unsave</a>
 							</span>
 						@endif
-						<span>
-							<a href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"><i class="fa fa-share"></i> Permalink</a>
-						</span>
 					</div>
 				</div>
 			</div>

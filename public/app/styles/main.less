@@ -184,8 +184,17 @@ a.active {
 }
 
 .panel-heading {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif; 
   font-size: 2.1em;
+
+  & .title {
+    color: @gray-dark;
+    font-weight: bold;
+  }
+
+  & a.title:hover {
+    color: @brand-primary;
+  }
 }
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;

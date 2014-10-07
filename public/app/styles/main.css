@@ -7654,6 +7654,13 @@ a.active:hover {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 2.1em;
 }
+.panel-heading .title {
+  color: #333333;
+  font-weight: bold;
+}
+.panel-heading a.title:hover {
+  color: #3e7fb2;
+}
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
