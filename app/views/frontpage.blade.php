@@ -41,6 +41,8 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
+		@include('partials.leaderboard')
+
 		<div id="subreddit ng-cloak" ng-cloak>
 			@if(isset($subreddit) && $subreddit)
 			<div class="panel panel-default">
