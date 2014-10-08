@@ -1,5 +1,7 @@
 <?php
 
+use Readditing\Readability\Readability as Readability;
+
 class FrontpageController extends BaseController {
 
 	/*
