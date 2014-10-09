@@ -60,13 +60,13 @@ class OtherProvider extends Provider {
 						$this->data['data']['readability'] = $readability->getContent()->innerHTML;
 						\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']), 0);
 					}else{
-						$this->fail();
+						return $this->fail();
 					}
 				}else{
-					$this->fail();
+					return $this->fail();
 				}
 			}catch (\Exception $e) {
-				$this->fail();
+				return $this->fail();
 			}
 		}else{
 			$article = $saved_article;
