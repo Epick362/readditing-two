@@ -82,7 +82,7 @@ class OtherProvider extends Provider {
 		);
 	}
 
-	public function fail($host) {
+	public function fail() {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => 'Sorry we couldn\'t get this content for you', 
