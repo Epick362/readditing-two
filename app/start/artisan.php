@@ -15,3 +15,4 @@
 	Artisan::add(new CleanArticles);
 	Artisan::add(new BlacklistUser);
 	Artisan::add(new BlacklistThing);
+	Artisan::add(new AddSiteNotification);
