@@ -7,7 +7,9 @@ class SiteNotifications extends Eloquent {
 	protected $table = 'site_notifications';
 
 	public static function getNotifications() {
-		$notifs = SiteNotifications::where('show_until', '>=', Carbon::now()->toDateTimeString())->get();
+		$notifs = Cache::remember('site_notifications', 60, function() {
+			return SiteNotifications::where('show_until', '>=', Carbon::now()->toDateTimeString())->get();
+		});
 
 		return $notifs;
 	}

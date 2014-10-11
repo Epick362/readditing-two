@@ -43,6 +43,8 @@ class BlacklistUser extends Command {
 		$user['user'] = $data;
 		$user->save();
 
+		Cache::forget('blacklisted_users');
+
 		$this->info('User '.$data.' is now blacklisted');
 	}
 

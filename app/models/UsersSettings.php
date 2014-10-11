@@ -10,7 +10,10 @@ class UsersSettings extends Eloquent {
 
     public static function getSettingsForSession($user) {
     	$settings = [];
-    	$result = UsersSettings::where('user', $user)->get();
+
+    	$result = Cache::tags($user)->rememberForever('settings', function() use($user) {
+            return UsersSettings::where('user', $user)->get();
+        });
 
     	foreach($result as $setting) {
     		$settings[$setting['setting']] = $setting['value'];
