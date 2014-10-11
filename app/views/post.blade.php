@@ -61,6 +61,9 @@
 					<div class="col-xs-4 text-center">
 						<a href="" ng-click="comments({{ htmlspecialchars(json_encode($post)) }})"><i class="fa fa-comment-o"></i> {{ $post['comments'] }} comments</a>
 					</div>
+					<div class="col-xs-4 text-right">
+						{{ Carbon\Carbon::createFromTimeStamp($post['created'])->diffForHumans() }} 
+					</div>
 				</div>
 			</div>
 		</div>
