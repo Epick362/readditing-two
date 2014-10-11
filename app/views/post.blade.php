@@ -40,7 +40,9 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
-		@include('partials.leaderboard')
+		@if(!$post['nsfw'])
+			@include('partials.leaderboard')
+		@endif
 
 		<div class="panel panel-default">
 			<div class="panel-heading">

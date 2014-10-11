@@ -41,7 +41,9 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
-		@include('partials.leaderboard')
+		@if(!$subreddit || ($subreddit && isset($subredditData['data']) && !$subredditData['data']['over18']))
+			@include('partials.leaderboard')
+		@endif
 
 		@foreach($notifications as $notification)
 			<div class="alert alert-{{ $notification['type'] }}">

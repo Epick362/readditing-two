@@ -23,6 +23,7 @@ class FrontpageController extends BaseController {
 		$view['notifications'] = SiteNotifications::getNotifications();
 		
 		if($subreddit) {
+			$view['subredditData'] = Subreddit::getSubredditData($subreddit);
 			$view['subscribed'] = Subreddit::isSubscribedToSubreddit($subreddit);
 		}
 
