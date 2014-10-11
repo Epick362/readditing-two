@@ -47,7 +47,7 @@ class OtherProvider extends Provider {
 		if(!$saved_article) {
 			try {
 				$client = new Client();
-				$response = $client->get('https://readability.com/api/content/v1/parser?url='.urlencode($this->data['data']['url']).'&token=9724d804318495363bae40e8e8f9ffd30e43b716')->json();
+				$response = $client->get('https://readability.com/api/content/v1/parser?url='.urlencode($this->data['data']['url']).'&token=38c503412da4af77846b0a2ff7a0973838472add')->json();
 
 				$this->data['data']['readability'] = $response['content'];
 				\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']));
