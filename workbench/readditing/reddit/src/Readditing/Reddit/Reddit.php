@@ -48,7 +48,7 @@ class Reddit {
 		try {
 			return $response->json();
 		}catch(\Exception $e){
-			return array();
+			return App::abort(503);
 		}
 	}
 }
