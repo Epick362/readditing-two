@@ -56,7 +56,7 @@ class ApiController extends \BaseController {
 			return Response::json($data);
 		}
 
-		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
+		return Response::json(null);
 	}
 
 	public function storeComment() {
