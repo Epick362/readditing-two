@@ -53,6 +53,8 @@ class Subreddit extends Eloquent {
 			}
 		}
 
+		dd($posts);
+
 		return self::_formatPosts($posts);
 	}
 
