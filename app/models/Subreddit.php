@@ -199,7 +199,11 @@ class Subreddit extends Eloquent {
 		$post['id'] = $_post['data']['id'];
 		$post['url'] = $_post['data']['url'];
 		$post['subreddit'] = $_post['data']['subreddit'];
-		$post['author'] = $_post['data']['author'];
+		if(isset($_post['data']['author'])) {
+			$post['author'] = $_post['data']['author'];
+		}else{
+			$post['author'] = '';
+		}
 		$post['created'] = $_post['data']['created_utc'];
 		$post['score'] = $_post['data']['score'];
 		$post['likes'] = $_post['data']['likes'];
