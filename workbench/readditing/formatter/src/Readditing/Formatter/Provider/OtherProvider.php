@@ -45,27 +45,13 @@ class OtherProvider extends Provider {
 
 		$saved_article = \Article::where('url', $this->data['data']['url'])->first();
 		if(!$saved_article) {
-			try {
-				$client = new Client();
-				$response = $client->get('https://readability.com/api/content/v1/parser?url='.urlencode($this->data['data']['url']).'&token=38c503412da4af77846b0a2ff7a0973838472add')->json();
+			$readability = new Readability($this->data['data']['url']);
+			$readability->init();
 
-				$this->data['data']['readability'] = $response['content'];
-				\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']));
-			}catch(RequestException $e) {
-				if ($e->getResponse()->getStatusCode() == 429) {
-					$readability = new Readability($this->data['data']['url']);
-					$readability->init();
-
-					if($readability->getContent()) {
-						$this->data['data']['readability'] = $readability->getContent()->innerHTML;
-						\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']), 0);
-					}else{
-						return $this->fail();
-					}
-				}else{
-					return $this->fail();
-				}
-			}catch (\Exception $e) {
+			if($readability->getContent()) {
+				$this->data['data']['readability'] = $readability->getContent()->innerHTML;
+				\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']), 0);
+			}else{
 				return $this->fail();
 			}
 		}else{
