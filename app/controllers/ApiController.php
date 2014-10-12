@@ -5,6 +5,8 @@ class ApiController extends \BaseController {
 	public function indexPost($subreddit = NULL) {
 		$data = Subreddit::indexPost($subreddit, Input::get('after'));
 
+		dd($data);
+
 		if($data) {
 			return Response::json($data);
 		}
