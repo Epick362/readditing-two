@@ -41,7 +41,7 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
-		@if(!$subreddit || ($subreddit && isset($subredditData['data']) && !$subredditData['data']['over18']))
+		@if(!$subreddit || ($subreddit && isset($subredditData['data']['over18']) && !$subredditData['data']['over18']))
 			@include('partials.leaderboard')
 		@endif
 
