@@ -177,13 +177,9 @@ class Subreddit extends Eloquent {
 		$result = [];
 
 		if(isset($posts['data']['children']) && !empty($posts['data']['children']) && ($posts['data']['children'][0]['kind'] == 't3' || $posts['data']['children'][0]['kind'] == 't1')) {
-			echo '1';
 			foreach($posts['data']['children'] as $_post) {
-				echo '2';
 				if($_post['kind'] === 't3') {
-					echo '3';
 					if(!BlacklistThings::isBlacklisted($_post['data']['name']) && !BlacklistUsers::isBlacklisted($_post['data']['author'])) {
-						echo '4';
 						$result[] = self::_formatPost($_post);
 					}
 				}
