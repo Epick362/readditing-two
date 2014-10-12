@@ -136,9 +136,6 @@ class ApiController extends \BaseController {
 	} 
 
 	public function storeSetting($setting) {
-
-		Cache::tags(Session::get('user.name'))->forget('settings');
-
 		$result = UsersSettings::where('user', Session::get('user.name'))->where('setting', $setting)->first();
 
 		if(is_null($result)) {
@@ -155,9 +152,6 @@ class ApiController extends \BaseController {
 	} 
 
 	public function destroySetting($setting) {
-
-		Cache::tags(Session::get('user.name'))->forget('settings');
-
 		$result = UsersSettings::where('user', Session::get('user.name'))->where('setting', $setting)->first();
 
 		if(!is_null($result)) {
