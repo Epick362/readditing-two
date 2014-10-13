@@ -39,21 +39,30 @@ class OtherProvider extends Provider {
 			return array(
 				'title' => $this->data['data']['title'], 
 				'content' => \View::make('provider.other.image', $this->data)->render(), 
-				'source' => preg_replace('/^www\./i', '', $this->host)
+				'source' => $this->host
+			);
+		}
+
+		if($after_dot === 'pdf') {
+			return array(
+				'title' => $this->data['data']['title'], 
+				'content' => \View::make('provider.other.pdf', $this->data)->render(), 
+				'source' => $this->host
 			);
 		}
 
 		$saved_article = \Article::where('url', $this->data['data']['url'])->first();
 		if(!$saved_article) {
 			$readability = new Readability($this->data['data']['url']);
-			$readability->init();
+			$success = $readability->init();
 
-			if($readability->getContent()) {
+			if($success) {
 				$this->data['data']['readability'] = $readability->getContent()->innerHTML;
-				\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']), 0);
 			}else{
-				return $this->fail();
+				$this->data['data']['readability'] = '';
 			}
+
+			\Article::saveArticle($this->data['data']['url'], array('content' => $this->data['data']['readability']), 0);
 		}else{
 			$article = $saved_article;
 			$saved_article->touch();
@@ -64,14 +73,6 @@ class OtherProvider extends Provider {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => \View::make('provider.other.article', $this->data)->render(), 
-			'source' => $this->host
-		);
-	}
-
-	public function fail() {
-		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => 'Sorry we couldn\'t get this content for you', 
 			'source' => $this->host
 		);
 	}

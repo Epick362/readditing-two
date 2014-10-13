@@ -1,0 +1,1 @@
+<a class="btn btn-default btn-block" href="{{ $data['url'] }}" target="_blank"><i class="fa fa-external-link"></i> Click to view this PDF</a>

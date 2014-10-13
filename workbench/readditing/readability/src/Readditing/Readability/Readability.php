@@ -154,7 +154,7 @@ class Readability {
 			$this->success = false;
 			$articleContent = $this->dom->createElement('div');
 			$articleContent->setAttribute('id', 'readability-content');
-			$articleContent->innerHTML = '<div class="alert alert-warning"><strong>Oops!</strong> We couldn\'t get this content for you</div>';		
+			$articleContent->innerHTML = '';
 		}
 		
 		$overlay->setAttribute('id', 'readOverlay');

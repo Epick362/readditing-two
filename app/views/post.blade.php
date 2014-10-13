@@ -68,9 +68,7 @@
 			</div>
 		</div>
 
-		<div class="text-center">
-			<a class="btn btn-primary" href="{{ URL::to('r/'.$post['subreddit']) }}">Jump back to /r/{{ $post['subreddit'] }}</a>
-		</div>
+		<a class="btn btn-default btn-block" href="{{ URL::to('r/'.$post['subreddit']) }}">Jump back to /r/{{ $post['subreddit'] }}</a>
 
 
 		<script type="text/ng-template" id="comment.html">
