@@ -7518,9 +7518,8 @@ button.close {
 .modal-footer {
   text-align: left;
 }
-a,
-.btn {
-  transition: background-color, color 0.2s ease;
+a {
+  transition: all 0.2s ease;
 }
 a:hover,
 a:focus {
@@ -7528,6 +7527,9 @@ a:focus {
 }
 .input-group-btn:last-child > .btn {
   margin-left: 0;
+}
+.btn {
+  transition: background-color 0.2s ease;
 }
 .btn-default {
   color: #34A4F7;
