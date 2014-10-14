@@ -7753,8 +7753,9 @@ a.logout {
   margin-left: 30px;
 }
 .ad-leaderboard {
-  width: 728px;
+  max-width: 728px;
   margin: 0 auto;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 .spinner {
