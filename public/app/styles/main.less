@@ -20,8 +20,8 @@
   text-align: left;
 }
 
-a {
-  transition: all 0.2s ease;
+a, .btn {
+  transition: background-color, color 0.2s ease;
 }
 
 a:hover,
@@ -29,8 +29,8 @@ a:focus {
 	text-decoration: none;
 }
 
-a.btn {
-  transition: none;
+.input-group-btn:last-child > .btn {
+  margin-left: 0;
 }
 
 .btn-default {
@@ -110,6 +110,10 @@ a.active {
 
 .text-alternate {
   color: @brand-alternate;
+}
+
+a.logout {
+  color: @brand-danger !important;
 }
 
 .navbar-brand {

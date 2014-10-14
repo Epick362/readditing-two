@@ -79,16 +79,11 @@
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn hidden-xs" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 		        		@else
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ Session::get('user.name') }} <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="{{ URL::to('u/'.Session::get('user')['name']) }}">Overview</a></li>
-									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/submitted') }}">Submitted</a></li>
-									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/liked') }}">Liked</a></li>
-									<li><a href="{{ URL::to('u/'.Session::get('user')['name'].'/saved') }}">Saved</a></li>
-									<li class="divider"></li>
-									<li><a href="{{ URL::to('logout') }}" analytics-on analytics-category="Logout">Logout</a></li>
-								</ul>
+							<li>
+								<a href="{{ URL::to('u/'.Session::get('user')['name']) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
+							</li>
+							<li>
+								<a href="{{ URL::to('logout') }}" class="logout" analytics-on analytics-category="Logout">Logout <i class="fa fa-sign-out"></i></a>
 							</li>
 						@endif
 					</ul>

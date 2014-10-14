@@ -56,7 +56,7 @@
 						<span am-time-ago="post.created" am-preprocess="unix"></span>
 					</div>
 					<div class="col-xs-4 text-center">
-						<a href="" ng-click="comments(post)"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
+						<a href="" ng-click="comments(post)" analytics-on analytics-category="Load Comments"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
 					</div>
 					<div class="col-xs-4 text-right">
 						@if(Session::has('user'))
