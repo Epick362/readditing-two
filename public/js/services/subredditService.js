@@ -1,6 +1,6 @@
 angular.module('subredditService', [])
 
-	.factory('Reddit', function($http, $compile) {
+	.factory('Reddit', function($http, $compile, $location) {
 		var Reddit = function(subreddit, profile) {
 			this.subreddit = subreddit;
 			this.profile = profile;
@@ -35,12 +35,8 @@ angular.module('subredditService', [])
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
 				if(typeof last != 'undefined') {
-  					var History = window.History;
-					var path = History.getState();
-
-					var title = 'Readditing | '+this.profile+' | Page '+this.page;
-
-					History.pushState(null, title, '?after=t3_'+last.id);
+					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
+					$location.url(path + '?after=t3_' + last.id);
 				}
 
 				this.busy = false;
@@ -82,16 +78,8 @@ angular.module('subredditService', [])
 				this.after = "t3_" + this.posts[this.posts.length - 1].id;
 
 				if(typeof last != 'undefined') {
-  					var History = window.History;
-					var path = History.getState();
-
-					if(this.subreddit) {
-						var title = 'Readditing | '+this.subreddit+' | Page '+this.page;
-					}else{
-						var title = 'Readditing | Page '+this.page;
-					}
-
-					History.pushState(null, title, '?after=t3_'+last.id);
+					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
+					$location.url(path + '?after=t3_' + last.id);
 				}
 
 				this.busy = false;

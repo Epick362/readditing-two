@@ -39,7 +39,7 @@
 @stop
 
 @section('content')
-	<div class="col-md-8 col-md-offset-1">
+	<div class="col-md-8 col-md-offset-1" style="margin-bottom:40px">
 		@if(!$post['nsfw'])
 			@include('partials.leaderboard')
 		@endif
