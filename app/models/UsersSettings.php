@@ -11,7 +11,7 @@ class UsersSettings extends Eloquent {
     public static function getSettingsForSession($user) {
     	$settings = [];
 
-    	$result = Cache::tags($user)->rememberForever('settings', function() use($user) {
+    	$result = Cache::tags($user)->remember('settings', 60, function() use($user) {
             return UsersSettings::where('user', $user)->get();
         });
 
