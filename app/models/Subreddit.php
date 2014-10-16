@@ -146,6 +146,10 @@ class Subreddit extends Eloquent {
 	}
 
 	public static function getSubredditData($subreddit) {
+		if(strpos($subreddit, '+') !== false) {
+			return false;
+		}
+
 		$data = Cache::tags($subreddit)->remember('about', 60, function() use($subreddit) {
 			return Reddit::fetch('r/'.$subreddit.'/about.json'); 
 		});
