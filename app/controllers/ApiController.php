@@ -3,7 +3,7 @@
 class ApiController extends \BaseController {
 
 	public function indexPost($subreddit = NULL) {
-		$data = Subreddit::indexPost($subreddit, Input::get('after'));
+		$data = Channel::indexPost($subreddit, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
@@ -27,7 +27,7 @@ class ApiController extends \BaseController {
 		);
 
 		if($validator->passes()) {
-			$response = Subreddit::storePost(Input::all());
+			$response = Channel::storePost(Input::all());
 
 			return Response::json($response);
 		}
@@ -40,7 +40,7 @@ class ApiController extends \BaseController {
 			return Response::make('This user\'s profile is private.');
 		}
 
-		$data = Subreddit::getProfilePosts($user, $category, Input::get('after'));
+		$data = Channel::getProfilePosts($user, $category, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
@@ -50,7 +50,7 @@ class ApiController extends \BaseController {
 	}
 
 	public function indexComment($subreddit, $thing) {
-		$data = Subreddit::getComments($subreddit, $thing);
+		$data = Channel::getComments($subreddit, $thing);
 
 		if($data) {
 			return Response::json($data);
@@ -171,7 +171,7 @@ class ApiController extends \BaseController {
 
 
 	public function storeSubscribe($id) {
-		$subreddit = Subreddit::getSubredditData($id);
+		$subreddit = Channel::getChannelData($id);
 
 		$response = Reddit::fetch('api/subscribe', [
 			'action' => 'sub',
@@ -184,7 +184,7 @@ class ApiController extends \BaseController {
 	} 
 
 	public function destroySubscribe($id) {
-		$subreddit = Subreddit::getSubredditData($id);
+		$subreddit = Channel::getChannelData($id);
 
 		$response = Reddit::fetch('api/subscribe', [
 			'action' => 'unsub',

@@ -2,7 +2,7 @@
 
 use Readditing\Formatter\Formatter as Formatter;
 
-class Subreddit extends Eloquent {
+class Channel extends Eloquent {
 
 	public static function showPost( $subreddit, $thing ) {
 		if(Session::has('user')) {

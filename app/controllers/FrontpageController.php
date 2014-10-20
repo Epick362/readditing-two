@@ -23,11 +23,11 @@ class FrontpageController extends BaseController {
 		$view['notifications'] = SiteNotifications::getNotifications();
 		
 		if($subreddit) {
-			$view['subredditData'] = Subreddit::getSubredditData($subreddit);
-			$view['subscribed'] = Subreddit::isSubscribedToSubreddit($subreddit);
+			$view['subredditData'] = Channel::getChannelData($subreddit);
+			$view['subscribed'] = Channel::isSubscribedToChannel($subreddit);
 		}
 
-		$view['popular'] = Subreddit::getSubscribed();
+		$view['popular'] = Channel::getSubscribed();
 
 		return View::make('frontpage', $view);
 	}
@@ -36,9 +36,9 @@ class FrontpageController extends BaseController {
 		$view = array();
 		$view['subreddit'] = $subreddit;
 		$view['username'] = Session::get('user')['name'];
-		$view['popular'] = Subreddit::getSubscribed();
+		$view['popular'] = Channel::getSubscribed();
 
-		$view['post'] = Subreddit::showPost($subreddit, $thing);
+		$view['post'] = Channel::showPost($subreddit, $thing);
 
 		if(!$view['post'] || BlacklistThings::isBlacklisted('t3_'.$view['post']['id'])) {
 			return Redirect::to('404');
