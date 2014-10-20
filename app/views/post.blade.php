@@ -18,9 +18,9 @@
 @section('body')
 	<body 
 		ng-app="readditingApp" 
-		ng-controller="subredditController" 
+		ng-controller="channelController" 
 		user="{{ $username or false }}" 
-		subreddit="{{ $subreddit or false }}" 
+		channel="{{ $channel or false }}" 
 	>
 @overwrite
 
@@ -29,7 +29,7 @@
 		<form ng-submit="jumpTo()" class="navbar-form">
 			<div class="input-group">
 				<span class="input-group-addon">/r/</span>
-				<input type="text" ng-model="sr" placeholder="{{ $subreddit or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
+				<input type="text" ng-model="sr" placeholder="{{ $channel or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
 				<div class="input-group-btn">
 					<button type="submit" class="btn btn-primary">Go</button>
 				</div>

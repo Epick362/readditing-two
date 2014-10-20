@@ -15,16 +15,16 @@ class FrontpageController extends BaseController {
 	|
 	*/
 
-	public function subreddit($subreddit = NULL, $after = NULL)
+	public function channel($channel = NULL, $after = NULL)
 	{
 		$view = array();
-		$view['subreddit'] = $subreddit;
+		$view['channel'] = $channel;
 		$view['username'] = Session::get('user.name');
 		$view['notifications'] = SiteNotifications::getNotifications();
 		
-		if($subreddit) {
-			$view['subredditData'] = Channel::getChannelData($subreddit);
-			$view['subscribed'] = Channel::isSubscribedToChannel($subreddit);
+		if($channel) {
+			$view['channelData'] = Channel::getChannelData($channel);
+			$view['subscribed'] = Channel::isSubscribedToChannel($channel);
 		}
 
 		$view['popular'] = Channel::getSubscribed();
@@ -32,13 +32,13 @@ class FrontpageController extends BaseController {
 		return View::make('frontpage', $view);
 	}
 
-	public function post($subreddit, $thing) {
+	public function post($channel, $thing) {
 		$view = array();
-		$view['subreddit'] = $subreddit;
+		$view['channel'] = $channel;
 		$view['username'] = Session::get('user')['name'];
 		$view['popular'] = Channel::getSubscribed();
 
-		$view['post'] = Channel::showPost($subreddit, $thing);
+		$view['post'] = Channel::showPost($channel, $thing);
 
 		if(!$view['post'] || BlacklistThings::isBlacklisted('t3_'.$view['post']['id'])) {
 			return Redirect::to('404');
@@ -54,7 +54,7 @@ class FrontpageController extends BaseController {
 	public function submit() {
 		$view = array();
 		$view['username'] = Session::get('user')['name'];
-		$view['subreddit'] = Input::get('subreddit');
+		$view['channel'] = Input::get('channel');
 
 		return View::make('submit', $view);
 	}

@@ -2,8 +2,8 @@
 
 class ApiController extends \BaseController {
 
-	public function indexPost($subreddit = NULL) {
-		$data = Channel::indexPost($subreddit, Input::get('after'));
+	public function indexPost($channel = NULL) {
+		$data = Channel::indexPost($channel, Input::get('after'));
 
 		if($data) {
 			return Response::json($data);
@@ -49,8 +49,8 @@ class ApiController extends \BaseController {
 		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
 	}
 
-	public function indexComment($subreddit, $thing) {
-		$data = Channel::getComments($subreddit, $thing);
+	public function indexComment($channel, $thing) {
+		$data = Channel::getComments($channel, $thing);
 
 		if($data) {
 			return Response::json($data);
@@ -171,11 +171,11 @@ class ApiController extends \BaseController {
 
 
 	public function storeSubscribe($id) {
-		$subreddit = Channel::getChannelData($id);
+		$channel = Channel::getChannelData($id);
 
 		$response = Reddit::fetch('api/subscribe', [
 			'action' => 'sub',
-			'sr' => 't5_'.$subreddit['data']['id']
+			'sr' => 't5_'.$channel['data']['id']
 		], 'POST'); 
 
 		Cache::tags(Session::get('user.name'))->forget('mine');
@@ -184,11 +184,11 @@ class ApiController extends \BaseController {
 	} 
 
 	public function destroySubscribe($id) {
-		$subreddit = Channel::getChannelData($id);
+		$channel = Channel::getChannelData($id);
 
 		$response = Reddit::fetch('api/subscribe', [
 			'action' => 'unsub',
-			'sr' => 't5_'.$subreddit['data']['id']
+			'sr' => 't5_'.$channel['data']['id']
 		], 'POST'); 
 
 		Cache::tags(Session::get('user.name'))->forget('mine');
