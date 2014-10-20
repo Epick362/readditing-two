@@ -9,7 +9,7 @@
 @import url('http://fonts.googleapis.com/css?family=Lato:100,400,700');
 
 #wrap {
-	margin-top: 120px; 
+	margin-top: 110px; 
 } 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -81,6 +81,18 @@ a:focus {
       color: white;
     }
   }
+}
+
+.btn-to-top {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  padding: 5px 0 0 0;
+
+  font-size: 20px;
 }
 
 .btn-link {
@@ -280,8 +292,9 @@ a.logout {
 }
 
 .sidebar {
-  top: 120px;
+  top: 110px;
   width: 263px;
+  position:fixed;
 
   & .panel-heading {
     font-size: 1.7em;

@@ -99,6 +99,8 @@
 			</div>
 		</div>
 
+		<a href="#" class="btn btn-default btn-to-top"><i class="fa fa-chevron-up"></i></a>
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
 		
