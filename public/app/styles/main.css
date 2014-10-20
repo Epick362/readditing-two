@@ -7505,7 +7505,7 @@ button.close {
   content: "\f196";
 }
 #wrap {
-  margin-top: 120px;
+  margin-top: 110px;
 }
 [ng\:cloak],
 [ng-cloak],
@@ -7567,6 +7567,15 @@ a:focus {
 .btn-upvote.active:hover {
   background-color: #ea4700;
   color: white;
+}
+.btn-to-top {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 5px 0 0 0;
+  font-size: 20px;
 }
 .btn-link {
   -webkit-box-shadow: none;
@@ -7730,8 +7739,9 @@ a.logout {
   max-height: 250px;
 }
 .sidebar {
-  top: 120px;
+  top: 110px;
   width: 263px;
+  position: fixed;
 }
 .sidebar .panel-heading {
   font-size: 1.7em;
