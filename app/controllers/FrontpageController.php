@@ -15,30 +15,30 @@ class FrontpageController extends BaseController {
 	|
 	*/
 
-	public function channel($channel = NULL, $after = NULL)
+	public function subreddit($subreddit = NULL, $after = NULL)
 	{
 		$view = array();
-		$view['channel'] = $channel;
+		$view['subreddit'] = $subreddit;
 		$view['username'] = Session::get('user.name');
 		$view['notifications'] = SiteNotifications::getNotifications();
 		
-		if($channel) {
-			$view['channelData'] = Channel::getChannelData($channel);
-			$view['subscribed'] = Channel::isSubscribedToChannel($channel);
+		if($subreddit) {
+			$view['subredditData'] = Subreddit::getSubredditData($subreddit);
+			$view['subscribed'] = Subreddit::isSubscribedToSubreddit($subreddit);
 		}
 
-		$view['popular'] = Channel::getSubscribed();
+		$view['popular'] = Subreddit::getSubscribed();
 
 		return View::make('frontpage', $view);
 	}
 
-	public function post($channel, $thing) {
+	public function post($subreddit, $thing) {
 		$view = array();
-		$view['channel'] = $channel;
+		$view['subreddit'] = $subreddit;
 		$view['username'] = Session::get('user')['name'];
-		$view['popular'] = Channel::getSubscribed();
+		$view['popular'] = Subreddit::getSubscribed();
 
-		$view['post'] = Channel::showPost($channel, $thing);
+		$view['post'] = Subreddit::showPost($subreddit, $thing);
 
 		if(!$view['post'] || BlacklistThings::isBlacklisted('t3_'.$view['post']['id'])) {
 			return Redirect::to('404');
@@ -54,7 +54,7 @@ class FrontpageController extends BaseController {
 	public function submit() {
 		$view = array();
 		$view['username'] = Session::get('user')['name'];
-		$view['channel'] = Input::get('channel');
+		$view['subreddit'] = Input::get('subreddit');
 
 		return View::make('submit', $view);
 	}

@@ -7,7 +7,7 @@
 @section('body')
 	<body 
 		ng-app="readditingApp" 
-		ng-controller="channelController" 
+		ng-controller="subredditController" 
 		user="{{ $username or false }}" 
 		profile="{{ $user or false }}"
 	>
