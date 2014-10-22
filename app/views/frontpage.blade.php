@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-	{{ $channel or ' why so serious?' }}
+	the happiest place on the internet
 @stop
 
 @section('body')

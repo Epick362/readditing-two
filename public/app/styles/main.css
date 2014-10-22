@@ -7766,7 +7766,7 @@ a.active:hover {
   margin-bottom: 20px;
 }
 .spinner {
-  margin: 10px auto;
+  margin: 20px auto 20px auto;
   width: 70px;
   text-align: center;
 }
