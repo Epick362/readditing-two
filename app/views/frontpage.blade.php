@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-	{{ $channel or 'frontpage' }}
+	{{ $channel or ' why so serious?' }}
 @stop
 
 @section('body')
@@ -14,20 +14,6 @@
 		nsfw="{{ Session::has('user.settings.nsfw') }}"
 	>
 @overwrite
-
-@section('nav-middle')
-	<div class="col-sm-4 col-md-4">
-		<form ng-submit="jumpTo()" class="navbar-form">
-			<div class="input-group">
-				<span class="input-group-addon">/r/</span>
-				<input type="text" ng-model="sr" placeholder="{{ $channel or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
-				<div class="input-group-btn">
-					<button type="submit" class="btn btn-primary" analytics-on analytics-event="Jump to subreddit">Go</button>
-				</div>
-			</div>
-		</form>
-	</div>
-@stop
 
 @section('sidebar')
 	@if(isset($channel) && $channel)

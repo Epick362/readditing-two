@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Readditing | @yield('title', 'better reddit experience')</title>
+		<title>Funnysite - @yield('title')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<meta name="description" content="Readditing is a social reddit website">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
@@ -10,7 +10,7 @@
 
 		@section('og')
 		<!-- Open Graph data -->
-		<meta property="og:title" content="Readditing.com | @yield('title', 'better reddit experience')" />
+		<meta property="og:title" content="Readditing.com - @yield('title', 'better reddit experience')" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
 		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
