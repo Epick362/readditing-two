@@ -77,7 +77,7 @@
 				@include('partials.comments')
 			</script>
 
-			@if(Input::has('after'))
+			@if(Input::has('after') && Input::get('after') !== 'undefined')
 				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">Jump back to top</a>
 			@endif
 			
