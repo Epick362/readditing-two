@@ -26,7 +26,7 @@
 @stop
 
 @section('content')
-	<div class="col-md-8 col-md-offset-1">
+	<div class="col-md-8 col-md-offset-2">
 		@if(!$channel || ($channel && isset($channelData['data']['over18']) && !$channelData['data']['over18']))
 			@include('partials.leaderboard')
 		@endif
@@ -53,8 +53,6 @@
 			</div>
 			@endif
 
-			<alert ng-repeat="alert in alerts" type="<% alert.type %>" close="closeAlert($index)"><% alert.msg %></alert>
-
 			<script type="text/ng-template" id="comment.html">
 				@include('partials.comment')
 			</script>
@@ -70,8 +68,5 @@
 			@include('partials.post', ['function' => "reddit.nextPage('". Input::get('after', '') ."')"])
 
 		</div>		
-	</div>
-	<div class="col-md-3 visible-md visible-lg">
-		@include('partials.sidebar')
 	</div>
 @stop

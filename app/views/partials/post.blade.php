@@ -13,8 +13,6 @@
 			</div>
 			<div class="panel-heading">
 				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"><% post.title %></a>
-				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
-				<div class="clearfix"></div>
 			</div>
 			<div ng-show="post.nsfw && !nsfw" class="panel-body">
 				<a href="" ng-click="setNSFW()" class="nsfw" analytics-on analytics-category="NSFW" analytics-label="Turn on">
@@ -49,10 +47,6 @@
 						<a ng-href="{{ URL::to('u') }}/<% post.author %>">
 							<% post.author %>
 						</a> 
-						in 
-						<a href="{{ URL::to('r') }}/<% post.subreddit %>">
-							<% post.subreddit %> 
-						</a> 
 						<span am-time-ago="post.created" am-preprocess="unix"></span>
 					</div>
 					<div class="col-xs-4 text-center">
@@ -75,7 +69,7 @@
 
 
 	<!-- LOADING =============================================== -->
-	<div class="loading" ng-show="reddit.busy">
-		<div class="ball-outer"></div>
-		<div class="ball-inner"></div>
+	<div class="spinner" ng-show="reddit.busy">
+		<div class="bounce1"></div>
+		<div class="bounce2"></div>
 	</div>

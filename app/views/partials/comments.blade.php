@@ -16,9 +16,9 @@
 		</ul>
 
 		<!-- LOADING =============================================== -->
-		<div class="loading" ng-show="reddit.busy && reddit.comments.length == 0">
-			<div class="ball-outer"></div>
-			<div class="ball-inner"></div>
+		<div class="spinner" ng-show="reddit.busy && reddit.comments.length == 0">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
 		</div>
 	</div>
 

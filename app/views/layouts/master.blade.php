@@ -2,19 +2,19 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Funnysite - @yield('title')</title>
+		<title>getAmused.net - @yield('title')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="Readditing is a social reddit website">
-		<meta name="keywords" content="reddit social friends news information readdit readditing">
+		<meta name="description" content="Funny images and videos from all around the internet">
+		<meta name="keywords" content="fun images videos funny social">
 		<meta name="author" content="Filip Hajek">
 
 		@section('og')
 		<!-- Open Graph data -->
-		<meta property="og:title" content="Readditing.com - @yield('title', 'better reddit experience')" />
+		<meta property="og:title" content="getAmused.net - @yield('title')" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="http://www.readditing.com/" />
+		<meta property="og:url" content="http://www.getamused.net/" />
 		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
-		<meta property="og:description" content="Readditing is a social reddit website" />
+		<meta property="og:description" content="Funny images and videos from all around the internet" />
 		@show
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -53,7 +53,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="{{ URL::to('') }}" target="_self">
-						<div class="brand-image">r</div>
+						<div class="brand-image">A</div>
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
@@ -122,7 +122,7 @@
 		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		  ga('create', 'UA-46225304-1', 'auto');
+		  ga('create', 'UA-46225304-4', 'auto');
 		  ga('send', 'pageview');
 
 		</script>

@@ -198,6 +198,10 @@ class Channel extends Eloquent {
 		$formatter = Formatter::provider($_post);
 		$post = $formatter->getPost();
 
+		if(!$post['content']) {
+			return null;
+		}
+
 		$post['title'] = htmlspecialchars_decode($post['title']);
 
 		$post['id'] = $_post['data']['id'];

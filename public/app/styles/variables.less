@@ -18,8 +18,8 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #4a86c4;
-@brand-alternate:		#FF621E;
+@brand-primary:         #E74C3C;
+@brand-alternate:		lighten(#FF621E, 10%);
 @brand-success:         #5cb85c;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #D94343;
@@ -28,14 +28,14 @@
 // Scaffolding
 // -------------------------
 
-@body-bg:               #fff;
+@body-bg:               #f4f4f4;
 @text-color:            @gray-dark;
 
 // Links
 // -------------------------
 
 @link-color:            @brand-primary;
-@link-hover-color:      @brand-alternate;
+@link-hover-color:      darken(@brand-primary, 20%);
 
 // Typography
 // -------------------------
@@ -267,15 +267,15 @@
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
-@navbar-default-color:             #1A1A1A;
-@navbar-default-bg:                #f4f4f4;
-@navbar-default-border:            @brand-primary;
+@navbar-default-color:             #f4f4f4;
+@navbar-default-bg:                #E74C3C;
+@navbar-default-border:            transparent;
 
 // Navbar links
-@navbar-default-link-color:                @brand-primary;
-@navbar-default-link-hover-color:          @brand-alternate;
+@navbar-default-link-color:                rgba(255,255,255, .6);
+@navbar-default-link-hover-color:          #FFF;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         lighten(@brand-alternate, 10%);
+@navbar-default-link-active-color:         #FFF;
 @navbar-default-link-active-bg:            transparent;
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
@@ -507,7 +507,7 @@
 
 // Panels
 // -------------------------
-@panel-bg:                    #fff;
+@panel-bg:                    #fafafa;
 @panel-inner-border:          #ddd;
 @panel-border-radius:         @border-radius-base;
 @panel-footer-bg:             #f5f5f5;
