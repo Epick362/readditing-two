@@ -15,7 +15,7 @@ class FrontpageController extends BaseController {
 	|
 	*/
 
-	public function channel($channel = NULL, $after = NULL)
+	public function channel($channel = 'funny+adviceanimals+memes+videos+pics', $after = NULL)
 	{
 		$view = array();
 		$view['channel'] = $channel;

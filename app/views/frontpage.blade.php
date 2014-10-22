@@ -41,18 +41,6 @@
 		@endforeach
 
 		<div id="subreddit ng-cloak" ng-cloak>
-			@if(isset($channel) && $channel)
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					/r/{{ $channel }} 
-					@if(Session::has('user'))
-						<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
-						<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg pull-right"><i class="fa fa-times"></i> Unsubscribe</a>
-					@endif
-				</div>
-			</div>
-			@endif
-
 			<script type="text/ng-template" id="comment.html">
 				@include('partials.comment')
 			</script>
@@ -62,7 +50,7 @@
 			</script>
 
 			@if(Input::has('after'))
-				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">Jump back to top</a>
+				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">See fresh posts</a>
 			@endif
 			
 			@include('partials.post', ['function' => "reddit.nextPage('". Input::get('after', '') ."')"])
