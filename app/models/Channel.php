@@ -187,7 +187,7 @@ class Channel extends Eloquent {
 						$fpost = self::_formatPost($_post);
 
 						if($fpost) {
-							$result[] = self::_formatPost($_post);
+							$result[] = $fpost;
 						}
 					}
 				}
