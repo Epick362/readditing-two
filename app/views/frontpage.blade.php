@@ -77,11 +77,7 @@
 				@include('partials.comments')
 			</script>
 
-<<<<<<< HEAD
 			@if(Input::has('after') && Input::get('after') !== 'undefined')
-=======
-			@if(Input::has('after'))
->>>>>>> parent of 91564a2... Revert 24a7924..6778267
 				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">Jump back to top</a>
 			@endif
 			
