@@ -31,7 +31,7 @@
 				<span class="input-group-addon">/r/</span>
 				<input type="text" ng-model="sr" placeholder="{{ $subreddit or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
 				<div class="input-group-btn">
-					<button type="submit" class="btn btn-primary">Go</button>
+					<button type="submit" class="btn btn-info">Go</button>
 				</div>
 			</div>
 		</form>

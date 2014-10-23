@@ -184,7 +184,11 @@ class Subreddit extends Eloquent {
 			foreach($posts['data']['children'] as $_post) {
 				if($_post['kind'] === 't3') {
 					if(!BlacklistThings::isBlacklisted($_post['data']['name']) && !BlacklistUsers::isBlacklisted($_post['data']['author'])) {
-						$result[] = self::_formatPost($_post);
+						$fpost = self::_formatPost($_post);
+
+						if($fpost) {
+							$result[] = $fpost;
+						}
 					}
 				}
 			}

@@ -22,7 +22,7 @@
 				<span class="input-group-addon">/r/</span>
 				<input type="text" ng-model="sr" placeholder="{{ $subreddit or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
 				<div class="input-group-btn">
-					<button type="submit" class="btn btn-primary" analytics-on analytics-event="Jump to subreddit">Go</button>
+					<button type="submit" class="btn btn-info" analytics-on analytics-event="Jump to subreddit">Go</button>
 				</div>
 			</div>
 		</form>
@@ -77,8 +77,8 @@
 				@include('partials.comments')
 			</script>
 
-			@if(Input::has('after'))
-				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$subreddit) }}">Jump back to top</a>
+			@if(Input::has('after') && Input::get('after') !== 'undefined')
+				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">Jump back to top</a>
 			@endif
 			
 			@include('partials.post', ['function' => "reddit.nextPage('". Input::get('after', '') ."')"])
