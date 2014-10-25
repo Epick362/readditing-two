@@ -61,7 +61,6 @@
 						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}" analytics-on>Submit</a></li>
 						<li class="{{ Request::is('r/readditingcom') ? 'active' : '' }}"><a href="{{ URL::to('r/readditingcom') }}">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
-						<li><a href="http://getamused.net/" target="_blank">getAmused.net <sup class="text-alternate">new</sup></a></li>
 					</ul>
 
 					@yield('nav-middle')
