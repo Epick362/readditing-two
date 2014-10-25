@@ -267,15 +267,15 @@
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
-@navbar-default-color:             #FFF;
-@navbar-default-bg:                @brand-primary;
-@navbar-default-border:            transparent;
+@navbar-default-color:             #1A1A1A;
+@navbar-default-bg:                #f4f4f4;
+@navbar-default-border:            @brand-primary;
 
 // Navbar links
-@navbar-default-link-color:                fade(#FFF, 70%);
-@navbar-default-link-hover-color:          #FFF;
+@navbar-default-link-color:                @brand-primary;
+@navbar-default-link-hover-color:          @brand-alternate;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #FFF;
+@navbar-default-link-active-color:         lighten(@brand-alternate, 10%);
 @navbar-default-link-active-bg:            transparent;
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
