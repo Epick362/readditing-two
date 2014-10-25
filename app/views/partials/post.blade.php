@@ -9,6 +9,17 @@
 						<a href="" class="btn btn-upvote lg active" ng-click="vote(post, 't3', 0)" analytics-on analytics-category="Upvote" analytics-label="Un"><i class="fa fa-arrow-up"></i></a>
 					</span>
 					<p class="text-center" ng-class="{'text-alternate': post.likes}" style="margin-top:5px"><% post.score %></p>
+
+					<div class="text-center">
+					@if(Session::has('user'))
+						<span ng-if="!post.saved">
+							<a ng-click="save(post, 't3', 1)" class="btn btn-default btn-xs" href="" analytics-on analytics-category="Save">Save</a>
+						</span>
+						<span ng-if="post.saved">
+							<a ng-click="save(post, 't3', 0)" class="btn btn-link btn-xs active" href="" analytics-on analytics-category="Unsave">Unsave</a>
+						</span>
+					@endif
+					</div>
 				</div>
 			</div>
 			<div class="panel-heading">
@@ -52,21 +63,13 @@
 						in 
 						<a href="{{ URL::to('r') }}/<% post.subreddit %>">
 							<% post.subreddit %> 
-						</a> 
-						<span am-time-ago="post.created" am-preprocess="unix"></span>
+						</a>
 					</div>
 					<div class="col-xs-4 text-center">
 						<a href="" ng-click="comments(post)" analytics-on analytics-category="Load Comments"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
 					</div>
 					<div class="col-xs-4 text-right">
-						@if(Session::has('user'))
-							<span ng-if="!post.saved">
-								<a ng-click="save(post, 't3', 1)" href="" analytics-on analytics-category="Save"><i class="fa fa-save"></i> Save</a>
-							</span>
-							<span ng-if="post.saved">
-								<a ng-click="save(post, 't3', 0)" class="active" href="" analytics-on analytics-category="Unsave"><i class="fa fa-save"></i> Unsave</a>
-							</span>
-						@endif
+						<span am-time-ago="post.created" am-preprocess="unix"></span>
 					</div>
 				</div>
 			</div>
