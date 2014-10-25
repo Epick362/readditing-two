@@ -1,8 +1,8 @@
 
 var subredditApp = angular.module('readditingApp', [
 		'ui.bootstrap', 
-		'subredditCtrl', 
-		'subredditService', 
+		'channelCtrl', 
+		'channelService', 
 		'ngSanitize', 
 		'infinite-scroll',
 		'angularMoment',

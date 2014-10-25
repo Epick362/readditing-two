@@ -2,16 +2,16 @@
 
 use Readditing\Formatter\Formatter as Formatter;
 
-class Subreddit extends Eloquent {
+class Channel extends Eloquent {
 
-	public static function showPost( $subreddit, $thing ) {
+	public static function showPost( $channel, $thing ) {
 		if(Session::has('user')) {
-			$data = Cache::tags(Session::get('user.name'), $subreddit, $thing)->remember('comments', 5, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
+			$data = Cache::tags(Session::get('user.name'), $channel, $thing)->remember('comments', 5, function() use($channel, $thing) {
+				return Reddit::fetch('r/'.$channel.'/comments/'.$thing.'.json');
 			});
 		}else{
-			$data = Cache::tags($subreddit, $thing)->remember('comments', 5, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json');
+			$data = Cache::tags($channel, $thing)->remember('comments', 5, function() use($channel, $thing) {
+				return Reddit::fetch('r/'.$channel.'/comments/'.$thing.'.json');
 			});
 		}
 
@@ -22,7 +22,7 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
-	public static function indexPost( $subreddit, $after ) {
+	public static function indexPost( $channel, $after ) {
 		$params = [
 			'limit' => '10'
 		];
@@ -31,23 +31,23 @@ class Subreddit extends Eloquent {
 			$params['after'] = $after;
 		}
 
-		if($subreddit) {
+		if($channel) {
 			if(Session::has('user')) {
-				$posts = Cache::tags(Session::get('user.name'), $subreddit, $after)->remember('r', 5, function() use($subreddit, $params) {
-					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
+				$posts = Cache::tags(Session::get('user.name'), $channel, $after)->remember('r', 5, function() use($channel, $params) {
+					return Reddit::fetch('r/'.$channel.'/hot.json', $params);
 				});
 			}else{
-				$posts = Cache::tags($subreddit, $after)->remember('r', 5, function() use($subreddit, $params) {
-					return Reddit::fetch('r/'.$subreddit.'/hot.json', $params);
+				$posts = Cache::tags($channel, $after)->remember('r', 5, function() use($channel, $params) {
+					return Reddit::fetch('r/'.$channel.'/hot.json', $params);
 				});
 			}
 		}else{
 			if(Session::has('user')) {
-				$posts = Cache::tags(Session::get('user.name'), $after)->remember('r', 5, function() use($subreddit, $params) {
+				$posts = Cache::tags(Session::get('user.name'), $after)->remember('r', 5, function() use($channel, $params) {
 					return Reddit::fetch('hot.json', $params);
 				});
 			}else{
-				$posts = Cache::tags($after)->remember('r', 2, function() use($subreddit, $params) {
+				$posts = Cache::tags($after)->remember('r', 2, function() use($channel, $params) {
 					return Reddit::fetch('hot.json', $params);
 				});
 			}
@@ -97,16 +97,16 @@ class Subreddit extends Eloquent {
 		return self::_formatPosts($posts);
 	}
 
-	public static function getComments( $subreddit, $thing, $after = null ) {
+	public static function getComments( $channel, $thing, $after = null ) {
 		if(Session::has('user')) {
-			$comments = Cache::tags(Session::get('user.name'), $subreddit, $thing, 'depth4')->remember('comments', 5, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+			$comments = Cache::tags(Session::get('user.name'), $channel, $thing, 'depth4')->remember('comments', 5, function() use($channel, $thing) {
+				return Reddit::fetch('r/'.$channel.'/comments/'.$thing.'.json', [
 							'depth' => 4
 						]);
 			});
 		}else{
-			$comments = Cache::tags($subreddit, $thing, 'depth4')->remember('comments', 5, function() use($subreddit, $thing) {
-				return Reddit::fetch('r/'.$subreddit.'/comments/'.$thing.'.json', [
+			$comments = Cache::tags($channel, $thing, 'depth4')->remember('comments', 5, function() use($channel, $thing) {
+				return Reddit::fetch('r/'.$channel.'/comments/'.$thing.'.json', [
 							'depth' => 4
 						]);
 			});
@@ -145,13 +145,13 @@ class Subreddit extends Eloquent {
 		return self::getPopular();
 	}
 
-	public static function getSubredditData($subreddit) {
-		if(strpos($subreddit, '+') !== false) {
+	public static function getChannelData($channel) {
+		if(strpos($channel, '+') !== false) {
 			return false;
 		}
 
-		$data = Cache::tags($subreddit)->remember('about', 60, function() use($subreddit) {
-			return Reddit::fetch('r/'.$subreddit.'/about.json'); 
+		$data = Cache::tags($channel)->remember('about', 60, function() use($channel) {
+			return Reddit::fetch('r/'.$channel.'/about.json'); 
 		});
 
 		if($data) {
@@ -161,14 +161,14 @@ class Subreddit extends Eloquent {
 		return false;
 	}
 
-	public static function isSubscribedToSubreddit($subreddit) {
-		$mine = Cache::tags(Session::get('user.name'))->remember('mine', 60, function() use($subreddit) {
+	public static function isSubscribedToChannel($channel) {
+		$mine = Cache::tags(Session::get('user.name'))->remember('mine', 60, function() use($channel) {
 			return Reddit::fetch('reddits/mine.json'); 
 		});
 		
 		if(!empty($mine) && isset($mine['data'])) {
 			foreach($mine['data']['children'] as $sub) {
-				if(strtolower($sub['data']['display_name']) == strtolower($subreddit)) {
+				if(strtolower($sub['data']['display_name']) == strtolower($channel)) {
 					return true;
 				}
 			}
@@ -184,7 +184,11 @@ class Subreddit extends Eloquent {
 			foreach($posts['data']['children'] as $_post) {
 				if($_post['kind'] === 't3') {
 					if(!BlacklistThings::isBlacklisted($_post['data']['name']) && !BlacklistUsers::isBlacklisted($_post['data']['author'])) {
-						$result[] = self::_formatPost($_post);
+						$fpost = self::_formatPost($_post);
+
+						if($fpost) {
+							$result[] = $fpost;
+						}
 					}
 				}
 			}
