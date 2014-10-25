@@ -1,13 +1,13 @@
-angular.module('channelCtrl', [])
+angular.module('subredditCtrl', [])
 
 	.config(["$provide", function ($provide) {
         $provide.value("base_url", $("#ApiRoot").attr("href") + '/');
     }])
 
 	// inject the Comment service into our controller
-	.controller('channelController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
-		if($attrs.channel) {
-			$scope.reddit = new Reddit($attrs.channel);
+	.controller('subredditController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
+		if($attrs.subreddit) {
+			$scope.reddit = new Reddit($attrs.subreddit);
 			$scope.subscribed = $attrs.subscribed;
 		}else{
 			$scope.reddit = new Reddit(false, $attrs.profile);
@@ -118,7 +118,7 @@ angular.module('channelCtrl', [])
 				return;
 			}
 
-			var url = base_url + 'api/subscribe/'+ $attrs.channel;
+			var url = base_url + 'api/subscribe/'+ $attrs.subreddit;
 
 			if(dir === 1) {
 				var method = 'POST';

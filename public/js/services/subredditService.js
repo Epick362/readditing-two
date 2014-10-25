@@ -1,4 +1,4 @@
-angular.module('channelService', [])
+angular.module('subredditService', [])
 
 	.factory('Reddit', function($http, $compile, $location) {
 		var Reddit = function(subreddit, profile) {

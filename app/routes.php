@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'FrontpageController@channel');
+Route::get('/', 'FrontpageController@subreddit');
 
-Route::get('/r/{channel?}', 'FrontpageController@channel');
-Route::get('/r/{channel}/comments/{thing}', 'FrontpageController@post');
+Route::get('/r/{subreddit?}', 'FrontpageController@subreddit');
+Route::get('/r/{subreddit}/comments/{thing}', 'FrontpageController@post');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 
@@ -33,18 +33,18 @@ Route::get('404', function() {
 });
 
 Route::group(array('before' => 'auth'), function() {
-	Route::get('/submit/{channel?}', 'FrontpageController@submit');
+	Route::get('/submit/{subreddit?}', 'FrontpageController@submit');
 });
 
 // =============================================
 // API ROUTES ==================================
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
-	Route::get('/r/{channel?}', 'ApiController@indexPost');
+	Route::get('/r/{subreddit?}', 'ApiController@indexPost');
 
 	Route::get('/u/{user}/{category?}', 'ApiController@indexProfile');
 
-	Route::get('/r/{channel}/comments/{thing}', 'ApiController@indexComment');
+	Route::get('/r/{subreddit}/comments/{thing}', 'ApiController@indexComment');
 
 	Route::group(array('before' => 'auth'), function() {
 		Route::post('/submit', 'ApiController@storePost');
