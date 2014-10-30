@@ -2,8 +2,8 @@
 
 class ApiController extends \BaseController {
 
-	public function indexPost($channel = NULL) {
-		$data = Channel::indexPost($channel, Input::get('after'));
+	public function indexPost($channel = NULL, $sort = 'hot') {
+		$data = Channel::indexPost($channel, Input::get('after'), $sort);
 
 		if($data) {
 			return Response::json($data);

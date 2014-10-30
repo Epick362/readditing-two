@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="panel-heading">
-				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"><% post.title %></a>
+				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>#comments" target="_blank"><% post.title %></a>
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
@@ -69,7 +69,18 @@
 						<a href="" ng-click="comments(post)" analytics-on analytics-category="Load Comments"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
 					</div>
 					<div class="col-xs-4 text-right">
-						<span am-time-ago="post.created" am-preprocess="unix"></span>
+						<!--<span am-time-ago="post.created" am-preprocess="unix"></span> -->
+
+						<!-- Facebook Share Button -->
+						<a class="btn btn-share circle facebook" href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook"></i></a> 
+
+						<!-- Twitter Share Button -->
+						<a class="btn btn-share circle twitter" href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
+
+						<!-- GooglePlus Share Button -->
+						<a class="btn btn-share circle google-plus" href="https://plus.google.com/share?url={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus"></i></a>
 					</div>
 				</div>
 			</div>

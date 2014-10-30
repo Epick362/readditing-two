@@ -40,10 +40,6 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1" style="margin-bottom:40px">
-		@if(!$post['nsfw'])
-			@include('partials.leaderboard')
-		@endif
-
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<span class="title">{{ $post['title'] }}</span>
@@ -58,18 +54,50 @@
 					<div class="col-xs-4">
 						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">{{ $post['subreddit'] }}</a> 
 					</div>
-					<div class="col-xs-4 text-center">
-						<a href="" ng-click="comments({{ htmlspecialchars(json_encode($post)) }})"><i class="fa fa-comment-o"></i> {{ $post['comments'] }} comments</a>
-					</div>
-					<div class="col-xs-4 text-right">
+					<div class="col-xs-offset-4 col-xs-4 text-right">
 						{{ Carbon\Carbon::createFromTimeStamp($post['created'])->diffForHumans() }} 
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<a class="btn btn-default btn-block" href="{{ URL::to('r/'.$post['subreddit']) }}">Jump back to /r/{{ $post['subreddit'] }}</a>
+		@if(!$post['nsfw'])
+			@include('partials.leaderboard')
+		@endif
 
+		<div class="panel panel-default" id="comments">
+			<div class="panel-heading">
+				Comments
+				<span class="pull-right">
+					Share to: 
+					<a 
+						class="btn btn-share facebook" 
+						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+					>
+						<i class="fa fa-facebook-square"></i> Facebook
+					</a> 
+
+					<a 
+						class="btn btn-share twitter" 
+						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+					>
+						<i class="fa fa-twitter"></i> Twitter
+					</a>
+
+					<a 
+						class="btn btn-share google-plus" 
+						href="https://plus.google.com/share?url={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+					>
+						<i class="fa fa-google-plus-square"></i> Google+
+					</a>					
+				</span>
+				<div class="clearfix"></div>
+			</div>
+			<div class="panel-body" ng-include="'comments.html'" ng-init="post = {{ htmlspecialchars(json_encode($post)) }}"></div>
+		</div>
 
 		<script type="text/ng-template" id="comment.html">
 			@include('partials.comment')

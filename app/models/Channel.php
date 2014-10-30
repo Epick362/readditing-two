@@ -22,10 +22,15 @@ class Channel extends Eloquent {
 		return false;
 	}
 
-	public static function indexPost( $channel, $after ) {
+	public static function indexPost( $channel, $after, $sort = 'hot' ) {
 		$params = [
 			'limit' => '10'
 		];
+
+		$sorting = ['hot', 'rising', 'new', 'top', 'controversial'];
+		if(!in_array($sort, $sorting)) {
+			$sort = 'hot';
+		}
 
 		if($after) {
 			$params['after'] = $after;
@@ -33,22 +38,22 @@ class Channel extends Eloquent {
 
 		if($channel) {
 			if(Session::has('user')) {
-				$posts = Cache::tags(Session::get('user.name'), $channel, $after)->remember('r', 5, function() use($channel, $params) {
-					return Reddit::fetch('r/'.$channel.'/hot.json', $params);
+				$posts = Cache::tags(Session::get('user.name'), $channel, $after, $sort)->remember('r', 5, function() use($channel, $params, $sort) {
+					return Reddit::fetch('r/'.$channel.'/'.$sort.'.json', $params);
 				});
 			}else{
-				$posts = Cache::tags($channel, $after)->remember('r', 5, function() use($channel, $params) {
-					return Reddit::fetch('r/'.$channel.'/hot.json', $params);
+				$posts = Cache::tags($channel, $after, $sort)->remember('r', 5, function() use($channel, $params, $sort) {
+					return Reddit::fetch('r/'.$channel.'/'.$sort.'.json', $params);
 				});
 			}
 		}else{
 			if(Session::has('user')) {
-				$posts = Cache::tags(Session::get('user.name'), $after)->remember('r', 5, function() use($channel, $params) {
-					return Reddit::fetch('hot.json', $params);
+				$posts = Cache::tags(Session::get('user.name'), $after, $sort)->remember('r', 5, function() use($channel, $params, $sort) {
+					return Reddit::fetch($sort.'.json', $params);
 				});
 			}else{
-				$posts = Cache::tags($after)->remember('r', 2, function() use($channel, $params) {
-					return Reddit::fetch('hot.json', $params);
+				$posts = Cache::tags($after, $sort)->remember('r', 2, function() use($channel, $params, $sort) {
+					return Reddit::fetch($sort.'.json', $params);
 				});
 			}
 		}

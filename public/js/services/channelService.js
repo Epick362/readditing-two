@@ -1,9 +1,10 @@
 angular.module('channelService', [])
 
 	.factory('Reddit', function($http, $compile, $location) {
-		var Reddit = function(subreddit, profile) {
+		var Reddit = function(subreddit, profile, sort) {
 			this.subreddit = subreddit;
 			this.profile = profile;
+			this.sort = sort;
 			this.posts = [];
 			this.comments = [];
 			this.busy = false;
@@ -52,7 +53,7 @@ angular.module('channelService', [])
 			}.bind(this));
 		};
 
-		Reddit.prototype.nextPage = function(after) {
+		Reddit.prototype.nextPage = function(after, sort) {
 			if (this.busy) return;
 			this.busy = true;
 
@@ -61,7 +62,7 @@ angular.module('channelService', [])
 			}
 
 			if(this.subreddit) {
-				var url = '/api/r/'+this.subreddit+'?after='+this.after;
+				var url = '/api/r/'+this.subreddit+'/'+this.sort+'?after='+this.after;
 			}else{
 				var url = '/api/r?after='+this.after;
 			}

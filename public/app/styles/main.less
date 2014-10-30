@@ -116,6 +116,44 @@ a:focus {
   }
 }
 
+.btn-share {
+  &.facebook {
+    background-color: #3b5998;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#3b5998, 10%);
+    }
+  }
+
+  &.google-plus {
+    background-color: #D34836;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#D34836, 10%);
+    }
+  }
+
+  &.twitter {
+    background-color: #00aced;
+    color: white;
+
+    &:hover {
+      background-color: lighten(#00aced, 10%);
+    }
+  }
+
+  &.circle {
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    border-radius: 50%;
+    padding: 0;
+    margin-right: 5px;
+  }
+}
+
 a.active {
   color: @brand-alternate;
 
@@ -275,11 +313,6 @@ a.active {
       width: 100%; 
     }
   }
-}
-
-.panel-footer [class^="fa-"], .panel-footer [class*=" fa-"] {
-  font-size: 18px;
-  padding: 5px;
 }
 
 .panel-text-short {
