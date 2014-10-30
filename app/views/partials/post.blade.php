@@ -75,6 +75,9 @@
 						<a class="btn btn-share circle facebook" href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook"></i></a> 
 
+						<!-- Twitter Share Button -->
+						<a class="btn btn-share circle twitter" href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
+
 						<!-- GooglePlus Share Button -->
 						<a class="btn btn-share circle google-plus" href="https://plus.google.com/share?url={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus"></i></a>

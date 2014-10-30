@@ -18,6 +18,13 @@
 			<i class="fa fa-facebook-square"></i> Facebook
 		</a> 
 		<a 
+			class="btn btn-share twitter btn-xs" 
+			href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
+			onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+		>
+			<i class="fa fa-twitter"></i> Twitter
+		</a>
+		<a 
 			class="btn btn-share google-plus btn-xs" 
 			href="https://plus.google.com/share?url={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
 			onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
