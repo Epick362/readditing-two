@@ -59,7 +59,7 @@ class Imgur extends Provider {
 
 	public function getGallery($id) {
 		$cache = \ImgurGalleryCache::where('name', $id)->first();
-dd($id);
+
 		if($cache) {
 			$this->data['data']['images'] = $cache['images'];
 
@@ -89,7 +89,7 @@ dd($id);
 				$image->save();
 			}
 
-			$gallery = new \ImgurCache;
+			$gallery = new \ImgurGalleryCache;
 			$gallery['name'] = $id;
 			$gallery['images'] = $images;
 			$gallery->save();

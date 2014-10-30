@@ -1,5 +1,5 @@
 @foreach($data['images'] as $image)
-	@include('other.image', ['data' => ['url' => $image]])
+	@include('provider.other.image', ['data' => ['subreddit' => $data['subreddit'], 'id' => $data['id'], 'url' => $image]])
 
 	<br />
 @endforeach
