@@ -31,10 +31,12 @@ class Imgur extends Provider {
 		$after_dot = substr($parsed_url['path'], strrpos($parsed_url['path'], '.') + 1);
 
 		if(!in_array($after_dot, $images)) {
-			$parts = explode("/", $parsed_url['path']);
+			$parts = explode('/', $parsed_url['path']);
 
-			if($parts[1] == "a") {
-				return $this->getAlbum($parts[1]);
+			if($parts[1] == 'a') {
+				return $this->getAlbum();
+			}else if($parts[1] == 'gallery') {
+				return $this->getGallery($parts[2]);
 			}else{
 				return $this->getImage($parts[1]);
 			}
@@ -51,6 +53,55 @@ class Imgur extends Provider {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => \View::make('provider.imgur', $this->data)->render(), 
+			'source' => 'imgur.com'
+		);
+	}
+
+	public function getGallery($id) {
+		$cache = \ImgurGalleryCache::where('name', $id)->first();
+dd($id);
+		if($cache) {
+			$this->data['data']['images'] = $cache['images'];
+
+			$cache->touch();
+		}else if(!\Cache::has('imgurRateLimit')) {
+			try {
+				$client = new Client();
+				$imgur = $client->get("https://api.imgur.com/3/gallery/".$id, [
+					'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+				]);
+
+				$response = $imgur->json();
+			}catch (\Exception $e) {
+				return $this->fail();
+			}
+
+			if($imgur->getStatusCode() == 429 || ($imgur->getHeader('X-RateLimit-ClientRemaining') && $imgur->getHeader('X-RateLimit-ClientRemaining') < 50)) {
+				\Cache::put('imgurRateLimit', 'now', 120);
+			}
+
+			foreach($response['data']['images'] as $_image) {
+				$images[] = $_image['link'];
+
+				$image = new \ImgurCache;
+				$image['name'] = $_image['id'];
+				$image['link'] = $_image['link'];
+				$image->save();
+			}
+
+			$gallery = new \ImgurCache;
+			$gallery['name'] = $id;
+			$gallery['images'] = $images;
+			$gallery->save();
+
+			$this->data['data']['images'] = $images;
+		}else{
+			return $this->fail();
+		}
+
+		return array(
+			'title' => $this->data['data']['title'], 
+			'content' => \View::make('provider.other.images', $this->data)->render(), 
 			'source' => 'imgur.com'
 		);
 	}
