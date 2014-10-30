@@ -7,7 +7,7 @@ angular.module('channelCtrl', [])
 	// inject the Comment service into our controller
 	.controller('channelController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
 		if($attrs.channel) {
-			$scope.reddit = new Reddit($attrs.channel);
+			$scope.reddit = new Reddit($attrs.channel, false, $attrs.sort);
 			$scope.subscribed = $attrs.subscribed;
 		}else{
 			$scope.reddit = new Reddit(false, $attrs.profile);
@@ -136,7 +136,7 @@ angular.module('channelCtrl', [])
 
 		$scope.comments = function(post) {
 			var modalInstance = $modal.open({
-				templateUrl: 'comments.html',
+				templateUrl: 'comments_modal.html',
 				controller: 'commentsController',
 				resolve: {
 					post: function() {
