@@ -15,10 +15,11 @@ class FrontpageController extends BaseController {
 	|
 	*/
 
-	public function channel($channel = 'funny+adviceanimals+memes+videos+pics', $after = NULL)
+	public function channel($channel = 'funny+adviceanimals+memes+videos+pics', $sort = NULL)
 	{
 		$view = array();
 		$view['channel'] = $channel;
+		$view['sort'] = $sort;
 		$view['username'] = Session::get('user.name');
 		$view['notifications'] = SiteNotifications::getNotifications();
 		

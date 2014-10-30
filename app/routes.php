@@ -13,7 +13,7 @@
 
 Route::get('/', 'FrontpageController@channel');
 
-Route::get('/r/{channel?}', 'FrontpageController@channel');
+Route::get('/r/{channel?}/{sort?}', 'FrontpageController@channel');
 Route::get('/r/{channel}/comments/{thing}', 'FrontpageController@post');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
@@ -40,11 +40,13 @@ Route::group(array('before' => 'auth'), function() {
 // API ROUTES ==================================
 // =============================================
 Route::group(array('prefix' => 'api'), function() {
-	Route::get('/r/{channel?}', 'ApiController@indexPost');
+	Route::get('/r/{channel?}/{sort?}', 'ApiController@indexPost');
 
 	Route::get('/u/{user}/{category?}', 'ApiController@indexProfile');
 
 	Route::get('/r/{channel}/comments/{thing}', 'ApiController@indexComment');
+
+	Route::get('article', 'ApiController@indexArticle');
 
 	Route::group(array('before' => 'auth'), function() {
 		Route::post('/submit', 'ApiController@storePost');

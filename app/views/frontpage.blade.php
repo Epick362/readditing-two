@@ -9,7 +9,8 @@
 		ng-app="readditingApp" 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
-		channel="{{ $channel or false }}" 
+		channel="{{ $channel or false }}"
+		sort="{{ $sort or false }}" 
 		subscribed="{{ $subscribed or false }}"
 		nsfw="{{ Session::has('user.settings.nsfw') }}"
 	>
@@ -47,6 +48,10 @@
 
 			<script type="text/ng-template" id="comments.html">
 				@include('partials.comments')
+			</script>
+
+			<script type="text/ng-template" id="comments_modal.html">
+				@include('partials.comments_modal')
 			</script>
 
 			@if(Input::has('after') && Input::get('after') !== 'undefined')

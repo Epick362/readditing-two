@@ -1,9 +1,11 @@
 <?php
 
+use Readditing\Readability\Readability as Readability;
+
 class ApiController extends \BaseController {
 
-	public function indexPost($channel = NULL) {
-		$data = Channel::indexPost($channel, Input::get('after'));
+	public function indexPost($channel = NULL, $sort = 'hot') {
+		$data = Channel::indexPost($channel, Input::get('after'), $sort);
 
 		if($data) {
 			return Response::json($data);
@@ -47,6 +49,39 @@ class ApiController extends \BaseController {
 		}
 
 		return Response::json([['content' => \View::make('errors.nodata')->render()]]);
+	}
+
+	public function indexArticle() {
+		$validator = Validator::make(
+		    array(
+		        'url' => Input::get('url')
+		    ),
+		    array(
+		        'url' => 'required|url'
+		    )
+		);
+
+		if($validator->passes()) {
+			$saved_article = \Article::where('url', Input::get('url'))->first();
+			if(!$saved_article) {
+				$readability = new Readability(Input::get('url'));
+				$success = $readability->init();
+
+				if($success) {
+					$return = $readability->getContent()->innerHTML;
+				}else{
+					$return = '';
+				}
+
+				\Article::saveArticle(Input::get('url'), array('content' => $return), 0);
+
+				return Response::json(View::make('provider.other.article', ['data' => ['readability' => $return]])->render());
+			}else{
+				return Response::json(View::make('provider.other.article', ['data' => ['readability' => $saved_article['content']]])->render());
+			}
+		}
+
+		return Response::json(null, 400);
 	}
 
 	public function indexComment($channel, $thing) {

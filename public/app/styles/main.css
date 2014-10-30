@@ -7593,6 +7593,35 @@ a:focus {
   background: #ff8651;
   color: #FFF;
 }
+.btn-share.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+.btn-share.facebook:hover {
+  background-color: #4c70ba;
+}
+.btn-share.google-plus {
+  background-color: #D34836;
+  color: white;
+}
+.btn-share.google-plus:hover {
+  background-color: #dc6e60;
+}
+.btn-share.twitter {
+  background-color: #00aced;
+  color: white;
+}
+.btn-share.twitter:hover {
+  background-color: #21c2ff;
+}
+.btn-share.circle {
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 5px;
+}
 a.active {
   color: #ff8651;
 }
@@ -7725,11 +7754,6 @@ a.active:hover {
 }
 .panel-body .panel-text .container {
   width: 100%;
-}
-.panel-footer [class^="fa-"],
-.panel-footer [class*=" fa-"] {
-  font-size: 18px;
-  padding: 5px;
 }
 .panel-text-short {
   overflow: hidden;
