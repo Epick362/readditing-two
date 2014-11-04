@@ -108,6 +108,8 @@
 		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>
 		
 		<script src="{{ URL::asset('js/app.js') }}"></script>
+		<script src="{{ URL::asset('js/controllers/channelController.js') }}"></script>
+		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
 
 		<script type="text/javascript">
 			$(function() {
@@ -117,7 +119,7 @@
 
 				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 					$('#extension').show();
-				}				
+				}
 			});
 		</script>
 

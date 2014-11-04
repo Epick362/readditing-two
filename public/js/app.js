@@ -1,20 +1,20 @@
 
-var subredditApp = angular.module('readditingApp', [
-		'ui.bootstrap', 
-		'channelCtrl', 
-		'channelService', 
-		'ngSanitize', 
-		'infinite-scroll',
-		'angularMoment',
-		'angulartics', 
-		'angulartics.google.analytics'
-	], function($interpolateProvider, $analyticsProvider, $locationProvider) {
-    $interpolateProvider.startSymbol('<%');
-    $interpolateProvider.endSymbol('%>');
+	var readditingApp = readditingApp || angular.module('readditingApp', [
+			'ui.bootstrap', 
+			'ngSanitize', 
+			'infinite-scroll',
+			'angularMoment',
+			'angulartics', 
+			'angulartics.google.analytics'
+		], function($interpolateProvider, $analyticsProvider, $locationProvider) {
+	    $interpolateProvider.startSymbol('<%');
+	    $interpolateProvider.endSymbol('%>');
 
-    $locationProvider.html5Mode(true);
+	    $locationProvider.html5Mode(true);
 
-	$analyticsProvider.virtualPageviews(false);
-}).run(['$location', '$rootElement', function ($location, $rootElement) {
-    $rootElement.off('click');
-}]);
+		$analyticsProvider.virtualPageviews(false);
+	});
+
+	readditingApp.run(['$location', '$rootElement', function ($location, $rootElement) {
+	    $rootElement.off('click');
+	}]);
