@@ -1,6 +1,4 @@
-angular.module('channelService', [])
-
-	.factory('Reddit', function($http, $compile, $location) {
+	readditingApp.factory('Reddit', function($http, $compile, $location) {
 		var Reddit = function(subreddit, profile, sort) {
 			this.subreddit = subreddit;
 			this.profile = profile;

@@ -107,6 +107,8 @@
 		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
 		<script src="{{ URL::asset('js/controllers/channelCtrl.js') }}"></script>
 		<script src="{{ URL::asset('js/app.js') }}"></script>
+		<script src="{{ URL::asset('js/controllers/channelController.js') }}"></script>
+		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
 
 		<script type="text/javascript">
 			$(function() {
