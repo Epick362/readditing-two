@@ -1,9 +1,11 @@
-	readditingApp.config(["$provide", function ($provide) {
+angular.module('channelCtrl', [])
+
+	.config(["$provide", function ($provide) {
         $provide.value("base_url", $("#ApiRoot").attr("href") + '/');
-    }]);
+    }])
 
 	// inject the Comment service into our controller
-	readditingApp.controller('channelController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
+	.controller('channelController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
 		if($attrs.channel) {
 			$scope.reddit = new Reddit($attrs.channel, false, $attrs.sort);
 			$scope.subscribed = $attrs.subscribed;
@@ -200,9 +202,9 @@
 				console.log('Error while posting.');
 			});
 		};
-	});
+	})
 
-	readditingApp.controller('commentsController', function($scope, $modalInstance, post, save, vote, reply, Reddit) {
+	.controller('commentsController', function($scope, $modalInstance, post, save, vote, reply, Reddit) {
 		$scope.post = post;
 		$scope.save = save;
 		$scope.vote = vote;
@@ -214,7 +216,7 @@
 		};
 	})
 
-	readditingApp.directive('replyForm', function($compile){
+	.directive('replyForm', function($compile){
 	    return {
 	    	restrict: 'A',
 	        link: function(scope, element, attrs) {
@@ -229,9 +231,9 @@
 	            });
 	        }
 	    };
-	});
+	})
 
-	readditingApp.directive('showMore', function($document){
+	.directive('showMore', function($document){
 	    return {
 	    	restrict: 'A',
 	        link: function(scope, element, attrs) {
