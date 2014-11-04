@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', 'FrontpageController@channel');
+Route::get('/', 'ChannelController@channel');
 
-Route::get('/r/{channel?}/{sort?}', 'FrontpageController@channel');
-Route::get('/r/{channel}/comments/{thing}', 'FrontpageController@post');
+Route::get('/r/{channel?}/{sort?}', 'ChannelController@channel');
+Route::get('/r/{channel}/comments/{thing}/{title?}/{comment?}', 'ChannelController@post');
+
+Route::get('/m/{multi}', 'ChannelController@multi');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 

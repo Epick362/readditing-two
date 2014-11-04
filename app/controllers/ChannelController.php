@@ -2,18 +2,7 @@
 
 use Readditing\Readability\Readability as Readability;
 
-class FrontpageController extends BaseController {
-
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	*/
+class ChannelController extends BaseController {
 
 	public function channel($channel = NULL, $sort = NULL)
 	{
@@ -30,7 +19,26 @@ class FrontpageController extends BaseController {
 
 		$view['popular'] = Channel::getSubscribed();
 
-		return View::make('frontpage', $view);
+		return View::make('channel', $view);
+	}
+
+	public function multi($name) {
+		$multi = Multi::where('name', $name)->first();
+
+		if(!$multi) {
+			return App::abort(404);
+		}
+
+		$view = array();
+		$view['channel'] = implode($multi['channels'], '+');
+		$view['subscribers'] = Multi::getSubscribers($name);
+		$view['multi'] = $multi['name'];
+		$view['username'] = Session::get('user.name');
+		$view['notifications'] = SiteNotifications::getNotifications();
+
+		$view['popular'] = Channel::getSubscribed();
+
+		return View::make('multi', $view);		
 	}
 
 	public function post($channel, $thing) {
