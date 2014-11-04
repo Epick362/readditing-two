@@ -9,7 +9,7 @@
 		ng-app="readditingApp" 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
-		channel="{{ $channel or false }}"
+		channel="{{ $channel or false }}" 
 		sort="{{ $sort or false }}" 
 		subscribed="{{ $subscribed or false }}"
 		nsfw="{{ Session::has('user.settings.nsfw') }}"
@@ -42,6 +42,12 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1">
+		<div id="extension" class="panel panel-primary" style="display:none;">
+			<div class="panel-body">
+				Install our <b><a href="" onclick="chrome.webstore.install()">Chrome extension</a></b> to automatically change reddit.com links to our site.
+			</div>
+		</div>
+
 		@if(!$channel || ($channel && isset($channelData['data']['over18']) && !$channelData['data']['over18']))
 			@include('partials.leaderboard')
 		@endif

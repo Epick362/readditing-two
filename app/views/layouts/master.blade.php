@@ -30,6 +30,9 @@
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+		<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/gpckgjjogjocoadgkjakidcppihipbbe">
+
 		<meta name="msapplication-TileColor" content="#2b5797">
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 		
@@ -104,8 +107,6 @@
 		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>
 		
-		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
-		<script src="{{ URL::asset('js/controllers/channelCtrl.js') }}"></script>
 		<script src="{{ URL::asset('js/app.js') }}"></script>
 		<script src="{{ URL::asset('js/controllers/channelController.js') }}"></script>
 		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
@@ -114,7 +115,11 @@
 			$(function() {
 				$(window).on('beforeunload', function() {
 				    $(window).scrollTop(0);
-				});				
+				});
+
+				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+					$('#extension').show();
+				}				
 			});
 		</script>
 
