@@ -35,7 +35,7 @@ Route::get('404', function() {
 });
 
 Route::group(array('before' => 'auth'), function() {
-	Route::get('/submit/{channel?}', 'FrontpageController@submit');
+	Route::get('/submit/{channel?}', 'ChannelController@submit');
 });
 
 // =============================================

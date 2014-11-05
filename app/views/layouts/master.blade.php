@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="readditingApp" >
 	<head>
 		<meta charset="utf-8">
 		<title>Readditing | @yield('title', 'better reddit experience')</title>
@@ -38,7 +38,7 @@
 		<link id="ApiRoot" href="{{ URL::to('') }}" />
 	</head>
 	@section('body')
-	<body ng-app="readditingApp">
+	<body>
 	@show
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
