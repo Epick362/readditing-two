@@ -17,7 +17,6 @@
 
 @section('body')
 	<body 
-		ng-app="readditingApp" 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
 		channel="{{ $channel or false }}" 
