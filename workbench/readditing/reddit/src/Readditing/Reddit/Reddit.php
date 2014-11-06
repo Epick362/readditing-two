@@ -48,6 +48,10 @@ class Reddit {
 		try {
 			return $response->json();
 		}catch(\Exception $e){
+			if($response->getStatusCode() == '429') {
+				return \View::make('errors.429');
+			}
+
 			return App::abort(503);
 		}
 	}
