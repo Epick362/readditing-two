@@ -5,6 +5,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 
 class Reddit {
 
