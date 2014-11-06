@@ -48,7 +48,7 @@ class Reddit {
 
 			return $response->json();
 		}catch(\Exception $e){
-			if($response->getStatusCode() === 429) {
+			if($response->getStatusCode() == '429') {
 				return \View::make('errors.429');
 			}
 
