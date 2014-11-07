@@ -29,7 +29,7 @@ class Reddit {
 		        'headers' => [
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
-		        	'User-Agent' => 'Readditing.com by Epick_362'
+		        	'User-Agent' => 'Readditing by /u/Epick_362'
 		        ]
 		    ]
 		]);
@@ -48,7 +48,7 @@ class Reddit {
 			}
 
 			return $response->json();
-		}catch(ClientException $e){
+		}catch(\Exception $e){
 			return \App::abort(503);
 		}
 	}
