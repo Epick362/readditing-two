@@ -5,7 +5,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\RequestException;
 
 class Reddit {
 
@@ -29,27 +28,27 @@ class Reddit {
 		        'headers' => [
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
-		        	'User-Agent' => 'Readditing by /u/Epick_362'
+		        	'User-Agent' => 'Readditing.com by Epick_362'
 		        ]
 		    ]
 		]);
 
 		$params['api_type'] = 'json';
 
-		try {
-			if($method == 'POST') {
-				$response = $client->post($url, [
-					'body' => $params
-				]);
-			}else{
-				$response = $client->$method($url, [
-					'query' => $params
-				]);
-			}
+		if($method == 'POST') {
+			$response = $client->post($url, [
+				'body' => $params
+			]);
+		}else{
+			$response = $client->$method($url, [
+				'query' => $params
+			]);
+		}
 
+		try {
 			return $response->json();
 		}catch(\Exception $e){
-			return \App::abort(503);
+			return App::abort(503);
 		}
 	}
 }
