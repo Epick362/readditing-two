@@ -10,7 +10,7 @@ use GuzzleHttp\Exception\RequestException;
 class Reddit {
 
 	protected static $access_token;
-	public static $reddit_url = 'https://oauth.reddit.com/';
+	public static $reddit_url = 'http://reddit.com/';
  	
 	public function __construct() {
 		if(\Session::has('access_token')) {
@@ -28,8 +28,7 @@ class Reddit {
 		    'defaults' => [
 		        'headers' => [
 		        	'Content-type' => 'application/x-www-form-urlencoded',
-		        	'Authorization' => 'bearer ' . self::$access_token,
-		        	'User-Agent' => 'Readditing.com by Epick_362'
+		        	'User-Agent' => 'Readditing by Epick_362'
 		        ]
 		    ]
 		]);
@@ -48,11 +47,7 @@ class Reddit {
 			}
 
 			return $response->json();
-		}catch(ClientException $e){
-			if($response->getStatusCode() == '429') {
-				return \View::make('errors.429');
-			}
-
+		}catch(\Exception $e){
 			return \App::abort(503);
 		}
 	}
