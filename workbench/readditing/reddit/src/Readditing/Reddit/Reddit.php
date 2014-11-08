@@ -35,17 +35,17 @@ class Reddit {
 
 		$params['api_type'] = 'json';
 
-		try {
-			if($method == 'POST') {
-				$response = $client->post($url, [
-					'body' => $params
-				]);
-			}else{
-				$response = $client->$method($url, [
-					'query' => $params
-				]);
-			}
+		if($method == 'POST') {
+			$response = $client->post($url, [
+				'body' => $params
+			]);
+		}else{
+			$response = $client->$method($url, [
+				'query' => $params
+			]);
+		}
 
+		try {
 			return $response->json();
 		}catch(\Exception $e){
 			return \App::abort(500);
