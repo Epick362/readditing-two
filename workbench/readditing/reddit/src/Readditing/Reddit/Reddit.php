@@ -28,7 +28,7 @@ class Reddit {
 		        'headers' => [
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
-		        	'User-Agent' => 'Readditing.com by Epick_362'
+		        	'User-Agent' => 'Readditing by /u/Epick_362. Email: flp.hajek@gmail.com'
 		        ]
 		    ]
 		]);
@@ -45,7 +45,7 @@ class Reddit {
 					'query' => $params
 				]);
 			}
-			
+
 			return $response->json();
 		}catch(\Exception $e){
 			return App::abort(503);
