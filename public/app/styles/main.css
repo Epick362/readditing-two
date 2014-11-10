@@ -7569,12 +7569,12 @@ a:focus {
   color: white;
 }
 .btn-to-top {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 5px 0 0 0;
+  padding: 0;
   font-size: 20px;
 }
 .btn-link {
@@ -7631,9 +7631,6 @@ a.active:hover {
 .text-alternate {
   color: #ff621e;
 }
-a.logout {
-  color: #d94343 !important;
-}
 .navbar-brand {
   padding: 12px 15px;
   transition: all .3s;
@@ -7646,11 +7643,11 @@ a.logout {
 .brand-image {
   width: 35px;
   height: 35px;
-  background-color: #4a86c4;
+  background-color: #FFF;
   border-radius: 3px;
   font-size: 36px;
   line-height: 30px;
-  color: #fff;
+  color: #4a86c4;
   text-align: center;
 }
 .navbar-default {
@@ -7840,7 +7837,7 @@ a.logout {
   }
 }
 /*
-	Loading Anitmation
+  Loading Anitmation
 */
 .loading {
   display: block;
