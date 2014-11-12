@@ -6,18 +6,13 @@ class ChannelController extends BaseController {
 
 	public function channel($channel = NULL, $sort = NULL)
 	{
-		$view = array();
 		$view['channel'] = $channel;
 		$view['sort'] = $sort;
-		$view['username'] = Session::get('user.name');
-		$view['notifications'] = SiteNotifications::getNotifications();
 		
 		if($channel) {
 			$view['channelData'] = Channel::getChannelData($channel);
 			$view['subscribed'] = Channel::isSubscribedToChannel($channel);
 		}
-
-		$view['popular'] = Channel::getSubscribed();
 
 		return View::make('channel', $view);
 	}
@@ -33,19 +28,12 @@ class ChannelController extends BaseController {
 		$view['channel'] = implode($multi['channels'], '+');
 		$view['subscribers'] = Multi::getSubscribers($name);
 		$view['multi'] = $multi['name'];
-		$view['username'] = Session::get('user.name');
-		$view['notifications'] = SiteNotifications::getNotifications();
-
-		$view['popular'] = Channel::getSubscribed();
 
 		return View::make('multi', $view);		
 	}
 
 	public function post($channel, $thing) {
-		$view = array();
 		$view['channel'] = $channel;
-		$view['username'] = Session::get('user')['name'];
-		$view['popular'] = Channel::getSubscribed();
 
 		$view['post'] = Channel::showPost($channel, $thing);
 
@@ -61,8 +49,6 @@ class ChannelController extends BaseController {
 	}
 
 	public function submit() {
-		$view = array();
-		$view['username'] = Session::get('user')['name'];
 		$view['channel'] = Input::get('channel');
 
 		return View::make('submit', $view);

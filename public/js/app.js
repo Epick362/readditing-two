@@ -5,6 +5,7 @@
 			'infinite-scroll',
 			'angularMoment',
 			'angulartics', 
+			'monospaced.elastic',
 			'angulartics.google.analytics'
 		], function($interpolateProvider, $analyticsProvider, $locationProvider) {
 	    $interpolateProvider.startSymbol('<%');

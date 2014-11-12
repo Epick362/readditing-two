@@ -1,7 +1,5 @@
 <?php
 
-use Readditing\Readability\Readability as Readability;
-
 class ApiController extends \BaseController {
 
 	public function indexPost($channel = NULL, $sort = 'hot') {
@@ -62,18 +60,9 @@ class ApiController extends \BaseController {
 		);
 
 		if($validator->passes()) {
-			$saved_article = \Article::where('url', Input::get('url'))->first();
+			$saved_article = Article::where('url', Input::get('url'))->first();
 			if(!$saved_article) {
-				$readability = new Readability(Input::get('url'));
-				$success = $readability->init();
-
-				if($success) {
-					$return = $readability->getContent()->innerHTML;
-				}else{
-					$return = '';
-				}
-
-				\Article::saveArticle(Input::get('url'), array('content' => $return), 0);
+				Article::make(Input::get('url'));
 
 				return Response::json(View::make('provider.other.article', ['data' => ['readability' => $return]])->render());
 			}else{
@@ -111,6 +100,8 @@ class ApiController extends \BaseController {
 				'text' => Input::get('text'),
 				'thing_id' => Input::get('thing')
 			], 'POST');
+
+			Cache::tags(Session::get('user.name'))->flush();
 
 			return Response::json($response);
 		}
