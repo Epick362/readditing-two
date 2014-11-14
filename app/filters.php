@@ -30,10 +30,6 @@ App::after(function($request, $response)
 	//
 });
 
-App::missing(function() {
-	return View::make('errors.404');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters

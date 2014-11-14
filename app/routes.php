@@ -31,7 +31,7 @@ Route::get('about', function() {
 });
 
 Route::get('404', function() {
-	return Response::view('errors.404');
+	return Response::view('errors.404', [], 404);
 });
 
 Route::group(array('before' => 'auth'), function() {

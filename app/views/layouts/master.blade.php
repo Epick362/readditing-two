@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Readditing | @yield('title', 'better reddit experience')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="@yield('meta-desc', 'Readditing is a social reddit website')">
+		<meta name="description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
 
