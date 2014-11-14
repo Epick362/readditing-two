@@ -21,8 +21,7 @@ class AuthController extends Controller {
 			}
 
 			catch (OAuth2_Exception $e) {
-				echo 'Something went wrong<br />';
-				return;
+				return Redirect::intended('/');
 			}
 		}else if (!isset($_GET['code'])) {
 			// By sending no options it'll come back here

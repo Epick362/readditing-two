@@ -175,8 +175,6 @@
 
 				var reply = data.json.data.things[0].data;
 
-				console.log(thing);
-
 				var reply = {
 					id: reply.id,
 					author: reply.author,
@@ -195,6 +193,10 @@
 
 					thing.replies.push(reply);
 				}
+
+				alert('Reply sent!');
+
+				thing.reply = '';
 			})
 			.error(function() {
 				console.log('Error while posting.');
@@ -221,11 +223,7 @@
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                if(attrs['replyForm'] === 'post') {
-	                	element.closest('.modal-dialog').find('.media-list').prepend($compile('<li ng-show="!post.replied" class="media"><div class="media-body"><form ng-submit="reply(post, \'t3\')"><div class="form-group"><textarea class="form-control" ng-model="post.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form></div></li>')(scope));
-	                }else{
-	                	element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary">Send</button></div></form>')(scope));
-	                }
+	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" msd-elastic placeholder="Contribute to discussion..." ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary btn-sm pull-right">Send</button></div></form>')(scope));
 	            });
 	        }
 	    };

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Readditing | @yield('title', 'better reddit experience')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="Readditing is a social reddit website">
+		<meta name="description" content="@yield('meta-desc', 'Readditing is a social reddit website')">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
 
@@ -103,6 +103,7 @@
 		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
 		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/elastic.js') }}"></script>
 
 		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>

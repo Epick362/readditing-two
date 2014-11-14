@@ -31,12 +31,12 @@
 
 @section('sidebar')
 	@if(isset($channel) && $channel)
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?channel='.$channel) }}" style="margin-bottom:10px" analytics-on>Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit/?channel='.$channel) }}" style="margin-bottom:10px" analytics-on>Submit a post</a>
 	@else
-		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:10px" analytics-on>Submit new post</a>
+		<a class="btn btn-default btn-lg btn-block" href="{{ URL::to('submit') }}" style="margin-bottom:10px" analytics-on>Submit a post</a>
 	@endif
 
-	<a ng-cloak class="btn btn-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:10px" analytics-on analytics-category="NSFW" analytics-label="Turn off">Turn off NSFW posts</a>
+	<a ng-cloak class="btn btn-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:10px" analytics-on analytics-category="NSFW" analytics-label="Turn off">Turn off NSFW</a>
 @stop
 
 @section('content')

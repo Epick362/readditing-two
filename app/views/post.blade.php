@@ -8,11 +8,15 @@
 	<!-- Open Graph data -->
 	<meta property="og:site_name" content="Readditing.com" />
 	<meta property="og:locale" content="en_GB" />
-	<meta property="og:title" content="{{ $post['title'] }} by {{ $post['author'] }}" />
+	<meta property="og:title" content="{{ htmlentities($post['title']) }}" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="{{ Request::url() }}" />
 	<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
-	<meta property="og:description" content="{{ substr(strip_tags($post['content']), 0, 200) }}" />
+	<meta property="og:description" content="{{ str_limit(trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 200) }}" />
+@overwrite
+
+@section('meta-desc')
+	{{ str_limit( trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 200) }}
 @overwrite
 
 @section('body')
@@ -83,15 +87,7 @@
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
 						<i class="fa fa-twitter"></i> Twitter
-					</a>
-
-					<a 
-						class="btn btn-share google-plus" 
-						href="https://plus.google.com/share?url={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
-						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-					>
-						<i class="fa fa-google-plus-square"></i> Google+
-					</a>					
+					</a>				
 				</span>
 				<div class="clearfix"></div>
 			</div>
