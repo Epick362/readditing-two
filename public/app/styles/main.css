@@ -7695,7 +7695,7 @@ a.active:hover {
     border-radius: 3px;
   }
 }
-.panel-default.nsfw {
+#subreddit .panel-default.nsfw {
   border-color: #d94343;
 }
 .panel-heading {
