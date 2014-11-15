@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="panel-heading">
-				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>#comments" target="_blank"><% post.title %></a>
+				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" target="_blank"><% post.title %></a>
 				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
@@ -66,7 +66,7 @@
 						</a>
 					</div>
 					<div class="col-xs-4 text-center">
-						<a href="" ng-click="comments(post)" analytics-on analytics-category="Load Comments"><i class="fa fa-comment-o"></i> <% post.comments %> comments</a>
+						<a href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>#comments" target="_blank" analytics-on analytics-category="Load Comments"><i class="fa fa-comment"></i> <% post.comments %> comments</a>
 					</div>
 					<div class="col-xs-4 text-right">
 						<!--<span am-time-ago="post.created" am-preprocess="unix"></span> -->

@@ -64,7 +64,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-1">
-				@if(!$channel || ($channel && isset($channelData['data']['over18']) && !$channelData['data']['over18']))
+				@if(!$channel || ($channel && isset($channelData['over18']) && !$channelData['over18']))
 					@include('partials.leaderboard')
 				@endif
 
