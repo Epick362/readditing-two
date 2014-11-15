@@ -21,6 +21,14 @@
 	>
 @overwrite
 
+@if(isset($channel))
+	@section('nav-main')
+		<li class="{{ Request::is('r/'.$channel) ? 'active' : '' }}"><a href="{{ URL::to('r/'.$channel) }}">Hot</a></li>
+		<li class="{{ Request::is('r/'.$channel.'/rising') ? 'active' : '' }}"><a href="{{ URL::to('r/'.$channel.'/rising') }}">Rising</a></li>
+		<li class="{{ Request::is('r/'.$channel.'/new') ? 'active' : '' }}"><a href="{{ URL::to('r/'.$channel.'/new') }}">New</a></li>
+	@stop
+@endif
+
 @section('nav-middle')
 	<div class="col-sm-4 col-md-4">
 		<form ng-submit="jumpTo()" class="navbar-form">
@@ -48,10 +56,14 @@
 					<h1>
 						/r/{{ $channel }} <small>{{ $channelData['subscribers'] }} subscribers</small>
 
-						@if(Session::has('user'))
-							<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg pull-right"><i class="fa fa-bookmark"></i> Subscribe</a>
-							<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg pull-right"><i class="fa fa-times"></i> Unsubscribe</a>
-						@endif
+						<span class="pull-right">
+							@if(Session::has('user'))
+								<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
+								<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
+							@endif
+
+							<a href="{{ URL::to('submit/?channel='.$channel) }}" class="btn btn-danger btn-lg">Submit</a>
+						</span>
 					</h1>
 				</div>
 			</div>
@@ -70,7 +82,7 @@
 
 				@include('partials.alerts')
 
-				<div id="subreddit ng-cloak" ng-cloak>
+				<div id="subreddit" ng-cloak>
 					<script type="text/ng-template" id="comment.html">
 						@include('partials.comment')
 					</script>
