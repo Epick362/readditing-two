@@ -72,11 +72,11 @@
 						<!--<span am-time-ago="post.created" am-preprocess="unix"></span> -->
 
 						<!-- Facebook Share Button -->
-						<a class="btn btn-share circle facebook" href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
+						<a class="btn btn-share circle facebook" analytics-on analytics-event="Share" analytics-category="Facebook" href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook"></i></a> 
 
 						<!-- Twitter Share Button -->
-						<a class="btn btn-share circle twitter" href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
+						<a class="btn btn-share circle twitter" analytics-on analytics-event="Share" analytics-category="Twitter" href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
 					</div>
 				</div>
 			</div>

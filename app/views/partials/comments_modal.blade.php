@@ -11,6 +11,7 @@
 		Share to: 
 		<a 
 			class="btn btn-share facebook btn-xs" 
+			analytics-on analytics-event="Share" analytics-category="Facebook" 
 			href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 			onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 		>
@@ -18,6 +19,7 @@
 		</a> 
 		<a 
 			class="btn btn-share twitter btn-xs" 
+			analytics-on analytics-event="Share" analytics-category="Twitter" 
 			href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
 			onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 		>

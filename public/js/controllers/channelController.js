@@ -223,7 +223,7 @@
 	            element.bind('click', function(e) {
 	                e.stopPropagation();
 
-	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" msd-elastic placeholder="Contribute to discussion..." ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary btn-sm pull-right">Send</button></div></form>')(scope));
+	                element.closest('.media-body').find('.replyForm:first').html($compile('<form ng-show="!comment.replied" ng-submit="reply(comment, \'t1\')"><div class="form-group" style="margin:10px 0 0 30px"><textarea class="form-control" placeholder="Contribute to discussion..." ng-model="comment.reply" rows="3"></textarea><button style="margin-top:10px" class="btn btn-primary btn-sm pull-right">Send</button></div></form>')(scope));
 	            });
 	        }
 	    };

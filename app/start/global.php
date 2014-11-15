@@ -48,16 +48,18 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-    switch ($code) {
-        case 403:
-            return Response::view('errors.403', [], 403);
+    if(!App::environment('local')) {
+        switch ($code) {
+            case 403:
+                return Response::view('errors.403', [], 403);
 
-        case 404:
-            return Redirect::to('404');
+            case 404:
+                return Redirect::to('404');
 
-        case 500:
-            Log::error($exception);
-            return Response::view('errors.500', [], 500);
+            case 500:
+                Log::error($exception);
+                return Response::view('errors.500', [], 500);
+        }
     }
 });
 

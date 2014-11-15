@@ -7631,6 +7631,17 @@ a.active:hover {
 .text-alternate {
   color: #ff621e;
 }
+.channel-header {
+  background: #000;
+  width: 100%;
+  min-height: 140px;
+  padding-top: 60px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+.channel-header h1 {
+  color: #FFF;
+}
 .navbar-brand {
   padding: 12px 15px;
   transition: all .3s;
@@ -7759,11 +7770,6 @@ a.active:hover {
 .panel-text-short {
   overflow: hidden;
   max-height: 250px;
-}
-.sidebar {
-  top: 110px;
-  width: 263px;
-  position: fixed;
 }
 .sidebar .panel-heading {
   font-size: 1.7em;

@@ -14,7 +14,7 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
 		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
-		<meta property="og:description" content="Readditing is a social reddit website" />
+		<meta property="og:description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')" />
 		@show
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -81,6 +81,7 @@
 			</div>
 		</div>
 
+		@section('wrap')
 		<div id="wrap">
 			<div class="container">
 				<div class="row">
@@ -88,6 +89,7 @@
 				</div>
 			</div>
 		</div>
+		@show
 
 		<a href="#" class="btn btn-default btn-to-top"><i class="fa fa-chevron-up"></i></a>
 

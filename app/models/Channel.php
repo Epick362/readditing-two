@@ -160,7 +160,7 @@ class Channel extends Eloquent {
 		});
 
 		if($data) {
-			return $data;
+			return $data['data'];
 		}
 
 		return false;
