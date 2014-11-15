@@ -14,7 +14,7 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
 		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
-		<meta property="og:description" content="Readditing is a social reddit website" />
+		<meta property="og:description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')" />
 		@show
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -84,6 +84,7 @@
 			</div>
 		</div>
 
+		@section('wrap')
 		<div id="wrap">
 			<div class="container">
 				<div class="row">
@@ -91,11 +92,13 @@
 				</div>
 			</div>
 		</div>
+		@show
 
 		<a href="#" class="btn btn-default btn-to-top"><i class="fa fa-chevron-up"></i></a>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
+		<script src="{{ URL::asset('app/bower_components/bootstrap-autohidingnavbar/dist/jquery.bootstrap-autohidingnavbar.js') }}"></script>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
@@ -120,7 +123,25 @@
 
 				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 					$('#extension').show();
+				}	
+
+				// Hide navbar
+				function hideDetect(){
+					$(".navbar-fixed-top").autoHidingNavbar();
+					if ($(window).height() > 500){
+						// Keep menu on big screens
+						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', true);
+						$(".navbar-fixed-top").autoHidingNavbar('show');
+					} else {
+						// Auto-hide menu on tiny screens
+						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', false);
+					}
 				}
+
+				// Launch startup detection
+				hideDetect();
+				// Re-launch dection in window resized
+				window.onresize = hideDetect;
 			});
 		</script>
 

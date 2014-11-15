@@ -160,7 +160,7 @@ class Channel extends Eloquent {
 		});
 
 		if($data) {
-			return $data;
+			return $data['data'];
 		}
 
 		return false;
@@ -242,7 +242,11 @@ class Channel extends Eloquent {
 					$comment['id'] = $_comment['data']['id'];
 					$comment['author'] = $_comment['data']['author'];
 					$comment['score'] = $_comment['data']['score'];
-					$comment['body'] = html_entity_decode($_comment['data']['body_html']);
+					if(preg_match('/(\\/)(r)(\\/)((?:[a-z][a-z0-9_]*))/is', $_comment['data']['body'])) {
+						$comment['body'] = link_to($_comment['data']['body'], $_comment['data']['body']);
+					}else{
+						$comment['body'] = html_entity_decode($_comment['data']['body_html']);
+					}
 					$comment['created'] = $_comment['data']['created_utc'];
 					$comment['likes'] = $_comment['data']['likes'];
 					$comment['saved'] = $_comment['data']['saved'];

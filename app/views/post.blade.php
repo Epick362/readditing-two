@@ -12,11 +12,11 @@
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="{{ Request::url() }}" />
 	<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
-	<meta property="og:description" content="{{ str_limit(trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 200) }}" />
+	<meta property="og:description" content="{{ str_limit(trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 150) }}" />
 @overwrite
 
 @section('meta-desc')
-	{{ str_limit( trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 200) }}
+	{{ str_limit( trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 150) }}
 @overwrite
 
 @section('body')
@@ -75,6 +75,7 @@
 					Share to: 
 					<a 
 						class="btn btn-share facebook" 
+						analytics-on analytics-event="Share" analytics-category="Facebook" 
 						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
@@ -83,6 +84,7 @@
 
 					<a 
 						class="btn btn-share twitter" 
+						analytics-on analytics-event="Share" analytics-category="Twitter" 
 						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>

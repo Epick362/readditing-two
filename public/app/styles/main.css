@@ -7617,7 +7617,7 @@ a:focus {
 .btn-share.circle {
   width: 24px;
   height: 24px;
-  font-size: 18px;
+  font-size: 17px;
   border-radius: 50%;
   padding: 0;
   margin-right: 5px;
@@ -7630,6 +7630,17 @@ a.active:hover {
 }
 .text-alternate {
   color: #ff621e;
+}
+.channel-header {
+  background: #000;
+  width: 100%;
+  min-height: 140px;
+  padding-top: 60px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+.channel-header h1 {
+  color: #FFF;
 }
 .navbar-brand {
   padding: 12px 15px;
@@ -7667,22 +7678,18 @@ a.active:hover {
   border-top: 0;
   opacity: 0.95;
 }
-.panel {
+.panel-default {
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 40px;
-}
-.panel-default {
   border-left: 0;
   border-right: 0;
   border-radius: 0;
 }
 @media (min-width: 768px) {
-  .panel {
+  .panel-default {
     margin-left: 0;
     margin-right: 0;
-  }
-  .panel-default {
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-radius: 3px;
@@ -7759,11 +7766,6 @@ a.active:hover {
 .panel-text-short {
   overflow: hidden;
   max-height: 250px;
-}
-.sidebar {
-  top: 110px;
-  width: 263px;
-  position: fixed;
 }
 .sidebar .panel-heading {
   font-size: 1.7em;
