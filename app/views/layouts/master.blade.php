@@ -61,19 +61,20 @@
 				</div>
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
 					<ul class="nav navbar-nav">
-						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}" analytics-on>Submit</a></li>
+						@yield('nav-main')
 						<li class="{{ Request::is('r/readditingcom') ? 'active' : '' }}"><a href="{{ URL::to('r/readditingcom') }}">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
 
 					@yield('nav-middle')
 
+
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn hidden-xs" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 		        		@else
 							<li>
-								<a href="{{ URL::to('u/'.Session::get('user')['name']) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
+								<a href="{{ URL::to('u/'.Session::get('user.name')) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
 							</li>
 							<li>
 								<a href="{{ URL::to('logout') }}" class="logout" analytics-on analytics-category="Logout">Logout <i class="fa fa-sign-out"></i></a>
