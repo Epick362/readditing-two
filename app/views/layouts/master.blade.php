@@ -99,7 +99,7 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
-		<script src="{{ URL::asset('app/bower_components/bootstrap-autohidingnavbar/dist/jquery.bootstrap-autohidingnavbar.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/jquery.bootstrap-autohidingnavbar.js') }}"></script>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
