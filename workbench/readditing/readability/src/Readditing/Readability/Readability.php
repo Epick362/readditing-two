@@ -65,7 +65,7 @@ class Readability {
 
 		try {
 			// create a request
-			$response = $client->get($this->url);
+			$response = $client->get($this->url, ['timeout' => 4]);
 
 			// this is the response body from the requested page (usually html)
 			$result = $response->getBody();
