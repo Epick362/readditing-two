@@ -151,7 +151,7 @@ class Channel extends Eloquent {
 	}
 
 	public static function getChannelData($channel) {
-		if(strpos($channel, '+') !== false) {
+		if(strpos($channel, '+') !== false || strpos($channel, ' ') !== false) {
 			return false;
 		}
 
