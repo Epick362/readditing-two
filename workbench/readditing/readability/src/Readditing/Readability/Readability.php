@@ -3,6 +3,11 @@ use Readditing\Readability\JSLikeHTMLElement as JSLikeHTMLElement;
 
 namespace Readditing\Readability;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Message\Request;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Exception\ClientException;
+
 class Readability {
 	public $version = '1.7.1-without-multi-page';
 	public $convertLinksToFootnotes = false;
@@ -53,8 +58,29 @@ class Readability {
 		$this->dom = new \DOMDocument();
 		$this->dom->preserveWhiteSpace = false;
 		libxml_use_internal_errors(true);
-		@$this->dom->loadHTMLFile($this->url);
+
+		// Get URL and store response body as a string
+
+		$client = new Client;
+
+		try {
+			// create a request
+			$response = $client->get($this->url);
+
+			// this is the response body from the requested page (usually html)
+			$result = $response->getBody();
+		}catch(\Exception $e) {
+			$result = '';
+		}
+
+		@$this->dom->loadHTML($result);
 		$html = $this->dom->saveHTML();
+
+		// Old way
+
+		// @$this->dom->loadHTMLFile($this->url);
+		// $html = $this->dom->saveHTML();
+
 
 		if (function_exists('tidy_parse_string')) {
 			$tidy = tidy_parse_string($html, array(), 'UTF8');
