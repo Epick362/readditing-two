@@ -4,7 +4,7 @@
 	{{ $channelData['display_name'] or 'Frontpage' }}
 @stop
 
-@if(isset($channel))
+@if(isset($channel, $channelData['public_description']))
 	@section('meta-desc')
 		{{ str_limit($channelData['public_description'], 150) }}
 	@stop
