@@ -2,8 +2,8 @@
 
 return array(
     'reddit' => array(
-        'id' => '7Ojt4UvaXdlfIg',
-        'secret' => 'diuIcaD4ejI0ZUlQXbDqRTxBRjA',
+        'id' => 'B40Twt4GhGFPPw',
+        'secret' => 'trPRyQO3ZSV0w-2zUYuGgFtB_hE',
     ),
 
     'imgur' => array(
