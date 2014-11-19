@@ -13,4 +13,6 @@
 			</div>
 		</div>
 	@endif
+
+	<small class="text-muted">This site is not affiliated with <a href="https://reddit.com" target="_blank" rel="nofollow">reddit.com</a> in any way.</small>
 </div>
