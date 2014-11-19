@@ -48,7 +48,7 @@
 @stop
 
 @section('wrap')
-	@if(isset($channel) && $channel)
+	@if(isset($channel, $channelData))
 	<div class="channel-header" ng-cloak>
 		<div class="container">
 			<div class="row">
