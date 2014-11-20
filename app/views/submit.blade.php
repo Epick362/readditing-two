@@ -6,7 +6,6 @@
 
 @section('body')
 	<body 
-		ng-app="readditingApp" 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
 	>
@@ -44,7 +43,7 @@
 							</div>
 							<div class="form-group">
 								<label>Text <span class="text-muted">(optional)</span></label>
-								<textarea ng-model="post.text" type="text" class="form-control" rows="6"></textarea>
+								<textarea msd-elastic ng-model="post.text" type="text" class="form-control" rows="6"></textarea>
 							</div>
 
 							<div class="form-group">

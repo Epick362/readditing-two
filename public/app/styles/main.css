@@ -1146,10 +1146,10 @@ a.text-primary:hover {
   color: #d62c1a;
 }
 .text-success {
-  color: #3c763d;
+  color: #67b168;
 }
 a.text-success:hover {
-  color: #2b542c;
+  color: #4e974f;
 }
 .text-info {
   color: #31708f;
@@ -2540,25 +2540,25 @@ select[multiple].input-lg {
 .has-success .checkbox,
 .has-success .radio-inline,
 .has-success .checkbox-inline {
-  color: #3c763d;
+  color: #67b168;
 }
 .has-success .form-control {
-  border-color: #3c763d;
+  border-color: #67b168;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 .has-success .form-control:focus {
-  border-color: #2b542c;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+  border-color: #4e974f;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #aad4ab;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #aad4ab;
 }
 .has-success .input-group-addon {
-  color: #3c763d;
-  border-color: #3c763d;
+  color: #67b168;
+  border-color: #67b168;
   background-color: #dff0d8;
 }
 .has-success .form-control-feedback {
-  color: #3c763d;
+  color: #67b168;
 }
 .has-warning .help-block,
 .has-warning .control-label,
@@ -4624,13 +4624,13 @@ a.thumbnail.active {
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
-  color: #3c763d;
+  color: #67b168;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;
 }
 .alert-success .alert-link {
-  color: #2b542c;
+  color: #4e974f;
 }
 .alert-info {
   background-color: #d9edf7;
@@ -4869,26 +4869,26 @@ a.list-group-item:focus {
   color: #fdf3f2;
 }
 .list-group-item-success {
-  color: #3c763d;
+  color: #67b168;
   background-color: #dff0d8;
 }
 a.list-group-item-success {
-  color: #3c763d;
+  color: #67b168;
 }
 a.list-group-item-success .list-group-item-heading {
   color: inherit;
 }
 a.list-group-item-success:hover,
 a.list-group-item-success:focus {
-  color: #3c763d;
+  color: #67b168;
   background-color: #d0e9c6;
 }
 a.list-group-item-success.active,
 a.list-group-item-success.active:hover,
 a.list-group-item-success.active:focus {
   color: #fff;
-  background-color: #3c763d;
-  border-color: #3c763d;
+  background-color: #67b168;
+  border-color: #67b168;
 }
 .list-group-item-info {
   color: #31708f;
@@ -5204,7 +5204,7 @@ a.list-group-item-danger.active:focus {
   border-color: #d6e9c6;
 }
 .panel-success > .panel-heading {
-  color: #3c763d;
+  color: #67b168;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
@@ -5213,7 +5213,7 @@ a.list-group-item-danger.active:focus {
 }
 .panel-success > .panel-heading .badge {
   color: #dff0d8;
-  background-color: #3c763d;
+  background-color: #67b168;
 }
 .panel-success > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #d6e9c6;
@@ -7532,15 +7532,15 @@ a:focus {
   transition: background-color 0.2s ease;
 }
 .btn-default {
-  color: #34A4F7;
+  color: #e74c3c;
   background-color: transparent;
-  border-color: #34A4F7;
+  border-color: #e74c3c;
 }
 .btn-default:hover,
 .btn-default:focus {
   color: #FFF;
-  background-color: #34A4F7;
-  border-color: #34A4F7;
+  background-color: #e74c3c;
+  border-color: #e74c3c;
 }
 .btn-upvote {
   border: 1px solid #ff8651;
@@ -7569,12 +7569,12 @@ a:focus {
   color: white;
 }
 .btn-to-top {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  padding: 5px 0 0 0;
+  padding: 0;
   font-size: 20px;
 }
 .btn-link {
@@ -7617,7 +7617,7 @@ a:focus {
 .btn-share.circle {
   width: 24px;
   height: 24px;
-  font-size: 18px;
+  font-size: 17px;
   border-radius: 50%;
   padding: 0;
   margin-right: 5px;
@@ -7630,6 +7630,17 @@ a.active:hover {
 }
 .text-alternate {
   color: #ff8651;
+}
+.channel-header {
+  background: #000;
+  width: 100%;
+  min-height: 140px;
+  padding-top: 60px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+.channel-header h1 {
+  color: #FFF;
 }
 .navbar-brand {
   padding: 12px 15px;
@@ -7667,28 +7678,24 @@ a.active:hover {
   border-top: 0;
   opacity: 0.95;
 }
-.panel {
+#subreddit .panel-default {
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 40px;
-}
-.panel-default {
   border-left: 0;
   border-right: 0;
   border-radius: 0;
 }
 @media (min-width: 768px) {
-  .panel {
+  #subreddit .panel-default {
     margin-left: 0;
     margin-right: 0;
-  }
-  .panel-default {
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-radius: 3px;
   }
 }
-.panel-default.nsfw {
+#subreddit .panel-default.nsfw {
   border-color: #d94343;
 }
 .panel-heading {
@@ -7738,8 +7745,9 @@ a.active:hover {
   margin: 0 auto;
   width: 85%;
   text-align: justify;
+  hyphens: auto;
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 .panel-body .panel-text img {
   display: block;
@@ -7758,11 +7766,6 @@ a.active:hover {
 .panel-text-short {
   overflow: hidden;
   max-height: 250px;
-}
-.sidebar {
-  top: 110px;
-  width: 263px;
-  position: fixed;
 }
 .sidebar .panel-heading {
   font-size: 1.7em;
@@ -7789,59 +7792,102 @@ a.active:hover {
   overflow: hidden;
   margin-bottom: 20px;
 }
-.spinner {
-  margin: 20px auto 20px auto;
-  width: 70px;
-  text-align: center;
+.animated-background {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #f0f0f0), color-stop(18%, #ececec), color-stop(33%, #f0f0f0));
+  background: -webkit-linear-gradient(left, #f0f0f0 8%, #ececec 18%, #f0f0f0 33%);
+  background: linear-gradient(to right, #f0f0f0 8%, #ececec 18%, #f0f0f0 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: 120px;
+  position: relative;
+  margin-bottom: 80px;
 }
-.spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: #ff8651;
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
-  animation: bouncedelay 1.4s infinite ease-in-out;
-  /* Prevent first frame from flickering when animation starts */
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+.background-masker {
+  background: #fafafa;
+  position: absolute;
 }
-.spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+/* Every thing below this is just positioning */
+.background-masker.header-body {
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 20px;
 }
-.spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+.background-masker.header-source {
+  top: 0;
+  right: 200px;
+  height: 40px;
+  width: 80px;
 }
-@-webkit-keyframes bouncedelay {
-  0%,
-  80%,
+.background-masker.body-noline1 {
+  top: 60px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line1 {
+  top: 70px;
+  height: 10px;
+  left: 360px;
+  right: 0;
+}
+.background-masker.body-noline2 {
+  top: 80px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line2 {
+  top: 90px;
+  height: 10px;
+  left: 400px;
+  right: 0;
+}
+.background-masker.body-noline3 {
+  top: 100px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line3 {
+  top: 110px;
+  height: 10px;
+  left: 330px;
+  right: 0;
+}
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -368px 0;
+  }
   100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
+    background-position: 368px 0;
   }
 }
-@keyframes bouncedelay {
-  0%,
-  80%,
-  100% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -368px 0;
   }
-  40% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
+  100% {
+    background-position: 368px 0;
   }
 }
 /*
-	Loading Anitmation
+  Loading Anitmation
 */
 .loading {
   display: block;
-  margin: 20px 0 0 20px;
+  margin: 80px auto;
 }
 .loading > .ball-outer {
   background-color: rgba(0, 0, 0, 0);
@@ -7853,8 +7899,8 @@ a.active:hover {
   width: 80px;
   height: 80px;
   margin: 0 auto;
-  -moz-animation: spin .75s infinite linear;
-  -webkit-animation: spin .75s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  -webkit-animation: spin 1s infinite linear;
 }
 .loading > .ball-inner {
   background-color: rgba(0, 0, 0, 0);
@@ -7868,8 +7914,8 @@ a.active:hover {
   margin: 0 auto;
   position: relative;
   top: -70px;
-  -moz-animation: spinoff .5s infinite linear;
-  -webkit-animation: spinoff .5s infinite linear;
+  -moz-animation: spinoff .8s infinite linear;
+  -webkit-animation: spinoff .8s infinite linear;
 }
 @-moz-keyframes spin {
   0% {

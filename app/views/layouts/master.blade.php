@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="readditingApp" >
 	<head>
 		<meta charset="utf-8">
 		<title>getAmused.net - @yield('title')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="Funny images and videos from all around the internet">
-		<meta name="keywords" content="fun images videos funny social">
+		<meta name="description" content="@yield('meta-desc', 'Funny images and videos from all around the internet.')">
+		<meta name="keywords" content="reddit fun images funny social">
 		<meta name="author" content="Filip Hajek">
 
 		@section('og')
@@ -14,7 +14,7 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.getamused.net/" />
 		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
-		<meta property="og:description" content="Funny images and videos from all around the internet" />
+		<meta property="og:description" content="@yield('meta-desc', 'Funny images and videos from all around the internet.')" />
 		@show
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -38,7 +38,7 @@
 		<link id="ApiRoot" href="{{ URL::to('') }}" />
 	</head>
 	@section('body')
-	<body ng-app="readditingApp">
+	<body>
 	@show
 		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
@@ -58,19 +58,20 @@
 				</div>
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
 					<ul class="nav navbar-nav">
-						<li class="{{ Request::is('submit') ? 'active' : '' }}"><a href="{{ URL::to('submit') }}" analytics-on>Submit</a></li>
+						@yield('nav-main')
 						<li class="{{ Request::is('r/readditingcom') ? 'active' : '' }}"><a href="{{ URL::to('r/readditingcom') }}">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
 
 					@yield('nav-middle')
 
+
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-info navbar-btn hidden-xs" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 		        		@else
 							<li>
-								<a href="{{ URL::to('u/'.Session::get('user')['name']) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
+								<a href="{{ URL::to('u/'.Session::get('user.name')) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
 							</li>
 							<li>
 								<a href="{{ URL::to('logout') }}" class="logout" analytics-on analytics-category="Logout">Logout <i class="fa fa-sign-out"></i></a>
@@ -81,6 +82,7 @@
 			</div>
 		</div>
 
+		@section('wrap')
 		<div id="wrap">
 			<div class="container">
 				<div class="row">
@@ -88,11 +90,13 @@
 				</div>
 			</div>
 		</div>
+		@show
 
 		<a href="#" class="btn btn-default btn-to-top"><i class="fa fa-chevron-up"></i></a>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
+		<script src="{{ URL::asset('app/scripts/jquery.bootstrap-autohidingnavbar.js') }}"></script>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
@@ -100,19 +104,38 @@
 		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
 		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
+		<script src="{{ URL::asset('app/scripts/elastic.js') }}"></script>
 
 		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>
 		
-		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
-		<script src="{{ URL::asset('js/controllers/channelCtrl.js') }}"></script>
 		<script src="{{ URL::asset('js/app.js') }}"></script>
+		<script src="{{ URL::asset('js/controllers/channelController.js') }}"></script>
+		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
 
 		<script type="text/javascript">
 			$(function() {
 				$(window).on('beforeunload', function() {
 				    $(window).scrollTop(0);
-				});				
+				});			
+
+				// Hide navbar
+				function hideDetect(){
+					$(".navbar-fixed-top").autoHidingNavbar();
+					if ($(window).height() > 500){
+						// Keep menu on big screens
+						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', true);
+						$(".navbar-fixed-top").autoHidingNavbar('show');
+					} else {
+						// Auto-hide menu on tiny screens
+						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', false);
+					}
+				}
+
+				// Launch startup detection
+				hideDetect();
+				// Re-launch dection in window resized
+				window.onresize = hideDetect;
 			});
 		</script>
 

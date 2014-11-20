@@ -9,7 +9,7 @@
 @import url('http://fonts.googleapis.com/css?family=Lato:100,400,700');
 
 #wrap {
-	margin-top: 110px; 
+  margin-top: 110px; 
 } 
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -26,7 +26,7 @@ a {
 
 a:hover,
 a:focus {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .input-group-btn:last-child > .btn {
@@ -38,16 +38,16 @@ a:focus {
 }
 
 .btn-default {
-  color: #34A4F7;
+  color: @brand-primary;
   background-color: transparent;
-  border-color: #34A4F7;
+  border-color: @brand-primary;
 }
 
 .btn-default:hover,
 .btn-default:focus {
   color: #FFF;
-  background-color: #34A4F7;
-  border-color: #34A4F7;
+  background-color: @brand-primary;
+  border-color: @brand-primary;
 }
 
 .btn-upvote {
@@ -84,13 +84,13 @@ a:focus {
 }
 
 .btn-to-top {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: fixed;
   bottom: 20px;
   right: 20px;
 
-  padding: 5px 0 0 0;
+  padding: 0;
 
   font-size: 20px;
 }
@@ -147,7 +147,7 @@ a:focus {
   &.circle {
     width: 24px;
     height: 24px;
-    font-size: 18px;
+    font-size: 17px;
     border-radius: 50%;
     padding: 0;
     margin-right: 5px;
@@ -164,6 +164,19 @@ a.active {
 
 .text-alternate {
   color: @brand-alternate;
+}
+
+.channel-header {
+  background: #000;
+  width: 100%;
+  min-height: 140px;
+  padding-top: 60px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+
+  & h1 {
+    color: #FFF;
+  }
 }
 
 .navbar-brand {
@@ -208,32 +221,26 @@ a.active {
   opacity: 0.95;
 }
 
-.panel {
+#subreddit .panel-default {
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 40px;
-}
-
-.panel-default {
   border-left: 0;
   border-right: 0;
   border-radius: 0;
 }
 
 @media (min-width: @screen-tablet) {
-  .panel {
+  #subreddit .panel-default {
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .panel-default {
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-radius: 3px;
   }
 }
 
-.panel-default.nsfw {
+#subreddit .panel-default.nsfw {
   border-color: @brand-danger;
 }
 
@@ -268,8 +275,8 @@ a.active {
 }
 
 .showmore-container {
-	width: 90%;
-	margin: 5px auto;
+  width: 90%;
+  margin: 5px auto;
 }
 
 .panel-body {
@@ -289,12 +296,13 @@ a.active {
 
   & .panel-text {
     font-family: @font-family-serif;
-  	position: relative;
-  	margin: 0 auto;
-  	width: 85%;
-  	text-align: justify;
-  	font-size: 16px;
-  	line-height: 1.65;
+    position: relative;
+    margin: 0 auto;
+    width: 85%;
+    text-align: justify;
+    hyphens: auto;
+    font-size: 16px;
+    line-height: 1.7;
 
     & img {
       display: block;
@@ -316,15 +324,11 @@ a.active {
 }
 
 .panel-text-short {
-	overflow: hidden;
-	max-height: 250px;
+  overflow: hidden;
+  max-height: 250px;
 }
 
 .sidebar {
-  top: 110px;
-  width: 263px;
-  position:fixed;
-
   & .panel-heading {
     font-size: 1.7em;
   }
@@ -359,57 +363,109 @@ a.active {
   margin-bottom: 20px;
 }
 
-.spinner {
-  margin: 20px auto 20px auto;
-  width: 70px;
-  text-align: center;
+.animated-background {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #f0f0f0), color-stop(18%, #ececec), color-stop(33%, #f0f0f0));
+  background: -webkit-linear-gradient(left, #f0f0f0 8%, #ececec 18%, #f0f0f0 33%);
+  background: linear-gradient(to right,  #f0f0f0 8%,#ececec 18%,#f0f0f0 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: 120px;
+  position: relative;
+
+  margin-bottom: 80px;
+} 
+
+.background-masker {
+  background: #fafafa;
+  position: absolute;
+}
+ 
+/* Every thing below this is just positioning */
+ 
+.background-masker.header-body {
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 20px;
+}
+.background-masker.header-source {
+  top: 0;
+  right: 200px;
+  height: 40px;
+  width: 80px;
+}
+.background-masker.body-noline1 {
+  top: 60px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line1 {
+  top: 70px;
+  height: 10px;
+  left: 360px;
+  right: 0;
+}
+.background-masker.body-noline2 {
+  top: 80px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line2 {
+  top: 90px;
+  height: 10px;
+  left: 400px;
+  right: 0;
+}
+.background-masker.body-noline3 {
+  top: 100px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line3 {
+  top: 110px;
+  height: 10px;
+  left: 330px;
+  right: 0;
 }
 
-.spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: @brand-alternate;
-
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
-  animation: bouncedelay 1.4s infinite ease-in-out;
-  /* Prevent first frame from flickering when animation starts */
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+@keyframes placeHolderShimmer{
+  0%{
+    background-position: -368px 0
+  }
+  100%{
+    background-position: 368px 0
+  }
 }
 
-.spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-
-.spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
-}
-
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0.0) }
-  40% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes bouncedelay {
-  0%, 80%, 100% { 
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 40% { 
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
+@-webkit-keyframes placeHolderShimmer{
+  0%{
+    background-position: -368px 0
+  }
+  100%{
+    background-position: 368px 0
   }
 }
 
 /*
-	Loading Anitmation
+  Loading Anitmation
 */
 .loading {
-	display: block;
-	margin: 20px 0 0 20px;
+  display: block;
+  margin: 80px auto;
 }
 .loading > .ball-outer {
     background-color: rgba(0,0,0,0);
@@ -421,8 +477,8 @@ a.active {
     width: 80px;
     height: 80px;
     margin: 0 auto;
-    -moz-animation: spin .75s infinite linear;
-    -webkit-animation: spin .75s infinite linear;
+    -moz-animation: spin 1s infinite linear;
+    -webkit-animation: spin 1s infinite linear;
 }
 
 .loading > .ball-inner {
@@ -437,8 +493,8 @@ a.active {
     margin: 0 auto;
     position: relative;
     top: -70px;
-    -moz-animation: spinoff .5s infinite linear;
-    -webkit-animation: spinoff .5s infinite linear;
+    -moz-animation: spinoff .8s infinite linear;
+    -webkit-animation: spinoff .8s infinite linear;
 }
 
 @-moz-keyframes spin {

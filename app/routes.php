@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', 'FrontpageController@channel');
+Route::get('/', 'ChannelController@channel');
 
-Route::get('/r/{channel?}/{sort?}', 'FrontpageController@channel');
-Route::get('/r/{channel}/comments/{thing}', 'FrontpageController@post');
+Route::get('/r/{channel?}/{sort?}', 'ChannelController@channel');
+Route::get('/r/{channel}/comments/{thing}/{title?}/{comment?}', 'ChannelController@post');
+
+Route::get('/m/{multi}', 'ChannelController@multi');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 
@@ -29,11 +31,11 @@ Route::get('about', function() {
 });
 
 Route::get('404', function() {
-	return Response::view('errors.404');
+	return Response::view('errors.404', [], 404);
 });
 
 Route::group(array('before' => 'auth'), function() {
-	Route::get('/submit/{channel?}', 'FrontpageController@submit');
+	Route::get('/submit/{channel?}', 'ChannelController@submit');
 });
 
 // =============================================

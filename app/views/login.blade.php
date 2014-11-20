@@ -9,7 +9,7 @@
 		<h1 style="margin-top:0">Login</h1>
 		<hr />
 		<p class="lead">
-			Logging in will enable you to <b>comment</b>, <b>upvote</b> posts, <b>submit</b> new ones and <b>save</b> content you like for later!
+			Logging in will enable you to <strong>comment</strong>, <strong>upvote</strong> posts, <strong>submit</strong> new ones and <strong>save</strong> content you like for later!
 	    </p>
 
 		<div class="text-center" style="margin:20px">
@@ -17,7 +17,7 @@
 		</div>
 
 		<p>
-			Readditing enables you to <b>securely</b> log in to your reddit account without you having to provide your login credentials on our site. Click the button above to begin.
+			Readditing enables you to <strong>securely</strong> log in to your reddit account without you having to provide your login credentials on our site. Click the button above to begin.
 	    </p>
     </div>
 @stop

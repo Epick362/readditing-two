@@ -6,7 +6,6 @@
 
 @section('body')
 	<body 
-		ng-app="readditingApp" 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
 		profile="{{ $user or false }}"
@@ -15,7 +14,12 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-2" ng-cloak>
-		<p class="lead text-center" style="font-size:42px">{{ $user }}</p>
+		<p class="lead text-center" style="font-size:42px">
+			{{ $user }}
+			@if(!empty($user_in_db))
+				<i tooltip="This user has authorized with Readditing.com" class="text-success fa fa-check"></i>
+			@endif
+		</p>
 		<ul class="nav nav-tabs nav-justified" style="margin-bottom:20px">
 			<li class="{{ Request::is('u/'.$user) ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user) }}">Overview</a></li>
 			<li class="{{ Request::is('u/'.$user.'/submitted') ? 'active' : '' }}"><a href="{{ URL::to('u/'.$user.'/submitted') }}">Submitted</a></li>

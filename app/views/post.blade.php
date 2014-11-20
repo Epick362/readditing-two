@@ -8,16 +8,19 @@
 	<!-- Open Graph data -->
 	<meta property="og:site_name" content="getAmused.net" />
 	<meta property="og:locale" content="en_GB" />
-	<meta property="og:title" content="{{ $post['title'] }} by {{ $post['author'] }}" />
+	<meta property="og:title" content="{{ htmlentities($post['title']) }}" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="{{ Request::url() }}" />
 	<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
 	<meta property="og:description" content="{{ $post['title'] }}" />
 @overwrite
 
+@section('meta-desc')
+	{{ $post['title'] }}
+@overwrite
+
 @section('body')
 	<body 
-		ng-app="readditingApp" 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
 		channel="{{ $channel or false }}" 
@@ -56,6 +59,7 @@
 					Share to: 
 					<a 
 						class="btn btn-share facebook" 
+						analytics-on analytics-event="Share" analytics-category="Facebook" 
 						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
@@ -64,19 +68,12 @@
 
 					<a 
 						class="btn btn-share twitter" 
+						analytics-on analytics-event="Share" analytics-category="Twitter" 
 						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
 						<i class="fa fa-twitter"></i> Twitter
-					</a>
-
-					<a 
-						class="btn btn-share google-plus" 
-						href="https://plus.google.com/share?url={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
-						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-					>
-						<i class="fa fa-google-plus-square"></i> Google+
-					</a>					
+					</a>				
 				</span>
 				<div class="clearfix"></div>
 			</div>

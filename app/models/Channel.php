@@ -151,7 +151,7 @@ class Channel extends Eloquent {
 	}
 
 	public static function getChannelData($channel) {
-		if(strpos($channel, '+') !== false) {
+		if(strpos($channel, '+') !== false || strpos($channel, ' ') !== false) {
 			return false;
 		}
 
@@ -160,7 +160,7 @@ class Channel extends Eloquent {
 		});
 
 		if($data) {
-			return $data;
+			return $data['data'];
 		}
 
 		return false;
@@ -189,6 +189,17 @@ class Channel extends Eloquent {
 			foreach($posts['data']['children'] as $_post) {
 				if($_post['kind'] === 't3') {
 					if(!BlacklistThings::isBlacklisted($_post['data']['name']) && !BlacklistUsers::isBlacklisted($_post['data']['author'])) {
+						$_cache[0]['data']['children'][0] = $_post;
+						if(Session::get('user.name')) {
+							$data = Cache::tags(Session::get('user.name'), $_post['data']['subreddit'], $_post['data']['id'])->remember('comments', 1, function() use($_cache) {
+								return $_cache;
+							});
+						}else{
+							$data = Cache::tags($_post['data']['subreddit'], $_post['data']['id'])->remember('comments', 1, function() use($_cache) {
+								return $_cache;
+							});
+						}
+												
 						$fpost = self::_formatPost($_post);
 
 						if($fpost) {

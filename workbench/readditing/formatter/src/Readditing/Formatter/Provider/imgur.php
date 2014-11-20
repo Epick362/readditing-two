@@ -80,6 +80,10 @@ class Imgur extends Provider {
 				\Cache::put('imgurRateLimit', 'now', 120);
 			}
 
+			if(!isset($response['data']['images'])) {
+				return $this->fail();
+			}
+			
 			foreach($response['data']['images'] as $_image) {
 				$images[] = $_image['link'];
 

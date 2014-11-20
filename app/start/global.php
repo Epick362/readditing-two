@@ -31,7 +31,7 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useDailyFiles(storage_path().'/logs/laravel.log');
+Log::useFiles(storage_path().'/logs/laravel.log');
 
 /*
 |--------------------------------------------------------------------------
@@ -48,18 +48,17 @@ Log::useDailyFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
-
     if(!App::environment('local')) {
         switch ($code) {
             case 403:
-                return Response::view('errors.403', array(), 403);
+                return Response::view('errors.403', [], 403);
 
             case 404:
-                return Response::view('errors.404', array(), 404);
+                return Redirect::to('404');
 
             case 500:
-                return Response::view('errors.500', array(), 500);
+                Log::error($exception);
+                return Response::view('errors.500', [], 500);
         }
     }
 });
@@ -92,3 +91,4 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+require app_path().'/composers.php';
