@@ -83,9 +83,6 @@
 		</div>
 	</div>
 
-
-	<!-- LOADING =============================================== -->
-	<div class="loading" ng-show="reddit.busy">
-		<div class="ball-outer"></div>
-		<div class="ball-inner"></div>
+	<div ng-show="reddit.busy">
+		@include('partials.loading')
 	</div>
