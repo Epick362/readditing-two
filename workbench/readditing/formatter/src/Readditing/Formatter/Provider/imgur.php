@@ -68,7 +68,7 @@ class Imgur extends Provider {
 			try {
 				$client = new Client();
 				$imgur = $client->get("https://api.imgur.com/3/gallery/".$id, [
-					'headers' => ['Authorization' => 'Client-ID 45bdae835f9d9d6']
+					'headers' => ['Authorization' => 'Client-ID 372cf95c99cca96']
 				]);
 
 				$response = $imgur->json();

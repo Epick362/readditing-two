@@ -7,7 +7,7 @@ return array(
     ),
 
     'imgur' => array(
-    	'client_id' => '45bdae835f9d9d6',
+    	'client_id' => '372cf95c99cca96',
     ),
 
 
