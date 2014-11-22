@@ -25,13 +25,16 @@ class Imgur extends Provider {
 	 */
 	public function getPost()
 	{
-		$parsed_url = parse_url($this->data['data']['url']);
+		$purl = parse_url($this->data['data']['url']);
+
+		$this->data['data']['url'] = 'https://'. $purl['host'] . $purl['path'];
+
 
 		$images = array('png', 'jpg', 'jpeg', 'gif');
-		$after_dot = substr($parsed_url['path'], strrpos($parsed_url['path'], '.') + 1);
+		$after_dot = substr($purl['path'], strrpos($purl['path'], '.') + 1);
 
 		if(!in_array($after_dot, $images)) {
-			$parts = explode('/', $parsed_url['path']);
+			$parts = explode('/', $purl['path']);
 
 			if($parts[1] == 'a') {
 				return $this->getAlbum();

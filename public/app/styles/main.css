@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Lato:100,400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,400,700');
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -7791,6 +7791,96 @@ a.active:hover {
   margin: 0 auto;
   overflow: hidden;
   margin-bottom: 20px;
+}
+.animated-background {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #fafafa), color-stop(18%, #eeeeee), color-stop(33%, #fafafa));
+  background: -webkit-linear-gradient(left, #fafafa 8%, #eeeeee 18%, #fafafa 33%);
+  background: linear-gradient(to right, #fafafa 8%, #eeeeee 18%, #fafafa 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  height: 120px;
+  position: relative;
+  margin-bottom: 80px;
+}
+.background-masker {
+  background: #fff;
+  position: absolute;
+}
+/* Every thing below this is just positioning */
+.background-masker.header-body {
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 20px;
+}
+.background-masker.header-source {
+  top: 0;
+  right: 200px;
+  height: 40px;
+  width: 80px;
+}
+.background-masker.body-noline1 {
+  top: 60px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line1 {
+  top: 70px;
+  height: 10px;
+  left: 360px;
+  right: 0;
+}
+.background-masker.body-noline2 {
+  top: 80px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line2 {
+  top: 90px;
+  height: 10px;
+  left: 400px;
+  right: 0;
+}
+.background-masker.body-noline3 {
+  top: 100px;
+  right: 0;
+  left: 0;
+  height: 10px;
+}
+.background-masker.body-line3 {
+  top: 110px;
+  height: 10px;
+  left: 330px;
+  right: 0;
+}
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -368px 0;
+  }
+  100% {
+    background-position: 368px 0;
+  }
+}
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -368px 0;
+  }
+  100% {
+    background-position: 368px 0;
+  }
 }
 /*
   Loading Anitmation

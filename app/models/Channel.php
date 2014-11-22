@@ -253,11 +253,7 @@ class Channel extends Eloquent {
 					$comment['id'] = $_comment['data']['id'];
 					$comment['author'] = $_comment['data']['author'];
 					$comment['score'] = $_comment['data']['score'];
-					if(preg_match('/(\s|^)(\/)(r)(\/)((?:[a-z][a-z0-9_]*))(\s|$)/is', $_comment['data']['body'])) {
-						$comment['body'] = preg_replace('/(\s|^)(\/)(r)(\/)((?:[a-z][a-z0-9_]*))(\s|$)/is', '<a href="'.URL::to('r').'/$4">/r/$4</a>', $_comment['data']['body']);
-					}else{
-						$comment['body'] = html_entity_decode($_comment['data']['body_html']);
-					}
+					$comment['body'] = html_entity_decode($_comment['data']['body_html']);
 					$comment['created'] = $_comment['data']['created_utc'];
 					$comment['likes'] = $_comment['data']['likes'];
 					$comment['saved'] = $_comment['data']['saved'];
