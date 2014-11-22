@@ -27,8 +27,7 @@ class Imgur extends Provider {
 	{
 		$purl = parse_url($this->data['data']['url']);
 
-		$this->data['data']['url'] = 'https://'. $purl['host'] . $purl['path'];
-
+		$this->data['data']['url'] = self::make_https($this->data['data']['url']);
 
 		$images = array('png', 'jpg', 'jpeg', 'gif');
 		$after_dot = substr($purl['path'], strrpos($purl['path'], '.') + 1);
@@ -136,6 +135,9 @@ class Imgur extends Provider {
 				\Cache::put('imgurRateLimit', 'now', 120);
 			}
 
+			// Turn http image link into https;
+			$response['data']['link'] = self::make_https($response['data']['link']);
+
 			$image = new \ImgurCache;
 			$image['name'] = $id;
 			$image['link'] = $response['data']['link'];
@@ -159,5 +161,11 @@ class Imgur extends Provider {
 			'content' => 'Sorry we couldn\'t get this image for you', 
 			'source' => 'imgur.com'
 		);
+	}
+
+	private function make_https($url) {
+		$purl = parse_url($url);
+
+		return 'https://'. $purl['host'] . $purl['path'];
 	}
 }
