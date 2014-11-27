@@ -116,7 +116,11 @@
 				return;
 			}
 
-			var url = base_url + 'api/subscribe/'+ $attrs.channel;
+			if(!$attrs.multi) {
+				var url = base_url + 'api/subscribe?channel='+ $attrs.channel;
+			}else{
+				var url = base_url + 'api/subscribe?multi='+ $attrs.multi;
+			}
 
 			if(dir === 1) {
 				var method = 'POST';
@@ -129,6 +133,26 @@
 			$http({method: method, url: url})
 			.error(function() {
 				console.log('Error while subscribing.');
+			});	
+		}
+
+		$scope.multi = function(multi, dir) {
+			if($attrs.user == false) {
+				$window.location.href = base_url + 'login';
+				return;
+			}
+
+			var url = base_url + 'api/multi/'+ multi +'/'+ $attrs.channel;
+
+			if(dir === 1) {
+				var method = 'POST';
+			}else{
+				var method = 'DELETE';
+			}
+
+			$http({method: method, url: url})
+			.error(function() {
+				console.log('Error while adding.');
 			});	
 		}
 

@@ -117,7 +117,7 @@ class ApiController extends \BaseController {
 
 		Cache::tags(Session::get('user.name'))->flush();
 
-		return Response::json($response);
+		return Response::make(null, 204);
 	} 
 
 	public function destroyVote($id) {
@@ -128,7 +128,7 @@ class ApiController extends \BaseController {
 
 		Cache::tags(Session::get('user.name'))->flush();
 
-		return Response::json($response);		
+		return Response::make(null, 204);	
 	} 
 
 
@@ -139,7 +139,7 @@ class ApiController extends \BaseController {
 
 		Cache::tags(Session::get('user.name'))->flush();
 
-		return Response::json($response);
+		return Response::make(null, 204);
 	} 
 
 	public function destroySave($id) {
@@ -149,7 +149,7 @@ class ApiController extends \BaseController {
 
 		Cache::tags(Session::get('user.name'))->flush();
 
-		return Response::json($response);		
+		return Response::make(null, 204);	
 	} 
 
 
@@ -177,7 +177,7 @@ class ApiController extends \BaseController {
 			return Response::json($_setting);
 		}
 
-		return Response::json(null);
+		return Response::make(null, 500);
 	} 
 
 	public function destroySetting($setting) {
@@ -192,33 +192,63 @@ class ApiController extends \BaseController {
 			return Response::json($result);
 		}
 
-		return Response::json(null);
+		return Response::make(null, 500);
 	}
 
 
-	public function storeSubscribe($id) {
-		$channel = Channel::getChannelData($id);
+	public function storeSubscribe() {
+		if(Input::has('channel')) {
+			Channel::subscribe(Input::get('channel'), 1);
 
-		$response = Reddit::fetch('api/subscribe', [
-			'action' => 'sub',
-			'sr' => 't5_'.$channel['data']['id']
-		], 'POST'); 
+			return Response::make(null, 204);
+		} else if(Input::has('multi')) {
+			$result = Multi::subscribe(Input::get('multi'), 1);
 
-		Cache::tags(Session::get('user.name'))->forget('mine');
+			if($result) {
+				return Response::make(null, 204);
+			}
 
-		return Response::json($response);
+			return Response::make(null, 500);
+		}
+
+		return Response::make(null, 400);
 	} 
 
-	public function destroySubscribe($id) {
-		$channel = Channel::getChannelData($id);
+	public function destroySubscribe() {
+		if(Input::has('channel')) {
+			Channel::subscribe(Input::get('channel'), 0);
 
-		$response = Reddit::fetch('api/subscribe', [
-			'action' => 'unsub',
-			'sr' => 't5_'.$channel['data']['id']
-		], 'POST'); 
+			return Response::make(null, 204);
+		} else if(Input::has('multi')) {
+			$result = Multi::subscribe(Input::get('multi'), 0);
 
-		Cache::tags(Session::get('user.name'))->forget('mine');
+			if($result) {
+				return Response::make(null, 204);
+			}
 
-		return Response::json($response);		
+			return Response::make(null, 500);
+		}
+
+		return Response::make(null, 400);
 	} 
+
+	public function storeChannelToMulti($multi, $channel) {
+		$result = Multi::addChannel($multi, $channel);
+
+		if($result) {
+			return Response::make(null, 204);
+		}
+
+		return Response::make(null, 400);
+	}
+
+	public function destroyChannelToMulti($multi, $channel) {
+		$result = Multi::removeChannel($multi, $channel);
+
+		if($result) {
+			return Response::make(null, 204);
+		}
+
+		return Response::make(null, 400);
+	}
 }

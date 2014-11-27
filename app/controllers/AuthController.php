@@ -87,6 +87,8 @@ class AuthController extends Controller {
 			$_user->save();
 		}
 
+		$user['id'] = $_user['id'];
+
 		Session::put('user', $user);
 
 		Session::put('access_token', $params->access_token);

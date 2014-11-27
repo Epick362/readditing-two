@@ -55,6 +55,40 @@ class Multi extends Eloquent {
 	public static function getSubscribers($name) {
 		$multi = Multi::where('name', $name)->first();
 
-		return count($multi->users());
+		return count($multi->users()->get());
+	}
+
+	public static function isSubscribed($name) {
+		$multi = Multi::where('name', $name)->first();
+
+		$result = $multi->users()->find(Session::get('user.id'));
+
+		if($result) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public static function subscribe($name, $dir) {
+		$multi = Multi::where('name', $name)->first();
+
+		if($multi) {
+			switch($dir) {
+				case 1: 
+					if(!$multi->users()->find(Session::get('user.id'))) {
+						$multi->users()->attach(Session::get('user.id'));
+					}
+					break;
+
+				case 0: 
+					$multi->users()->detach(Session::get('user.id'));
+					break;
+			}
+
+			return true;
+		}
+
+		return false;
 	}
 }

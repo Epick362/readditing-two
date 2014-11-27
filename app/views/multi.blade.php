@@ -8,7 +8,8 @@
 	<body 
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
-		channel="{{ $channel or false }}"
+		channel="{{ $channel or false }}" 
+		multi="{{ $multi or false }}" 
 		sort="{{ $sort or false }}" 
 		subscribed="{{ $subscribed or false }}"
 		nsfw="{{ Session::has('user.settings.nsfw') }}"
@@ -29,40 +30,67 @@
 	</div>
 @stop
 
-@section('content')
-	<div class="col-md-8 col-md-offset-2">
-		@if(!$channel || ($channel && isset($channelData['data']['over18']) && !$channelData['data']['over18']))
-			@include('partials.leaderboard')
-		@endif
+@section('nav-main')
+	<li class="{{ Request::is('m/'.$multi) ? 'active' : '' }}"><a href="{{ URL::to('m/'.$multi) }}">Hot</a></li>
+	<li class="{{ Request::is('m/'.$multi.'/rising') ? 'active' : '' }}"><a href="{{ URL::to('m/'.$multi.'/rising') }}">Rising</a></li>
+	<li class="{{ Request::is('m/'.$multi.'/new') ? 'active' : '' }}"><a href="{{ URL::to('m/'.$multi.'/new') }}">New</a></li>
+@stop
 
-		@include('partials.alerts')
 
-		<div id="subreddit ng-cloak" ng-cloak>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					{{ $multi }} 
-					<span class="pull-right">{{ $subscribers }} subscribers</span>
+@section('wrap')
+	<div class="channel-header" ng-cloak>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-11 col-md-offset-1">
+					<h1>
+						/m/{{ $multi }} <small>by <a href="{{ URL::to('u/'.$multiData['author']) }}">{{ $multiData['author'] }}</a> - {{ $subscribers }} subscribers</small>
+
+						<span class="pull-right">
+							@if(Session::has('user'))
+								<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
+								<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
+							@endif
+						</span>
+					</h1>
 				</div>
 			</div>
-
-			<script type="text/ng-template" id="comment.html">
-				@include('partials.comment')
-			</script>
-
-			<script type="text/ng-template" id="comments.html">
-				@include('partials.comments')
-			</script>
-
-			<script type="text/ng-template" id="comments_modal.html">
-				@include('partials.comments_modal')
-			</script>
-
-			@if(Input::has('after') && Input::get('after') !== 'undefined')
-				<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('m/'.$multi) }}">Jump back to top</a>
-			@endif
-			
-			@include('partials.post', ['function' => "reddit.nextPage('". Input::get('after', '') ."')"])
-
-		</div>		
+		</div>
 	</div>
-@stop
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-1">
+				@if(!$channel || ($channel && isset($channelData['over18']) && !$channelData['over18']))
+					@include('partials.leaderboard')
+				@endif
+				
+				@include('partials.alerts')
+
+				<div id="subreddit" ng-cloak>
+					<script type="text/ng-template" id="comment.html">
+						@include('partials.comment')
+					</script>
+
+					<script type="text/ng-template" id="comments.html">
+						@include('partials.comments')
+					</script>
+
+					<script type="text/ng-template" id="comments_modal.html">
+						@include('partials.comments_modal')
+					</script>
+
+					@if(Input::has('after') && Input::get('after') !== 'undefined')
+						<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('m/'.$multi) }}">Jump back to top</a>
+					@endif
+					
+					@include('partials.post', ['function' => "reddit.nextPage('". Input::get('after', '') ."')"])
+
+				</div>		
+			</div>
+
+			<div class="col-md-3 visible-md visible-lg">
+				@include('partials.sidebar', ['channel' => $channel])
+			</div>
+		</div>
+	</div>
+@overwrite
