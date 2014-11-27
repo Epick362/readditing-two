@@ -57,10 +57,8 @@
 						/r/{{ $channel }} <small>{{ $channelData['subscribers'] }} subscribers</small>
 
 						<span class="pull-right">
-							@if(Session::has('user'))
-								<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
-								<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
-							@endif
+							<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
+							<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
 
 							<a href="{{ URL::to('submit/?channel='.$channel) }}" class="btn btn-danger btn-lg">Submit</a>
 						</span>

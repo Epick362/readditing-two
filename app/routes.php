@@ -16,7 +16,7 @@ Route::get('/', 'ChannelController@channel');
 Route::get('/r/{channel?}/{sort?}', 'ChannelController@channel');
 Route::get('/r/{channel}/comments/{thing}/{title?}/{comment?}', 'ChannelController@post');
 
-Route::get('/m/{multi}', 'ChannelController@multi');
+Route::get('/m/{multi}/{sort?}', 'ChannelController@multi');
 
 Route::get('u/{user}/{category?}', 'ProfileController@index');
 
@@ -63,7 +63,10 @@ Route::group(array('prefix' => 'api'), function() {
 		Route::post('/settings/{setting}', 'ApiController@storeSetting');
 		Route::delete('/settings/{setting}', 'ApiController@destroySetting');	
 
-		Route::post('/subscribe/{id}', 'ApiController@storeSubscribe');
-		Route::delete('/subscribe/{id}', 'ApiController@destroySubscribe');	
+		Route::post('/subscribe', 'ApiController@storeSubscribe');
+		Route::delete('/subscribe', 'ApiController@destroySubscribe');	
+
+		Route::post('/multi/{multi}/{channel}', 'ApiController@storeChannelToMulti');
+		Route::delete('/multi/{multi}/{channel}', 'ApiController@destroyChannelToMulti');	
 	});
 });

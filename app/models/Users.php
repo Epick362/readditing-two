@@ -9,6 +9,6 @@ class Users extends Eloquent {
     }
 
 	public function multis() {
-        return $this->belongsToMany('Multi', 'multi_user', 'multi_id', 'user_id');
+        return $this->belongsToMany('Multi');
     }
 }

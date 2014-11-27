@@ -17,7 +17,7 @@ class ChannelController extends BaseController {
 		return View::make('channel', $view);
 	}
 
-	public function multi($name) {
+	public function multi($name, $sort = NULL) {
 		$multi = Multi::where('name', $name)->first();
 
 		if(!$multi) {
@@ -26,8 +26,11 @@ class ChannelController extends BaseController {
 
 		$view = array();
 		$view['channel'] = implode($multi['channels'], '+');
+		$view['sort'] = $sort;
 		$view['subscribers'] = Multi::getSubscribers($name);
+		$view['subscribed'] = Multi::isSubscribed($name);
 		$view['multi'] = $multi['name'];
+		$view['multiData'] = $multi;
 
 		return View::make('multi', $view);		
 	}

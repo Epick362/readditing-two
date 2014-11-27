@@ -12,13 +12,13 @@ class CreateMultiUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('multi_user', function(Blueprint $table)
+		Schema::create('multi_users', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('multi_id')->unsigned()->index();
 			$table->foreign('multi_id')->references('id')->on('multis')->onDelete('cascade');
-			$table->integer('user_id')->unsigned()->index();
-			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->integer('users_id')->unsigned()->index();
+			$table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
@@ -31,7 +31,7 @@ class CreateMultiUserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('multi_user');
+		Schema::drop('multi_users');
 	}
 
 }

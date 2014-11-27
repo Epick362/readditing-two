@@ -182,6 +182,26 @@ class Channel extends Eloquent {
 		return false;
 	}
 
+	/*
+		Subscribe to channel.
+
+		$ch - name of the channel
+		$dir - 0 = unsubscribe
+			   1 = subscribe
+	*/
+	private static function subscribe($ch, $dir) {
+		$channel = Channel::getChannelData(Input::get('channel'));
+
+		$response = Reddit::fetch('api/subscribe', [
+			'action' => ($dir ? 'sub' : 'unsub'),
+			'sr' => 't5_'.$channel['id']
+		], 'POST'); 
+
+		Cache::tags(Session::get('user.name'))->forget('mine');
+
+		return;
+	}
+
 	private static function _formatPosts($posts) {
 		$result = [];
 
