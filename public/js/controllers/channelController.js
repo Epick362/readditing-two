@@ -2,6 +2,10 @@
         $provide.value("base_url", $("#ApiRoot").attr("href") + '/');
     }]);
 
+    readditingApp.controller('CollapseController', function ($scope) {
+		$scope.isCollapsed = false;
+	});
+
 	// inject the Comment service into our controller
 	readditingApp.controller('channelController', function($scope, $attrs, $http, $modal, $window, Reddit, base_url) {
 		if($attrs.channel) {
