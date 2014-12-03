@@ -1,4 +1,3 @@
-@for ($i = 0; $i < 5; $i++) 
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="animated-background">
@@ -13,4 +12,3 @@
 		</div>
 	</div>
 </div>
-@endfor

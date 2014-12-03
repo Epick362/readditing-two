@@ -7749,6 +7749,9 @@ a.active:hover {
   font-size: 16px;
   line-height: 1.7;
 }
+.panel-body .panel-text h1 {
+  font-size: 25px;
+}
 .panel-body .panel-text img {
   display: block;
   width: 100% \9;
