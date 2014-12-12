@@ -1,11 +1,5 @@
 <div class="ad-leaderboard">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- Leaderboard Main -->
-	<ins class="adsbygoogle"
-	     style="display:inline-block;width:728px;height:90px"
-	     data-ad-client="ca-pub-6468416760530377"
-	     data-ad-slot="4560424843"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
+	<!-- BuySellAds Zone Code -->
+	<div id="bsap_1299172" class="bsarocks bsap_e5b2c2361c9aa558f3aae3449b24de26"></div>
+	<!-- End BuySellAds Zone Code -->
 </div>
