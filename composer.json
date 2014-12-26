@@ -13,7 +13,8 @@
 		"laravel/framework": "4.2.*",
 		"madewithlove/laravel-oauth2": "dev-master",
 		"guzzlehttp/guzzle": "~4.0",
-		"fzaninotto/faker": "v1.3.0"
+		"fzaninotto/faker": "v1.3.0",
+		"barryvdh/laravel-debugbar": "~1.8"
 	},
 	"require-dev": {
 	    "way/generators": "2.*"

@@ -7795,6 +7795,14 @@ a.active:hover {
   overflow: hidden;
   margin-bottom: 20px;
 }
+.ad-sidebar {
+  width: 300px;
+  position: relative;
+  left: -17px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
 .animated-background {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;

@@ -75,7 +75,7 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-1">
 				@if(!$channel || ($channel && isset($channelData['over18']) && !$channelData['over18']))
-					@include('partials.leaderboard')
+					@include('ads.leaderboard')
 				@endif
 				
 				@include('partials.alerts')

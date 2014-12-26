@@ -36,6 +36,8 @@ class Reddit {
 		$params['api_type'] = 'json';
 
 		try {
+			\Debugbar::startMeasure('redditRequest', 'Time to get \''.$url.'\'');
+
 			if($method == 'POST') {
 				$response = $client->post($url, [
 					'body' => $params
@@ -45,6 +47,8 @@ class Reddit {
 					'query' => $params
 				]);
 			}
+
+			\Debugbar::stopMeasure('redditRequest');
 
 			return $response->json();
 		}catch(\Exception $e){

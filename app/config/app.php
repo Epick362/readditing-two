@@ -110,7 +110,8 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		
 		'Readditing\Readability\ReadabilityServiceProvider',
-		'Readditing\Reddit\RedditServiceProvider'
+		'Readditing\Reddit\RedditServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*
@@ -178,7 +179,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Moloquent'       => 'Jenssegers\Mongodb\Model',
-
+		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 	),
 
 );
