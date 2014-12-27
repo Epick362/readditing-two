@@ -65,7 +65,7 @@
 		</div>
 
 		@if(!$post['nsfw'])
-			@include('partials.leaderboard')
+			@include('ads.leaderboard')
 		@endif
 
 		<div class="panel panel-default" id="comments">
