@@ -222,8 +222,6 @@
 					thing.replies.push(reply);
 				}
 
-				alert('Reply sent!');
-
 				thing.reply = '';
 			})
 			.error(function() {
