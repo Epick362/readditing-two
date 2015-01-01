@@ -11,7 +11,9 @@
 	<meta property="og:title" content="{{ htmlentities($post['title']) }}" />
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content="{{ Request::url() }}" />
-	<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
+	@if(isset($post['image']))
+		<meta property="og:image" content="@yield('meta-image', $post['image'])" />
+	@endif
 	<meta property="og:description" content="{{ str_limit(trim(preg_replace('/\s+/', ' ', htmlentities(strip_tags($post['content'])))), 150) }}" />
 @overwrite
 

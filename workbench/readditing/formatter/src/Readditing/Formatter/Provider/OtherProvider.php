@@ -39,7 +39,8 @@ class OtherProvider extends Provider {
 			return array(
 				'title' => $this->data['data']['title'], 
 				'content' => \View::make('provider.other.image', $this->data)->render(), 
-				'source' => $this->host
+				'source' => $this->host,
+				'image' => $this->data['data']['url']
 			);
 		}
 

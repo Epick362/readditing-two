@@ -13,7 +13,7 @@
 		<meta property="og:title" content="Readditing.com | @yield('title', 'better reddit experience')" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
-		<meta property="og:image" content="{{ URL::to('apple-touch-icon-120x120.png') }}" />
+		<meta property="og:image" content="@yield('meta-image', URL::to('apple-touch-icon-120x120.png'))" />
 		<meta property="og:description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')" />
 		@show
 

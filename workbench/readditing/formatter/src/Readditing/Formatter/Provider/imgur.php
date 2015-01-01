@@ -47,7 +47,8 @@ class Imgur extends Provider {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => \View::make('provider.other.image', $this->data)->render(), 
-			'source' => 'imgur.com'
+			'source' => 'imgur.com',
+			'image' => $this->data['data']['url']
 		);
 	}
 
@@ -151,7 +152,8 @@ class Imgur extends Provider {
 		return array(
 			'title' => $this->data['data']['title'], 
 			'content' => \View::make('provider.other.image', $this->data)->render(), 
-			'source' => 'imgur.com'
+			'source' => 'imgur.com',
+			'image' => $this->data['data']['url']
 		);
 	}
 

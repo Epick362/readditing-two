@@ -189,7 +189,7 @@ class Channel extends Eloquent {
 		$dir - 0 = unsubscribe
 			   1 = subscribe
 	*/
-	private static function subscribe($ch, $dir) {
+	public static function subscribe($ch, $dir) {
 		$channel = Channel::getChannelData(Input::get('channel'));
 
 		$response = Reddit::fetch('api/subscribe', [
@@ -200,6 +200,12 @@ class Channel extends Eloquent {
 		Cache::tags(Session::get('user.name'))->forget('mine');
 
 		return;
+	}
+
+	public static function getFeatured($unique = false) {
+		$response = Reddit::fetch('r/all.json?sort=top&t=day'); 
+
+		return self::_formatPost($response['data']['children'][mt_rand(0, 9)]);
 	}
 
 	private static function _formatPosts($posts) {
