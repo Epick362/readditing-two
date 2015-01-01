@@ -10,6 +10,8 @@
 	<meta property="og:locale" content="en_GB" />
 	<meta property="og:title" content="{{ htmlentities($post['title']) }}" />
 	<meta property="og:type" content="article" />
+	<meta property="og:article:author" content="{{ $post['author'] }}" />
+	<meta property="og:article:section" content="{{ $post['subreddit'] }}" />
 	<meta property="og:url" content="{{ Request::url() }}" />
 	@if(isset($post['image']))
 		<meta property="og:image" content="@yield('meta-image', $post['image'])" />
