@@ -202,10 +202,24 @@ class Channel extends Eloquent {
 		return;
 	}
 
-	public static function getFeatured($unique = false) {
-		$response = Reddit::fetch('r/all.json?sort=top&t=day'); 
+	public static function getFeatured() {
+		return Cache::remember('top', 300, function() {
+			$featured = [];
 
-		return self::_formatPost($response['data']['children'][mt_rand(0, 9)]);
+			while (count($featured) <= 10) {
+				$response = Reddit::fetch('r/all.json?sort=top&t=day');
+				
+				$posts = self::_formatPosts($response);
+
+				foreach($posts as $post) {
+					if(isset($post['image'])) {
+						$featured[] = $post;
+					}
+				}
+			}
+
+			return $featured; 
+		});
 	}
 
 	private static function _formatPosts($posts) {

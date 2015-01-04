@@ -7678,6 +7678,23 @@ a.active:hover {
   border-top: 0;
   opacity: 0.95;
 }
+.featured {
+  color: #222222;
+}
+.featured img {
+  width: 231px;
+  height: auto;
+  margin-bottom: 5px;
+}
+.featured .text {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.featured:hover {
+  color: #ff621e;
+}
 #subreddit .panel-default {
   margin-left: -15px;
   margin-right: -15px;
@@ -7793,7 +7810,6 @@ a.active:hover {
   max-width: 728px;
   margin: 0 auto;
   overflow: hidden;
-  margin-bottom: 20px;
 }
 .ad-sidebar {
   width: 300px;
@@ -7801,7 +7817,6 @@ a.active:hover {
   left: -17px;
   margin: 0 auto;
   overflow: hidden;
-  margin-bottom: 20px;
 }
 .animated-background {
   -webkit-animation-duration: 1s;

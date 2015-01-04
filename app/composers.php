@@ -6,6 +6,7 @@
 
 	View::composer('partials.sidebar', function($view) {
 		$view->with('popular', Channel::getSubscribed());
+		$view->with('featured', Channel::getFeatured());
 	});
 
 	View::composer(['channel', 'multi'], function($view) {
