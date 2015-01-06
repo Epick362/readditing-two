@@ -133,7 +133,7 @@
 				    $(window).scrollTop(0);
 				});
 
-				$.getJSON("http://www.telize.com/geoip?callback=?",
+				$.getJSON("https://www.telize.com/geoip?callback=?",
 					function(json) {
 			    		console.log("Geolocation information for IP address : ", json.ip);
 			    		console.log("Country : ", json.country_code);
