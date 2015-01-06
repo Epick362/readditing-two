@@ -133,6 +133,17 @@
 				    $(window).scrollTop(0);
 				});
 
+				$.getJSON("http://www.telize.com/geoip?callback=?",
+					function(json) {
+			    		console.log("Geolocation information for IP address : ", json.ip);
+			    		console.log("Country : ", json.country_code);
+
+			    		if(json.country_code === "US") {
+			    			$('.ad-leaderboard a').show();
+			    		}
+					}
+				);
+
 				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 					$('#extension').show();
 				}	
