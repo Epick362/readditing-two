@@ -211,9 +211,11 @@ class Channel extends Eloquent {
 				
 				$posts = self::_formatPosts($response);
 
-				foreach($posts as $post) {
-					if(isset($post['image'])) {
-						$featured[] = $post;
+				if($posts) {
+					foreach($posts as $post) {
+						if(isset($post['image'])) {
+							$featured[] = $post;
+						}
 					}
 				}
 			}
