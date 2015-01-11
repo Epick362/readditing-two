@@ -7674,6 +7674,9 @@ a.active:hover {
 .nav > li > a:hover {
   background-color: rgba(0, 0, 0, 0.01);
 }
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 3px;
+}
 .dropdown-menu {
   border-top: 0;
   opacity: 0.95;

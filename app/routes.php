@@ -36,6 +36,11 @@ Route::get('404', function() {
 
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/submit/{channel?}', 'ChannelController@submit');
+
+	Route::get('unlist', function() {
+		return Response::view('unlist');
+	});
+	Route::post('unlist', 'ProfileController@unlist');
 });
 
 // =============================================

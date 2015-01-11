@@ -87,6 +87,12 @@
 							<li>
 								<a href="{{ URL::to('u/'.Session::get('user.name')) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
 							</li>
+							<li class="dropdown">
+								<a href="" class="dropdown-toggle"><i class="fa fa-cog"></i></a>
+								<ul class="dropdown-menu">
+									<li><a href="{{ URL::to('unlist') }}">Unlist</a></li>
+								</ul>
+							</li>
 							<li>
 								<a href="{{ URL::to('logout') }}" class="logout" analytics-on analytics-category="Logout">Logout <i class="fa fa-sign-out"></i></a>
 							</li>

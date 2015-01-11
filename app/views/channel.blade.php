@@ -74,6 +74,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-1">
+				@if(Session::has('message'))
+					<div class="alert alert-success">{{ Session::get('message') }}</div>
+				@endif
+				
 				@if(!$channel || ($channel && isset($channelData['over18']) && !$channelData['over18']))
 					@include('ads.leaderboard')
 				@endif
