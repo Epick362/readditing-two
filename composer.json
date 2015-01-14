@@ -14,7 +14,8 @@
 		"madewithlove/laravel-oauth2": "dev-master",
 		"guzzlehttp/guzzle": "~4.0",
 		"fzaninotto/faker": "v1.3.0",
-		"barryvdh/laravel-debugbar": "~1.8"
+		"barryvdh/laravel-debugbar": "~1.8",
+		"pragmarx/tracker": "0.7.*"
 	},
 	"require-dev": {
 	    "way/generators": "2.*"

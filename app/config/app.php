@@ -112,6 +112,8 @@ return array(
 		'Readditing\Readability\ReadabilityServiceProvider',
 		'Readditing\Reddit\RedditServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
+
+		'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
 	),
 
 	/*
@@ -180,6 +182,7 @@ return array(
 
 		'Moloquent'       => 'Jenssegers\Mongodb\Model',
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
+		'Tracker'         => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
 	),
 
 );
