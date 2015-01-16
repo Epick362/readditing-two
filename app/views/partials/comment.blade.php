@@ -9,17 +9,39 @@
 		<!-- Author, score -->
 		<a ng-class="{'active': post.author == comment.author}" ng-href="{{ URL::to('') }}/u/<% comment.author %>"><% comment.author %></a> 
 		@if(Session::has('user'))
-			<span ng-if="!comment.likes">
-				<a href="" class="btn btn-upvote btn-xs" ng-click="vote(comment, 't1', 1)" analytics-on analytics-category="Upvote Comment" analytics-label="Up"><i class="fa fa-arrow-up"></i></a>
-				<small class="text-alternate"><% comment.score %></small>
+			<!-- Upvote -->
+			<span ng-if="comment.likes === null || comment.likes === false">
+				<a href="" class="btn btn-upvote btn-xs" ng-click="vote(comment, 't1', 1)" analytics-on analytics-category="Upvote Comment" analytics-label="Up">
+					<i class="fa fa-arrow-up"></i>
+				</a>
 			</span>
-			<span ng-if="comment.likes">
-				<a href="" class="btn btn-upvote btn-xs active" ng-click="vote(comment, 't1', 0)" analytics-on analytics-category="Upvote Comment" analytics-label="Un"><i class="fa fa-arrow-up"></i></a>
-				<small class="text-alternate"><% comment.score %></small>
+			<span ng-if="comment.likes === true">
+				<a href="" class="btn btn-upvote btn-xs active" ng-click="vote(comment, 't1', 0)" analytics-on analytics-category="Upvote Comment" analytics-label="Un">
+					<i class="fa fa-arrow-up"></i>
+				</a>
 			</span>
+
+			<!-- Downvote -->
+			<span ng-if="comment.likes === null || comment.likes === true">
+				<a href="" class="btn btn-downvote btn-xs" ng-click="vote(comment, 't1', -1)" analytics-on analytics-category="Downvote Comment" analytics-label="Up">
+					<i class="fa fa-arrow-down"></i>
+				</a>
+			</span>
+			<span ng-if="comment.likes === false">
+				<a href="" class="btn btn-downvote btn-xs active" ng-click="vote(comment, 't1', 0)" analytics-on analytics-category="Downvote Comment" analytics-label="Un">
+					<i class="fa fa-arrow-down"></i>
+				</a>
+			</span>
+
+			<small><% comment.score %> points</small>
+
 		@else
-			<small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %></small>
+			<small class="text-alternate"><i class="fa fa-arrow-up"></i> <% comment.score %> points</small>
 		@endif
+
+		<span ng-if="comment.gilded > 0">
+			<small class="text-gold"><i class="fa fa-heart"></i> <% comment.gilded %>x</small>
+		</span>
 	</h4>
 
 	<!-- Comment content -->

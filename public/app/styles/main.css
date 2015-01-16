@@ -7518,6 +7518,9 @@ button.close {
 .modal-footer {
   text-align: left;
 }
+h4 small {
+  color: inherit;
+}
 a {
   transition: all 0.2s ease;
 }
@@ -7553,6 +7556,7 @@ a:focus {
   width: 60px;
   height: 60px;
   font-size: 30px;
+  margin-bottom: 5px;
   border: 2px solid;
 }
 .btn-upvote:hover {
@@ -7563,9 +7567,37 @@ a:focus {
 .btn-upvote.active {
   background-color: #ff621e;
   color: white;
+  transition: background-color 0.5s ease;
 }
 .btn-upvote.active:hover {
   background-color: #ea4700;
+  color: white;
+}
+.btn-downvote {
+  border: 1px solid #5bc0de;
+  color: #5bc0de;
+  background-color: white;
+  border-radius: 50%;
+  transition: all .5s ease !important;
+}
+.btn-downvote.lg {
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  border: 2px solid;
+}
+.btn-downvote:hover {
+  -webkit-box-shadow: inset 0 0 10px 0px rgba(91, 192, 222, 0.4);
+  box-shadow: inset 0 0 10px 0px rgba(91, 192, 222, 0.4);
+  color: #5bc0de;
+}
+.btn-downvote.active {
+  background-color: #5bc0de;
+  color: white;
+  transition: background-color 0.5s ease;
+}
+.btn-downvote.active:hover {
+  background-color: #31b0d5;
   color: white;
 }
 .btn-to-top {
@@ -7630,6 +7662,9 @@ a.active:hover {
 }
 .text-alternate {
   color: #ff621e;
+}
+.text-gold {
+  color: #E7C719;
 }
 .channel-header {
   background: #000;
@@ -7803,6 +7838,7 @@ a.active:hover {
   position: absolute;
   left: -70px;
   margin-top: 10px;
+  width: 60px;
   font-size: 21px;
   font-weight: bold;
 }

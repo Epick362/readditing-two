@@ -110,14 +110,27 @@ class ApiController extends \BaseController {
 	}
 
 	public function storeVote($id) {
-		$response = Reddit::fetch('api/vote', [
-			'dir' => '1',
-			'id' => $id
-		], 'POST'); 
+		$validator = Validator::make(
+		    array(
+		        'text' => Input::get('dir')
+		    ),
+		    array(
+		        'text' => 'required'
+		    )
+		);
 
-		Cache::tags(Session::get('user.name'))->flush();
+		if($validator->passes() && (Input::get('dir') == 1 || Input::get('dir') == -1)) {
+			$response = Reddit::fetch('api/vote', [
+				'dir' => Input::get('dir'),
+				'id' => $id
+			], 'POST'); 
 
-		return Response::make(null, 204);
+			Cache::tags(Session::get('user.name'))->flush();
+
+			return Response::make(null, 204);
+		}
+
+		return Response::make('Bad input.', 400);
 	} 
 
 	public function destroyVote($id) {

@@ -274,6 +274,7 @@ class Channel extends Eloquent {
 		$post['score'] = $_post['data']['score'];
 		$post['likes'] = $_post['data']['likes'];
 		$post['saved'] = $_post['data']['saved'];
+		$post['gilded'] = $_post['data']['gilded'];
 		$post['comments'] = $_post['data']['num_comments'];
 
 		$post['nsfw'] = $_post['data']['over_18'];
@@ -299,6 +300,7 @@ class Channel extends Eloquent {
 					$comment['created'] = $_comment['data']['created_utc'];
 					$comment['likes'] = $_comment['data']['likes'];
 					$comment['saved'] = $_comment['data']['saved'];
+					$comment['gilded'] = $_comment['data']['gilded'];
 					$comment['replies'] = self::_formatComments($_comment['data']['replies']);
 
 					$result[] = $comment;	

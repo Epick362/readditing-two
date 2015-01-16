@@ -53,7 +53,7 @@
 				$window.location.href = base_url + 'r/'+post.sr+'/comments/'+data['json']['data']['id'];
 			})
 			.error(function() {
-				console.log('Error while posting.');
+				console.error('Error while posting.');
 			});	
 		};
 
@@ -69,15 +69,26 @@
 
 			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
 
-			if(dir === 1) {
+			if(dir === 1 || dir === -1) {
 				var method = 'POST';
+
+				switch(dir) {
+					case 1:
+						thing.likes = true;
+						break;
+					case -1:
+						thing.likes = false;
+						break;
+				}
 			}else{
 				var method = 'DELETE';
+
+				thing.likes = null;
 			}
 
-			thing.likes = !thing.likes;
-
-			$http({method: method, url: url})
+			$http({method: method, url: url, data: {
+				dir: dir
+			}})
 			.success(function() {
 				if(dir === 1) {
 					thing.score ++;
@@ -86,8 +97,7 @@
 				}
 			})
 			.error(function() {
-				thing.likes = !thing.likes;
-				console.log('Error while upvoting.');
+				console.error('Error while upvoting.');
 			});
 		};
 
@@ -110,7 +120,7 @@
 			$http({method: method, url: url})
 			.error(function() {
 				thing.saved = !thing.saved;
-				console.log('Error while saving.');
+				console.error('Error while saving.');
 			});	
 		};
 
@@ -136,7 +146,7 @@
 
 			$http({method: method, url: url})
 			.error(function() {
-				console.log('Error while subscribing.');
+				console.error('Error while subscribing.');
 			});	
 		}
 
@@ -156,7 +166,7 @@
 
 			$http({method: method, url: url})
 			.error(function() {
-				console.log('Error while adding.');
+				console.error('Error while adding.');
 			});	
 		}
 
@@ -225,7 +235,7 @@
 				thing.reply = '';
 			})
 			.error(function() {
-				console.log('Error while posting.');
+				console.error('Error while posting.');
 			});
 		};
 	});

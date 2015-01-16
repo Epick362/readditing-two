@@ -20,6 +20,10 @@
   text-align: left;
 }
 
+h4 small {
+  color: inherit;
+}
+
 a {
   transition: all 0.2s ease;
 }
@@ -62,6 +66,8 @@ a:focus {
     width: 60px;
     height: 60px;
     font-size: 30px;
+    margin-bottom: 5px;
+
 
     border: 2px solid;
   }
@@ -75,9 +81,44 @@ a:focus {
   &.active {
     background-color: @brand-alternate;
     color: white;
+    transition: background-color .5s ease;
 
     &:hover {
       background-color: darken(@brand-alternate, 10%);
+      color: white;
+    }
+  }
+}
+
+.btn-downvote {
+  border: 1px solid @brand-info;
+  color: @brand-info;
+  background-color: white;
+  border-radius: 50%;
+
+  transition: all .5s ease !important;
+
+  &.lg {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+
+    border: 2px solid;
+  }
+
+  &:hover {
+    -webkit-box-shadow:inset 0 0 10px 0px fade(@brand-info, 40%);
+    box-shadow:inset 0 0 10px 0px fade(@brand-info, 40%);
+    color: @brand-info;
+  }
+
+  &.active {
+    background-color: @brand-info;
+    color: white;
+    transition: background-color .5s ease;
+
+    &:hover {
+      background-color: darken(@brand-info, 10%);
       color: white;
     }
   }
@@ -164,6 +205,10 @@ a.active {
 
 .text-alternate {
   color: @brand-alternate;
+}
+
+.text-gold {
+  color: #E7C719;
 }
 
 .channel-header {
@@ -375,6 +420,7 @@ a.active {
   position: absolute;
   left: -70px;
   margin-top: 10px;
+  width: 60px;
 
   font-size: 21px;
   font-weight: bold;
