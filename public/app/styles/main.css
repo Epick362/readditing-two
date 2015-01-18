@@ -7755,9 +7755,17 @@ a.active:hover {
   -webkit-box-shadow: 0 1px 5px rgba(217, 67, 67, 0.65);
   box-shadow: 0 1px 5px rgba(217, 67, 67, 0.65);
 }
+.panel-default.notification {
+  -webkit-box-shadow: 0 1px 8px rgba(74, 134, 196, 0.65);
+  box-shadow: 0 1px 8px rgba(74, 134, 196, 0.65);
+}
+#subreddit .panel-default.notification:hover {
+  -webkit-box-shadow: 0 1px 10px #4a86c4;
+  box-shadow: 0 1px 10px #4a86c4;
+}
 #subreddit .panel-default:hover {
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 .panel-default > .panel-heading,
 .panel-default > .panel-footer {

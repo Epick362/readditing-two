@@ -313,14 +313,24 @@ a.active {
     box-shadow: 0 1px 5px fade(@brand-danger, 45);
 
     #subreddit &:hover {  
-      -webkit-box-shadow: 0 1px 5px fade(@brand-danger, 65);
-      box-shadow: 0 1px 5px fade(@brand-danger, 65);
+      -webkit-box-shadow: 0 1px 8px fade(@brand-danger, 65);
+      box-shadow: 0 1px 8px fade(@brand-danger, 65);
     }
   }
 
+  &.notification {
+    -webkit-box-shadow: 0 1px 8px fade(@brand-primary, 65);
+    box-shadow: 0 1px 8px fade(@brand-primary, 65);
+
+    #subreddit &:hover {
+      -webkit-box-shadow: 0 1px 10px fade(@brand-primary, 100);
+      box-shadow: 0 1px 10px fade(@brand-primary, 100);
+    }
+  } 
+
   #subreddit &:hover {
-    -webkit-box-shadow: 0 1px 5px fade(#000, 35);
-    box-shadow: 0 1px 5px fade(#000, 35);
+    -webkit-box-shadow: 0 1px 8px fade(#000, 35);
+    box-shadow: 0 1px 8px fade(#000, 35);
   }
 
 

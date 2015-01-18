@@ -224,6 +224,27 @@ class Channel extends Eloquent {
 		});
 	}
 
+	public static function getAnnouncement() {
+		return Cache::remember('announcement', 1440, function() {
+			$announcement = [];
+
+			$response = Reddit::fetch('r/readditingcom/.json');
+
+			$posts = self::_formatPosts($response);
+
+			if($posts) {
+				foreach($posts as $post) {
+					if($post['author'] == 'Epick_362' && $post['created'] >= time() - 60*60*24*2) {
+						$announcement = $post;
+						break;
+					}
+				}
+			}
+
+			return $announcement;
+		});
+	}
+
 	private static function _formatPosts($posts) {
 		$result = [];
 

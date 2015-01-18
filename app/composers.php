@@ -11,6 +11,7 @@
 
 	View::composer(['channel', 'multi'], function($view) {
 		$view->with('notifications', SiteNotifications::getNotifications());
+		$view->with('announcement', Channel::getAnnouncement());
 	});
 
 	View::share('username', Session::get('user.name'));

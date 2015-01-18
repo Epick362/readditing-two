@@ -97,6 +97,8 @@
 						@include('partials.comments_modal')
 					</script>
 
+					@include('partials.announcement')
+
 					@if(Input::has('after') && Input::get('after') !== 'undefined')
 						<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">Jump back to top</a>
 					@endif
