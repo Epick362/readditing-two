@@ -16,6 +16,7 @@
 		}
 		$scope.user = $attrs.user;
 		$scope.nsfw = $attrs.nsfw;
+		$scope.channel = $attrs.channel;
 
 		$scope.setNSFW = function() {
 			if(!$scope.nsfw) {

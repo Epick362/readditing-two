@@ -187,11 +187,14 @@ a:focus {
   }
 
   &.circle {
+    border-radius: 50%;
+  }
+
+  &.btn-sm {
+    font-size: 15px;
+    padding: 0;
     width: 24px;
     height: 24px;
-    font-size: 17px;
-    border-radius: 50%;
-    padding: 0;
     margin-right: 5px;
   }
 }
@@ -292,32 +295,53 @@ a.active {
   }
 }
 
-#subreddit .panel-default {
+.panel-default {
+  background-color: #FFF;
+  border: none;
+  -webkit-box-shadow: 0 1px 5px fade(#000, 15);
+  box-shadow: 0 1px 5px fade(#000, 15);
+
   margin-left: -15px;
   margin-right: -15px;
   margin-bottom: 40px;
-  border-left: 0;
-  border-right: 0;
   border-radius: 0;
+
+  transition: all .2s ease;
+
+  &.nsfw {
+    -webkit-box-shadow: 0 1px 5px fade(@brand-danger, 45);
+    box-shadow: 0 1px 5px fade(@brand-danger, 45);
+
+    #subreddit &:hover {  
+      -webkit-box-shadow: 0 1px 5px fade(@brand-danger, 65);
+      box-shadow: 0 1px 5px fade(@brand-danger, 65);
+    }
+  }
+
+  #subreddit &:hover {
+    -webkit-box-shadow: 0 1px 5px fade(#000, 35);
+    box-shadow: 0 1px 5px fade(#000, 35);
+  }
+
+
+  & > .panel-heading,
+  & > .panel-footer {
+    background-color: transparent;
+    border: none;
+  }
 }
 
 @media (min-width: @screen-tablet) {
-  #subreddit .panel-default {
+  .panel-default {
     margin-left: 0;
     margin-right: 0;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
     border-radius: 3px;
   }
 }
 
-#subreddit .panel-default.nsfw {
-  border-color: @brand-danger;
-}
-
 .panel-heading {
   font-family: "Lato", Helvetica, Arial, sans-serif; 
-  font-size: 2.1em;
+  font-size: 1.8em;
 
   & .title {
     color: @gray-dark;
@@ -339,18 +363,15 @@ a.active {
   line-height: @line-height-computed + 2px;
 }
 
-.panel-default > .panel-heading,
-.panel-default > .panel-footer {
-  background-color: transparent;
-  border: none;
-}
-
 .showmore-container {
   width: 90%;
   margin: 5px auto;
 }
 
 .panel-body {
+  & .img-responsive {
+    max-width: 90%;
+  }
 
   & a.nsfw {
     display: block;
@@ -410,6 +431,10 @@ a.active {
 
   & .panel-body {
     padding-top: 5px;
+  }
+
+  & img {
+    border-radius: 2px;
   }
 }
 

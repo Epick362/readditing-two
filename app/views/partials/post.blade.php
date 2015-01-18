@@ -67,13 +67,17 @@
 			<div class="panel-footer" ng-if="post.author">
 				<div class="row">
 					<div class="col-xs-4">
-						<a ng-href="{{ URL::to('u') }}/<% post.author %>">
-							<% post.author %>
-						</a> 
-						in 
-						<a href="{{ URL::to('r') }}/<% post.subreddit %>">
-							<% post.subreddit %> 
-						</a>
+						<span ng-if="post.subreddit == channel">
+							By 
+							<a ng-href="{{ URL::to('u') }}/<% post.author %>">
+								<% post.author %>
+							</a> 
+						</span>
+						<span ng-if="post.subreddit != channel">
+							<a href="{{ URL::to('r') }}/<% post.subreddit %>">
+								<% post.subreddit %> 
+							</a>
+						</span>
 					</div>
 					<div class="col-xs-4 text-center">
 						<a href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>#comments" target="_blank" analytics-on analytics-category="Load Comments"><i class="fa fa-comment"></i> <% post.comments %> comments</a>
@@ -82,11 +86,11 @@
 						<!--<span am-time-ago="post.created" am-preprocess="unix"></span> -->
 
 						<!-- Facebook Share Button -->
-						<a class="btn btn-share circle facebook" analytics-on analytics-event="Share" analytics-category="Facebook" href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
+						<a class="btn btn-share btn-sm facebook" analytics-on analytics-event="Share" analytics-category="Facebook" href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-facebook"></i></a> 
 
 						<!-- Twitter Share Button -->
-						<a class="btn btn-share circle twitter" analytics-on analytics-event="Share" analytics-category="Twitter" href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
+						<a class="btn btn-share btn-sm twitter" analytics-on analytics-event="Share" analytics-category="Twitter" href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-twitter"></i></a>
 					</div>
 				</div>
 			</div>

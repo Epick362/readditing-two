@@ -81,7 +81,7 @@
 						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
-						<i class="fa fa-facebook-square"></i> Facebook
+						<i class="fa fa-facebook"></i> Facebook
 					</a> 
 
 					<a 
