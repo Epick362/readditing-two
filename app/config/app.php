@@ -114,6 +114,7 @@ return array(
 		'Barryvdh\Debugbar\ServiceProvider',
 
 		'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
+		'SleepingOwl\Admin\AdminServiceProvider',
 	),
 
 	/*
@@ -183,6 +184,13 @@ return array(
 		'Moloquent'       => 'Jenssegers\Mongodb\Model',
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
 		'Tracker'         => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
+
+		'Admin'             => 'SleepingOwl\Admin\Admin',
+		'AdminAuth'         => 'SleepingOwl\AdminAuth\Facades\AdminAuth',
+		'AssetManager'      => 'SleepingOwl\Admin\AssetManager\AssetManager',
+		'Column'            => 'SleepingOwl\Admin\Columns\Column',
+		'FormItem'          => 'SleepingOwl\Admin\Models\Form\FormItem',
+		'ModelItem'         => 'SleepingOwl\Admin\Models\ModelItem',
 	),
 
 );

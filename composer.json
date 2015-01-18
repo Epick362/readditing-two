@@ -15,7 +15,8 @@
 		"guzzlehttp/guzzle": "~4.0",
 		"fzaninotto/faker": "v1.3.0",
 		"barryvdh/laravel-debugbar": "~1.8",
-		"pragmarx/tracker": "0.7.*"
+		"pragmarx/tracker": "0.7.*",
+		"sleeping-owl/admin": "1.*"
 	},
 	"require-dev": {
 	    "way/generators": "2.*"
