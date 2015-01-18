@@ -111,6 +111,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Last Login</th>
                                 <th>Registered</th>
                             </tr>
                         </thead>
@@ -119,6 +120,7 @@
                             <tr>
                                 <td>{{ $last['id'] }}</td>
                                 <td>{{ $last['name'] }}</td>
+                                <td>{{ $last['updated_at'] }}</td>
                                 <td>{{ $last['created_at'] }}</td>
                             </tr>
                             @endforeach
