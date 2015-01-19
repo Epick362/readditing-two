@@ -113,7 +113,6 @@ return array(
 		'Readditing\Reddit\RedditServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 
-		'PragmaRX\Tracker\Vendor\Laravel\ServiceProvider',
 		'SleepingOwl\Admin\AdminServiceProvider',
 	),
 
@@ -183,7 +182,6 @@ return array(
 
 		'Moloquent'       => 'Jenssegers\Mongodb\Model',
 		'Debugbar'        => 'Barryvdh\Debugbar\Facade',
-		'Tracker'         => 'PragmaRX\Tracker\Vendor\Laravel\Facade',
 
 		'Admin'             => 'SleepingOwl\Admin\Admin',
 		'AdminAuth'         => 'SleepingOwl\AdminAuth\Facades\AdminAuth',
