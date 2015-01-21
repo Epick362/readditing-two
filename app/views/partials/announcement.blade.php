@@ -1,3 +1,4 @@
+@if($announcement)
 <div class="panel panel-default notification">
 	<div class="panel-body">
 		<a href="{{ URL::to('r/readditingcom/comments/'. $announcement['id']) }}">
@@ -8,3 +9,4 @@
 		</a>
 	</div>
 </div>
+@endif
