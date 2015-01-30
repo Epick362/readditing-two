@@ -30,6 +30,10 @@ Route::get('about', function() {
 	return Response::view('about');
 });
 
+Route::get('thanks', function() {
+	return Response::view('thanks');
+});
+
 Route::get('404', function() {
 	return Response::view('errors.404', [], 404);
 });
