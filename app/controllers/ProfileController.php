@@ -8,6 +8,14 @@ class ProfileController extends BaseController {
 		$view['user_in_db'] = Users::where('name', $user)->first();
 		$view['category'] = $category;
 
+		$user_about = Users::getAbout($user);
+
+		if($user_about) {
+			$view['hide_from_robots'] = $user_about['data']['hide_from_robots'];
+		}else{
+			$view['hide_from_robots'] = false;
+		}
+
 		if(BlacklistUsers::isBlacklisted($user) && $user !== Session::get('user.name')) {
 			return View::make('errors.blacklisted', $view);
 		}

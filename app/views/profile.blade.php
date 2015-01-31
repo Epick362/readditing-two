@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@section('meta-extra')
+	@if($hide_from_robots)
+		<meta name="robots" content="noindex,nofollow" />
+	@endif
+@stop
+
 @section('title')
 	{{ $user }}'s Profile
 @stop

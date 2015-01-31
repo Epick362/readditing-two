@@ -7,6 +7,7 @@
 		<meta name="description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
+		@yield('meta-extra')
 
 		@section('og')
 		<!-- Open Graph data -->
