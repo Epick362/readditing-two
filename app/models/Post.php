@@ -13,7 +13,7 @@ class Post extends Eloquent {
     }
 
     public static function show($thing, $ignore_cache = false) {
-    	attempt to load from Cache
+    	//attempt to load from Cache
     	if(Cache::tags('post')->has($thing) && !$ignore_cache) {
     		self::markAction($thing);
 
