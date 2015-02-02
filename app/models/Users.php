@@ -8,6 +8,10 @@ class Users extends Eloquent {
         return $this->hasMany('UsersSettings', 'user', 'name');
     }
 
+    public function posts() {
+        return $this->belongsToMany('Post');
+    }
+
 	public function multis() {
         return $this->belongsToMany('Multi');
     }

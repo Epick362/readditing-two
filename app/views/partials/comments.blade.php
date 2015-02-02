@@ -1,5 +1,5 @@
 @if(Session::has('user'))
-<li class="media list-unstyled hidden-xs">
+<li class="media list-unstyled">
 	<div class="media-body">
 		<h4 class="media-heading" style="margin-bottom:10px;"><a href="">{{ $username }}</a></h4>
 		<form ng-submit="reply(post, 't3')">
@@ -15,7 +15,7 @@
 @endif
 
 <div ng-show="post.comments > 0">
-    <ul class="media-list" infinite-scroll='reddit.getComments(post.id)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+    <ul class="media-list" infinite-scroll='reddit.getComments(post.name)' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
 		<li ng-if="reddit.comments.length > 0" class="media" ng-repeat="comment in reddit.comments" ng-include="'comment.html'"></li>
 	</ul>
 

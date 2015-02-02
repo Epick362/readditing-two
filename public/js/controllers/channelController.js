@@ -68,7 +68,7 @@
 				return;
 			}
 
-			var url = base_url + 'api/vote/'+ type +'_' + thing.id;
+			var url = base_url + 'api/vote/'+ type +'_' + thing.name;
 
 			if(dir === 1 || dir === -1) {
 				var method = 'POST';
@@ -108,7 +108,7 @@
 				return;
 			}
 
-			var url = base_url + 'api/save/'+ type +'_' + thing.id;
+			var url = base_url + 'api/save/'+ type +'_' + thing.name;
 
 			if(dir === 1) {
 				var method = 'POST';
@@ -206,7 +206,7 @@
 				url: url,
 				data: {
 					text: thing.reply,
-					thing: type + '_' + thing.id
+					thing: type + '_' + thing.name
 				}
 			})
 			.success(function(data) {
