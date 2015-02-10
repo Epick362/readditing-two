@@ -80,6 +80,7 @@ class Reddit {
 
 			return $response->json();
 		}catch(\Exception $e){
+			Log::error($e);
 			return false;
 		}
 	}
