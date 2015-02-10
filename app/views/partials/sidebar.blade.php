@@ -1,9 +1,9 @@
 <div class="sidebar">
 	@yield('sidebar')
 
-	@include('partials.popular')
-
 	@include('ads.sidebar')
+
+	@include('partials.popular')
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
