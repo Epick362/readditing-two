@@ -64,9 +64,9 @@ class Reddit {
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
 		        	'User-Agent' => 'Readditing by /u/Epick_362. Email: flp.hajek@gmail.com'
-		        ]
-		    ],
-		    'proxy' => $proxy
+		        ],
+		        'proxy' => $proxy
+		    ]
 		]);
 
 		$params['api_type'] = 'json';
