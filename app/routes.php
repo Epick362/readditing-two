@@ -47,6 +47,14 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('unlist', 'ProfileController@unlist');
 });
 
+Route::get('test' function() {
+	$client = new GuzzleHttp\Client(['proxy' => 'tcp://80.78.38.70:3128']);
+
+	$response = $client->get('http://ipecho.net/plain');
+
+	dd($response->body());
+});
+
 // =============================================
 // API ROUTES ==================================
 // =============================================
