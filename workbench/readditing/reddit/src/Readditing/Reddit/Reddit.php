@@ -24,7 +24,7 @@ class Reddit {
 
 		$response = $client->get('http://ipecho.net/plain');
 
-		dd($response->body());
+		dd($response);
 	}
 
 	public static function fetch($api, $params = array(), $method = 'GET') {
