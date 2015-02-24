@@ -20,7 +20,7 @@ class Reddit {
 	}
 
 	public static function test() {
-		$client = new Client(['proxy' => 'tcp://80.78.38.70:3128']);
+		$client = new Client(['defaults' => ['proxy' => 'tcp://80.78.38.70:3128']]);
 
 		$response = $client->get('http://api.ipify.org?format=json');
 
