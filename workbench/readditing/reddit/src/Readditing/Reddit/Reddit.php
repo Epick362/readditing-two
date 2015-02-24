@@ -22,9 +22,9 @@ class Reddit {
 	public static function test() {
 		$client = new Client(['proxy' => 'tcp://80.78.38.70:3128']);
 
-		$response = $client->get('http://ipecho.net/plain');
+		$response = $client->get('http://api.ipify.org?format=json');
 
-		dd($response->getBody());
+		dd($response->json());
 	}
 
 	public static function fetch($api, $params = array(), $method = 'GET') {
