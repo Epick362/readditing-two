@@ -46,8 +46,10 @@ class Reddit {
 
 				\Debugbar::stopMeasure('proxyRequest');
 
-				if(isset($response['proxylist']['list-1'])) {
-					$proxy = $response['proxylist']['list-1'];
+				$rand = mt_rand(1, 9);
+
+				if(isset($response['proxylist']['list-'. $rand])) {
+					$proxy = $response['proxylist']['list-'. $rand];
 					return 'tcp://'.$proxy['ip'].':'.$proxy['port'];
 				}
 
