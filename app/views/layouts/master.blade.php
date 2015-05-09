@@ -74,7 +74,7 @@
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
 					<ul class="nav navbar-nav">
 						@yield('nav-main')
-						<li class="{{ Request::is('r/readditingcom') ? 'active' : '' }}"><a href="{{ URL::to('r/readditingcom') }}">Blog</a></li>
+						<li><a href="http://filiphajek.com/">Blog</a></li>
 						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
 
