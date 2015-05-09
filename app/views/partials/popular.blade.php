@@ -1,7 +1,11 @@
 @if(isset($popular) && $popular)
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			Popular subreddits
+			@if(Session::has('user'))
+				My subreddits
+			@else
+				Popular subreddits
+			@endif
 		</div>
 		<div class="panel-body">
 			@foreach($popular['data']['children'] as $_sub)

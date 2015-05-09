@@ -2,13 +2,11 @@
 
 return array(
     'reddit' => array(
-        'id' => '7Ojt4UvaXdlfIg',
-        'secret' => 'diuIcaD4ejI0ZUlQXbDqRTxBRjA',
+        'id' => 'DyI3zChu2SgT1A',
+        'secret' => 'dPzOxkBkmhqf2BinVWDjxdvmiyg',
     ),
 
     'imgur' => array(
-    	'client_id' => '45bdae835f9d9d6',
+    	'client_id' => '4f881a69572af57',
     ),
-
-
 );

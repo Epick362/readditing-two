@@ -45,7 +45,7 @@
 	</h4>
 
 	<!-- Comment content -->
-	<div collapse="isCollapsed" ng-bind-html="comment.body"></div>
+	<div class="comment-body" collapse="isCollapsed" ng-bind-html="comment.body"></div>
 
 	<!-- Comment Actions -->
 	@if(Session::has('user'))

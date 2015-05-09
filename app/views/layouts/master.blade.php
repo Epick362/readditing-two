@@ -59,7 +59,7 @@
 			<div class="container">
 				<div class="navbar-header">
 				@if(!Session::has('user'))
-					<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn hidden-md hidden-lg hidden-md hidden-sm" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
+					<a href="{{ URL::to('auth/login') }}" class="btn btn-inverse navbar-btn hidden-md hidden-lg hidden-md hidden-sm" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
         		@endif
         			<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
 						<span class="sr-only">Toggle navigation</span>
@@ -68,7 +68,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="{{ URL::to('') }}" target="_self">
-						<div class="brand-image">r</div>
+						<div class="brand-image">r<sup>3</sup></div>
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
@@ -83,7 +83,7 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						@if(!Session::has('user'))
-							<a href="{{ URL::to('auth/login') }}" class="btn btn-default navbar-btn hidden-xs" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
+							<a href="{{ URL::to('auth/login') }}" class="btn btn-inverse navbar-btn hidden-xs" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 		        		@else
 							<li>
 								<a href="{{ URL::to('u/'.Session::get('user.name')) }}"><i class="fa fa-user"></i> {{ Session::get('user.name') }}</a>
@@ -144,23 +144,23 @@
 					$('#extension').show();
 				}	
 
-				// Hide navbar
-				function hideDetect(){
-					$(".navbar-fixed-top").autoHidingNavbar();
-					if ($(window).height() > 500){
-						// Keep menu on big screens
-						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', true);
-						$(".navbar-fixed-top").autoHidingNavbar('show');
-					} else {
-						// Auto-hide menu on tiny screens
-						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', false);
-					}
-				}
+				// // Hide navbar
+				// function hideDetect(){
+				// 	$(".navbar-fixed-top").autoHidingNavbar();
+				// 	if ($(window).height() > 500){
+				// 		// Keep menu on big screens
+				// 		$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', true);
+				// 		$(".navbar-fixed-top").autoHidingNavbar('show');
+				// 	} else {
+				// 		// Auto-hide menu on tiny screens
+				// 		$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', false);
+				// 	}
+				// }
 
-				// Launch startup detection
-				hideDetect();
-				// Re-launch dection in window resized
-				window.onresize = hideDetect;
+				// // Launch startup detection
+				// hideDetect();
+				// // Re-launch dection in window resized
+				// window.onresize = hideDetect;
 			});
 		</script>
 

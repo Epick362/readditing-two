@@ -36,7 +36,7 @@
 				<span class="input-group-addon">/r/</span>
 				<input type="text" ng-model="sr" placeholder="{{ $channel or 'subreddit' }}" class="form-control col-sm-3 col-md-4" required>
 				<div class="input-group-btn">
-					<button type="submit" class="btn btn-info" analytics-on analytics-event="Jump to subreddit">Go</button>
+					<button type="submit" class="btn btn-jump" analytics-on analytics-event="Jump to subreddit">Go</button>
 				</div>
 			</div>
 		</form>
@@ -44,7 +44,7 @@
 @stop
 
 @section('sidebar')
-	<a ng-cloak class="btn btn-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:20px" analytics-on analytics-category="NSFW" analytics-label="Turn off">Turn off NSFW</a>
+	<a ng-cloak class="btn btn-ghost-danger btn-block" ng-click="setNSFW()" ng-show="nsfw" href="" style="margin-bottom:20px" analytics-on analytics-category="NSFW" analytics-label="Turn off">Turn off NSFW</a>
 @stop
 
 @section('wrap')
@@ -58,9 +58,9 @@
 
 						<span class="pull-right">
 							<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
-							<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-success btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
+							<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-inverse btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
 
-							<a href="{{ URL::to('submit/?channel='.$channel) }}" class="btn btn-danger btn-lg">Submit</a>
+							<a href="{{ URL::to('submit/?channel='.$channel) }}" class="btn btn-ghost-danger btn-lg">Submit</a>
 						</span>
 					</h1>
 				</div>

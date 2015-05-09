@@ -42,16 +42,57 @@ a:focus {
 }
 
 .btn-default {
-  color: #34A4F7;
-  background-color: #FFF;
-  border-color: #34A4F7;
+  color: @brand-primary;
+  background-color: transparent;
+  border-color: @brand-primary;
+
+  &:hover, &:focus {
+    color: #FFF;
+    background-color: @brand-primary;
+    border-color: @brand-primary;
+  }
 }
 
-.btn-default:hover,
-.btn-default:focus {
+.btn-ghost-danger {
+  color: @brand-danger;
+  background-color: transparent;
+  border-color: @brand-danger;
+
+  &:hover, &:focus {
+    color: #FFF;
+    background-color: @brand-danger;
+    border-color: @brand-danger;
+  }  
+}
+
+.btn-inverse {
   color: #FFF;
-  background-color: #34A4F7;
-  border-color: #34A4F7;
+  background-color: transparent;
+  border-color: #FFF;  
+
+  &:hover, &:focus {
+    color: @brand-primary;
+    background-color: #FFF;
+    border-color: #FFF;
+  }
+}
+
+.btn-jump {
+  background-color: #FFF;
+  border-color: #FFF;
+  color: @brand-primary;
+}
+
+.navbar-form .input-group-addon {
+  background-color: #FFF;
+  border-color: #FFF;
+  color: @brand-primary;
+}
+
+.navbar-form input[type="text"].form-control {
+  background: #FFF;
+  border: none;
+  box-shadow: none;
 }
 
 .btn-upvote {
@@ -91,8 +132,8 @@ a:focus {
 }
 
 .btn-downvote {
-  border: 1px solid @brand-info;
-  color: @brand-info;
+  border: 1px solid @gray-light;
+  color: @gray-light;
   background-color: white;
   border-radius: 50%;
 
@@ -108,18 +149,18 @@ a:focus {
   }
 
   &:hover {
-    -webkit-box-shadow:inset 0 0 10px 0px fade(@brand-info, 40%);
-    box-shadow:inset 0 0 10px 0px fade(@brand-info, 40%);
-    color: @brand-info;
+    -webkit-box-shadow:inset 0 0 10px 0px fade(@gray-light, 40%);
+    box-shadow:inset 0 0 10px 0px fade(@gray-light, 40%);
+    color: @gray-light;
   }
 
   &.active {
-    background-color: @brand-info;
+    background-color: @gray-light;
     color: white;
     transition: background-color .5s ease;
 
     &:hover {
-      background-color: darken(@brand-info, 10%);
+      background-color: darken(@gray-light, 10%);
       color: white;
     }
   }
@@ -248,6 +289,12 @@ a.active {
   line-height: 30px;
   color: @brand-primary;
   text-align: center;
+
+  & sup {
+    font-size: 14px;
+    top: -0.9em;
+    left: 0.2em;
+  }
 }
 
 .navbar-default {
@@ -356,12 +403,21 @@ a.active {
   & .title {
     color: @gray-dark;
     font-weight: bold;
+
+    &:hover {
+      color: @brand-primary;
+    }
   }
 
-  & a.title:hover {
+  & .source {
     color: @brand-primary;
+
+    &:hover {
+      color: @brand-alternate;
+    }
   }
 }
+
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -464,6 +520,20 @@ a.active {
 
 .media-body > .media {
   margin-left: 30px;
+}
+
+.media-heading {
+  font-size: 16px;
+}
+
+.comment-body {
+  & a {
+    color: @brand-primary;
+
+    &:hover {
+      color: @brand-alternate;
+    }
+  }
 }
 
 .ad-leaderboard {

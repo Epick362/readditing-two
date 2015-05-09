@@ -34,7 +34,7 @@
 			</div>
 			<div class="panel-heading">
 				<a class="title" href="{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" target="_blank"><% post.title %></a>
-				<a class="pull-right" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
+				<a class="pull-right source" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>
 				<div class="clearfix"></div>
 			</div>
 			<div ng-show="post.nsfw && !nsfw" class="panel-body">
