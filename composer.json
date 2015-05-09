@@ -16,9 +16,6 @@
 		"barryvdh/laravel-debugbar": "~1.8",
 		"sleeping-owl/admin": "1.*"
 	},
-	"require-dev": {
-	    "way/generators": "2.*"
-	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
