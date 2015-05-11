@@ -189,4 +189,15 @@ return array(
 		'ModelItem'         => 'SleepingOwl\Admin\Models\ModelItem',
 	),
 
+
+	/*
+	|--------------------------------------------------------------------------
+	| Is under heavy API Traffic
+	|--------------------------------------------------------------------------
+	|
+	| This is to enable strict routes, which means that login is required for browsing
+	|
+	*/
+
+	'high_traffic' => false,
 );

@@ -31,14 +31,22 @@ Route::get('404', function() {
 	return Response::view('errors.404', [], 404);
 });
 
-Route::group(array('before' => 'auth'), function() {
+if(Config::get('app.high_traffic')) {
+	$high_traffic = array('before' => 'auth');
+}else{
+	$high_traffic = [];
+}
+
+Route::group($high_traffic, function() {
 	Route::get('/r/{channel?}/{sort?}', 'ChannelController@channel');
 	Route::get('/r/{channel}/comments/{thing}/{title?}/{comment?}', 'ChannelController@post');
 
 	Route::get('/m/{multi}/{sort?}', 'ChannelController@multi');
 
 	Route::get('u/{user}/{category?}', 'ProfileController@index');
-	
+});
+
+Route::group(array('before' => 'auth'), function() {	
 	Route::get('/submit/{channel?}', 'ChannelController@submit');
 
 	Route::get('unlist', function() {
