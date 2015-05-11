@@ -14,7 +14,7 @@ class Channel extends Eloquent {
 			$sort = 'hot';
 		}
 
-		if($after) {
+		if($after && $after != 't3_undefined') {
 			$params['after'] = $after;
 		}
 
@@ -48,7 +48,7 @@ class Channel extends Eloquent {
 			'limit' => '10'
 		];
 
-		if($after) {
+		if($after && $after != 't3_undefined') {
 			$params['after'] = $after;
 		}
 
