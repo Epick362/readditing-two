@@ -38,9 +38,9 @@ class ChannelController extends BaseController {
 	public function post($channel, $thing) {
 		$view['channel'] = $channel;
 
-		$view['post'] = Channel::showPost($channel, $thing);
+		$view['post'] = Post::show($thing);
 
-		if(!$view['post'] || BlacklistThings::isBlacklisted('t3_'.$view['post']['id'])) {
+		if(!$view['post'] || BlacklistThings::isBlacklisted('t3_'.$view['post']['name'])) {
 			return Redirect::to('404');
 		}
 

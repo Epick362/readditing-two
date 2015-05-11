@@ -26,6 +26,7 @@
 		ng-controller="channelController" 
 		user="{{ $username or false }}" 
 		channel="{{ $channel or false }}" 
+		ng-init="post = {{ htmlspecialchars(json_encode($post)) }}"
 	>
 @overwrite
 
@@ -45,7 +46,10 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1" style="margin-bottom:40px">
-		<div class="panel panel-default">
+		<div class="panel panel-default {{ ($post['nsfw'] ? 'nsfw' : '') }}">
+
+			@include('partials.upvote_aside')
+
 			<div class="panel-heading">
 				<span class="title">{{ $post['title'] }}</span>
 				<a class="pull-right" href="{{ $post['url'] }}" target="_blank" rel="nofollow">{{ $post['source'] }}</a>
@@ -54,15 +58,41 @@
 			<div class="panel-body" show-more>
 				{{ $post['content'] }}
 			</div>
+
+			@include('partials.upvote_inline')
+
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-xs-4">
-						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['subreddit']) }}">{{ $post['subreddit'] }}</a> 
+						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['channel']) }}">{{ $post['channel'] }}</a> 
 					</div>
 					<div class="col-xs-offset-4 col-xs-4 text-right">
-						{{ Carbon\Carbon::createFromTimeStamp($post['created'])->diffForHumans() }} 
+						{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post['created_at'])->diffForHumans() }} 
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="row" style="margin-bottom:40px">
+			<div class="col-sm-6">
+					<a 
+						class="btn btn-block btn-share facebook" 
+						analytics-on analytics-event="Share" analytics-category="Facebook" 
+						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+					>
+						<i class="fa fa-facebook"></i> Share to Facebook
+					</a>
+			</div>
+			<div class="col-sm-6">
+					<a 
+						class="btn btn-block btn-share twitter" 
+						analytics-on analytics-event="Share" analytics-category="Twitter" 
+						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
+						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
+					>
+						<i class="fa fa-twitter"></i> Tweet this post
+					</a>
 			</div>
 		</div>
 
@@ -72,30 +102,9 @@
 
 		<div class="panel panel-default" id="comments">
 			<div class="panel-heading">
-				Comments
-				<span class="pull-right">
-					Share to: 
-					<a 
-						class="btn btn-share facebook" 
-						analytics-on analytics-event="Share" analytics-category="Facebook" 
-						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
-						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-					>
-						<i class="fa fa-facebook"></i> Facebook
-					</a> 
-
-					<a 
-						class="btn btn-share twitter" 
-						analytics-on analytics-event="Share" analytics-category="Twitter" 
-						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
-						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-					>
-						<i class="fa fa-twitter"></i> Twitter
-					</a>				
-				</span>
-				<div class="clearfix"></div>
+				Comments ({{ $post['comments'] }})
 			</div>
-			<div class="panel-body" ng-include="'comments.html'" ng-init="post = {{ htmlspecialchars(json_encode($post)) }}"></div>
+			<div class="panel-body" ng-include="'comments.html'"></div>
 		</div>
 
 		<script type="text/ng-template" id="comment.html">

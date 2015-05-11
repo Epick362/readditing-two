@@ -25,17 +25,17 @@
 			$http({method: 'GET', url: url})
 			.success(function(data) {
 				var posts = data;
-				var last = this.posts[this.posts.length - 1];
+				var last = posts[posts.length - 1];
 
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
 				}
 
-				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+				this.after = "t3_" + posts[posts.length - 1].name;
 
 				if(typeof last != 'undefined') {
 					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
-					$location.url(path + '?after=t3_' + last.id);
+					$location.url(path + '?after=t3_' + last.name);
 				}
 
 				this.busy = false;
@@ -68,17 +68,17 @@
 			$http({method: 'GET', url: url})
 			.success(function(data) {
 				var posts = data;
-				var last = this.posts[this.posts.length - 1];
+				var last = posts[posts.length - 1];
 
 				for (var i = 0; i < posts.length; i++) {
 					this.posts.push(posts[i]);
 				}
 
-				this.after = "t3_" + this.posts[this.posts.length - 1].id;
+				this.after = "t3_" + posts[posts.length - 1].name;
 
 				if(typeof last != 'undefined') {
 					var path = $location.path(); //Path without parameters, e.g. /search (without ?q=test)
-					$location.url(path + '?after=t3_' + last.id);
+					$location.url(path + '?after=t3_' + last.name);
 				}
 
 				this.busy = false;

@@ -40,7 +40,7 @@ class BlacklistThing extends Command {
 		$data = $this->argument('thing');
 
 		$user = new \BlacklistThings;
-		$user['thing'] = $data;
+		$user['thing'] = 't3_'.$data;
 		$user->save();
 
 		Cache::forget('blacklisted_things');

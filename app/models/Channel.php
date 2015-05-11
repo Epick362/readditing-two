@@ -4,24 +4,6 @@ use Readditing\Formatter\Formatter as Formatter;
 
 class Channel extends Eloquent {
 
-	public static function showPost( $channel, $thing ) {
-		if(Session::has('user')) {
-			$data = Cache::tags(Session::get('user.name'), $channel, $thing)->remember('comments', 5, function() use($channel, $thing) {
-				return Reddit::fetch('r/'.$channel.'/comments/'.$thing.'.json');
-			});
-		}else{
-			$data = Cache::tags($channel, $thing)->remember('comments', 5, function() use($channel, $thing) {
-				return Reddit::fetch('r/'.$channel.'/comments/'.$thing.'.json');
-			});
-		}
-
-		if($data) {
-			return self::_formatPost($data[0]['data']['children'][0]);
-		}
-
-		return false;
-	}
-
 	public static function indexPost( $channel, $after, $sort = 'hot' ) {
 		$params = [
 			'limit' => '10'
@@ -59,25 +41,6 @@ class Channel extends Eloquent {
 		}
 
 		return self::_formatPosts($posts);
-	}
-
-	public static function storePost( $input ) {
-		$data = [
-			'title' => $input['title'],
-			'sr' => $input['sr'],
-			'kind' => $input['kind'],
-			'api_type' => 'json'
-		];
-
-		if(isset($input['text'])) {
-			$data['text'] = $input['text'];
-		}elseif(isset($input['url'])) {
-			$data['url'] = $input['url'];
-		}else{
-			return false;
-		}
-
-		return Reddit::fetch('api/submit', $data, 'POST');
 	}
 
 	public static function getProfilePosts( $user, $category, $after ) {
@@ -234,7 +197,7 @@ class Channel extends Eloquent {
 
 			if($posts) {
 				foreach($posts as $post) {
-					if($post['author'] == 'Epick_362' && $post['created'] >= time() - 60*60*24*2) {
+					if($post['author'] == 'Epick_362' && strtotime($post['created_at']) >= time() - 60*60*24*2) {
 						$announcement = $post;
 						break;
 					}
@@ -263,7 +226,7 @@ class Channel extends Eloquent {
 							});
 						}
 												
-						$fpost = self::_formatPost($_post);
+						$fpost = Post::format($_post);
 
 						if($fpost) {
 							$result[] = $fpost;
@@ -275,32 +238,6 @@ class Channel extends Eloquent {
 		}
 
 		return false;
-	}
-
-	private static function _formatPost($_post) {
-		$formatter = Formatter::provider($_post);
-		$post = $formatter->getPost();
-
-		$post['title'] = htmlspecialchars_decode($post['title']);
-
-		$post['id'] = $_post['data']['id'];
-		$post['url'] = $_post['data']['url'];
-		$post['subreddit'] = $_post['data']['subreddit'];
-		if(isset($_post['data']['author'])) {
-			$post['author'] = $_post['data']['author'];
-		}else{
-			$post['author'] = '';
-		}
-		$post['created'] = $_post['data']['created_utc'];
-		$post['score'] = $_post['data']['score'];
-		$post['likes'] = $_post['data']['likes'];
-		$post['saved'] = $_post['data']['saved'];
-		$post['gilded'] = $_post['data']['gilded'];
-		$post['comments'] = $_post['data']['num_comments'];
-
-		$post['nsfw'] = $_post['data']['over_18'];
-
-		return $post;
 	}
 
 	private static function _formatComments($comments) {

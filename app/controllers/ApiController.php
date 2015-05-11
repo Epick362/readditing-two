@@ -27,7 +27,7 @@ class ApiController extends \BaseController {
 		);
 
 		if($validator->passes()) {
-			$response = Channel::storePost(Input::all());
+			$response = Post::submit(Input::all());
 
 			return Response::json($response);
 		}
@@ -101,6 +101,10 @@ class ApiController extends \BaseController {
 				'thing_id' => Input::get('thing')
 			], 'POST');
 
+			if(substr(Input::get('thing'), 0, -7) == 't3') {
+				Post::markAction(substr(Input::get('thing'), 3), 'commented');
+			}
+
 			Cache::tags(Session::get('user.name'))->flush();
 
 			return Response::json($response);
@@ -125,6 +129,20 @@ class ApiController extends \BaseController {
 				'id' => $id
 			], 'POST'); 
 
+			if(substr($id, 0, -7) == 't3') {
+				switch (Input::get('dir')) {
+					case 1:
+						Post::markAction(substr($id, 3), 'likes');
+						Post::unmarkAction(substr($id, 3), 'dislikes');
+						break;
+
+					case -1:
+						Post::markAction(substr($id, 3), 'dislikes');
+						Post::unmarkAction(substr($id, 3), 'likes');
+						break;
+				}
+			}
+
 			Cache::tags(Session::get('user.name'))->flush();
 
 			return Response::make(null, 204);
@@ -139,6 +157,11 @@ class ApiController extends \BaseController {
 			'id' => $id
 		], 'POST'); 
 
+		if(substr($id, 0, -7) == 't3') {
+			Post::unmarkAction(substr($id, 3), 'likes');
+			Post::unmarkAction(substr($id, 3), 'dislikes');
+		}
+
 		Cache::tags(Session::get('user.name'))->flush();
 
 		return Response::make(null, 204);	
@@ -150,6 +173,10 @@ class ApiController extends \BaseController {
 			'id' => $id
 		], 'POST'); 
 
+		if(substr($id, 0, -7) == 't3') {
+			Post::markAction(substr($id, 3), 'saved');
+		}
+
 		Cache::tags(Session::get('user.name'))->flush();
 
 		return Response::make(null, 204);
@@ -159,6 +186,10 @@ class ApiController extends \BaseController {
 		$response = Reddit::fetch('api/unsave', [
 			'id' => $id
 		], 'POST'); 
+
+		if(substr($id, 0, -7) == 't3') {
+			Post::unmarkAction(substr($id, 3), 'saved');
+		}
 
 		Cache::tags(Session::get('user.name'))->flush();
 
