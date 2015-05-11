@@ -18,46 +18,9 @@ class Reddit {
 			self::$access_token = '';
 		}
 	}
-
-	public static function test() {
-		$client = new Client(['defaults' => ['proxy' => 'tcp://80.78.38.70:3128']]);
-
-		$response = $client->get('http://api.ipify.org?format=json');
-
-		dd($response->json());
-	}
-
+	
 	public static function fetch($api, $params = array(), $method = 'GET') {
 		$url = self::$reddit_url . '' . $api;
-
-		$proxy = \Cache::remember('proxy', 10, function() {
-			try {
-				\Debugbar::startMeasure('proxyRequest', 'Time to get proxy list');
-
-				$client = new Client();
-				$response = $client->get('http://www.yasakvar.com/apiv1/', [
-					'query' => [
-						'type' => 'json',
-						'protocol' => 'HTTPS',
-						'proxyspeed' => 'FAST',
-						'connectiontime' => 'FAST'
-					]
-				])->json();
-
-				\Debugbar::stopMeasure('proxyRequest');
-
-				$rand = mt_rand(1, 9);
-
-				if(isset($response['proxylist']['list-'. $rand])) {
-					$proxy = $response['proxylist']['list-'. $rand];
-					return 'tcp://'.$proxy['ip'].':'.$proxy['port'];
-				}
-
-				return null;
-			} catch (\Exception $e) {
-				return null;
-			}
-		});
 
 		$client = new Client([
 		    'base_url' => self::$reddit_url,
@@ -66,8 +29,7 @@ class Reddit {
 		        	'Content-type' => 'application/x-www-form-urlencoded',
 		        	'Authorization' => 'bearer ' . self::$access_token,
 		        	'User-Agent' => 'Readditing by /u/Epick_362. Email: flp.hajek@gmail.com'
-		        ],
-		        'proxy' => $proxy
+		        ]
 		    ]
 		]);
 
