@@ -176,7 +176,7 @@ class Channel extends Eloquent {
 
 				if($posts) {
 					foreach($posts as $post) {
-						if(isset($post['image'])) {
+						if(isset($post['image']) && !$post['nsfw']) {
 							$featured[] = $post;
 						}
 					}
