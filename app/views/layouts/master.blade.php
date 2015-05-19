@@ -36,7 +36,7 @@
 
 		<meta name="msapplication-TileColor" content="#2b5797">
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-		
+
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 
 		<link id="ApiRoot" href="{{ URL::to('') }}" />
@@ -117,22 +117,22 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
-		<script src="{{ URL::asset('app/scripts/jquery.bootstrap-autohidingnavbar.js') }}"></script>
-		
+		<script src="{{ URL::secureAsset('app/scripts/jquery.bootstrap-autohidingnavbar.js') }}"></script>
+
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/angular.moment/0.8.0/angular-moment.min.js"></script>
-		<script src="{{ URL::asset('app/scripts/ngSanitize.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/elastic.js') }}"></script>
+		<script src="{{ URL::secureAsset('app/scripts/ngSanitize.js') }}"></script>
+		<script src="{{ URL::secureAsset('app/scripts/ng-infinite-scroll.min.js') }}"></script>
+		<script src="{{ URL::secureAsset('app/scripts/elastic.js') }}"></script>
 
-		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
-		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>
-		
-		<script src="{{ URL::asset('js/app.js') }}"></script>
-		<script src="{{ URL::asset('js/controllers/channelController.js') }}"></script>
-		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
+		<script src="{{ URL::secureAsset('app/scripts/angulartics.min.js') }}"></script>
+		<script src="{{ URL::secureAsset('app/scripts/angulartics-ga.min.js') }}"></script>
+
+		<script src="{{ URL::secureAsset('js/app.js') }}"></script>
+		<script src="{{ URL::secureAsset('js/controllers/channelController.js') }}"></script>
+		<script src="{{ URL::secureAsset('js/services/channelService.js') }}"></script>
 
 		<script type="text/javascript">
 			$(function() {
@@ -142,7 +142,7 @@
 
 				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 					$('#extension').show();
-				}	
+				}
 
 				// // Hide navbar
 				// function hideDetect(){
