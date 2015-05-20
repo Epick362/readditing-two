@@ -23,7 +23,7 @@ App::before(function($request)
 		}
 	}
 
-	if(!Config::get('app.debug')) {
+	if(!App::environment('local')) {
 		URL::forceSchema("https");
 	}
 });
