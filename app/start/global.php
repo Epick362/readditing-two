@@ -20,9 +20,6 @@ ClassLoader::addDirectories(array(
 
 ));
 
-// Set the trusted proxies so we can generate HTTPS routes - in my case, 127.0.0.1
-\Symfony\Component\HttpFoundation\Request::setTrustedProxies(['127.0.0.1']);
-
 /*
 |--------------------------------------------------------------------------
 | Application Error Logger

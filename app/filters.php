@@ -22,6 +22,10 @@ App::before(function($request)
 			Session::put('user.settings', UsersSettings::getSettingsForSession(Session::get('user.name')));
 		}
 	}
+
+	if(!Config::get('app.debug')) {
+		URL::forceSchema("https");
+	}
 });
 
 
