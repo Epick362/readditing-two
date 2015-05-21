@@ -7932,6 +7932,7 @@ a.active:hover {
 .ad-leaderboard {
   max-width: 728px;
   margin: 0 auto;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 .ad-sidebar {
