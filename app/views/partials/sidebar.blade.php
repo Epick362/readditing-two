@@ -5,7 +5,7 @@
 
 	@include('partials.popular')
 
-	<div class="panel panel-default">
+	<!-- <div class="panel panel-default">
 		<div class="panel-heading">
 			Donate
 		</div>
@@ -20,7 +20,7 @@
 				</form>
 			</center>
 		</div>
-	</div>
+	</div> -->
 
 	@include('partials.featured')
 
