@@ -6,7 +6,7 @@
 
 @section('og')
 	<!-- Open Graph data -->
-	<meta property="og:site_name" content="Readditing.com" />
+	<meta property="og:site_name" content="Redditing.com" />
 	<meta property="og:locale" content="en_GB" />
 	<meta property="og:title" content="{{ htmlentities($post['title']) }}" />
 	<meta property="og:type" content="article" />

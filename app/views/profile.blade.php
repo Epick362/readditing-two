@@ -23,7 +23,7 @@
 		<p class="lead text-center" style="font-size:42px">
 			{{ $user }}
 			@if(!empty($user_in_db))
-				<i tooltip="This user has authorized with Readditing.com" class="text-success fa fa-check"></i>
+				<i tooltip="This user has authorized with Redditing.com" class="text-success fa fa-check"></i>
 			@endif
 		</p>
 		<ul class="nav nav-tabs nav-justified" style="margin-bottom:20px">

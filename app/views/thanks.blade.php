@@ -9,7 +9,7 @@
 		<h1 style="margin-top:0">Thanks</h1>
 		<hr />
 		<p class="lead">
-			Thank you for supporting Readditing and me in doing what I love. I really appreciate your donation and I will continue improving Readditing.
+			Thank you for supporting Redditing and me in doing what I love. I really appreciate your donation and I will continue improving Redditing.
 	    </p>
 
 	    <center>

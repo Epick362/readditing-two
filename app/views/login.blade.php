@@ -17,7 +17,7 @@
 		</div>
 
 		<p>
-			Readditing enables you to <strong>securely</strong> log in to your reddit account without you having to provide your login credentials on our site. Click the button above to begin.
+			Redditing enables you to <strong>securely</strong> log in to your reddit account without you having to provide your login credentials on our site. Click the button above to begin.
 	    </p>
     </div>
 @stop

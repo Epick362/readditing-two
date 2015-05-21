@@ -2,20 +2,20 @@
 <html lang="en" ng-app="readditingApp" >
 	<head>
 		<meta charset="utf-8">
-		<title>Readditing | @yield('title', 'better reddit experience')</title>
+		<title>Redditing | @yield('title', 'better reddit experience')</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')">
+		<meta name="description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Redditing.')">
 		<meta name="keywords" content="reddit social friends news information readdit readditing">
 		<meta name="author" content="Filip Hajek">
 		@yield('meta-extra')
 
 		@section('og')
 		<!-- Open Graph data -->
-		<meta property="og:title" content="Readditing.com | @yield('title', 'better reddit experience')" />
+		<meta property="og:title" content="Redditing.com | @yield('title', 'better reddit experience')" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://www.readditing.com/" />
 		<meta property="og:image" content="@yield('meta-image', URL::to('apple-touch-icon-120x120.png'))" />
-		<meta property="og:description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Readditing.')" />
+		<meta property="og:description" content="@yield('meta-desc', 'Your main source of information, stories and entertainment. You can find anything on Redditing.')" />
 		@show
 
 		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -36,7 +36,7 @@
 
 		<meta name="msapplication-TileColor" content="#2b5797">
 		<meta name="msapplication-TileImage" content="/mstile-144x144.png">
-		
+
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('app/styles/main.css') }}">
 
 		<link id="ApiRoot" href="{{ URL::to('') }}" />
@@ -118,7 +118,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4+html5/jquery.history.js"></script>
 		<script src="{{ URL::asset('app/scripts/jquery.bootstrap-autohidingnavbar.js') }}"></script>
-		
+
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script> <!-- load angular -->
 		<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
@@ -129,7 +129,7 @@
 
 		<script src="{{ URL::asset('app/scripts/angulartics.min.js') }}"></script>
 		<script src="{{ URL::asset('app/scripts/angulartics-ga.min.js') }}"></script>
-		
+
 		<script src="{{ URL::asset('js/app.js') }}"></script>
 		<script src="{{ URL::asset('js/controllers/channelController.js') }}"></script>
 		<script src="{{ URL::asset('js/services/channelService.js') }}"></script>
@@ -142,7 +142,7 @@
 
 				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 					$('#extension').show();
-				}	
+				}
 
 				// // Hide navbar
 				// function hideDetect(){
