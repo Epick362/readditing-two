@@ -22,10 +22,10 @@
 @overwrite
 
 @section('body')
-	<body 
-		ng-controller="channelController" 
-		user="{{ $username or false }}" 
-		channel="{{ $channel or false }}" 
+	<body
+		ng-controller="channelController"
+		user="{{ $username or false }}"
+		channel="{{ $channel or false }}"
 		ng-init="post = {{ htmlspecialchars(json_encode($post)) }}"
 	>
 @overwrite
@@ -46,6 +46,11 @@
 
 @section('content')
 	<div class="col-md-8 col-md-offset-1" style="margin-bottom:40px">
+
+		@if(!$post['nsfw'])
+			@include('ads.leaderboard')
+		@endif
+
 		<div class="panel panel-default {{ ($post['nsfw'] ? 'nsfw' : '') }}">
 
 			@include('partials.upvote_aside')
@@ -64,31 +69,31 @@
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-xs-4">
-						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['channel']) }}">{{ $post['channel'] }}</a> 
+						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['channel']) }}">{{ $post['channel'] }}</a>
 					</div>
 					<div class="col-xs-offset-4 col-xs-4 text-right">
-						{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post['created_at'])->diffForHumans() }} 
+						{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post['created_at'])->diffForHumans() }}
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="row" style="margin-bottom:40px">
+		<div class="row" style="margin-bottom:40px" id="comments">
 			<div class="col-sm-6">
-					<a 
-						class="btn btn-block btn-share facebook" 
-						analytics-on analytics-event="Share" analytics-category="Facebook" 
-						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>" 
+					<a
+						class="btn btn-block btn-share facebook"
+						analytics-on analytics-event="Share" analytics-category="Facebook"
+						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>"
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
 						<i class="fa fa-facebook"></i> Share to Facebook
 					</a>
 			</div>
 			<div class="col-sm-6">
-					<a 
-						class="btn btn-block btn-share twitter" 
-						analytics-on analytics-event="Share" analytics-category="Twitter" 
-						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>" 
+					<a
+						class="btn btn-block btn-share twitter"
+						analytics-on analytics-event="Share" analytics-category="Twitter"
+						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"
 						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
 					>
 						<i class="fa fa-twitter"></i> Tweet this post
@@ -96,11 +101,12 @@
 			</div>
 		</div>
 
+
 		@if(!$post['nsfw'])
 			@include('ads.leaderboard')
 		@endif
 
-		<div class="panel panel-default" id="comments">
+		<div class="panel panel-default">
 			<div class="panel-heading">
 				Comments ({{ $post['comments'] }})
 			</div>
