@@ -101,11 +101,6 @@
 			</div>
 		</div>
 
-
-		@if(!$post['nsfw'])
-			@include('ads.leaderboard')
-		@endif
-
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				Comments ({{ $post['comments'] }})

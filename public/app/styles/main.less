@@ -353,7 +353,7 @@ a.active {
   margin-bottom: 40px;
   border-radius: 0;
 
-  transition: all .2s ease;
+  transition: all .2s ease-out;
 
   &.nsfw {
     -webkit-box-shadow: 0 1px 5px fade(@brand-danger, 45);
@@ -400,9 +400,8 @@ a.active {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 1.8em;
 
-  & .title {
+  & a.title {
     color: @gray-dark;
-    font-weight: bold;
 
     &:hover {
       color: @brand-primary;
@@ -421,6 +420,7 @@ a.active {
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
+  color: @gray;
 }
 .panel-footer a {
   font-weight: 400;
@@ -461,6 +461,7 @@ a.active {
     hyphens: auto;
     font-size: 16px;
     line-height: 1.7;
+    color: lighten(@gray-dark, 10%);
 
     & h1 {
       font-size: 25px;
@@ -527,6 +528,8 @@ a.active {
 }
 
 .comment-body {
+  color: lighten(@gray-dark, 10%);
+
   & a {
     color: @brand-primary;
 

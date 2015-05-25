@@ -7787,7 +7787,7 @@ a.active:hover {
   margin-right: -15px;
   margin-bottom: 40px;
   border-radius: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease-out;
 }
 .panel-default.nsfw {
   -webkit-box-shadow: 0 1px 5px rgba(217, 67, 67, 0.45);
@@ -7825,11 +7825,10 @@ a.active:hover {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 1.8em;
 }
-.panel-heading .title {
+.panel-heading a.title {
   color: #333333;
-  font-weight: bold;
 }
-.panel-heading .title:hover {
+.panel-heading a.title:hover {
   color: #ff824a;
 }
 .panel-heading .source {
@@ -7841,6 +7840,7 @@ a.active:hover {
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
+  color: #555555;
 }
 .panel-footer a {
   font-weight: 400;
@@ -7875,6 +7875,7 @@ a.active:hover {
   hyphens: auto;
   font-size: 16px;
   line-height: 1.7;
+  color: #4d4d4d;
 }
 .panel-body .panel-text h1 {
   font-size: 25px;
@@ -7922,6 +7923,9 @@ a.active:hover {
 }
 .media-heading {
   font-size: 16px;
+}
+.comment-body {
+  color: #4d4d4d;
 }
 .comment-body a {
   color: #ff824a;
