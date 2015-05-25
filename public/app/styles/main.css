@@ -7840,7 +7840,6 @@ a.active:hover {
 .panel-footer {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #555555;
 }
 .panel-footer a {
   font-weight: 400;
@@ -7875,7 +7874,6 @@ a.active:hover {
   hyphens: auto;
   font-size: 16px;
   line-height: 1.7;
-  color: #4d4d4d;
 }
 .panel-body .panel-text h1 {
   font-size: 25px;
@@ -7923,9 +7921,6 @@ a.active:hover {
 }
 .media-heading {
   font-size: 16px;
-}
-.comment-body {
-  color: #4d4d4d;
 }
 .comment-body a {
   color: #ff824a;
