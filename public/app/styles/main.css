@@ -8098,4 +8098,26 @@ a.active:hover {
     -webkit-transform: rotate(-360deg);
   }
 }
+.nightmode body {
+  background-color: #222;
+  color: #777;
+}
+.nightmode a {
+  color: #aaa;
+}
+.nightmode a:hover {
+  color: #ddd;
+}
+.nightmode .panel-default {
+  background-color: #333;
+}
+.nightmode .panel-default > .panel-heading {
+  color: #aaa;
+}
+.nightmode .panel-default > .panel-heading a.title {
+  color: #bbb;
+}
+.nightmode .panel-default > .panel-heading a.title:hover {
+  color: #ff824a;
+}
 /*# sourceMappingURL=/styles/main.css.map */

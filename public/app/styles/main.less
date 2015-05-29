@@ -723,3 +723,36 @@ a.active {
         -webkit-transform: rotate(-360deg);
     };
 }
+
+// Sitewide nightmode -- experimental feature
+
+.nightmode {
+  & body {
+    background-color: #222;
+    color: #777;
+  }
+
+  & a {
+    color: #aaa;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+
+  & .panel-default {
+    background-color: #333;
+
+    & > .panel-heading {
+      color: #aaa;
+
+      & a.title {
+        color: #bbb;
+
+        &:hover {
+          color: @brand-primary;
+        }
+      }
+    }
+  }
+}
