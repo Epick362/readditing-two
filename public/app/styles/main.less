@@ -561,10 +561,10 @@ a.active {
   animation-name: placeHolderShimmer;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
-  background: #f6f7f8;
-  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #fafafa), color-stop(18%, #eee), color-stop(33%, #fafafa));
-  background: -webkit-linear-gradient(left, #fafafa 8%, #eee 18%, #fafafa 33%);
-  background: linear-gradient(to right,  #fafafa 8%,#eee 18%,#fafafa 33%);
+  background: darken(@body-bg, 10%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, darken(@body-bg, 10%)), color-stop(18%, darken(@body-bg, 30%)), color-stop(33%, darken(@body-bg, 10%)));
+  background: -webkit-linear-gradient(left, darken(@body-bg, 10%) 8%, darken(@body-bg, 30%) 18%, darken(@body-bg, 10%) 33%);
+  background: linear-gradient(to right,  darken(@body-bg, 10%) 8%,darken(@body-bg, 30%) 18%,darken(@body-bg, 10%) 33%);
   -webkit-background-size: 800px 104px;
   background-size: 800px 104px;
   height: 120px;
@@ -574,7 +574,7 @@ a.active {
 }
 
 .background-masker {
-  background: #fff;
+  background: @body-bg;
   position: absolute;
 }
 
@@ -729,14 +729,14 @@ a.active {
 .nightmode {
   & body {
     background-color: #222;
-    color: #777;
+    color: #ddd;
   }
 
   & a {
-    color: #aaa;
+    color: #888;
 
     &:hover {
-      color: #ddd;
+      color: @brand-alternate;
     }
   }
 
@@ -750,8 +750,12 @@ a.active {
         color: #bbb;
 
         &:hover {
-          color: @brand-primary;
+          color: @brand-alternate;
         }
+      }
+
+      & a.source {
+          color: @text-muted;
       }
     }
   }

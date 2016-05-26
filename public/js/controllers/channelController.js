@@ -30,7 +30,7 @@
 			$scope.nsfw = !$scope.nsfw;
 
 			$http({
-				method: method, 
+				method: method,
 				url: url
 			});
 		}
@@ -46,7 +46,7 @@
 			post['kind'] = kind;
 
 			$http({
-				method: 'POST', 
+				method: 'POST',
 				url: url,
 				data: post
 			})
@@ -55,7 +55,7 @@
 			})
 			.error(function() {
 				console.error('Error while posting.');
-			});	
+			});
 		};
 
 		$scope.jumpTo = function() {
@@ -115,14 +115,14 @@
 			}else{
 				var method = 'DELETE';
 			}
-			
+
 			thing.saved = !thing.saved;
 
 			$http({method: method, url: url})
 			.error(function() {
 				thing.saved = !thing.saved;
 				console.error('Error while saving.');
-			});	
+			});
 		};
 
 		$scope.subscribe = function(dir) {
@@ -148,7 +148,7 @@
 			$http({method: method, url: url})
 			.error(function() {
 				console.error('Error while subscribing.');
-			});	
+			});
 		}
 
 		$scope.multi = function(multi, dir) {
@@ -168,7 +168,7 @@
 			$http({method: method, url: url})
 			.error(function() {
 				console.error('Error while adding.');
-			});	
+			});
 		}
 
 		$scope.comments = function(post) {
@@ -202,7 +202,7 @@
 			var url = base_url + 'api/comment';
 
 			$http({
-				method: 'POST', 
+				method: 'POST',
 				url: url,
 				data: {
 					text: thing.reply,
@@ -225,7 +225,7 @@
 					replies: false
 				};
 
-				if(type !== 't3') {		
+				if(type !== 't3') {
 					if(typeof thing.replies !== 'object') {
 						thing.replies = [];
 					}

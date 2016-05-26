@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="readditingApp" class="nightmode">
+<html lang="en" ng-app="readditingApp">
 	<head>
 		<meta charset="utf-8">
 		<title>Redditing | @yield('title', 'better reddit experience')</title>
