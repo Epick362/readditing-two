@@ -11,11 +11,11 @@
 @endif
 
 @section('body')
-	<body 
-		ng-controller="channelController" 
-		user="{{ $username or false }}" 
-		channel="{{ $channel or false }}" 
-		sort="{{ $sort or false }}" 
+	<body
+		ng-controller="channelController"
+		user="{{ $username or false }}"
+		channel="{{ $channel or false }}"
+		sort="{{ $sort or false }}"
 		subscribed="{{ $subscribed or false }}"
 		nsfw="{{ Session::has('user.settings.nsfw') }}"
 	>
@@ -57,7 +57,7 @@
 						/r/{{ $channel }} <small>{{ $channelData['subscribers'] }} subscribers</small>
 
 						<span class="pull-right">
-							<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-default btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
+							<a href="" ng-click="subscribe(1)" ng-if="!subscribed" class="btn btn-success btn-lg"><i class="fa fa-bookmark"></i> Subscribe</a>
 							<a href="" ng-click="subscribe(0)" ng-if="subscribed" class="btn btn-inverse btn-lg"><i class="fa fa-times"></i> Unsubscribe</a>
 
 							<a href="{{ URL::to('submit/?channel='.$channel) }}" class="btn btn-ghost-danger btn-lg">Submit</a>
@@ -77,11 +77,11 @@
 				@if(Session::has('message'))
 					<div class="alert alert-success">{{ Session::get('message') }}</div>
 				@endif
-				
+
 				@if(!$channel || ($channel && isset($channelData['over18']) && !$channelData['over18']))
 					@include('ads.leaderboard')
 				@endif
-				
+
 				@include('partials.alerts')
 
 				<div id="subreddit" ng-cloak>
@@ -102,10 +102,10 @@
 					@if(Input::has('after') && Input::get('after') !== 'undefined')
 						<a style="margin-bottom: 20px" class="btn btn-primary btn-block" href="{{ URL::to('r/'.$channel) }}">Jump back to top</a>
 					@endif
-					
+
 					@include('partials.post', ['function' => "reddit.nextPage('". Input::get('after', '') ."')"])
 
-				</div>		
+				</div>
 			</div>
 
 			<div class="col-md-3 visible-md visible-lg">

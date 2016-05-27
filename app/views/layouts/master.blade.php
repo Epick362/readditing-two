@@ -68,7 +68,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="{{ URL::to('') }}" target="_self">
-						<div class="brand-image">r<sup>3</sup></div>
+						<div class="brand-image">r</div>
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
@@ -140,27 +140,27 @@
 				    $(window).scrollTop(0);
 				});
 
-				if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-					$('#extension').show();
-				}
-
-				// // Hide navbar
-				// function hideDetect(){
-				// 	$(".navbar-fixed-top").autoHidingNavbar();
-				// 	if ($(window).height() > 500){
-				// 		// Keep menu on big screens
-				// 		$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', true);
-				// 		$(".navbar-fixed-top").autoHidingNavbar('show');
-				// 	} else {
-				// 		// Auto-hide menu on tiny screens
-				// 		$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', false);
-				// 	}
+				// if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+				// 	$('#extension').show();
 				// }
 
-				// // Launch startup detection
-				// hideDetect();
-				// // Re-launch dection in window resized
-				// window.onresize = hideDetect;
+				// Hide navbar
+				function hideDetect(){
+					$(".navbar-fixed-top").autoHidingNavbar();
+					if ($(window).height() > 500){
+						// Keep menu on big screens
+						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', true);
+						$(".navbar-fixed-top").autoHidingNavbar('show');
+					} else {
+						// Auto-hide menu on tiny screens
+						$('.navbar-fixed-top').autoHidingNavbar('setDisableAutohide', false);
+					}
+				}
+
+				// Launch startup detection
+				hideDetect();
+				// Re-launch dection in window resized
+				window.onresize = hideDetect;
 			});
 		</script>
 
