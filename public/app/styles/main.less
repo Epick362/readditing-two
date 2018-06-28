@@ -345,8 +345,7 @@ a.active {
 .panel-default {
   background-color: #FFF;
   border: none;
-  -webkit-box-shadow: 0 1px 5px fade(#000, 15);
-  box-shadow: 0 1px 5px fade(#000, 15);
+  box-shadow: 0 4px 10px 4px fade(#202020, 15);
 
   margin-left: -15px;
   margin-right: -15px;
@@ -356,28 +355,23 @@ a.active {
   transition: all .2s ease-out;
 
   &.nsfw {
-    -webkit-box-shadow: 0 1px 5px fade(@brand-danger, 45);
     box-shadow: 0 1px 5px fade(@brand-danger, 45);
 
     #subreddit &:hover {
-      -webkit-box-shadow: 0 1px 8px fade(@brand-danger, 65);
       box-shadow: 0 1px 8px fade(@brand-danger, 65);
     }
   }
 
   &.notification {
-    -webkit-box-shadow: 0 1px 8px fade(@brand-primary, 65);
     box-shadow: 0 1px 8px fade(@brand-primary, 65);
 
     #subreddit &:hover {
-      -webkit-box-shadow: 0 1px 10px fade(@brand-primary, 100);
       box-shadow: 0 1px 10px fade(@brand-primary, 100);
     }
   }
 
   #subreddit &:hover {
-    -webkit-box-shadow: 0 1px 8px fade(#000, 35);
-    box-shadow: 0 1px 8px fade(#000, 35);
+    box-shadow: 0 5px 12px 5px fade(#202020, 20);
   }
 
 
@@ -392,7 +386,7 @@ a.active {
   .panel-default {
     margin-left: 0;
     margin-right: 0;
-    border-radius: 3px;
+    border-radius: 12px;
   }
 }
 
@@ -435,7 +429,7 @@ a.active {
 
 .panel-body {
   & .img-responsive {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   & a.nsfw {

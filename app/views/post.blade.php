@@ -57,8 +57,6 @@
 
 			<div class="panel-heading">
 				<span class="title">{{ $post['title'] }}</span>
-				<a class="pull-right" href="{{ $post['url'] }}" target="_blank" rel="nofollow">{{ $post['source'] }}</a>
-				<div class="clearfix"></div>
 			</div>
 			<div class="panel-body" show-more>
 				{{ $post['content'] }}
@@ -69,41 +67,22 @@
 			<div class="panel-footer">
 				<div class="row">
 					<div class="col-xs-4">
-						<a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a> in <a href="{{ URL::to('r/'.$post['channel']) }}">{{ $post['channel'] }}</a>
+						<a href="{{ URL::to('r/'.$post['channel']) }}">/r/{{ $post['channel'] }}</a>
+						by <a href="{{ URL::to('u/'.$post['author']) }}">{{ $post['author'] }}</a>
+					</div>
+					<div class="col-xs-4">
+						{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post['created_at'])->diffForHumans() }}
 					</div>
 					<div class="col-xs-offset-4 col-xs-4 text-right">
-						{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post['created_at'])->diffForHumans() }}
+						Source: <a href="{{ $post['url'] }}" target="_blank" rel="nofollow">{{ $post['source'] }}</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="row" style="margin-bottom:40px" id="comments">
-			<div class="col-sm-6">
-					<a
-						class="btn btn-block btn-share facebook"
-						analytics-on analytics-event="Share" analytics-category="Facebook"
-						href="http://www.facebook.com/sharer/sharer.php?u={{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>&title=<% post.title %>"
-						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-					>
-						<i class="fa fa-facebook"></i> Share to Facebook
-					</a>
-			</div>
-			<div class="col-sm-6">
-					<a
-						class="btn btn-block btn-share twitter"
-						analytics-on analytics-event="Share" analytics-category="Twitter"
-						href="http://twitter.com/home?status=<% post.title %>+{{ URL::to('r') }}/<% post.subreddit %>/comments/<% post.id %>"
-						onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"
-					>
-						<i class="fa fa-twitter"></i> Tweet this post
-					</a>
-			</div>
-		</div>
-
-		<div class="panel panel-default">
+		<div class="panel panel-default" style="margin-top: 60px" id="comments">
 			<div class="panel-heading">
-				Comments ({{ $post['comments'] }})
+				{{ $post['comments'] }} comments
 			</div>
 			<div class="panel-body" ng-include="'comments.html'"></div>
 		</div>
