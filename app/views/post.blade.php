@@ -73,7 +73,7 @@
 					<div class="col-xs-4">
 						{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $post['created_at'])->diffForHumans() }}
 					</div>
-					<div class="col-xs-offset-4 col-xs-4 text-right">
+					<div class="col-xs-4 text-right">
 						Source: <a href="{{ $post['url'] }}" target="_blank" rel="nofollow">{{ $post['source'] }}</a>
 					</div>
 				</div>

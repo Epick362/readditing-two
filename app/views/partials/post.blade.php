@@ -19,11 +19,9 @@
 			<div class="panel-footer" ng-if="post.author">
 				<div class="row">
 					<div class="col-xs-4">
-						<span ng-if="post.channel != channel">
-							<a href="{{ URL::to('r') }}/<% post.channel %>">
-								/r/<% post.channel %>
-							</a>
-						</span>
+						<a href="{{ URL::to('r') }}/<% post.channel %>">
+							/r/<% post.channel %>
+						</a>
 						<span ng-if="post.channel == channel">
 							by
 							<a ng-href="{{ URL::to('u') }}/<% post.author %>">
