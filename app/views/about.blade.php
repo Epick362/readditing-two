@@ -18,7 +18,7 @@
 	    <h3>About the Author</h3>
 	    <hr />
 	    <p class="lead">
-	    	My name is <a href="http://filiphajek.com/"><strong>Filip Hajek</strong></a> and I am a 19 year old student living in Europe. My hobbies are creating websites and playing video games.
+	    	Hi, I'm <a href="http://filiphajek.com/"><strong>Filip Hajek</strong></a>. I like to build clean and intuitive websites for fun (or business 😉).
 	    	<br />
 	    	<br />
 	    	If you'd like to contact me, do so either by sending me a private message on reddit (<a href="https://www.reddit.com/message/compose/?to=Epick_362">Epick_362</a>) or send me an email to: {{ HTML::mailto('flp.hajek@gmail.com') }}.

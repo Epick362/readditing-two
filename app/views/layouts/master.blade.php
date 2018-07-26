@@ -74,14 +74,13 @@
 				<div class="collapse navbar-collapse" ng-class="{'in': !navCollapsed}">
 					<ul class="nav navbar-nav">
 						@yield('nav-main')
-						<li><a href="http://filiphajek.com/">Blog</a></li>
-						<li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 					</ul>
 
 					@yield('nav-middle')
 
 
 					<ul class="nav navbar-nav navbar-right">
+            <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="{{ URL::to('about') }}">About</a></li>
 						@if(!Session::has('user'))
 							<a href="{{ URL::to('auth/login') }}" class="btn btn-inverse navbar-btn hidden-xs" analytics-on analytics-category="Login">Sign in with <i class="fa fa-lock"></i> Reddit</a>
 		        		@else

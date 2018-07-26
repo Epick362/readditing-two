@@ -30,7 +30,7 @@
 						</span>
 					</div>
 					<div class="col-xs-4 text-center">
-						<a href="{{ URL::to('r') }}/<% post.channel %>/comments/<% post.name %>#comments" target="_blank" analytics-on analytics-category="Load Comments"><i class="fa fa-comment"></i> <% post.comments %> comments</a>
+						<a href="{{ URL::to('r') }}/<% post.channel %>/comments/<% post.name %>#comments" analytics-on analytics-category="Load Comments"><i class="fa fa-comment"></i> <% post.comments %> comments</a>
 					</div>
 					<div class="col-xs-4 text-right">
 						Source: <a class="source" href="<% post.url %>" target="_blank" rel="nofollow"><% post.source %></a>

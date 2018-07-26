@@ -27,6 +27,9 @@
 		<li class="{{ Request::is('r/'.$channel.'/rising') ? 'active' : '' }}"><a href="{{ URL::to('r/'.$channel.'/rising') }}">Rising</a></li>
 		<li class="{{ Request::is('r/'.$channel.'/new') ? 'active' : '' }}"><a href="{{ URL::to('r/'.$channel.'/new') }}">New</a></li>
 	@stop
+@else
+    <li class="{{ Request::is('r/popular') ? 'active' : '' }}"><a href="{{ URL::to('r/popular') }}">Popular</a></li>
+    <li class="{{ Request::is('r/all') ? 'active' : '' }}"><a href="{{ URL::to('r/all') }}">All</a></li>
 @endif
 
 @section('nav-middle')
