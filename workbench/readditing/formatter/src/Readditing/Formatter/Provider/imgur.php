@@ -62,7 +62,7 @@ class Imgur extends Provider {
     $video_url = 'https://imgur.com/'+ $videoId;
 
     var_dump($purl);
-    var_dumb($video_url);
+    var_dump($video_url);
 
     return array(
 			'title' => $this->data['data']['title'],
