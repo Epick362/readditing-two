@@ -57,7 +57,8 @@ class Imgur extends Provider {
 
   public function getVideo() {
     $purl = parse_url($this->data['data']['url']);
-    $videoId = preg_replace('/.[^.\\s]{3,4}$/', '', ltrim($purl['path'], '/'));
+    $filename = ltrim($purl['path'], '/');
+    $videoId = substr($filename, 0 , (strrpos($filename, ".")));
     $video_url = 'https://imgur.com/'+ $videoId;
 
     return array(
