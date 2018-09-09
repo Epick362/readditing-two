@@ -29,10 +29,13 @@ class Imgur extends Provider {
 
 		$this->data['data']['url'] = self::make_https($this->data['data']['url']);
 
-		$images = array('png', 'jpg', 'jpeg', 'gif');
+    $images = array('png', 'jpg', 'jpeg', 'gif');
+    $video = array('gifv');
 		$after_dot = substr($purl['path'], strrpos($purl['path'], '.') + 1);
 
-		if(!in_array($after_dot, $images)) {
+    if (in_array($after_dot, $video)) {
+      return $this->getVideo();
+    } else if(!in_array($after_dot, $images)) {
 			$parts = explode('/', $purl['path']);
 
 			if($parts[1] == 'a') {
@@ -45,17 +48,29 @@ class Imgur extends Provider {
 		}
 
 		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => \View::make('provider.other.image', $this->data)->render(), 
+			'title' => $this->data['data']['title'],
+			'content' => \View::make('provider.other.image', $this->data)->render(),
 			'source' => 'imgur.com',
 			'image' => $this->data['data']['url']
 		);
-	}
+  }
+
+  public function getVideo() {
+    $purl = parse_url($this->data['data']['url']);
+    $videoId = preg_replace('/\\.[^.\\s]{3,4}$/', '', $purl['path']);
+    $this->data['data']['url'] = 'https://imgur.com/'+ $videoId;
+
+    return array(
+			'title' => $this->data['data']['title'],
+			'content' => \View::make('provider.imgur', $this->data)->render(),
+			'source' => 'imgur.com'
+		);
+  }
 
 	public function getAlbum() {
 		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => \View::make('provider.imgur', $this->data)->render(), 
+			'title' => $this->data['data']['title'],
+			'content' => \View::make('provider.imgur', $this->data)->render(),
 			'source' => 'imgur.com'
 		);
 	}
@@ -86,7 +101,7 @@ class Imgur extends Provider {
 			if(!isset($response['data']['images'])) {
 				return $this->fail();
 			}
-			
+
 			foreach($response['data']['images'] as $_image) {
 				$images[] = $_image['link'];
 
@@ -107,8 +122,8 @@ class Imgur extends Provider {
 		}
 
 		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => \View::make('provider.other.images', $this->data)->render(), 
+			'title' => $this->data['data']['title'],
+			'content' => \View::make('provider.other.images', $this->data)->render(),
 			'source' => 'imgur.com'
 		);
 	}
@@ -150,8 +165,8 @@ class Imgur extends Provider {
 		}
 
 		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => \View::make('provider.other.image', $this->data)->render(), 
+			'title' => $this->data['data']['title'],
+			'content' => \View::make('provider.other.image', $this->data)->render(),
 			'source' => 'imgur.com',
 			'image' => $this->data['data']['url']
 		);
@@ -159,8 +174,8 @@ class Imgur extends Provider {
 
 	private function fail() {
 		return array(
-			'title' => $this->data['data']['title'], 
-			'content' => 'Sorry we couldn\'t get this image for you', 
+			'title' => $this->data['data']['title'],
+			'content' => 'Sorry we couldn\'t get this image for you',
 			'source' => 'imgur.com'
 		);
 	}
