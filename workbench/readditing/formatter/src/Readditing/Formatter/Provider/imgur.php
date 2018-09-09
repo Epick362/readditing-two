@@ -62,7 +62,7 @@ class Imgur extends Provider {
 
     return array(
 			'title' => $this->data['data']['title'],
-			'content' => \View::make('provider.imgur-video', ['data' => $videoId])->render(),
+			'content' => \View::make('provider.imgurVideo', ['data' => $videoId])->render(),
 			'source' => 'imgur.com'
 		);
   }
