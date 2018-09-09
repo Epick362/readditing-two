@@ -59,11 +59,10 @@ class Imgur extends Provider {
     $purl = parse_url($this->data['data']['url']);
     $filename = ltrim($purl['path'], '/');
     $videoId = substr($filename, 0, strrpos($filename, "."));
-    $video_url = 'https://imgur.com/'. $videoId;
 
     return array(
 			'title' => $this->data['data']['title'],
-			'content' => \View::make('provider.imgur', ['data' => ['url' => $video_url]])->render(),
+			'content' => \View::make('provider.imgur-video', ['data' => $videoId])->render(),
 			'source' => 'imgur.com'
 		);
   }
